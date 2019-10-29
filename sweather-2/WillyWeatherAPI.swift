@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct WWLocation: Codable {
     let id: Int
@@ -59,7 +60,7 @@ struct WWForecasts: Codable {
 
 struct WWObservationTemperature: Codable {
     let temperature: Float
-    let apparentTemperature: Float
+    let apparentTemperature: Float?
     let trend: Int
 }
 
@@ -81,6 +82,10 @@ struct WWWeatherData: Codable {
     let location: WWLocation
     let forecasts: WWForecasts
     let observational: WWObservational
+}
+
+struct WWLocationCoordSearchResult: Codable {
+    let location: WWLocation
 }
 
 class WillyWeatherAPI {
@@ -118,6 +123,23 @@ class WillyWeatherAPI {
                     callback(result, nil)
                 } catch let error {
                     print("Got an error \(error)")
+                    callback(nil, error);
+                }
+            }
+        }
+    }
+    
+    func getLocationForCoords(coords: CLLocationCoordinate2D, callback: @escaping (WWLocation?, Error?) -> Void) {
+        let url = "\(apiURL)/\(apiKey)/search.json?lat=\(coords.latitude)&lng=\(coords.longitude)&units=distance:km"
+        Fetch.get(url: url) { (data, response, error) in
+            if let error = error {
+                print("We got an error, aborting. \(error)")
+                callback(nil, error);
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(WWLocationCoordSearchResult.self, from: data)
+                    callback(result.location, nil)
+                } catch let error {
                     callback(nil, error);
                 }
             }

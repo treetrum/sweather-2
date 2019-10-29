@@ -56,5 +56,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
 </dict>
 </plist>
