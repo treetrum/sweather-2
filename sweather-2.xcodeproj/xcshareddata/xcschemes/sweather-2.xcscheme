@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "229D3E3C236036730035FD66"
-               BuildableName = "sweather-2.app"
+               BuildableName = "Sweather 2.app"
                BlueprintName = "sweather-2"
                ReferencedContainer = "container:sweather-2.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "229D3E3C236036730035FD66"
-            BuildableName = "sweather-2.app"
+            BuildableName = "Sweather 2.app"
             BlueprintName = "sweather-2"
             ReferencedContainer = "container:sweather-2.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "229D3E3C236036730035FD66"
-            BuildableName = "sweather-2.app"
+            BuildableName = "Sweather 2.app"
             BlueprintName = "sweather-2"
             ReferencedContainer = "container:sweather-2.xcodeproj">
          </BuildableReference>

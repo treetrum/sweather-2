@@ -41,15 +41,15 @@ struct ContentView: View {
                 Spacer()
                 Text("Warnings")
             }.padding(EdgeInsets(.all, 20))
-            if savedLocations.count > 0 {
-                if SessionData.viewingCurrentLocation {
-                    CurrentWeatherView()
-                } else {
+            
+            if SessionData.viewingCurrentLocation || savedLocations.count == 0 {
+                CurrentLocationWeatherView()
+            } else {
+                if savedLocations.first(where: { $0.id == SessionData.currentLocationId }) != nil {
                     WeatherView(location: WWLocation(savedLocation: savedLocations.first(where: { $0.id == SessionData.currentLocationId })! ))
                 }
-            } else {
-                NoLocationsView()
             }
+        
         }
         .sheet(isPresented: self.$showingListView) {
             LocationsListView().environment(\.managedObjectContext, self.managedObjectContext)
@@ -67,56 +67,22 @@ struct NoLocationsView: View {
     }
 }
 
-class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+struct CurrentLocationWeatherView: View {
     
-    private let manager: CLLocationManager = CLLocationManager()
-
-    @Published var lastKnownLocation: CLLocation?
-    
-    override init() {
-        super.init()
-        self.startUpdating()
-    }
-    
-    func startUpdating() {
-        self.manager.delegate = self
-        self.manager.requestWhenInUseAuthorization()
-        self.manager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastKnownLocation = locations.last
-    }
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            manager.startUpdatingLocation()
-        }
-    }
-}
-
-struct CurrentWeatherView: View {
-    
-    @ObservedObject var locationManager = LocationManager()
-    @ObservedObject var locationWeatherManager = LocationWeatherDataManager()
+    @ObservedObject var manager = CurrentLocationWeatherDataManager()
     
     var body: some View {
         VStack {
-            if locationManager.lastKnownLocation != nil {
-                
-                if locationWeatherManager.location != nil {
-                    WeatherView(location: locationWeatherManager.location!)
-                } else {
-                    Text("Finding weather source for your coords").onAppear(perform: onGotLocation)
-                }
+            if manager.location != nil {
+                WeatherView(location: manager.location!)
             } else {
-                Text("Getting your location")
+                VStack {
+                    Spacer()
+                    Text("Loading...")
+                    Spacer()
+                }
             }
         }
-    }
-    
-    func onGotLocation() {
-        self.locationWeatherManager.getLocationForCoords(self.locationManager.lastKnownLocation!.coordinate)
     }
     
 }

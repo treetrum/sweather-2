@@ -45,20 +45,48 @@ class WeatherDataManager: ObservableObject {
     }
 }
 
+class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+    
+    private let manager = CLLocationManager()
+    private let api = WillyWeatherAPI()
 
-class LocationWeatherDataManager: ObservableObject {
-    
-    let api = WillyWeatherAPI()
-    
     @Published var location: WWLocation?
+    
+    override init() {
+        super.init()
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+//        manager.requestLocation()
+        manager.startUpdatingLocation()
+    }
     
     func getLocationForCoords(_ coords: CLLocationCoordinate2D) {
         api.getLocationForCoords(coords: coords) { (results, error) in
             guard let results = results else { return }
             DispatchQueue.main.async {
                 self.location = results
-                print("Got results \(results)")
             }
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let first = locations.first {
+            getLocationForCoords(first.coordinate)
+            manager.stopUpdatingLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            manager.requestLocation()
+        } else {
+            print("Did not authorize")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        return
+    }
 }
+
