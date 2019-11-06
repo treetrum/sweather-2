@@ -100,13 +100,14 @@ struct WeatherView: View {
     var body: some View {
         VStack {
             Text(location.name).font(.headline)
-            
             if weatherDataManager.weatherData != nil {
+                Spacer().frame(height: 50)
                 Image(
                     WillyWeatherAPI.getPrecisImageCode(
                         forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
                         and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
                 )
+                Spacer().frame(height: 50)
                 Text("\(weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precis)").font(.headline)
                 Spacer().frame(height: 10)
                 Text("\(weatherDataManager.weatherData!.observational.observations.temperature.temperature.roundToSingleDecimalString())°").font(.title)
