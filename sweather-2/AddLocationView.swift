@@ -12,7 +12,7 @@ struct AddLocationView: View {
     @State var searchValue: String = "";
     @State var searching: Bool = false;
     
-    @ObservedObject var searchManager = SearchDataManger()
+    @ObservedObject var searchManager = LocationSearchManager()
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext

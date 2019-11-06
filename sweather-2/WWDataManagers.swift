@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class SearchDataManger: ObservableObject {
+class LocationSearchManager: ObservableObject {
 
     let api = WillyWeatherAPI()
 
@@ -56,7 +56,6 @@ class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, Ob
         super.init()
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
-//        manager.requestLocation()
         manager.startUpdatingLocation()
     }
     
