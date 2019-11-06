@@ -53,9 +53,26 @@ struct WWForecastWeather: Codable {
     let days: [WWForecastWeatherDay]
 }
 
+struct WWForecastSunriseSunsetDayEntry: Codable {
+    let firstLightDateTime: String
+    let riseDateTime: String
+    let setDateTime: String
+    let lastLightDateTime: String
+}
+
+struct WWForecastSunriseSunsetDay: Codable {
+    let dateTime: String
+    let entries: [WWForecastSunriseSunsetDayEntry]
+}
+
+struct WWSunriseSunset: Codable {
+    let days: [WWForecastSunriseSunsetDay]
+}
+
 struct WWForecasts: Codable {
     let precis: WWPrecis
     let weather: WWForecastWeather
+    let sunrisesunset: WWSunriseSunset
 }
 
 struct WWObservationTemperature: Codable {
@@ -144,6 +161,29 @@ class WillyWeatherAPI {
                 }
             }
         }
+    }
+    
+    static func getPrecisImageCode(forPrecisCode precisCode: String, and sunriseSunsetTimes: WWForecastSunriseSunsetDayEntry, andCurrentTime currentTime: Date = Date()) -> String {
+        
+        var iconCode = precisCode
+        let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
+        
+         // Create date formatter to create dates from strings
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        // Create dates from strings
+        if let riseDateTime = dateFormatter.date(from: sunriseSunsetTimes.riseDateTime),
+            let setDateTime = dateFormatter.date(from: sunriseSunsetTimes.setDateTime) {
+            // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
+            if iconsWithNightVariations.contains(iconCode) {
+                if currentTime > setDateTime || currentTime < riseDateTime {
+                    iconCode += "-night"
+                }
+            }
+            return iconCode
+        }
+        return precisCode
     }
     
 }
