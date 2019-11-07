@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class LocationSearchManager: ObservableObject {
 
@@ -27,15 +28,28 @@ class LocationSearchManager: ObservableObject {
 }
 
 class WeatherDataManager: ObservableObject {
-    let api = WillyWeatherAPI()
+    private let api = WillyWeatherAPI()
+    private let locationId: Int
     
     @Published var weatherData: WWWeatherData?
     
     init(locationId: Int) {
-        getWeatherData(locationId: locationId)
+        self.locationId = locationId
+        getWeatherData()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.getWeatherData),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
     
-    func getWeatherData(locationId: Int) {
+    func destroy() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func getWeatherData() {
         api.getWeatherForLocation(location: locationId) { (weatherData, error) in
             guard let weatherData = weatherData else { return }
             DispatchQueue.main.async {
@@ -49,12 +63,27 @@ class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, Ob
     
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
+    private var observer: Any?
 
     @Published var location: WWLocation?
     
     override init() {
         super.init()
         manager.delegate = self
+        self.getLocation()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.getLocation),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+    }
+    
+    func destroy() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func getLocation() {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }

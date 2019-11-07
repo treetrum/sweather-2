@@ -74,7 +74,7 @@ struct CurrentLocationWeatherView: View {
     var body: some View {
         VStack {
             if manager.location != nil {
-                WeatherView(location: manager.location!)
+                WeatherView(location: manager.location!, isCurrentLocation: true)
             } else {
                 VStack {
                     Spacer()
@@ -82,6 +82,8 @@ struct CurrentLocationWeatherView: View {
                     Spacer()
                 }
             }
+        }.onDisappear {
+            self.manager.destroy()
         }
     }
     
@@ -89,17 +91,27 @@ struct CurrentLocationWeatherView: View {
 
 struct WeatherView: View {
     let location: WWLocation
+    let isCurrentLocation: Bool
     
     @ObservedObject var weatherDataManager: WeatherDataManager
     
-    init(location: WWLocation) {
+    init(location: WWLocation, isCurrentLocation: Bool = false) {
         self.location = location
+        self.isCurrentLocation = isCurrentLocation
         self.weatherDataManager = WeatherDataManager(locationId: location.id)
     }
     
     var body: some View {
         VStack {
-            Text(location.name).font(.headline)
+            HStack {
+                Spacer()
+                if isCurrentLocation {
+                    Image(systemName: "location.fill")
+                }
+                Text(location.name).font(.headline)
+                Spacer()
+            }
+            
             if weatherDataManager.weatherData != nil {
                 Spacer().frame(height: 50)
                 Image(
@@ -116,6 +128,8 @@ struct WeatherView: View {
                 Text("Loading")
             }
             Spacer()
+        }.onDisappear {
+            self.weatherDataManager.destroy()
         }
     }
 }
