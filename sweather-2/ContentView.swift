@@ -120,9 +120,19 @@ struct WeatherView: View {
                         and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
                 )
                 Spacer().frame(height: 50)
-                Text("\(weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precis)").font(.headline)
+                Text("\(weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precis)")
                 Spacer().frame(height: 10)
                 Text("\(weatherDataManager.weatherData!.observational.observations.temperature.temperature.roundToSingleDecimalString())°").font(.title)
+                Spacer().frame(height: 10)
+                Text("Feels like \(weatherDataManager.weatherData!.observational.observations.temperature.apparentTemperature!.roundToSingleDecimalString())°")
+                Spacer().frame(height: 10)
+                HStack {
+                    Image(systemName: "arrow.up")
+                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].max)")
+                    Spacer().frame(width: 20)
+                    Image(systemName: "arrow.down")
+                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].min)")
+                }
             } else {
                 Spacer()
                 Text("Loading")
