@@ -95,6 +95,8 @@ struct WeatherView: View {
     
     @ObservedObject var weatherDataManager: WeatherDataManager
     
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     init(location: WWLocation, isCurrentLocation: Bool = false) {
         self.location = location
         self.isCurrentLocation = isCurrentLocation
@@ -114,11 +116,20 @@ struct WeatherView: View {
             
             if weatherDataManager.weatherData != nil {
                 Spacer().frame(height: 50)
-                Image(
-                    WillyWeatherAPI.getPrecisImageCode(
-                        forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
-                        and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
-                )
+                if colorScheme == ColorScheme.dark {
+                    Image(
+                        WillyWeatherAPI.getPrecisImageCode(
+                            forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
+                            and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
+                    )
+                } else {
+                    Image(
+                        WillyWeatherAPI.getPrecisImageCode(
+                            forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
+                            and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
+                    ).colorInvert()
+                }
+                
                 Spacer().frame(height: 50)
                 Text("\(weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precis)")
                 Spacer().frame(height: 10)

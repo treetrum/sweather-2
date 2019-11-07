@@ -25,6 +25,11 @@ struct LocationsListView: View {
                     Button(action: { self.handleLocationPress(location) }) {
                         LocationRow(location)
                     }
+                }.onDelete { (indexSet: IndexSet) in
+                    let locations = self.savedLocations[indexSet]
+                    locations.forEach { (location) in
+                        self.managedObjectContext.delete(location)
+                    }
                 }
             }
             .navigationBarTitle(Text("Locations"), displayMode: .inline)
