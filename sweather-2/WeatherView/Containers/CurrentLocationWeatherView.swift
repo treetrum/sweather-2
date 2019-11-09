@@ -14,7 +14,7 @@ struct CurrentLocationWeatherView: View {
     var body: some View {
         VStack {
             if manager.location != nil {
-                WeatherView(location: manager.location!, isCurrentLocation: true)
+                WeatherView(location: manager.location!)
             } else {
                 VStack {
                     Spacer()

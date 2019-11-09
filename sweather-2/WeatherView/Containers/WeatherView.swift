@@ -9,23 +9,18 @@
 import SwiftUI
 
 struct WeatherView: View {
-    let location: WWLocation
-    let isCurrentLocation: Bool
     
     @ObservedObject var weatherDataManager: WeatherDataManager
-    
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    init(location: WWLocation, isCurrentLocation: Bool = false) {
-        self.location = location
-        self.isCurrentLocation = isCurrentLocation
+    init(location: WWLocation) {
         self.weatherDataManager = WeatherDataManager(locationId: location.id)
     }
     
     var body: some View {
         VStack {
             if weatherDataManager.simpleWeatherData != nil {
-                WeatherViewPresentational(weather: weatherDataManager.simpleWeatherData!, isCurrentLocation: isCurrentLocation)
+                WeatherViewPresentational(weather: weatherDataManager.simpleWeatherData!)
             } else {
                 Text("Loading...")
             }

@@ -14,6 +14,7 @@ struct LocationsListView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @State var showingAddLocationView: Bool = false
+    @EnvironmentObject var sessionData: SessionData
 
     var body: some View {
         NavigationView {
@@ -55,14 +56,14 @@ struct LocationsListView: View {
     }
     
     func selectCurrentLocation() {
-        SessionData.viewingCurrentLocation = true
+        sessionData.viewingCurrentLocation = true
         closeSheet()
     }
     
     func handleLocationPress(_ savedLocation: SavedLocation) {
         let location = WWLocation(savedLocation: savedLocation)
-        SessionData.viewingCurrentLocation = false
-        SessionData.currentLocationId = location.id
+        sessionData.viewingCurrentLocation = false
+        sessionData.currentLocationId = location.id
         closeSheet()
     }
 }

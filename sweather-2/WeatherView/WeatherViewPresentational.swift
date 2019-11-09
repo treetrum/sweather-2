@@ -14,13 +14,13 @@ extension Int {
     }
 }
 
-func readWWWeatherJSON(path: String) -> WWWeatherData? {
+func decodeLocalJSON<T: Codable>(_ path: String, type: T.Type) -> T? {
     let url = Bundle.main.url(forResource: path, withExtension: "json")
     if let jsonURL = url {
         do {
             let data = try Data(contentsOf: jsonURL)
             let decoder = JSONDecoder()
-            let jsonData = try decoder.decode(WWWeatherData.self, from: data)
+            let jsonData = try decoder.decode(T.self, from: data)
             return jsonData
         } catch {
             return nil
@@ -32,25 +32,11 @@ func readWWWeatherJSON(path: String) -> WWWeatherData? {
 
 struct WeatherViewPresentational: View {
     let weather: SWWeather
-    var isCurrentLocation: Bool = false
-    
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                if isCurrentLocation {
-                    Image(systemName: "location.fill")
-                }
-                Text(weather.location.name).font(.headline)
-                Spacer()
-            }
-            if colorScheme == .dark {
-                Image(weather.getPrecisImageCode())
-            } else {
-                Image(weather.getPrecisImageCode()).colorInvert()
-            }
+            LocationName(location: weather.location)
+            PrecisIcon(precisCode: weather.getPrecisImageCode())
             Text(weather.precis.precis ?? "-")
             Spacer().frame(height: 10)
             Text("\(weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°")
@@ -59,13 +45,7 @@ struct WeatherViewPresentational: View {
                 Text("Feels like \(weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°")
                 Spacer().frame(height: 10)
             }
-            HStack {
-                Image(systemName: "arrow.up")
-                Text("\(weather.temperature.max?.toString() ?? "-")")
-                Spacer().frame(width: 20)
-                Image(systemName: "arrow.down")
-                Text("\(weather.temperature.min?.toString() ?? "-")")
-            }
+            HighLow(weather: weather)
             Spacer()
         }
     }
@@ -74,8 +54,7 @@ struct WeatherViewPresentational: View {
 struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
         WeatherViewPresentational(
-            weather: SWWeather(weather: readWWWeatherJSON(path: "sample-weather-data")!),
-            isCurrentLocation: true
-        )
+            weather: SWWeather(weather: decodeLocalJSON("sample-weather-data", type: WWWeatherData.self)!)
+        ).environmentObject(SessionData(viewingCurrentLocation: true))
     }
 }

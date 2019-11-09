@@ -35,6 +35,7 @@ struct ContentView: View {
     @State private var showingListView: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
+    @EnvironmentObject var sessionData: SessionData
     
     var body: some View {
         VStack {
@@ -48,17 +49,19 @@ struct ContentView: View {
                 Text("Warnings")
             }.padding(EdgeInsets(.all, 20))
             
-            if SessionData.viewingCurrentLocation || savedLocations.count == 0 {
+            if sessionData.viewingCurrentLocation || savedLocations.count == 0 {
                 CurrentLocationWeatherView()
             } else {
-                if savedLocations.first(where: { $0.id == SessionData.currentLocationId }) != nil {
-                    WeatherView(location: WWLocation(savedLocation: savedLocations.first(where: { $0.id == SessionData.currentLocationId })! ))
+                if savedLocations.first(where: { $0.id == sessionData.currentLocationId }) != nil {
+                    WeatherView(location: WWLocation(savedLocation: savedLocations.first(where: { $0.id == sessionData.currentLocationId })! ))
                 }
             }
         
         }
         .sheet(isPresented: self.$showingListView) {
-            LocationsListView().environment(\.managedObjectContext, self.managedObjectContext)
+            LocationsListView()
+                .environment(\.managedObjectContext, self.managedObjectContext)
+                .environmentObject(self.sessionData)
         }
     }
 }

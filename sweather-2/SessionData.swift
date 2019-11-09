@@ -7,37 +7,32 @@
 //
 
 import Foundation
+import Combine
 
-
-
-struct SessionData {
+class SessionData: ObservableObject {
     
     enum SessionDataKeys: String {
         case currentWeatherLocation
         case viewingCurrentLocation
     }
     
-    private static var defaults: UserDefaults {
-        get {
-            UserDefaults.standard
+    @Published var currentLocationId: Int {
+        didSet {
+            UserDefaults.standard.set(self.currentLocationId, forKey: SessionDataKeys.currentWeatherLocation.rawValue)
         }
     }
     
-    static var currentLocationId: Int {
-        get {
-            defaults.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue)
-        }
-        set {
-            defaults.set(newValue, forKey: SessionDataKeys.currentWeatherLocation.rawValue)
+    @Published var viewingCurrentLocation: Bool {
+        didSet {
+            UserDefaults.standard.set(viewingCurrentLocation, forKey: SessionDataKeys.viewingCurrentLocation.rawValue)
         }
     }
     
-    static var viewingCurrentLocation: Bool {
-        get {
-            defaults.bool(forKey: SessionDataKeys.viewingCurrentLocation.rawValue)
-        }
-        set {
-            defaults.set(newValue, forKey: SessionDataKeys.viewingCurrentLocation.rawValue)
-        }
+    init(
+        viewingCurrentLocation: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.viewingCurrentLocation.rawValue),
+        currentLocationId: Int = UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue)
+    ) {
+        self.currentLocationId = currentLocationId
+        self.viewingCurrentLocation = viewingCurrentLocation
     }
 }
