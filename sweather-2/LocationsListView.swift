@@ -27,10 +27,11 @@ struct LocationsListView: View {
                         LocationRow(location)
                     }
                 }.onDelete { (indexSet: IndexSet) in
-                    let locations = self.savedLocations[indexSet]
-                    locations.forEach { (location) in
-                        self.managedObjectContext.delete(location)
-                    }
+//                    if let index = indexSet.first {
+//                        if let location = self.savedLocations[0] [index] {
+//                            self.managedObjectContext.delete(location)
+//                        }
+//                    }
                 }
             }
             .navigationBarTitle(Text("Locations"), displayMode: .inline)

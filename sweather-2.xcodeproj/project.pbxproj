@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		223AE8E4237667BD00E17875 /* PrecisIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E3237667BD00E17875 /* PrecisIcon.swift */; };
 		223AE8E623766FF000E17875 /* HighLow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E523766FF000E17875 /* HighLow.swift */; };
 		223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E7237670F100E17875 /* SampleWeatherData.swift */; };
+		223AE8EC237677F500E17875 /* RainChance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8EB237677F500E17875 /* RainChance.swift */; };
 		223FB3A123764BBD005BB4D8 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A023764BBD005BB4D8 /* WeatherView.swift */; };
 		223FB3A423764E97005BB4D8 /* sample-weather-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223FB3A323764E97005BB4D8 /* sample-weather-data.json */; };
 		223FB3A6237660AB005BB4D8 /* WeatherViewPresentational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */; };
@@ -26,7 +27,6 @@
 		229D3E47236036750035FD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E46236036750035FD66 /* Assets.xcassets */; };
 		229D3E4A236036750035FD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E49236036750035FD66 /* Preview Assets.xcassets */; };
 		229D3E4D236036750035FD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E4B236036750035FD66 /* LaunchScreen.storyboard */; };
-		229D3E56236038280035FD66 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 229D3E55236038280035FD66 /* SwiftUIX */; };
 		22C6822B236798EC00B1919F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822A236798EC00B1919F /* PageViewController.swift */; };
 		22C6822E2367A10300B1919F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822D2367A10300B1919F /* PageView.swift */; };
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
@@ -40,6 +40,7 @@
 		223AE8E3237667BD00E17875 /* PrecisIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisIcon.swift; sourceTree = "<group>"; };
 		223AE8E523766FF000E17875 /* HighLow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLow.swift; sourceTree = "<group>"; };
 		223AE8E7237670F100E17875 /* SampleWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWeatherData.swift; sourceTree = "<group>"; };
+		223AE8EB237677F500E17875 /* RainChance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainChance.swift; sourceTree = "<group>"; };
 		223FB3A023764BBD005BB4D8 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		223FB3A323764E97005BB4D8 /* sample-weather-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-weather-data.json"; sourceTree = "<group>"; };
 		223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewPresentational.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				229D3E56236038280035FD66 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +113,7 @@
 				223FB3AC237662CA005BB4D8 /* LocationName.swift */,
 				223AE8E3237667BD00E17875 /* PrecisIcon.swift */,
 				223AE8E523766FF000E17875 /* HighLow.swift */,
+				223AE8EB237677F500E17875 /* RainChance.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -201,7 +202,6 @@
 			);
 			name = "sweather-2";
 			packageProductDependencies = (
-				229D3E55236038280035FD66 /* SwiftUIX */,
 			);
 			productName = "sweather-2";
 			productReference = 229D3E3D236036730035FD66 /* Sweather 2.app */;
@@ -232,7 +232,6 @@
 			);
 			mainGroup = 229D3E34236036730035FD66;
 			packageReferences = (
-				229D3E54236038280035FD66 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 229D3E3E236036730035FD66 /* Products */;
 			projectDirPath = "";
@@ -267,6 +266,7 @@
 				229D3E41236036730035FD66 /* AppDelegate.swift in Sources */,
 				223AE8E4237667BD00E17875 /* PrecisIcon.swift in Sources */,
 				224F62572367F0E500A73E2E /* AddLocationView.swift in Sources */,
+				223AE8EC237677F500E17875 /* RainChance.swift in Sources */,
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,
 				223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */,
 				223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */,
@@ -482,25 +482,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		229D3E54236038280035FD66 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		229D3E55236038280035FD66 /* SwiftUIX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 229D3E54236038280035FD66 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
-			productName = SwiftUIX;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */ = {

@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUIX
 import Combine
 import CoreData
 import CoreLocation
@@ -47,7 +46,7 @@ struct ContentView: View {
                 })
                 Spacer()
                 Text("Warnings")
-            }.padding(EdgeInsets(.all, 20))
+            }.padding(.all, 20)
             
             if sessionData.viewingCurrentLocation || savedLocations.count == 0 {
                 CurrentLocationWeatherView()

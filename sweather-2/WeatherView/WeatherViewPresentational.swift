@@ -37,15 +37,14 @@ struct WeatherViewPresentational: View {
         VStack {
             LocationName(location: weather.location)
             PrecisIcon(precisCode: weather.getPrecisImageCode())
-            Text(weather.precis.precis ?? "-")
-            Spacer().frame(height: 10)
-            Text("\(weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°")
-            Spacer().frame(height: 10)
+            Text(weather.precis.precis ?? "-").padding(.bottom, 5).font(.headline).padding(.bottom, 20)
+            Text("\(weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°").font(.title).padding(.bottom, 5)
             if weather.temperature.apparent != nil {
-                Text("Feels like \(weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°")
-                Spacer().frame(height: 10)
+                Text("Feels like \(weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").padding(.bottom, 30)
             }
             HighLow(weather: weather)
+            RainChance(rainfall: weather.rainfall).padding(.bottom, 5)
+            Text("\(weather.humidity.percent ?? 0)% humidity").padding(.bottom, 5)
             Spacer()
         }
     }
