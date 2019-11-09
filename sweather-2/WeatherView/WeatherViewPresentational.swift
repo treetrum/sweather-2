@@ -40,11 +40,12 @@ struct WeatherViewPresentational: View {
             Text(weather.precis.precis ?? "-").padding(.bottom, 5).font(.headline).padding(.bottom, 20)
             Text("\(weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°").font(.title).padding(.bottom, 5)
             if weather.temperature.apparent != nil {
-                Text("Feels like \(weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").padding(.bottom, 30)
+                Text("Feels like \(weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").padding(.bottom, 15)
             }
             HighLow(weather: weather)
             RainChance(rainfall: weather.rainfall).padding(.bottom, 5)
-            Text("\(weather.humidity.percent ?? 0)% humidity").padding(.bottom, 5)
+            Text("\(weather.humidity.percent ?? 0)% humidity").padding(.bottom, 20)
+            Days(weather: weather)
             Spacer()
         }
     }
@@ -52,8 +53,8 @@ struct WeatherViewPresentational: View {
 
 struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherViewPresentational(
-            weather: SWWeather(weather: decodeLocalJSON("sample-weather-data", type: WWWeatherData.self)!)
-        ).environmentObject(SessionData(viewingCurrentLocation: true))
+        WeatherViewPresentational(weather: SampleWeatherData())
+            .environmentObject(SessionData(viewingCurrentLocation: true))
     }
 }
+    

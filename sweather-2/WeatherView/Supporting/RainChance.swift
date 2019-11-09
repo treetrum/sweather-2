@@ -12,7 +12,13 @@ struct RainChance: View {
     let rainfall: SWWeather.Rainfall
 
     var body: some View {
-        Text("\(rainfall.probability ?? 0)% chance of \(rainfall.startRange != nil ? "\(rainfall.startRange!)" : "")\(rainfall.rangeDivide ?? "")\(rainfall.endRange ?? 0)mm")
+        VStack {
+            if rainfall.probability ?? 0 > 0 {
+                Text("\(rainfall.probability ?? 0)% chance of \(rainfall.startRange != nil ? "\(rainfall.startRange!)" : "")\(rainfall.rangeDivide ?? "")\(rainfall.endRange ?? 0)mm")
+            } else {
+                Text("No rainfall forecast")
+            }
+        }
     }
 }
 

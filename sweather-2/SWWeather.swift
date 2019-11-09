@@ -48,6 +48,17 @@ class SWWeather {
     }
     var humidity = Humidity(percent: nil)
     
+    struct Day {
+        let dateTime: Date?
+        let precisCode: String?
+        let precis: String?
+        let precisOverlayCode: String?
+        let night: Bool?
+        let min: Int?
+        let max: Int?
+    }
+    var days = [Day]()
+    
     init(weather: WWWeatherData) {
         
         self.location = weather.location
@@ -95,6 +106,21 @@ class SWWeather {
         self.humidity = Humidity(
             percent: weather.observational.observations.humidity.percentage
         )
+        
+        weather.forecasts.weather.days.forEach { weatherDay in
+            if let entry = weatherDay.entries.first {
+                let day = SWWeather.Day(
+                    dateTime: WillyWeatherAPI.dateTimeStringToDateTime(entry.dateTime),
+                    precisCode: entry.precisCode,
+                    precis: entry.precis,
+                    precisOverlayCode: entry.precisOverlayCode,
+                    night: entry.night,
+                    min: entry.min,
+                    max: entry.max
+                )
+                self.days.append(day)
+            }
+        }
         
     }
     
@@ -145,4 +171,15 @@ class SWWeather {
         return iconCode
     }
 
+}
+
+extension Date {
+    func prettyDayName() -> String {
+        if (Calendar.current.isDateInToday(self)) {
+            return "Today"
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        return formatter.string(from: self)
+    }
 }
