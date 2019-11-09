@@ -32,6 +32,7 @@ class WeatherDataManager: ObservableObject {
     private let locationId: Int
     
     @Published var weatherData: WWWeatherData?
+    @Published var simpleWeatherData: SWWeather?
     
     init(locationId: Int) {
         self.locationId = locationId
@@ -54,6 +55,7 @@ class WeatherDataManager: ObservableObject {
             guard let weatherData = weatherData else { return }
             DispatchQueue.main.async {
                 self.weatherData = weatherData
+                self.simpleWeatherData = SWWeather(weather: weatherData)
             }
         }
     }

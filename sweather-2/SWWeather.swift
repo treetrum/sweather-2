@@ -97,5 +97,52 @@ struct SWWeather {
         )
         
     }
+    
+    func getPrecisImageCode() -> String {
+        
+        var iconCode = self.precis.precisCode ?? "fine"
+        
+        let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
+        let currentTime: Date = Date()
+        
+        guard let rise = self.sunrisesunset.rise,
+            let set = self.sunrisesunset.set else {
+                return iconCode
+        }
+        
+        if (iconsWithNightVariations.contains(iconCode)) {
+            if currentTime > set || currentTime < rise {
+                iconCode += "-night"
+            }
+        }
+        
+        return iconCode
+    }
+    
+    static func getPrecisImageCode(
+        forPrecisCode precisCode: String,
+        andSunriseSunset sunriseSunset: SWWeather.SunriseSunset,
+        andCurrentTime currentTime: Date = Date()
+    ) -> String {
+        
+        var iconCode = precisCode
+        let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
+        
+        guard let riseDateTime = sunriseSunset.rise,
+            let setDateTime = sunriseSunset.set else {
+                return precisCode
+        }
+        
+        // Create dates from strings
+        // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
+        if iconsWithNightVariations.contains(iconCode) {
+            if currentTime > setDateTime || currentTime < riseDateTime {
+                iconCode += "-night"
+            }
+        }
+        
+        // Fall back to just using what was passed in
+        return iconCode
+    }
 
 }

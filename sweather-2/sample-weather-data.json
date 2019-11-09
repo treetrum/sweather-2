@@ -1,0 +1,362 @@
+{
+    "location": {
+        "id": 158,
+        "name": "Forest Lodge",
+        "region": "Sydney",
+        "state": "NSW",
+        "postcode": "2037",
+        "timeZone": "Australia/Sydney",
+        "lat": -33.881,
+        "lng": 151.181,
+        "typeId": 1
+    },
+    "forecasts": {
+        "precis": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "dateTime": "2019-11-09 02:00:00",
+                            "precisCode": "shower-or-two",
+                            "precis": "Shower",
+                            "precisOverlayCode": "",
+                            "night": true
+                        },
+                        {
+                            "dateTime": "2019-11-09 05:00:00",
+                            "precisCode": "mostly-fine",
+                            "precis": "Mostly fine",
+                            "precisOverlayCode": "",
+                            "night": false
+                        },
+                        {
+                            "dateTime": "2019-11-09 08:00:00",
+                            "precisCode": "mostly-fine",
+                            "precis": "Mostly fine",
+                            "precisOverlayCode": "",
+                            "night": false
+                        },
+                        {
+                            "dateTime": "2019-11-09 11:00:00",
+                            "precisCode": "mostly-fine",
+                            "precis": "Mostly fine",
+                            "precisOverlayCode": "",
+                            "night": false
+                        },
+                        {
+                            "dateTime": "2019-11-09 14:00:00",
+                            "precisCode": "fine",
+                            "precis": "Sunny",
+                            "precisOverlayCode": "",
+                            "night": false
+                        },
+                        {
+                            "dateTime": "2019-11-09 17:00:00",
+                            "precisCode": "fine",
+                            "precis": "Sunny",
+                            "precisOverlayCode": "",
+                            "night": false
+                        },
+                        {
+                            "dateTime": "2019-11-09 20:00:00",
+                            "precisCode": "mostly-fine",
+                            "precis": "Mostly fine",
+                            "precisOverlayCode": "",
+                            "night": true
+                        },
+                        {
+                            "dateTime": "2019-11-09 23:00:00",
+                            "precisCode": "fine",
+                            "precis": "Clear",
+                            "precisOverlayCode": "",
+                            "night": true
+                        }
+                    ]
+                }
+            ],
+            "issueDateTime": "2019-11-09 11:50:42"
+        },
+        "rainfall": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "dateTime": "2019-11-09 00:00:00",
+                            "startRange": null,
+                            "endRange": 1,
+                            "rangeDivide": "<",
+                            "rangeCode": "0",
+                            "probability": 25
+                        }
+                    ]
+                }
+            ],
+            "units": { "amount": "mm" },
+            "issueDateTime": "2019-11-09 08:13:37"
+        },
+        "rainfallprobability": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "dateTime": "2019-11-09 02:00:00",
+                            "probability": 15
+                        },
+                        {
+                            "dateTime": "2019-11-09 05:00:00",
+                            "probability": 10
+                        },
+                        { "dateTime": "2019-11-09 08:00:00", "probability": 5 },
+                        { "dateTime": "2019-11-09 11:00:00", "probability": 0 },
+                        { "dateTime": "2019-11-09 14:00:00", "probability": 0 },
+                        { "dateTime": "2019-11-09 17:00:00", "probability": 0 },
+                        { "dateTime": "2019-11-09 20:00:00", "probability": 0 },
+                        { "dateTime": "2019-11-09 23:00:00", "probability": 0 }
+                    ]
+                }
+            ],
+            "units": { "percentage": "%" },
+            "issueDateTime": "2019-11-09 11:50:42",
+            "carousel": { "size": 9, "start": 3 }
+        },
+        "sunrisesunset": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "firstLightDateTime": "2019-11-09 05:20:43",
+                            "riseDateTime": "2019-11-09 05:47:40",
+                            "setDateTime": "2019-11-09 19:30:29",
+                            "lastLightDateTime": "2019-11-09 19:57:26"
+                        }
+                    ]
+                }
+            ],
+            "carousel": { "size": 1096, "start": 678 }
+        },
+        "temperature": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "dateTime": "2019-11-09 00:00:00",
+                            "temperature": 13.4
+                        },
+                        {
+                            "dateTime": "2019-11-09 01:00:00",
+                            "temperature": 12.5
+                        },
+                        {
+                            "dateTime": "2019-11-09 02:00:00",
+                            "temperature": 12.2
+                        },
+                        {
+                            "dateTime": "2019-11-09 03:00:00",
+                            "temperature": 11.5
+                        },
+                        {
+                            "dateTime": "2019-11-09 04:00:00",
+                            "temperature": 11.2
+                        },
+                        {
+                            "dateTime": "2019-11-09 05:00:00",
+                            "temperature": 10.8
+                        },
+                        {
+                            "dateTime": "2019-11-09 06:00:00",
+                            "temperature": 10.8
+                        },
+                        {
+                            "dateTime": "2019-11-09 07:00:00",
+                            "temperature": 11.1
+                        },
+                        {
+                            "dateTime": "2019-11-09 08:00:00",
+                            "temperature": 12.2
+                        },
+                        {
+                            "dateTime": "2019-11-09 09:00:00",
+                            "temperature": 14
+                        },
+                        {
+                            "dateTime": "2019-11-09 10:00:00",
+                            "temperature": 16.3
+                        },
+                        {
+                            "dateTime": "2019-11-09 11:00:00",
+                            "temperature": 18.4
+                        },
+                        {
+                            "dateTime": "2019-11-09 12:00:00",
+                            "temperature": 19.7
+                        },
+                        {
+                            "dateTime": "2019-11-09 13:00:00",
+                            "temperature": 20.5
+                        },
+                        {
+                            "dateTime": "2019-11-09 14:00:00",
+                            "temperature": 20.6
+                        },
+                        {
+                            "dateTime": "2019-11-09 15:00:00",
+                            "temperature": 20.5
+                        },
+                        {
+                            "dateTime": "2019-11-09 16:00:00",
+                            "temperature": 19.9
+                        },
+                        {
+                            "dateTime": "2019-11-09 17:00:00",
+                            "temperature": 18.9
+                        },
+                        {
+                            "dateTime": "2019-11-09 18:00:00",
+                            "temperature": 17.7
+                        },
+                        {
+                            "dateTime": "2019-11-09 19:00:00",
+                            "temperature": 16.2
+                        },
+                        {
+                            "dateTime": "2019-11-09 20:00:00",
+                            "temperature": 15.1
+                        },
+                        {
+                            "dateTime": "2019-11-09 21:00:00",
+                            "temperature": 14.4
+                        },
+                        {
+                            "dateTime": "2019-11-09 22:00:00",
+                            "temperature": 13.8
+                        },
+                        {
+                            "dateTime": "2019-11-09 23:00:00",
+                            "temperature": 13.5
+                        }
+                    ]
+                }
+            ],
+            "units": { "temperature": "c" },
+            "issueDateTime": "2019-11-09 10:25:30",
+            "carousel": { "size": 9, "start": 3 }
+        },
+        "weather": {
+            "days": [
+                {
+                    "dateTime": "2019-11-09 00:00:00",
+                    "entries": [
+                        {
+                            "dateTime": "2019-11-09 00:00:00",
+                            "precisCode": "mostly-fine",
+                            "precis": "Mostly sunny",
+                            "precisOverlayCode": "",
+                            "night": false,
+                            "min": 12,
+                            "max": 21
+                        }
+                    ]
+                }
+            ],
+            "units": { "temperature": "c" },
+            "issueDateTime": "2019-11-09 10:13:38"
+        }
+    },
+    "observational": {
+        "observations": {
+            "temperature": {
+                "temperature": 19.5,
+                "apparentTemperature": 16.9,
+                "trend": 1
+            },
+            "delta-t": { "temperature": 9, "trend": 0 },
+            "cloud": { "oktas": 4, "trend": 0 },
+            "humidity": { "percentage": 24, "trend": 1 },
+            "dewPoint": { "temperature": -1.6, "trend": 1 },
+            "pressure": { "pressure": 1011.7, "trend": -1 },
+            "wind": {
+                "speed": 1.8,
+                "gustSpeed": null,
+                "trend": 0,
+                "direction": 349,
+                "directionText": "N"
+            },
+            "rainfall": {
+                "lastHourAmount": 0,
+                "todayAmount": 0,
+                "since9AMAmount": 0
+            }
+        },
+        "stations": {
+            "temperature": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "delta-t": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "cloud": {
+                "id": 345,
+                "name": "Sydney Airport",
+                "lat": -33.94,
+                "lng": 151.17,
+                "distance": 7.3
+            },
+            "humidity": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "dewPoint": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "pressure": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "wind": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            },
+            "rainfall": {
+                "id": 349,
+                "name": "Sydney (Observatory Hill)",
+                "lat": -33.86,
+                "lng": 151.21,
+                "distance": 3.2
+            }
+        },
+        "issueDateTime": "2019-11-09 12:20:00",
+        "units": {
+            "temperature": "c",
+            "amount": "mm",
+            "speed": "km/h",
+            "distance": "km",
+            "pressure": "hPa"
+        }
+    }
+}

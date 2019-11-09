@@ -14,7 +14,13 @@ import CoreLocation
 
 extension WWLocation {
     init(savedLocation: SavedLocation) {
-        self = WWLocation(id: Int(savedLocation.id), name: savedLocation.name!, region: savedLocation.region!, state: savedLocation.state!, postcode: savedLocation.postcode!)
+        self = WWLocation(
+            id: Int(savedLocation.id),
+            name: savedLocation.name!,
+            region: savedLocation.region!,
+            state: savedLocation.state!,
+            postcode: savedLocation.postcode!
+        )
     }
 }
 
@@ -53,104 +59,6 @@ struct ContentView: View {
         }
         .sheet(isPresented: self.$showingListView) {
             LocationsListView().environment(\.managedObjectContext, self.managedObjectContext)
-        }
-    }
-}
-
-struct NoLocationsView: View {
-    var body: some View {
-        VStack {
-            Spacer()
-            Text("You need to add a location")
-            Spacer()
-        }
-    }
-}
-
-struct CurrentLocationWeatherView: View {
-    
-    @ObservedObject var manager = CurrentLocationWeatherDataManager()
-    
-    var body: some View {
-        VStack {
-            if manager.location != nil {
-                WeatherView(location: manager.location!, isCurrentLocation: true)
-            } else {
-                VStack {
-                    Spacer()
-                    Text("Loading...")
-                    Spacer()
-                }
-            }
-        }.onDisappear {
-            self.manager.destroy()
-        }
-    }
-    
-}
-
-struct WeatherView: View {
-    let location: WWLocation
-    let isCurrentLocation: Bool
-    
-    @ObservedObject var weatherDataManager: WeatherDataManager
-    
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
-    init(location: WWLocation, isCurrentLocation: Bool = false) {
-        self.location = location
-        self.isCurrentLocation = isCurrentLocation
-        self.weatherDataManager = WeatherDataManager(locationId: location.id)
-    }
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                if isCurrentLocation {
-                    Image(systemName: "location.fill")
-                }
-                Text(location.name).font(.headline)
-                Spacer()
-            }
-            
-            if weatherDataManager.weatherData != nil {
-                Spacer().frame(height: 50)
-                if colorScheme == ColorScheme.dark {
-                    Image(
-                        WillyWeatherAPI.getPrecisImageCode(
-                            forPrecisCode: weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precisCode!,
-                            and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
-                    )
-                } else {
-                    Image(
-                        WillyWeatherAPI.getPrecisImageCode(
-                            forPrecisCode: weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precisCode!,
-                            and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
-                    ).colorInvert()
-                }
-                
-                Spacer().frame(height: 50)
-                Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precis!)")
-                Spacer().frame(height: 10)
-                Text("\(weatherDataManager.weatherData!.observational.observations.temperature.temperature!.roundToSingleDecimalString())°").font(.title)
-                Spacer().frame(height: 10)
-                Text("Feels like \(weatherDataManager.weatherData!.observational.observations.temperature.apparentTemperature!.roundToSingleDecimalString())°")
-                Spacer().frame(height: 10)
-                HStack {
-                    Image(systemName: "arrow.up")
-                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].max!)")
-                    Spacer().frame(width: 20)
-                    Image(systemName: "arrow.down")
-                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].min!)")
-                }
-            } else {
-                Spacer()
-                Text("Loading")
-            }
-            Spacer()
-        }.onDisappear {
-            self.weatherDataManager.destroy()
         }
     }
 }
