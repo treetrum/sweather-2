@@ -17,88 +17,98 @@ struct WWLocation: Codable {
     let postcode: String
 }
 
-struct WWPrecisDayEntry: Codable {
-    let dateTime: String
-    let precisCode: String
-    let precis: String
-    let precisOverlayCode: String
-    let night: Bool
-}
-
-struct WWPrecisDay: Codable {
-    let dateTime: String
-    let entries: [WWPrecisDayEntry]
-}
-
-struct WWPrecis: Codable {
-    let days: [WWPrecisDay]
-}
-
-struct WWForecastWeatherDayEntry: Codable {
-    let dateTime: String
-    let precisCode: String
-    let precis: String
-    let precisOverlayCode: String
-    let night: Bool
-    let min: Int
-    let max: Int
-}
-
-struct WWForecastWeatherDay: Codable {
-    let dateTime: String
-    let entries: [WWForecastWeatherDayEntry]
-}
-
-struct WWForecastWeather: Codable {
-    let days: [WWForecastWeatherDay]
-}
-
-struct WWForecastSunriseSunsetDayEntry: Codable {
-    let firstLightDateTime: String
-    let riseDateTime: String
-    let setDateTime: String
-    let lastLightDateTime: String
-}
-
-struct WWForecastSunriseSunsetDay: Codable {
-    let dateTime: String
-    let entries: [WWForecastSunriseSunsetDayEntry]
-}
-
-struct WWSunriseSunset: Codable {
-    let days: [WWForecastSunriseSunsetDay]
-}
-
-struct WWForecasts: Codable {
-    let precis: WWPrecis
-    let weather: WWForecastWeather
-    let sunrisesunset: WWSunriseSunset
-}
-
-struct WWObservationTemperature: Codable {
-    let temperature: Float
-    let apparentTemperature: Float?
-    let trend: Int
-}
-
-struct WWObservationHumidity: Codable {
-    let percentage: Int
-    let trend: Int
-}
-
-struct WWObservation: Codable {
-    let temperature: WWObservationTemperature
-    let humidity: WWObservationHumidity
-}
-
-struct WWObservational: Codable {
-    let observations: WWObservation
-}
-
 struct WWWeatherData: Codable {
     let location: WWLocation
-    let forecasts: WWForecasts
-    let observational: WWObservational
+    
+    struct Forecasts: Codable {
+        
+        struct Precis: Codable {
+            struct Day: Codable {
+                let dateTime: String?
+                struct Entry: Codable {
+                    let dateTime: String?
+                    let precisCode: String?
+                    let precis: String?
+                    let precisOverlayCode: String?
+                    let night: Bool?
+                }
+                let entries: [Entry]
+            }
+            let days: [Day]
+        }
+        let precis: Precis
+        
+        struct Weather: Codable {
+            struct Day: Codable {
+                let dateTime: String?
+                struct Entry: Codable {
+                    let dateTime: String?
+                    let precisCode: String?
+                    let precis: String?
+                    let precisOverlayCode: String?
+                    let night: Bool?
+                    let min: Int?
+                    let max: Int?
+                }
+                let entries: [Entry]
+            }
+            let days: [Day]
+        }
+        let weather: Weather
+        
+        struct SunriseSunset: Codable {
+            struct Day: Codable {
+                let dateTime: String?
+                struct Entry: Codable {
+                    let firstLightDateTime: String?
+                    let riseDateTime: String?
+                    let setDateTime: String?
+                    let lastLightDateTime: String?
+                }
+                let entries: [Entry]
+            }
+            let days: [Day]
+        }
+        let sunrisesunset: SunriseSunset
+        
+        struct Rainfall: Codable {
+            struct Day: Codable {
+                let dateTime: String?
+                struct Entry: Codable {
+                    let dateTime: String?
+                    let startRange: Int?
+                    let endRange: Int?
+                    let rangeDivide: String?
+                    let rangeCode: String?
+                    let probability: Int?
+                }
+                let entries: [Entry]
+            }
+            let days: [Day]
+        }
+        let rainfall: Rainfall
+    }
+
+    let forecasts: Forecasts
+    
+    struct Observational: Codable {
+        struct Observation: Codable {
+            struct Temperature: Codable {
+                let temperature: Float?
+                let apparentTemperature: Float?
+                let trend: Int?
+            }
+            let temperature: Temperature
+            
+            struct Humidity: Codable {
+                let percentage: Int?
+                let trend: Int?
+            }
+            let humidity: Humidity
+        }
+        let observations: Observation
+    }
+    let observational: Observational
 }
 
 struct WWLocationCoordSearchResult: Codable {
@@ -163,27 +173,43 @@ class WillyWeatherAPI {
         }
     }
     
-    static func getPrecisImageCode(forPrecisCode precisCode: String, and sunriseSunsetTimes: WWForecastSunriseSunsetDayEntry, andCurrentTime currentTime: Date = Date()) -> String {
+    static func getPrecisImageCode(
+        forPrecisCode precisCode: String,
+        and sunriseSunsetTimes: WWWeatherData.Forecasts.SunriseSunset.Day.Entry, andCurrentTime currentTime: Date = Date()) -> String {
         
         var iconCode = precisCode
         let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
         
-         // Create date formatter to create dates from strings
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let riseDateTime = self.dateTimeStringToDateTime(sunriseSunsetTimes.riseDateTime),
+            let setDateTime = self.dateTimeStringToDateTime(sunriseSunsetTimes.setDateTime) else {
+                return precisCode
+        }
         
         // Create dates from strings
-        if let riseDateTime = dateFormatter.date(from: sunriseSunsetTimes.riseDateTime),
-            let setDateTime = dateFormatter.date(from: sunriseSunsetTimes.setDateTime) {
-            // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
-            if iconsWithNightVariations.contains(iconCode) {
-                if currentTime > setDateTime || currentTime < riseDateTime {
-                    iconCode += "-night"
-                }
+        // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
+        if iconsWithNightVariations.contains(iconCode) {
+            if currentTime > setDateTime || currentTime < riseDateTime {
+                iconCode += "-night"
             }
-            return iconCode
         }
-        return precisCode
+        
+        // Fall back to just using what was passed in
+        return iconCode
+    }
+    
+    static func dateTimeStringToDateTime(_ datetimeString: String?) -> Date? {
+        
+        // Create date formatter to create dates from strings
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        guard let dts = datetimeString,
+            let date = dateFormatter.date(from: dts) else {
+            return nil
+        }
+        
+        return date;
+        
     }
     
 }

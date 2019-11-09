@@ -119,30 +119,30 @@ struct WeatherView: View {
                 if colorScheme == ColorScheme.dark {
                     Image(
                         WillyWeatherAPI.getPrecisImageCode(
-                            forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
+                            forPrecisCode: weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precisCode!,
                             and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
                     )
                 } else {
                     Image(
                         WillyWeatherAPI.getPrecisImageCode(
-                            forPrecisCode: weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precisCode,
+                            forPrecisCode: weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precisCode!,
                             and: weatherDataManager.weatherData!.forecasts.sunrisesunset.days[0].entries[0])
                     ).colorInvert()
                 }
                 
                 Spacer().frame(height: 50)
-                Text("\(weatherDataManager.weatherData!.forecasts.precis.days[0].entries[0].precis)")
+                Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].precis!)")
                 Spacer().frame(height: 10)
-                Text("\(weatherDataManager.weatherData!.observational.observations.temperature.temperature.roundToSingleDecimalString())°").font(.title)
+                Text("\(weatherDataManager.weatherData!.observational.observations.temperature.temperature!.roundToSingleDecimalString())°").font(.title)
                 Spacer().frame(height: 10)
                 Text("Feels like \(weatherDataManager.weatherData!.observational.observations.temperature.apparentTemperature!.roundToSingleDecimalString())°")
                 Spacer().frame(height: 10)
                 HStack {
                     Image(systemName: "arrow.up")
-                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].max)")
+                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].max!)")
                     Spacer().frame(width: 20)
                     Image(systemName: "arrow.down")
-                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].min)")
+                    Text("\(weatherDataManager.weatherData!.forecasts.weather.days[0].entries[0].min!)")
                 }
             } else {
                 Spacer()
