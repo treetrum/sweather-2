@@ -22,6 +22,11 @@
 		2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E44236036730035FD66 /* ContentView.swift */; };
 		2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */; };
 		2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
+		226B156023777CD100D05ED1 /* SJDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B155F23777CD100D05ED1 /* SJDCache.swift */; };
+		226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156123777CF400D05ED1 /* SJDFetch.swift */; };
+		226B156623777D2600D05ED1 /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
+		226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156723777D4C00D05ED1 /* WWWeatherData.swift */; };
+		226B156A23777D6B00D05ED1 /* WWLocationCoordSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */; };
 		229D3E41236036730035FD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E40236036730035FD66 /* AppDelegate.swift */; };
 		229D3E43236036730035FD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E42236036730035FD66 /* SceneDelegate.swift */; };
 		229D3E47236036750035FD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E46236036750035FD66 /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 		224F625823681C9A00A73E2E /* SWWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWeather.swift; sourceTree = "<group>"; };
 		2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillyWeatherAPI.swift; sourceTree = "<group>"; };
 		2256B4702363BFDF009C9F13 /* LocationsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationsModel.xcdatamodel; sourceTree = "<group>"; };
+		226B155F23777CD100D05ED1 /* SJDCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDCache.swift; sourceTree = "<group>"; };
+		226B156123777CF400D05ED1 /* SJDFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDFetch.swift; sourceTree = "<group>"; };
+		226B156523777D2600D05ED1 /* WWLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWLocation.swift; sourceTree = "<group>"; };
+		226B156723777D4C00D05ED1 /* WWWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWWeatherData.swift; sourceTree = "<group>"; };
+		226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWLocationCoordSearchResult.swift; sourceTree = "<group>"; };
 		229D3E3D236036730035FD66 /* Sweather 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sweather 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D3E40236036730035FD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229D3E42236036730035FD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,14 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		223AE8E02376672B00E17875 /* mock-data */ = {
+		223AE8E02376672B00E17875 /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
 				223FB3A323764E97005BB4D8 /* sample-weather-data.json */,
 				223AE8E12376673F00E17875 /* sample-location-data.json */,
 				223AE8E7237670F100E17875 /* SampleWeatherData.swift */,
 			);
-			path = "mock-data";
+			path = "Mock Data";
 			sourceTree = "<group>";
 		};
 		223FB3A923766256005BB4D8 /* WeatherView */ = {
@@ -118,6 +128,42 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		226B156323777D0D00D05ED1 /* WillyWeatherAPI */ = {
+			isa = PBXGroup;
+			children = (
+				226B156423777D1B00D05ED1 /* Models */,
+				2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */,
+			);
+			path = WillyWeatherAPI;
+			sourceTree = "<group>";
+		};
+		226B156423777D1B00D05ED1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				226B156523777D2600D05ED1 /* WWLocation.swift */,
+				226B156723777D4C00D05ED1 /* WWWeatherData.swift */,
+				226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		226B156B23777DAE00D05ED1 /* SJD Modules */ = {
+			isa = PBXGroup;
+			children = (
+				226B155F23777CD100D05ED1 /* SJDCache.swift */,
+				226B156123777CF400D05ED1 /* SJDFetch.swift */,
+			);
+			path = "SJD Modules";
+			sourceTree = "<group>";
+		};
+		226B156C23777DC700D05ED1 /* Data Managers */ = {
+			isa = PBXGroup;
+			children = (
+				22FB72222367DF9B00116C22 /* WWDataManagers.swift */,
+			);
+			path = "Data Managers";
+			sourceTree = "<group>";
+		};
 		229D3E34236036730035FD66 = {
 			isa = PBXGroup;
 			children = (
@@ -137,24 +183,25 @@
 		229D3E3F236036730035FD66 /* sweather-2 */ = {
 			isa = PBXGroup;
 			children = (
-				223AE8E02376672B00E17875 /* mock-data */,
-				22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */,
+				226B156C23777DC700D05ED1 /* Data Managers */,
+				226B156B23777DAE00D05ED1 /* SJD Modules */,
+				223AE8E02376672B00E17875 /* Mock Data */,
+				226B156323777D0D00D05ED1 /* WillyWeatherAPI */,
+				229D3E48236036750035FD66 /* Preview Content */,
+				223FB3A923766256005BB4D8 /* WeatherView */,
 				22C68229236798C400B1919F /* uikit-swiftui-ports */,
-				2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */,
-				229D3E40236036730035FD66 /* AppDelegate.swift */,
-				229D3E42236036730035FD66 /* SceneDelegate.swift */,
+				22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */,
 				229D3E46236036750035FD66 /* Assets.xcassets */,
 				229D3E4B236036750035FD66 /* LaunchScreen.storyboard */,
 				229D3E4E236036750035FD66 /* Info.plist */,
-				229D3E48236036750035FD66 /* Preview Content */,
 				2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */,
+				229D3E40236036730035FD66 /* AppDelegate.swift */,
+				229D3E42236036730035FD66 /* SceneDelegate.swift */,
 				229D3E44236036730035FD66 /* ContentView.swift */,
 				22FB72202367DCE100116C22 /* SessionData.swift */,
-				22FB72222367DF9B00116C22 /* WWDataManagers.swift */,
 				22FB72242367E58F00116C22 /* LocationsListView.swift */,
 				224F62562367F0E500A73E2E /* AddLocationView.swift */,
 				224F625823681C9A00A73E2E /* SWWeather.swift */,
-				223FB3A923766256005BB4D8 /* WeatherView */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -262,15 +309,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226B156023777CD100D05ED1 /* SJDCache.swift in Sources */,
 				223FB3A6237660AB005BB4D8 /* WeatherViewPresentational.swift in Sources */,
 				229D3E41236036730035FD66 /* AppDelegate.swift in Sources */,
 				223AE8E4237667BD00E17875 /* PrecisIcon.swift in Sources */,
 				224F62572367F0E500A73E2E /* AddLocationView.swift in Sources */,
 				223AE8EC237677F500E17875 /* RainChance.swift in Sources */,
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,
+				226B156A23777D6B00D05ED1 /* WWLocationCoordSearchResult.swift in Sources */,
 				223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */,
 				223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */,
 				22FB72212367DCE100116C22 /* SessionData.swift in Sources */,
+				226B156623777D2600D05ED1 /* WWLocation.swift in Sources */,
+				226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */,
 				22C6822B236798EC00B1919F /* PageViewController.swift in Sources */,
 				223FB3A123764BBD005BB4D8 /* WeatherView.swift in Sources */,
 				224F625923681C9A00A73E2E /* SWWeather.swift in Sources */,
@@ -281,6 +332,7 @@
 				2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */,
 				2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */,
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,
+				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
 				22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */,
 			);
