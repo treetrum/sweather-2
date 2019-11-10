@@ -19,16 +19,8 @@ struct ContentView: View {
     @EnvironmentObject var sessionData: SessionData
     
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    self.showingListView = true
-                }, label: {
-                    Text("Locations")
-                })
-                Spacer()
-                Text("Warnings")
-            }.padding(.all, 20)
+        ZStack(alignment: .top) {
+
             
             if sessionData.viewingCurrentLocation || savedLocations.count == 0 {
                 CurrentLocationWeatherView()
@@ -37,6 +29,16 @@ struct ContentView: View {
                     WeatherView(location: WWLocation(savedLocation: savedLocations.first(where: { $0.id == sessionData.currentLocationId })! ))
                 }
             }
+            
+            HStack {
+                Button(action: {
+                    self.showingListView = true
+                }, label: {
+                    Image(systemName: "pin")
+                })
+                Spacer()
+                Image(systemName: "exclamationmark.triangle")
+            }.padding(.all, 20).padding(.top, 10)
         
         }
         .sheet(isPresented: self.$showingListView) {
@@ -50,5 +52,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.managedObjectContext, (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            .environmentObject(SessionData())
     }
 }

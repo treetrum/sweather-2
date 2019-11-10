@@ -30,6 +30,12 @@ extension Date {
             return str
         }
     }
+    
+    func prettyTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mma"
+        return formatter.string(from: self)
+    }
 }
 
 extension WWLocation {
