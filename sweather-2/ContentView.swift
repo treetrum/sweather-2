@@ -11,24 +11,6 @@ import Combine
 import CoreData
 import CoreLocation
 
-extension WWLocation {
-    init(savedLocation: SavedLocation) {
-        self = WWLocation(
-            id: Int(savedLocation.id),
-            name: savedLocation.name!,
-            region: savedLocation.region!,
-            state: savedLocation.state!,
-            postcode: savedLocation.postcode!
-        )
-    }
-}
-
-extension Float {
-    func roundToSingleDecimalString() -> String {
-        return String(format: "%.1f", self)
-    }
-}
-
 struct ContentView: View {
     
     @State private var showingListView: Bool = false

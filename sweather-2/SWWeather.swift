@@ -59,6 +59,12 @@ class SWWeather {
     }
     var days = [Day]()
     
+    struct Hour {
+        let dateTime: Date?
+        let temperature: Float?
+    }
+    var hours = [Hour]()
+    
     init(weather: WWWeatherData) {
         
         self.location = weather.location
@@ -122,6 +128,26 @@ class SWWeather {
             }
         }
         
+        let maxNumberOfHours = 24
+        var hours = [Hour]()
+        weather.forecasts.temperature.days.forEach { (day) in
+            day.entries.forEach { (day) in
+                
+                if let date = WillyWeatherAPI.dateTimeStringToDateTime(day.dateTime) {
+                    // If the current time is the same hour or less than the candidate date
+                    if Calendar.current.isDate(Date(), equalTo: date, toGranularity: .hour) || Date() < date {
+                        let hour = Hour(
+                            dateTime: date,
+                            temperature: day.temperature
+                        )
+                        hours.append(hour)
+                    }
+                }
+            }
+        }
+        self.hours = hours.count > maxNumberOfHours
+            ? Array(hours[0...maxNumberOfHours])
+            : hours
     }
     
     func getPrecisImageCode() -> String {
@@ -173,13 +199,3 @@ class SWWeather {
 
 }
 
-extension Date {
-    func prettyDayName() -> String {
-        if (Calendar.current.isDateInToday(self)) {
-            return "Today"
-        }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE"
-        return formatter.string(from: self)
-    }
-}

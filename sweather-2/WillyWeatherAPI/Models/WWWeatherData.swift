@@ -78,6 +78,19 @@ struct WWWeatherData: Codable {
             let days: [Day]
         }
         let rainfall: Rainfall
+        
+        struct Temperature: Codable {
+            struct Day: Codable {
+                let dateTime: String?
+                struct Entry: Codable {
+                    let dateTime: String?
+                    let temperature: Float?
+                }
+                let entries: [Entry]
+            }
+            let days: [Day]
+        }
+        let temperature: Temperature
     }
 
     let forecasts: Forecasts
