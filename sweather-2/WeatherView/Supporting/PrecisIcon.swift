@@ -15,18 +15,15 @@ struct PrecisIcon: View {
     let precisCode: String
     
     var body: some View {
-        ZStack {
-            if colorScheme == .dark {
-                Image(precisCode)
-            } else {
-                Image(precisCode).colorInvert()
-            }
-        }
+        Image(precisCode).resizable().frame(width: 200, height: 200)
     }
 }
 
 struct PrecisIcon_Previews: PreviewProvider {
     static var previews: some View {
-        PrecisIcon(precisCode: SampleWeatherData().getPrecisImageCode())
+        ZStack {
+            Color.blue
+            PrecisIcon(precisCode: SampleWeatherData().getPrecisImageCode())
+        }
     }
 }

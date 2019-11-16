@@ -19,33 +19,42 @@ struct ContentView: View {
     @EnvironmentObject var sessionData: SessionData
     
     var body: some View {
-        ZStack(alignment: .top) {
-
-            
-            if sessionData.viewingCurrentLocation || savedLocations.count == 0 {
-                CurrentLocationWeatherView()
-            } else {
-                if savedLocations.first(where: { $0.id == sessionData.currentLocationId }) != nil {
-                    WeatherView(location: WWLocation(savedLocation: savedLocations.first(where: { $0.id == sessionData.currentLocationId })! ))
-                }
+        GeometryReader { geometry in
+            ZStack {
+                BackgroundGradient()
+                VStack {
+                    if self.sessionData.viewingCurrentLocation || self.savedLocations.count == 0 {
+                       CurrentLocationWeatherView()
+                    } else {
+                       if self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId }) != nil {
+                           WeatherView(location: WWLocation( savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!))
+                       }
+                    }
+                    BottomBar(showingListView: self.$showingListView, safeAreaOffsets: geometry.safeAreaInsets)
+                }.padding(.top, geometry.safeAreaInsets.top)
             }
-            
-            HStack {
-                Button(action: {
-                    self.showingListView = true
-                }, label: {
-                    Image(systemName: "pin")
-                })
-                Spacer()
-                Image(systemName: "exclamationmark.triangle")
-            }.padding(.all, 20).padding(.top, 10)
-        
+            .edgesIgnoringSafeArea(.all)
+            .sheet(isPresented: self.$showingListView) {
+                LocationsListView()
+                    .environment(\.managedObjectContext, self.managedObjectContext)
+                    .environmentObject(self.sessionData)
+            }
         }
-        .sheet(isPresented: self.$showingListView) {
-            LocationsListView()
-                .environment(\.managedObjectContext, self.managedObjectContext)
-                .environmentObject(self.sessionData)
-        }
+    }
+}
+
+struct BackgroundGradient: View {
+    var body: some View {
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    Color.init(red: 70/255, green: 173/255, blue: 242/255),
+                    Color.init(red: 145/255, green: 14/255, blue: 167/255)
+                ]
+            ),
+            startPoint: UnitPoint(x: 0, y: 0),
+            endPoint: UnitPoint(x: 1, y: 1)
+        )
     }
 }
 

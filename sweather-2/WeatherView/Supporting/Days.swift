@@ -16,31 +16,28 @@ struct Days: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing: 25) {
                 ForEach(weather.days, id: \.dateTime) { (day: SWWeather.Day) in
                     VStack {
                         HStack {
                             Text("\(day.max ?? 0)").fixedSize().font(.headline)
-                            Text("\(day.min ?? 0)").fixedSize()
-                        }
-                        if self.colorScheme == .dark {
-                            Image(day.precisCode ?? "fine").resizable().frame(width: 50, height: 50)
-                        } else {
-                            Image(day.precisCode ?? "fine").resizable().frame(width: 50, height: 50).colorInvert()
-                        }
-                        
-                        Text("\(day.dateTime?.prettyDayName() ?? "-")").font(.footnote)
+                            Text("\(day.min ?? 0)").fixedSize().opacity(0.5)
+                        }.padding(.bottom, -10)
+                        Image(day.precisCode ?? "fine").resizable().frame(width: 50, height: 50)
+                        Text("\(day.dateTime?.prettyDayName() ?? "-")").font(.footnote).opacity(0.5)
                     }
-                    .frame(width: 75)
                     .multilineTextAlignment(.center)
                 }
-            }.padding(.horizontal)
+            }.padding(.horizontal).foregroundColor(Color.white)
         }
     }
 }
 
 struct Days_Previews: PreviewProvider {
     static var previews: some View {
-        Days(weather: SampleWeatherData())
+        ZStack {
+            Color.blue
+            Days(weather: SampleWeatherData())
+        }
     }
 }

@@ -22,7 +22,7 @@ struct WeatherView: View {
             if weatherDataManager.simpleWeatherData != nil {
                 WeatherViewPresentational(weather: weatherDataManager.simpleWeatherData!)
             } else {
-                Text("Loading...")
+                Loading()
             }
         }.onDisappear {
             self.weatherDataManager.destroy()

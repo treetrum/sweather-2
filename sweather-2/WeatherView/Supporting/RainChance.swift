@@ -18,12 +18,15 @@ struct RainChance: View {
             } else {
                 Text("No rainfall forecast")
             }
-        }
+        }.foregroundColor(Color.white).opacity(0.5)
     }
 }
 
 struct RainChance_Previews: PreviewProvider {
     static var previews: some View {
-        RainChance(rainfall: SampleWeatherData().rainfall)
+        ZStack {
+            Color.blue
+            RainChance(rainfall: SampleWeatherData().rainfall)
+        }
     }
 }

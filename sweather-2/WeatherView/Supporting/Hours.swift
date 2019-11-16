@@ -14,21 +14,23 @@ struct Hours: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            HStack(spacing: 20) {
                 ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
                     VStack {
                         Text("\(hour.temperature?.roundToFloor() ?? "0")°").fixedSize().padding(.bottom, 5)
-                        Text("\(hour.dateTime?.prettyHourName() ?? "-")").fixedSize().font(.footnote)
-                    }.frame(width: 50)
+                        Text("\(hour.dateTime?.prettyHourName() ?? "-")").fixedSize().font(.footnote).opacity(0.5)
+                    }
                 }
             }.padding(.horizontal)
-        }
-        
+        }.foregroundColor(Color.white)
     }
 }
 
 struct Hours_Previews: PreviewProvider {
     static var previews: some View {
-        Hours(weather: SampleWeatherData())
+        ZStack {
+            Color.blue
+            Hours(weather: SampleWeatherData())
+        }
     }
 }

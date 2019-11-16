@@ -19,12 +19,15 @@ struct HighLow: View {
             Spacer().frame(width: 20)
             Image(systemName: "arrow.down")
             Text("\(weather.temperature.min?.toString() ?? "-")")
-        }
+        }.foregroundColor(Color.white)
     }
 }
 
 struct HighLow_Previews: PreviewProvider {
     static var previews: some View {
-        HighLow(weather: SampleWeatherData())
+        ZStack {
+            Color.blue
+            HighLow(weather: SampleWeatherData())
+        }
     }
 }

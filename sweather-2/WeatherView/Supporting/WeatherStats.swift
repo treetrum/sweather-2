@@ -13,11 +13,15 @@ struct WeatherStats: View {
     var body: some View {
         HStack {
             WeatherStat(label: "High", value: "\(weather.temperature.max ?? 0)°")
+            Spacer()
             WeatherStat(label: "Low", value: "\(weather.temperature.min ?? 0)°")
+            Spacer()
             WeatherStat(label: "Humidity", value: "\(weather.humidity.percent ?? 0)%")
+            Spacer()
             WeatherStat(label: "Sunrise", value: "\(weather.sunrisesunset.rise?.prettyTime() ?? "-")")
+            Spacer()
             WeatherStat(label: "Sunset", value: "\(weather.sunrisesunset.set?.prettyTime() ?? "-")")
-        }
+        }.padding([.leading, .trailing])
     }
 }
 
@@ -27,18 +31,19 @@ struct WeatherStat: View {
     
     var body: some View {
         HStack {
-            Spacer()
             VStack {
-                Text(label).font(.footnote).padding(.bottom, 5).opacity(0.5)
-                Text(value).font(.custom("", size: 16)).fixedSize()
+                Text(label).font(.footnote).padding(.bottom, 5).opacity(0.5).fixedSize()
+                Text(value).font(.custom("", size: 15)).fixedSize()
             }
-            Spacer()
-        }
+        }.foregroundColor(Color.white)
     }
 }
 
 struct WeatherStats_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherStats(weather: SampleWeatherData())
+        ZStack {
+            Color.blue
+            WeatherStats(weather: SampleWeatherData())
+        }
     }
 }

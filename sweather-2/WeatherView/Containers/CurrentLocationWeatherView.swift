@@ -16,11 +16,7 @@ struct CurrentLocationWeatherView: View {
             if manager.location != nil {
                 WeatherView(location: manager.location!)
             } else {
-                VStack {
-                    Spacer()
-                    Text("Loading...")
-                    Spacer()
-                }
+                Loading()
             }
         }.onDisappear {
             self.manager.destroy()

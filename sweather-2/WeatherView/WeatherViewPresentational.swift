@@ -21,22 +21,36 @@ struct WeatherViewPresentational: View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    LocationName(location: self.weather.location).padding(.top, 30)
+                    LocationName(location: self.weather.location)
                     Spacer()
-                    PrecisIcon(precisCode: self.weather.getPrecisImageCode())
-                    Text(self.weather.precis.precis ?? "-").font(.headline).padding(.bottom, 5)
-                    RainChance(rainfall: self.weather.rainfall).padding(.bottom, 40).opacity(0.5)
-                    Text("\(self.weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°").font(.title)
-                    if self.weather.temperature.apparent != nil {
-                        Text("Feels like \(self.weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").opacity(0.5).padding(.top, 5)
-                    }
+                    PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
+                    Precis(weather: self.weather)
+                    RainChance(rainfall: self.weather.rainfall).padding(.bottom, 40)
+                    Temperatures(weather: self.weather)
                     Spacer()
-                    WeatherStats(weather: self.weather).padding(.bottom, 40).padding(.top, 40)
+                    WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
+                    Hours(weather: self.weather).padding(.bottom, 25)
                 }.frame(height: geometry.size.height)
-                VStack {
-                    Hours(weather: self.weather).padding(.bottom, 40)
-                    Days(weather: self.weather).padding(.bottom, 40)
-                }.padding(.top, 22)
+                Days(weather: self.weather).padding(.bottom, 25)
+            }.foregroundColor(Color.white)
+        }
+    }
+}
+
+struct Precis: View {
+    var weather: SWWeather
+    var body: some View {
+        Text(self.weather.precis.precis ?? "-").font(.headline).padding(.bottom, 5)
+    }
+}
+
+struct Temperatures: View {
+    var weather: SWWeather
+    var body: some View {
+        VStack {
+            Text("\(self.weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°").font(.system(size: 36)).fontWeight(.bold)
+            if self.weather.temperature.apparent != nil {
+                Text("Feels like \(self.weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").font(.system(size: 20)).fontWeight(.medium).opacity(0.5).padding(.top, 5)
             }
         }
     }
@@ -44,8 +58,11 @@ struct WeatherViewPresentational: View {
 
 struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherViewPresentational(weather: SampleWeatherData())
-            .environmentObject(SessionData(viewingCurrentLocation: true))
+        ZStack {
+            BackgroundGradient()
+            WeatherViewPresentational(weather: SampleWeatherData())
+                .environmentObject(SessionData(viewingCurrentLocation: true))
+        }
     }
 }
     
