@@ -1,4 +1,4 @@
-//
+
 //  WeatherViewPresentational.swift
 //  sweather-2
 //
@@ -27,8 +27,8 @@ struct WeatherViewPresentational: View {
                     RainChance(rainfall: self.weather.rainfall).padding(.bottom, 40)
                     Temperatures(weather: self.weather)
                     Spacer()
+                    Hours(weather: self.weather)
                     WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
-                    Hours(weather: self.weather).padding(.bottom, 25)
                 }.frame(height: geometry.size.height)
                 Days(weather: self.weather).padding(.bottom, 25)
             }.foregroundColor(Color.white)

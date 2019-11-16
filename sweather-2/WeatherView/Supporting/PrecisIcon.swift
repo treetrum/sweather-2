@@ -15,7 +15,7 @@ struct PrecisIcon: View {
     let precisCode: String
     
     var body: some View {
-        Image(precisCode).resizable().frame(width: 200, height: 200)
+        Image(precisCode).resizable().frame(width: 150, height: 150)
     }
 }
 

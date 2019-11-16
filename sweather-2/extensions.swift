@@ -57,4 +57,7 @@ extension Float {
     func roundToFloor() -> String {
         return String(format: "%.0f", self)
     }
+    func roundToFloorInt() -> Int {
+        return Int(self.roundToFloor())!
+    }
 }
