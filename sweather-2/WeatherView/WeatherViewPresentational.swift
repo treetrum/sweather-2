@@ -16,7 +16,6 @@ extension Int {
 
 struct WeatherViewPresentational: View {
     let weather: SWWeather
-
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
@@ -48,9 +47,15 @@ struct Temperatures: View {
     var weather: SWWeather
     var body: some View {
         VStack {
-            Text("\(self.weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°").font(.system(size: 36)).fontWeight(.bold)
+            Text("\(self.weather.temperature.actual?.roundToSingleDecimalString() ?? "-")°")
+                .font(.system(size: 36))
+                .fontWeight(.bold)
             if self.weather.temperature.apparent != nil {
-                Text("Feels like \(self.weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°").font(.system(size: 20)).fontWeight(.medium).opacity(0.5).padding(.top, 5)
+                Text("Feels like \(self.weather.temperature.apparent?.roundToSingleDecimalString() ?? "-")°")
+                    .font(.system(size: 20))
+                    .fontWeight(.medium)
+                    .opacity(0.5)
+                    .padding(.top, 5)
             }
         }
     }

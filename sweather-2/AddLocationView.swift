@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct AddLocationView: View {
-    @State var searchValue: String = "";
-    @State var searching: Bool = false;
     
     @ObservedObject var searchManager = LocationSearchManager()
     
@@ -21,50 +19,50 @@ struct AddLocationView: View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Location", text: self.$searchValue)
-                    Button(action: handleSearch) {
-                        Text("Search")
+                    TextField("Location", text: $searchManager.inputValue)
+                        .padding(10)
+                        .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.02)))
+                        .cornerRadius(10)
+                    Button(action: handleCancel) {
+                        Text("Cancel")
                     }
-                }.padding(.all, 16).padding(.bottom, 0)
+                }.padding([.leading, .trailing, .top])
                 List {
                     ForEach(self.searchManager.results, id: \.id) { (location: WWLocation) in
-                        Button(action: {
-                            
-                            let newLocation = SavedLocation(context: self.managedObjectContext)
-                            newLocation.id = Int16(location.id)
-                            newLocation.name = location.name
-                            newLocation.postcode = location.postcode
-                            newLocation.region = location.region
-                            newLocation.state = location.state
-                            
-                            do {
-                                try self.managedObjectContext.save()
-                            } catch {
-                                print(error)
-                            }
-                            
-                            self.presentationMode.wrappedValue.dismiss()
-                            
-                        }) {
+                        Button(action: { self.handleLocationSelect(location) }) {
                             LocationRow(location)
                         }
                     }
-                }
+                }.listStyle(GroupedListStyle())
             }
             .navigationBarTitle("Add Location", displayMode: .inline)
         }
         
     }
     
-    func handleSearch() {
-        self.searching = true
-        self.searchManager.search(query: searchValue)
+    func handleLocationSelect(_ location: WWLocation) {
+        let newLocation = SavedLocation(context: self.managedObjectContext)
+        newLocation.id = Int16(location.id)
+        newLocation.name = location.name
+        newLocation.postcode = location.postcode
+        newLocation.region = location.region
+        newLocation.state = location.state
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print(error)
+        }
+        self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func handleCancel() {
+        self.searchManager.inputValue = ""
     }
 }
 
 
 struct AddLocationView_Previews: PreviewProvider {
     static var previews: some View {
-        AddLocationView()
+        AddLocationView().environment(\.colorScheme, .dark)
     }
 }

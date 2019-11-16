@@ -9,12 +9,31 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import Combine
 
 class LocationSearchManager: ObservableObject {
 
     let api = WillyWeatherAPI()
 
     @Published var results: [WWLocation] = []
+    @Published var inputValue = ""
+    
+    private var cancellable: AnyCancellable? = nil
+    
+    init() {
+        cancellable = AnyCancellable(
+            $inputValue
+                .removeDuplicates()
+                .debounce(for: 0.25, scheduler: DispatchQueue.main)
+                .sink(receiveValue: { (value) in
+                    if value == "" {
+                        self.results = []
+                    } else {
+                        self.search(query: value)
+                    }
+                })
+        )
+    }
     
     func search(query: String) {
         api.searchForLocationWithQuery(query: query) { (results, error) in

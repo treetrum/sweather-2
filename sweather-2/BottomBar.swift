@@ -24,7 +24,7 @@ struct BottomBar: View {
                 Button(action: {
                     self.showingListView = true
                 }, label: {
-                    Image(systemName: "pin").foregroundColor(Color.white).padding(.all)
+                    Image(systemName: "list.dash").foregroundColor(Color.white).padding(.all)
                 })
                 Spacer()
                 Image(systemName: "exclamationmark.triangle").foregroundColor(Color.white).padding(.all)
