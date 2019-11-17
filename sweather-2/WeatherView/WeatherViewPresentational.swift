@@ -31,6 +31,7 @@ struct WeatherViewPresentational: View {
                     WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
                 }.frame(height: geometry.size.height)
                 Days(weather: self.weather).padding(.bottom, 25)
+                RainRadar(locationId: self.weather.location.id)
             }.foregroundColor(Color.white)
         }
     }

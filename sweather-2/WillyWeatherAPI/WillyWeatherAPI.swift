@@ -68,6 +68,28 @@ class WillyWeatherAPI {
         }
     }
     
+    func getMapsForLocatoin(location: Int, callback: @escaping (WWMapData?, Error?) -> Void) {
+        let url = "\(apiURL)/\(apiKey)/locations/\(location)/maps.json?mapTypes=regional-radar&offset=-60&units=distance:km"
+        SJDFetch.shared.get(url: url) { (data, response, error) in
+            if let error = error {
+                print("We got an error, aborting. \(error)")
+                callback(nil, error);
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode([WWMapData].self, from: data)
+                    if let first = result.first {
+                        callback(first, nil)
+                    } else {
+                        callback(nil, nil)
+                    }
+                } catch let error {
+                    print("Got an error \(error)")
+                    callback(nil, error);
+                }
+            }
+        }
+    }
+    
     static func getPrecisImageCode(
         forPrecisCode precisCode: String,
         and sunriseSunsetTimes: WWWeatherData.Forecasts.SunriseSunset.Day.Entry, andCurrentTime currentTime: Date = Date()) -> String {

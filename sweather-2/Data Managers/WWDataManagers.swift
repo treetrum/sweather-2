@@ -11,6 +11,22 @@ import CoreLocation
 import SwiftUI
 import Combine
 
+class MapDataManager: ObservableObject {
+    let api = WillyWeatherAPI()
+    
+    @Published var mapData: WWMapData?
+    
+    init(locationId: Int) {
+        api.getMapsForLocatoin(location: locationId) { (mapData, error) in
+            guard let mapData = mapData else { return }
+            DispatchQueue.main.async {
+                self.mapData = mapData
+                print("Got map data \(mapData)")
+            }
+        }
+    }
+}
+
 class LocationSearchManager: ObservableObject {
 
     let api = WillyWeatherAPI()

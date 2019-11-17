@@ -34,6 +34,8 @@
 		226B15762377998B00D05ED1 /* WeatherStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B15752377998B00D05ED1 /* WeatherStats.swift */; };
 		22768551237F6B0A002BCDBB /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768550237F6B0A002BCDBB /* BottomBar.swift */; };
 		22768553237F792B002BCDBB /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768552237F792B002BCDBB /* Loading.swift */; };
+		2281F4F8238148F60033E499 /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
+		2281F4FA23814A680033E499 /* RainRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F923814A680033E499 /* RainRadar.swift */; };
 		229D3E41236036730035FD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E40236036730035FD66 /* AppDelegate.swift */; };
 		229D3E43236036730035FD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E42236036730035FD66 /* SceneDelegate.swift */; };
 		229D3E47236036750035FD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E46236036750035FD66 /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		226B15752377998B00D05ED1 /* WeatherStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStats.swift; sourceTree = "<group>"; };
 		22768550237F6B0A002BCDBB /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		22768552237F792B002BCDBB /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		2281F4F7238148F60033E499 /* WWMapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWMapData.swift; sourceTree = "<group>"; };
+		2281F4F923814A680033E499 /* RainRadar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainRadar.swift; sourceTree = "<group>"; };
 		229D3E3D236036730035FD66 /* Sweather 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sweather 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D3E40236036730035FD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229D3E42236036730035FD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				226B157123778F3C00D05ED1 /* Hours.swift */,
 				226B15752377998B00D05ED1 /* WeatherStats.swift */,
 				22768552237F792B002BCDBB /* Loading.swift */,
+				2281F4F923814A680033E499 /* RainRadar.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				226B156523777D2600D05ED1 /* WWLocation.swift */,
 				226B156723777D4C00D05ED1 /* WWWeatherData.swift */,
 				226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */,
+				2281F4F7238148F60033E499 /* WWMapData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				226B156623777D2600D05ED1 /* WWLocation.swift in Sources */,
 				226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */,
 				22C6822B236798EC00B1919F /* PageViewController.swift in Sources */,
+				2281F4FA23814A680033E499 /* RainRadar.swift in Sources */,
 				226B15762377998B00D05ED1 /* WeatherStats.swift in Sources */,
 				223FB3A123764BBD005BB4D8 /* WeatherView.swift in Sources */,
 				224F625923681C9A00A73E2E /* SWWeather.swift in Sources */,
@@ -354,6 +361,7 @@
 				223AE8E623766FF000E17875 /* HighLow.swift in Sources */,
 				22C682302367A12E00B1919F /* PageControl.swift in Sources */,
 				229D3E43236036730035FD66 /* SceneDelegate.swift in Sources */,
+				2281F4F8238148F60033E499 /* WWMapData.swift in Sources */,
 				2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */,
 				22768553237F792B002BCDBB /* Loading.swift in Sources */,
 				2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */,
@@ -500,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 817;
+				CURRENT_PROJECT_VERSION = 818;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
@@ -524,7 +532,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 817;
+				CURRENT_PROJECT_VERSION = 818;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
