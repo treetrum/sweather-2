@@ -12,37 +12,55 @@ struct Hours: View {
     
     let weather: SWWeather
     
-    let graphHeight: Int = 30;
+    let graphHeight = 30;
+    let maskWidth: CGFloat = 15;
+    let entryWidth: CGFloat = 50;
+    let entryIconWidth: CGFloat = 30;
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             ZStack {
-                Path { path in
-                    var currentX = 25
-                    for (index, hour) in weather.hours.enumerated() {
-                        let yPos = convertTempToYPos(hour.temperature!)
-                        if (index == 0) {
-                            path.move(to: CGPoint(x: currentX, y: yPos ))
-                        } else {
-                            currentX += 50
-                            path.addLine(to: CGPoint(x: currentX, y: yPos ))
-                        }
-                    }
-                }
-                .strokedPath(StrokeStyle(lineWidth: 1))
-                .padding([.leading, .trailing])
-                .frame(height: CGFloat(graphHeight))
-                .padding(.top, 1)
-                .opacity(0.5)
                 HStack(spacing: 0) {
                     ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
-                        VStack(spacing: 15) {
-                            Text("\(hour.temperature?.roundToFloor() ?? "0")°").fixedSize().padding(.bottom, 5).padding(0)
+                        VStack(spacing: 0) {
+                            Text("\(hour.temperature?.roundToFloor() ?? "0")°").fixedSize().padding(.bottom, 0).padding(0)
+                            Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode ?? "fine", andIsNight: hour.night ?? false))
+                                .resizable()
+                                .frame(width: self.entryIconWidth, height: self.entryIconWidth)
                             Text("\(hour.dateTime?.prettyHourName() ?? "-")").fixedSize().font(.footnote).opacity(0.5).padding(0)
-                        }.frame(width: 50).position(x: 20, y: 15 ).offset(y: CGFloat(self.convertTempToYPos(hour.temperature!)))
+                        }
+                        .frame(width: self.entryWidth)
+                        .position(x: CGFloat(self.entryWidth / 2), y: 20 ) // Magic numbers to get the data vertically centered
+                        .offset(y: CGFloat(self.convertTempToYPos(hour.temperature!)))
                     }
-                }.padding(.horizontal).padding(.top).frame(height: CGFloat(graphHeight + 65))
+                }.padding(.top).frame(height: CGFloat(graphHeight + 75)) // 75 is also a magic number
+                VStack {
+                    Path { path in
+                        var currentX = self.entryWidth / 2
+                        for (index, hour) in weather.hours.enumerated() {
+                            let yPos = convertTempToYPos(hour.temperature!)
+                            if (index == 0) {
+                                path.move(to: CGPoint(x: Int(currentX), y: yPos ))
+                            } else {
+                                currentX += self.entryWidth
+                                path.addLine(to: CGPoint(x: Int(currentX), y: yPos ))
+                            }
+                        }
+                    }
+                    .strokedPath(StrokeStyle(lineWidth: 1))
+                    .frame(height: CGFloat(graphHeight))
+                    .padding(.top, 1)
+                    .opacity(0.25)
+                }
+                .mask(
+                    HStack(spacing: 0) {
+                        ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
+                            Rectangle().frame(width: CGFloat(self.maskWidth), height: 100)
+                        }.padding(.leading, CGFloat(self.entryWidth - self.maskWidth))
+                    }.padding(.leading, CGFloat(self.maskWidth / 2))
+                )
             }
+            .padding(.horizontal, 10)
         }.foregroundColor(Color.white)
     }
     

@@ -62,6 +62,9 @@ class SWWeather {
     struct Hour {
         let dateTime: Date?
         let temperature: Float?
+        let precis: String?
+        let precisCode: String?
+        let night: Bool?
     }
     var hours = [Hour]()
     
@@ -130,15 +133,46 @@ class SWWeather {
         
         let maxNumberOfHours = 24
         var hours = [Hour]()
-        weather.forecasts.temperature.days.forEach { (day) in
+        var lastUsedPrecis: String? = ""
+        var lastUsedPrecisCode: String? = ""
+        var lastUsedIsNight: Bool? = false
+        weather.forecasts.temperature.days.forEach { day in
             day.entries.forEach { (day) in
-                
+
                 if let date = WillyWeatherAPI.dateTimeStringToDateTime(day.dateTime) {
                     // If the current time is the same hour or less than the candidate date
                     if Calendar.current.isDate(Date(), equalTo: date, toGranularity: .hour) || Date() < date {
+                        
+                        weather.forecasts.precis.days.forEach { (precisDay) in
+                            precisDay.entries.forEach { (precisEntry) in
+                                if let precisDate = WillyWeatherAPI.dateTimeStringToDateTime(precisEntry.dateTime) {
+                                    
+                                    /// Because precis data is only provided in 3hour intervals, there is a chance that the first
+                                    /// readout is before our first temperature entry. To combat this, we add three hours to the
+                                    /// current date and if it's after the current time, we use that precis data for the initial entry
+                                    let threeHoursInSeconds: Double = 60.0 * 60.0 * 3.0
+                                    let threeHoursAfter = precisDate.addingTimeInterval(threeHoursInSeconds)
+                                    if Date() < threeHoursAfter && lastUsedPrecis == "" {
+                                        lastUsedPrecis = precisEntry.precis
+                                        lastUsedPrecisCode = precisEntry.precisCode
+                                        lastUsedIsNight = precisEntry.night
+                                    }
+
+                                    if Calendar.current.isDate(precisDate, equalTo: date, toGranularity: .hour) {
+                                        lastUsedPrecis = precisEntry.precis
+                                        lastUsedPrecisCode = precisEntry.precisCode
+                                        lastUsedIsNight = precisEntry.night
+                                    }
+                                }
+                            }
+                        }
+                        
                         let hour = Hour(
                             dateTime: date,
-                            temperature: day.temperature
+                            temperature: day.temperature,
+                            precis: lastUsedPrecis,
+                            precisCode: lastUsedPrecisCode,
+                            night: lastUsedIsNight
                         )
                         hours.append(hour)
                     }
@@ -149,6 +183,8 @@ class SWWeather {
             ? Array(hours[0...maxNumberOfHours])
             : hours
     }
+    
+    static let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
     
     func getPrecisImageCode() -> String {
         
@@ -174,26 +210,34 @@ class SWWeather {
     static func getPrecisImageCode(
         forPrecisCode precisCode: String,
         andSunriseSunset sunriseSunset: SWWeather.SunriseSunset,
-        andCurrentTime currentTime: Date = Date()
+        andCurrentTime iconTime: Date = Date()
     ) -> String {
         
         var iconCode = precisCode
         let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
         
-        guard let riseDateTime = sunriseSunset.rise,
-            let setDateTime = sunriseSunset.set else {
+        guard let sunriseDateTime = sunriseSunset.rise,
+            let sunsetDateTime = sunriseSunset.set else {
                 return precisCode
         }
         
         // Create dates from strings
         // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
         if iconsWithNightVariations.contains(iconCode) {
-            if currentTime > setDateTime || currentTime < riseDateTime {
+            if iconTime > sunsetDateTime || iconTime < sunriseDateTime {
                 iconCode += "-night"
             }
         }
         
         // Fall back to just using what was passed in
+        return iconCode
+    }
+    
+    static func getPrecisImageCode(forPrecisCode precisCode: String, andIsNight isNight: Bool) -> String {
+        var iconCode = precisCode
+        if SWWeather.iconsWithNightVariations.contains(iconCode) && isNight {
+            iconCode += "-night"
+        }
         return iconCode
     }
 
