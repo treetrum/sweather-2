@@ -36,7 +36,7 @@ struct BottomBar: View {
                     self.showingSettings = true
                     self.showingListView = false 
                 }) {
-                    Image(systemName: "questionmark.circle").foregroundColor(Color.white).padding(.all)
+                    Image(systemName: "gear").foregroundColor(Color.white).padding(.all)
                 }
             }.padding(.bottom, safeAreaOffsets.bottom)
         }.padding([.leading, .trailing]).padding(.top, 0)

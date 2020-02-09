@@ -19,13 +19,22 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    func prettyShortDayName() -> String {
+        if (Calendar.current.isDateInToday(self)) {
+            return "Today"
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        return formatter.string(from: self)
+    }
+    
     func prettyHourName() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ha"
         
         let str = formatter.string(from: self)
-        if str == "12am" {
-            return self.prettyDayName()
+        if str.lowercased() == "12am" {
+            return self.prettyShortDayName()
         } else {
             return str
         }

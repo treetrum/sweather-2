@@ -23,7 +23,7 @@ struct Hours: View {
                 HStack(spacing: 0) {
                     ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
                         VStack(spacing: 0) {
-                            Text("\(hour.temperature?.roundToFloor() ?? "0")°").fixedSize().padding(.bottom, 0).padding(0)
+                            Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")°").font(.footnote).fixedSize().padding(.bottom, 0).padding(0)
                             Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode, andIsNight: hour.night))
                                 .resizable()
                                 .frame(width: self.entryIconWidth, height: self.entryIconWidth)
@@ -77,11 +77,11 @@ struct Hours: View {
     }
     
     func convertTempToYPos(_ temp: Float) -> Int {
-        let roundedTemp = temp.roundToFloorInt()
+        let roundedTemp = temp
         let max = getMaxTemp()
         let min = getMinTemp()
         let diff = max - min
-        let tempPercentage = Float(roundedTemp - min) / Float(diff)
+        let tempPercentage = Float(roundedTemp - Float(min)) / Float(diff)
         let result = Float(graphHeight) * tempPercentage
         return (graphHeight - result.roundToFloorInt())
     }
