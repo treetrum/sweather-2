@@ -19,11 +19,11 @@ struct Settings: View {
     var body: some View {
         NavigationView {
             List {
-//                Section {
-//                    NavigationLink(destination: Text("APP ICONS")) {
-//                        Text("App Icon")
-//                    }
-//                }
+                Section {
+                    NavigationLink(destination: CustomIconPicker()) {
+                        Text("App Icon")
+                    }
+                }
                 Section(
                     footer:
                         VStack {
@@ -49,7 +49,7 @@ struct Settings: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle(Text(""), displayMode: .inline)
+            .navigationBarTitle(Text("Settings"), displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: closeSheet) {
                     Text("Done")
