@@ -9,12 +9,17 @@
 import SwiftUI
 
 struct CurrentLocationWeatherView: View {
-    @ObservedObject var manager = CurrentLocationWeatherDataManager()
+    @ObservedObject var manager = WeatherDataManager()
     
+    init(manager: WeatherDataManager) {
+        self.manager = manager
+        self.manager.locationId = nil
+    }
+        
     var body: some View {
         VStack {
-            if manager.location != nil {
-                WeatherView(location: manager.location!)
+            if manager.loading == false && manager.simpleWeatherData != nil {
+                WeatherViewPresentational(weather: manager.simpleWeatherData!)
             } else {
                 Loading()
             }

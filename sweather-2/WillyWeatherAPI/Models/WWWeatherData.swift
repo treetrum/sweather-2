@@ -111,6 +111,7 @@ struct WWWeatherData: Codable {
             let humidity: Humidity
         }
         let observations: Observation
+        let issueDateTime: String
     }
     let observational: Observational
 }

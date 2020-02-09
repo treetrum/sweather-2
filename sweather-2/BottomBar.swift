@@ -37,7 +37,7 @@ struct BottomBar_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
-                BackgroundGradient()
+                BackgroundGradient(manager: WeatherDataManager())
                 BottomBar(showingListView: .constant(false), safeAreaOffsets: geometry.safeAreaInsets)
             }.edgesIgnoringSafeArea(.all)
         }

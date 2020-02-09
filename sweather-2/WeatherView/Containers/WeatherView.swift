@@ -13,19 +13,18 @@ struct WeatherView: View {
     @ObservedObject var weatherDataManager: WeatherDataManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    init(location: WWLocation) {
-        self.weatherDataManager = WeatherDataManager(locationId: location.id)
+    init(location: WWLocation, manager: WeatherDataManager) {
+        self.weatherDataManager = manager
+        self.weatherDataManager.locationId = location.id
     }
     
     var body: some View {
         VStack {
-            if weatherDataManager.simpleWeatherData != nil {
+            if weatherDataManager.loading == false && weatherDataManager.simpleWeatherData != nil {
                 WeatherViewPresentational(weather: weatherDataManager.simpleWeatherData!)
             } else {
                 Loading()
             }
-        }.onDisappear {
-            self.weatherDataManager.destroy()
         }
     }
 }

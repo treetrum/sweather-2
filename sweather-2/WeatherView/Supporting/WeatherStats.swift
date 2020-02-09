@@ -25,7 +25,7 @@ struct WeatherStats: View {
     }
 }
 
-struct WeatherStat: View {
+struct WeatherStat: View { 
     let label: String
     let value: String
     

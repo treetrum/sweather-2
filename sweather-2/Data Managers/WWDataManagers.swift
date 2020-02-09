@@ -62,47 +62,27 @@ class LocationSearchManager: ObservableObject {
     }
 }
 
-class WeatherDataManager: ObservableObject {
-    private let api = WillyWeatherAPI()
-    private let locationId: Int
+class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
-    @Published var weatherData: WWWeatherData?
-    @Published var simpleWeatherData: SWWeather?
-    
-    init(locationId: Int) {
-        self.locationId = locationId
-        getWeatherData()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.getWeatherData),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
-    }
-    
-    func destroy() {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func getWeatherData() {
-        api.getWeatherForLocation(location: locationId) { (weatherData, error) in
-            guard let weatherData = weatherData else { return }
-            DispatchQueue.main.async {
-                self.weatherData = weatherData
-                self.simpleWeatherData = SWWeather(weather: weatherData)
+    var locationId: Int? {
+        didSet {
+            if (oldValue != self.locationId) {
+                self.getLocation()
             }
         }
     }
-}
-
-class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+    
+    private var usingCurrentLocation: Bool {
+        return locationId == nil
+    }
     
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
     private var observer: Any?
 
     @Published var location: WWLocation?
+    @Published var simpleWeatherData: SWWeather?
+    @Published var loading: Bool = false
     
     override init() {
         super.init()
@@ -121,8 +101,25 @@ class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, Ob
     }
     
     @objc func getLocation() {
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+        self.loading = true
+        if (self.usingCurrentLocation) {
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+        } else {
+            getWeatherData(self.locationId)
+        }
+    }
+    
+    func getWeatherData(_ locationId: Int?) {
+        if let lid = locationId {
+            api.getWeatherForLocation(location: lid) { (weatherData, error) in
+                guard let weatherData = weatherData else { return }
+                DispatchQueue.main.async {
+                    self.simpleWeatherData = SWWeather(weather: weatherData)
+                    self.loading = false
+                }
+            }
+        }
     }
     
     func getLocationForCoords(_ coords: CLLocationCoordinate2D) {
@@ -130,6 +127,9 @@ class CurrentLocationWeatherDataManager: NSObject, CLLocationManagerDelegate, Ob
             guard let results = results else { return }
             DispatchQueue.main.async {
                 self.location = results
+                if let loc = self.location {
+                    self.getWeatherData(loc.id)
+                }
             }
         }
     }

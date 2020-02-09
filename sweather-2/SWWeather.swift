@@ -23,8 +23,9 @@ class SWWeather {
         let min: Int?
         let apparent: Float?
         let actual: Float?
+        let date: Date?
     }
-    var temperature = Temperature(max: nil, min: nil, apparent: nil, actual: nil)
+    var temperature = Temperature(max: nil, min: nil, apparent: nil, actual: nil, date: nil)
     
     struct Rainfall {
         let startRange: Int?
@@ -84,7 +85,8 @@ class SWWeather {
                 max: weatherDayEntry.max,
                 min: weatherDayEntry.min,
                 apparent: weather.observational.observations.temperature.apparentTemperature,
-                actual: weather.observational.observations.temperature.temperature
+                actual: weather.observational.observations.temperature.temperature,
+                date: WillyWeatherAPI.dateTimeStringToDateTime(weather.observational.issueDateTime)
             )
 
         }
@@ -207,6 +209,60 @@ class SWWeather {
         return iconCode
     }
     
+    enum SWTimePeriod: Int {
+        case sunriseOccuring = 0
+        case postSunrise = 1
+        case preSunset = 2
+        case sunsetOccurring =  3
+        case isDayTime = 4
+        case unknown = 5
+    }
+    
+    private func secsToMins(_ seconds: Double) -> Double { return seconds * 60.0 }
+    
+    func getTimePeriod() -> SWTimePeriod {
+        
+        guard let dateToCheck = self.temperature.date,
+            let riseDateTime = self.sunrisesunset.rise,
+            let setDateTime = self.sunrisesunset.set else {
+            return .isDayTime
+        }
+        
+        let halfHourBeforeSunrise = riseDateTime.addingTimeInterval(secsToMins(-30))
+        let halfHourAfterSunrise = riseDateTime.addingTimeInterval(secsToMins(30))
+        let hourAndHalfAfterSunrise = riseDateTime.addingTimeInterval(secsToMins(90))
+        let hourAndHalfBeforeSunset = setDateTime.addingTimeInterval(secsToMins(-90))
+        let halfHourBeforeSunset = setDateTime.addingTimeInterval(secsToMins(-30))
+        let halfHourAfterSunset = setDateTime.addingTimeInterval(secsToMins(30))
+        
+        let sunriseOccurring = (halfHourBeforeSunrise...halfHourAfterSunrise).contains(dateToCheck)
+        if (sunriseOccurring) {
+            return .sunriseOccuring
+        }
+        
+        let postSunrise = (halfHourAfterSunrise...hourAndHalfAfterSunrise).contains(dateToCheck)
+        if (postSunrise) {
+            return .postSunrise
+        }
+        
+        let preSunset = (hourAndHalfBeforeSunset...halfHourBeforeSunset).contains(dateToCheck)
+        if (preSunset) {
+            return .preSunset
+        }
+        
+        let sunsetOccurring = (halfHourBeforeSunset...halfHourAfterSunset).contains(dateToCheck)
+        if (sunsetOccurring) {
+            return .sunsetOccurring
+        }
+        
+        let isDayTime = (riseDateTime...setDateTime).contains(dateToCheck)
+        if (isDayTime) {
+            return .isDayTime
+        }
+        
+        return .isDayTime
+    }
+    
     static func getPrecisImageCode(
         forPrecisCode precisCode: String,
         andSunriseSunset sunriseSunset: SWWeather.SunriseSunset,
@@ -214,7 +270,6 @@ class SWWeather {
     ) -> String {
         
         var iconCode = precisCode
-        let iconsWithNightVariations = ["chance-thunderstorm-fine", "chance-shower-fine", "mostly-cloudy", "partly-cloudy", "mostly-fine", "fine"]
         
         guard let sunriseDateTime = sunriseSunset.rise,
             let sunsetDateTime = sunriseSunset.set else {
@@ -223,7 +278,7 @@ class SWWeather {
         
         // Create dates from strings
         // If it's before first light or after last light, and the icon is applicable, show a night variation of the icon.
-        if iconsWithNightVariations.contains(iconCode) {
+        if SWWeather.iconsWithNightVariations.contains(iconCode) {
             if iconTime > sunsetDateTime || iconTime < sunriseDateTime {
                 iconCode += "-night"
             }
@@ -233,9 +288,9 @@ class SWWeather {
         return iconCode
     }
     
-    static func getPrecisImageCode(forPrecisCode precisCode: String, andIsNight isNight: Bool) -> String {
-        var iconCode = precisCode
-        if SWWeather.iconsWithNightVariations.contains(iconCode) && isNight {
+    static func getPrecisImageCode(forPrecisCode precisCode: String?, andIsNight isNight: Bool?) -> String {
+        var iconCode = precisCode != nil && precisCode != "" ? precisCode! : "fine"
+        if SWWeather.iconsWithNightVariations.contains(iconCode) && isNight == true {
             iconCode += "-night"
         }
         return iconCode

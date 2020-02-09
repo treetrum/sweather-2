@@ -31,7 +31,7 @@ struct WeatherViewPresentational: View {
                     WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
                 }.frame(height: geometry.size.height)
                 Days(weather: self.weather).padding(.bottom, 25)
-                RainRadar(locationId: self.weather.location.id)
+//                RainRadar(locationId: self.weather.location.id)
             }.foregroundColor(Color.white)
         }
     }
@@ -65,7 +65,7 @@ struct Temperatures: View {
 struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            BackgroundGradient()
+            BackgroundGradient(manager: WeatherDataManager())
             WeatherViewPresentational(weather: SampleWeatherData())
                 .environmentObject(SessionData(viewingCurrentLocation: true))
         }

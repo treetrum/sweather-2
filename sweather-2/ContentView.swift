@@ -17,17 +17,21 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var sessionData: SessionData
+    @ObservedObject var weatherDataManager: WeatherDataManager = WeatherDataManager()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                BackgroundGradient()
+                BackgroundGradient(manager: self.weatherDataManager)
                 VStack {
                     if self.sessionData.viewingCurrentLocation || self.savedLocations.count == 0 {
-                       CurrentLocationWeatherView()
+                        CurrentLocationWeatherView(manager: self.weatherDataManager)
                     } else {
                        if self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId }) != nil {
-                           WeatherView(location: WWLocation( savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!))
+                            WeatherView(
+                                location: WWLocation( savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!),
+                                manager: self.weatherDataManager
+                            )
                        }
                     }
                     BottomBar(showingListView: self.$showingListView, safeAreaOffsets: geometry.safeAreaInsets)
@@ -39,22 +43,49 @@ struct ContentView: View {
                     .environment(\.managedObjectContext, self.managedObjectContext)
                     .environmentObject(self.sessionData)
             }
+            .onDisappear {
+                self.weatherDataManager.destroy()
+            }
         }
     }
 }
 
 struct BackgroundGradient: View {
+    
+    @ObservedObject var manager = WeatherDataManager()
+    var timePeriod: SWWeather.SWTimePeriod = .unknown
+
+    var gradients: [[Color]] = [
+        [Color.init(UIColor(hexString: "C92D2D")), Color.init(UIColor(hexString: "763BCD"))],
+        [Color.init(UIColor(hexString: "46AEF3")), Color.init(UIColor(hexString: "910DA7"))],
+        [Color.init(UIColor(hexString: "FFCB41")), Color.init(UIColor(hexString: "FB6914"))],
+        [Color.init(UIColor(hexString: "FB6914")), Color.init(UIColor(hexString: "B300AC"))],
+        [Color.init(UIColor(hexString: "272394")), Color.init(UIColor(hexString: "16A2FF"))],
+        [Color.init(UIColor(hexString: "C92D2D")), Color.init(UIColor(hexString: "763BCD"))]
+    ]
+    
+    init(manager: WeatherDataManager) {
+        self.manager = manager;
+        if let weatherData = manager.simpleWeatherData {
+            self.timePeriod = weatherData.getTimePeriod()
+        }
+    }
+    
     var body: some View {
-        LinearGradient(
-            gradient: Gradient(
-                colors: [
-                    Color.init(red: 70/255, green: 173/255, blue: 242/255),
-                    Color.init(red: 145/255, green: 14/255, blue: 167/255)
-                ]
-            ),
-            startPoint: UnitPoint(x: 0, y: 0),
-            endPoint: UnitPoint(x: 1, y: 1)
-        )
+        ZStack {
+            ForEach(self.gradients.indices) { index in
+                LinearGradient(
+                    gradient: Gradient(colors: self.gradients[index]),
+                    startPoint: UnitPoint(x: 0, y: 0),
+                    endPoint: UnitPoint(x: 1, y: 1)
+                )
+                    .opacity(index == self.timePeriod.rawValue ? 1 : 0)
+                    .animation(
+                        Animation.easeInOut(duration: 1).delay(index == self.timePeriod.rawValue ? 0 : 1)
+                    )
+                    .zIndex(index == self.timePeriod.rawValue ? 100 : 0)
+            }
+        }
     }
 }
 

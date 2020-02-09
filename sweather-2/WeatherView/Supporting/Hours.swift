@@ -24,7 +24,7 @@ struct Hours: View {
                     ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
                         VStack(spacing: 0) {
                             Text("\(hour.temperature?.roundToFloor() ?? "0")°").fixedSize().padding(.bottom, 0).padding(0)
-                            Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode ?? "fine", andIsNight: hour.night ?? false))
+                            Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode, andIsNight: hour.night))
                                 .resizable()
                                 .frame(width: self.entryIconWidth, height: self.entryIconWidth)
                             Text("\(hour.dateTime?.prettyHourName() ?? "-")").fixedSize().font(.footnote).opacity(0.5).padding(0)
@@ -91,7 +91,7 @@ struct Hours: View {
 struct Hours_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            BackgroundGradient()
+            BackgroundGradient(manager: WeatherDataManager())
             Hours(weather: SampleWeatherData())
         }.edgesIgnoringSafeArea(.all)
     }
