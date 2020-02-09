@@ -14,6 +14,9 @@ import CoreLocation
 struct ContentView: View {
     
     @State private var showingListView: Bool = false
+    @State private var showingSettings: Bool = false
+    @State private var showingModal: Bool = false
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var sessionData: SessionData
@@ -34,14 +37,28 @@ struct ContentView: View {
                             )
                        }
                     }
-                    BottomBar(showingListView: self.$showingListView, safeAreaOffsets: geometry.safeAreaInsets)
+                    BottomBar(
+                        showingModal: self.$showingModal,
+                        showingListView: self.$showingListView,
+                        showingSettings: self.$showingSettings,
+                        safeAreaOffsets: geometry.safeAreaInsets
+                    )
                 }.padding(.top, geometry.safeAreaInsets.top)
             }
             .edgesIgnoringSafeArea(.all)
-            .sheet(isPresented: self.$showingListView) {
-                LocationsListView()
-                    .environment(\.managedObjectContext, self.managedObjectContext)
-                    .environmentObject(self.sessionData)
+            .sheet(isPresented: self.$showingModal) {
+                if (self.showingListView) {
+                    LocationsListView()
+                        .environment(\.managedObjectContext, self.managedObjectContext)
+                        .environmentObject(self.sessionData)
+                } else if (self.showingSettings) {
+                    Settings()
+                        .environment(\.managedObjectContext, self.managedObjectContext)
+                        .environmentObject(self.sessionData)
+                } else {
+                    Text("ERROR")
+                }
+                
             }
             .onDisappear {
                 self.weatherDataManager.destroy()

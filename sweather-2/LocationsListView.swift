@@ -12,9 +12,10 @@ struct LocationsListView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var sessionData: SessionData
+    
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @State var showingAddLocationView: Bool = false
-    @EnvironmentObject var sessionData: SessionData
 
     var body: some View {
         NavigationView {

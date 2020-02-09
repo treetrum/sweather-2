@@ -63,6 +63,6 @@ struct AddLocationView: View {
 
 struct AddLocationView_Previews: PreviewProvider {
     static var previews: some View {
-        AddLocationView().environment(\.colorScheme, .dark)
+        AddLocationView().environment(\.colorScheme, .light)
     }
 }
