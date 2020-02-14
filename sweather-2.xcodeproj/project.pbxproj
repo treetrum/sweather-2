@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,11 +36,47 @@
 		22768553237F792B002BCDBB /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768552237F792B002BCDBB /* Loading.swift */; };
 		2281F4F8238148F60033E499 /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
 		2281F4FA23814A680033E499 /* RainRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F923814A680033E499 /* RainRadar.swift */; };
+		2284BAE723EFE1B000E15FCF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2284BAE523EFE1B000E15FCF /* Interface.storyboard */; };
+		2284BAE923EFE1B100E15FCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2284BAE823EFE1B100E15FCF /* Assets.xcassets */; };
+		2284BAF023EFE1B100E15FCF /* sweather-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2284BAF523EFE1B100E15FCF /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAF423EFE1B100E15FCF /* WatchContentView.swift */; };
+		2284BAF723EFE1B100E15FCF /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAF623EFE1B100E15FCF /* HostingController.swift */; };
+		2284BAF923EFE1B100E15FCF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAF823EFE1B100E15FCF /* ExtensionDelegate.swift */; };
+		2284BAFB23EFE1B100E15FCF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAFA23EFE1B100E15FCF /* NotificationController.swift */; };
+		2284BAFD23EFE1B100E15FCF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAFC23EFE1B100E15FCF /* NotificationView.swift */; };
+		2284BAFF23EFE1B100E15FCF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BAFE23EFE1B100E15FCF /* ComplicationController.swift */; };
+		2284BB0123EFE1B100E15FCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2284BB0023EFE1B100E15FCF /* Assets.xcassets */; };
+		2284BB0423EFE1B100E15FCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2284BB0323EFE1B100E15FCF /* Preview Assets.xcassets */; };
+		2284BB0923EFE1B100E15FCF /* sweather-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2284BAE323EFE1B000E15FCF /* sweather-watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2284BB1223EFE47500E15FCF /* WWDataManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72222367DF9B00116C22 /* WWDataManagers.swift */; };
+		2284BB1323EFE4C700E15FCF /* WillyWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */; };
+		2284BB1423EFE4CC00E15FCF /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
+		2284BB1523EFE4CC00E15FCF /* WWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156723777D4C00D05ED1 /* WWWeatherData.swift */; };
+		2284BB1623EFE4CC00E15FCF /* WWLocationCoordSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */; };
+		2284BB1723EFE4CC00E15FCF /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
+		2284BB1823EFE4DA00E15FCF /* SWWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F625823681C9A00A73E2E /* SWWeather.swift */; };
+		2284BB1923EFE5E500E15FCF /* SJDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B155F23777CD100D05ED1 /* SJDCache.swift */; };
+		2284BB1A23EFE5E800E15FCF /* SJDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156123777CF400D05ED1 /* SJDFetch.swift */; };
+		2284BB1B23EFE9DC00E15FCF /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B1573237792E000D05ED1 /* extensions.swift */; };
+		2284BB1C23EFEA2400E15FCF /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
+		2284BB1E23EFEA9100E15FCF /* WatchWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2284BB1D23EFEA9100E15FCF /* WatchWeatherView.swift */; };
+		2284BB1F23EFEACA00E15FCF /* SampleWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E7237670F100E17875 /* SampleWeatherData.swift */; };
+		2284BB2023EFEADC00E15FCF /* DecodeLocalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156F23778A8000D05ED1 /* DecodeLocalJSON.swift */; };
+		22869E4223EFF05B00E1D8BF /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
+		22869E4423F0126C00E1D8BF /* SharedSWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22869E4323F0126C00E1D8BF /* SharedSWWeatherData.swift */; };
+		22869E4523F0133300E1D8BF /* SharedSWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22869E4323F0126C00E1D8BF /* SharedSWWeatherData.swift */; };
+		22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22869E4623F0140700E1D8BF /* WatchComplicationHelper.swift */; };
+		22869E4823F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22869E4623F0140700E1D8BF /* WatchComplicationHelper.swift */; };
+		22898A8823F6A59300995B98 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22898A8723F6A59300995B98 /* Alamofire */; };
+		22898A8D23F6B6CB00995B98 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 22898A8C23F6B6CB00995B98 /* Alamofire */; };
 		229D3E41236036730035FD66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E40236036730035FD66 /* AppDelegate.swift */; };
 		229D3E43236036730035FD66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E42236036730035FD66 /* SceneDelegate.swift */; };
 		229D3E47236036750035FD66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E46236036750035FD66 /* Assets.xcassets */; };
 		229D3E4A236036750035FD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E49236036750035FD66 /* Preview Assets.xcassets */; };
 		229D3E4D236036750035FD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E4B236036750035FD66 /* LaunchScreen.storyboard */; };
+		22A8350923EFECEA00D0310D /* sample-weather-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223FB3A323764E97005BB4D8 /* sample-weather-data.json */; };
+		22A8350A23EFECEA00D0310D /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
+		22A8350C23EFEE3300D0310D /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
 		22C6822B236798EC00B1919F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822A236798EC00B1919F /* PageViewController.swift */; };
 		22C6822E2367A10300B1919F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822D2367A10300B1919F /* PageView.swift */; };
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
@@ -73,6 +109,48 @@
 		22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72242367E58F00116C22 /* LocationsListView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2284BAF123EFE1B100E15FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229D3E35236036730035FD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2284BAEE23EFE1B100E15FCF;
+			remoteInfo = "sweather-watch Extension";
+		};
+		2284BB0723EFE1B100E15FCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229D3E35236036730035FD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2284BAE223EFE1B000E15FCF;
+			remoteInfo = "sweather-watch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2284BB0A23EFE1B100E15FCF /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2284BB0923EFE1B100E15FCF /* sweather-watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2284BB0D23EFE1B100E15FCF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2284BAF023EFE1B100E15FCF /* sweather-watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		223AE8E12376673F00E17875 /* sample-location-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-location-data.json"; sourceTree = "<group>"; };
 		223AE8E3237667BD00E17875 /* PrecisIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisIcon.swift; sourceTree = "<group>"; };
@@ -102,6 +180,24 @@
 		22768552237F792B002BCDBB /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		2281F4F7238148F60033E499 /* WWMapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWMapData.swift; sourceTree = "<group>"; };
 		2281F4F923814A680033E499 /* RainRadar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainRadar.swift; sourceTree = "<group>"; };
+		2284BAE323EFE1B000E15FCF /* sweather-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sweather-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2284BAE623EFE1B000E15FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2284BAE823EFE1B100E15FCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2284BAEA23EFE1B100E15FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "sweather-watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2284BAF423EFE1B100E15FCF /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		2284BAF623EFE1B100E15FCF /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		2284BAF823EFE1B100E15FCF /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2284BAFA23EFE1B100E15FCF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2284BAFC23EFE1B100E15FCF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		2284BAFE23EFE1B100E15FCF /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		2284BB0023EFE1B100E15FCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2284BB0323EFE1B100E15FCF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2284BB0523EFE1B100E15FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2284BB0623EFE1B100E15FCF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		2284BB1D23EFEA9100E15FCF /* WatchWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchWeatherView.swift; sourceTree = "<group>"; };
+		22869E4323F0126C00E1D8BF /* SharedSWWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSWWeatherData.swift; sourceTree = "<group>"; };
+		22869E4623F0140700E1D8BF /* WatchComplicationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchComplicationHelper.swift; sourceTree = "<group>"; };
 		229D3E3D236036730035FD66 /* Sweather 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sweather 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D3E40236036730035FD66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229D3E42236036730035FD66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +206,7 @@
 		229D3E49236036750035FD66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		229D3E4C236036750035FD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		229D3E4E236036750035FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		22C6822A236798EC00B1919F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		22C6822D2367A10300B1919F /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		22C6822F2367A12E00B1919F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -144,10 +241,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2284BAEC23EFE1B100E15FCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22898A8D23F6B6CB00995B98 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		229D3E3A236036730035FD66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22898A8823F6A59300995B98 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,11 +343,59 @@
 			path = "Data Managers";
 			sourceTree = "<group>";
 		};
+		2284BAE423EFE1B000E15FCF /* sweather-watch */ = {
+			isa = PBXGroup;
+			children = (
+				2284BAE523EFE1B000E15FCF /* Interface.storyboard */,
+				2284BAE823EFE1B100E15FCF /* Assets.xcassets */,
+				2284BAEA23EFE1B100E15FCF /* Info.plist */,
+			);
+			path = "sweather-watch";
+			sourceTree = "<group>";
+		};
+		2284BAF323EFE1B100E15FCF /* sweather-watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2284BB1D23EFEA9100E15FCF /* WatchWeatherView.swift */,
+				2284BAF423EFE1B100E15FCF /* WatchContentView.swift */,
+				2284BAF623EFE1B100E15FCF /* HostingController.swift */,
+				2284BAF823EFE1B100E15FCF /* ExtensionDelegate.swift */,
+				2284BAFA23EFE1B100E15FCF /* NotificationController.swift */,
+				2284BAFC23EFE1B100E15FCF /* NotificationView.swift */,
+				2284BAFE23EFE1B100E15FCF /* ComplicationController.swift */,
+				2284BB0023EFE1B100E15FCF /* Assets.xcassets */,
+				2284BB0523EFE1B100E15FCF /* Info.plist */,
+				2284BB0623EFE1B100E15FCF /* PushNotificationPayload.apns */,
+				2284BB0223EFE1B100E15FCF /* Preview Content */,
+				22869E4323F0126C00E1D8BF /* SharedSWWeatherData.swift */,
+				22869E4623F0140700E1D8BF /* WatchComplicationHelper.swift */,
+			);
+			path = "sweather-watch Extension";
+			sourceTree = "<group>";
+		};
+		2284BB0223EFE1B100E15FCF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2284BB0323EFE1B100E15FCF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22898A8B23F6B6CB00995B98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		229D3E34236036730035FD66 = {
 			isa = PBXGroup;
 			children = (
 				229D3E3F236036730035FD66 /* sweather-2 */,
+				2284BAE423EFE1B000E15FCF /* sweather-watch */,
+				2284BAF323EFE1B100E15FCF /* sweather-watch Extension */,
 				229D3E3E236036730035FD66 /* Products */,
+				22898A8B23F6B6CB00995B98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +403,8 @@
 			isa = PBXGroup;
 			children = (
 				229D3E3D236036730035FD66 /* Sweather 2.app */,
+				2284BAE323EFE1B000E15FCF /* sweather-watch.app */,
+				2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,6 +437,7 @@
 				22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */,
 				22FA8DE023EF926B00FFA1CD /* Settings.swift */,
 				22CC1F2523EFB50300763884 /* CustomIconPicker.swift */,
+				22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -342,6 +499,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2284BAE223EFE1B000E15FCF /* sweather-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2284BB1123EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch" */;
+			buildPhases = (
+				2284BAE123EFE1B000E15FCF /* Resources */,
+				2284BB0D23EFE1B100E15FCF /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2284BAF223EFE1B100E15FCF /* PBXTargetDependency */,
+			);
+			name = "sweather-watch";
+			productName = "sweather-watch";
+			productReference = 2284BAE323EFE1B000E15FCF /* sweather-watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2284BB1023EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch Extension" */;
+			buildPhases = (
+				2284BAEB23EFE1B100E15FCF /* Sources */,
+				2284BAEC23EFE1B100E15FCF /* Frameworks */,
+				2284BAED23EFE1B100E15FCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sweather-watch Extension";
+			packageProductDependencies = (
+				22898A8C23F6B6CB00995B98 /* Alamofire */,
+			);
+			productName = "sweather-watch Extension";
+			productReference = 2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		229D3E3C236036730035FD66 /* sweather-2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229D3E51236036750035FD66 /* Build configuration list for PBXNativeTarget "sweather-2" */;
@@ -349,13 +543,16 @@
 				229D3E39236036730035FD66 /* Sources */,
 				229D3E3A236036730035FD66 /* Frameworks */,
 				229D3E3B236036730035FD66 /* Resources */,
+				2284BB0A23EFE1B100E15FCF /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2284BB0823EFE1B100E15FCF /* PBXTargetDependency */,
 			);
 			name = "sweather-2";
 			packageProductDependencies = (
+				22898A8723F6A59300995B98 /* Alamofire */,
 			);
 			productName = "sweather-2";
 			productReference = 229D3E3D236036730035FD66 /* Sweather 2.app */;
@@ -367,10 +564,16 @@
 		229D3E35236036730035FD66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Sam Davis";
 				TargetAttributes = {
+					2284BAE223EFE1B000E15FCF = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					2284BAEE23EFE1B100E15FCF = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					229D3E3C236036730035FD66 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -386,17 +589,40 @@
 			);
 			mainGroup = 229D3E34236036730035FD66;
 			packageReferences = (
+				22898A8623F6A59300995B98 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 229D3E3E236036730035FD66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				229D3E3C236036730035FD66 /* sweather-2 */,
+				2284BAE223EFE1B000E15FCF /* sweather-watch */,
+				2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2284BAE123EFE1B000E15FCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2284BAE923EFE1B100E15FCF /* Assets.xcassets in Resources */,
+				2284BAE723EFE1B000E15FCF /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2284BAED23EFE1B100E15FCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22A8350A23EFECEA00D0310D /* sample-location-data.json in Resources */,
+				2284BB0423EFE1B100E15FCF /* Preview Assets.xcassets in Resources */,
+				2284BB0123EFE1B100E15FCF /* Assets.xcassets in Resources */,
+				22A8350923EFECEA00D0310D /* sample-weather-data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		229D3E3B236036730035FD66 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,6 +659,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2284BAEB23EFE1B100E15FCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2284BAF723EFE1B100E15FCF /* HostingController.swift in Sources */,
+				2284BB2023EFEADC00E15FCF /* DecodeLocalJSON.swift in Sources */,
+				2284BB1A23EFE5E800E15FCF /* SJDFetch.swift in Sources */,
+				22869E4823F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,
+				2284BAF523EFE1B100E15FCF /* WatchContentView.swift in Sources */,
+				2284BB1C23EFEA2400E15FCF /* GeneralExtensions.swift in Sources */,
+				2284BB1523EFE4CC00E15FCF /* WWWeatherData.swift in Sources */,
+				2284BB1F23EFEACA00E15FCF /* SampleWeatherData.swift in Sources */,
+				2284BB1E23EFEA9100E15FCF /* WatchWeatherView.swift in Sources */,
+				2284BAFB23EFE1B100E15FCF /* NotificationController.swift in Sources */,
+				2284BB1323EFE4C700E15FCF /* WillyWeatherAPI.swift in Sources */,
+				2284BB1823EFE4DA00E15FCF /* SWWeather.swift in Sources */,
+				2284BB1923EFE5E500E15FCF /* SJDCache.swift in Sources */,
+				2284BB1423EFE4CC00E15FCF /* WWLocation.swift in Sources */,
+				2284BAF923EFE1B100E15FCF /* ExtensionDelegate.swift in Sources */,
+				22869E4223EFF05B00E1D8BF /* BackgroundGradient.swift in Sources */,
+				2284BAFD23EFE1B100E15FCF /* NotificationView.swift in Sources */,
+				2284BB1B23EFE9DC00E15FCF /* extensions.swift in Sources */,
+				22869E4423F0126C00E1D8BF /* SharedSWWeatherData.swift in Sources */,
+				2284BB1723EFE4CC00E15FCF /* WWMapData.swift in Sources */,
+				2284BAFF23EFE1B100E15FCF /* ComplicationController.swift in Sources */,
+				2284BB1623EFE4CC00E15FCF /* WWLocationCoordSearchResult.swift in Sources */,
+				2284BB1223EFE47500E15FCF /* WWDataManagers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		229D3E39236036730035FD66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +708,7 @@
 				223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */,
 				22FB72212367DCE100116C22 /* SessionData.swift in Sources */,
 				226B156623777D2600D05ED1 /* WWLocation.swift in Sources */,
+				22869E4523F0133300E1D8BF /* SharedSWWeatherData.swift in Sources */,
 				226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */,
 				22C6822B236798EC00B1919F /* PageViewController.swift in Sources */,
 				22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */,
@@ -460,6 +717,7 @@
 				223FB3A123764BBD005BB4D8 /* WeatherView.swift in Sources */,
 				224F625923681C9A00A73E2E /* SWWeather.swift in Sources */,
 				22768551237F6B0A002BCDBB /* BottomBar.swift in Sources */,
+				22A8350C23EFEE3300D0310D /* BackgroundGradient.swift in Sources */,
 				22CC1F2623EFB50300763884 /* CustomIconPicker.swift in Sources */,
 				223AE8E623766FF000E17875 /* HighLow.swift in Sources */,
 				22C682302367A12E00B1919F /* PageControl.swift in Sources */,
@@ -474,13 +732,35 @@
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
 				226B156E2377836C00D05ED1 /* Days.swift in Sources */,
+				22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,
 				22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2284BAF223EFE1B100E15FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */;
+			targetProxy = 2284BAF123EFE1B100E15FCF /* PBXContainerItemProxy */;
+		};
+		2284BB0823EFE1B100E15FCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2284BAE223EFE1B000E15FCF /* sweather-watch */;
+			targetProxy = 2284BB0723EFE1B100E15FCF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		2284BAE523EFE1B000E15FCF /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2284BAE623EFE1B000E15FCF /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		229D3E4B236036750035FD66 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -492,6 +772,100 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2284BB0B23EFE1B100E15FCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 820;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				IBSC_MODULE = sweather_watch_Extension;
+				INFOPLIST_FILE = "sweather-watch/Info.plist";
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		2284BB0C23EFE1B100E15FCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 820;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				IBSC_MODULE = sweather_watch_Extension;
+				INFOPLIST_FILE = "sweather-watch/Info.plist";
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		2284BB0E23EFE1B100E15FCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 820;
+				DEVELOPMENT_ASSET_PATHS = "\"sweather-watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "sweather-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		2284BB0F23EFE1B100E15FCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 820;
+				DEVELOPMENT_ASSET_PATHS = "\"sweather-watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "sweather-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
 		229D3E4F236036750035FD66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -657,6 +1031,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2284BB1023EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2284BB0E23EFE1B100E15FCF /* Debug */,
+				2284BB0F23EFE1B100E15FCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2284BB1123EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2284BB0B23EFE1B100E15FCF /* Debug */,
+				2284BB0C23EFE1B100E15FCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		229D3E38236036730035FD66 /* Build configuration list for PBXProject "sweather-2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -676,6 +1068,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22898A8623F6A59300995B98 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "5.0.0-rc.3";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22898A8723F6A59300995B98 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22898A8623F6A59300995B98 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		22898A8C23F6B6CB00995B98 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22898A8623F6A59300995B98 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */ = {

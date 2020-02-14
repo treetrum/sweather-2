@@ -75,7 +75,7 @@
                     ]
                 }
             ],
-            "issueDateTime": "2020-02-09 16:14:43"
+            "issueDateTime": "2020-02-09 17:43:45"
         },
         "rainfall": {
             "days": [
@@ -96,7 +96,7 @@
             "units": {
                 "amount": "mm"
             },
-            "issueDateTime": "2020-02-09 16:15:00"
+            "issueDateTime": "2020-02-09 18:14:13"
         },
         "rainfallprobability": {
             "days": [
@@ -141,7 +141,7 @@
             "units": {
                 "percentage": "%"
             },
-            "issueDateTime": "2020-02-09 16:14:32",
+            "issueDateTime": "2020-02-09 18:13:44",
             "carousel": {
                 "size": 61,
                 "start": 55
@@ -273,7 +273,7 @@
             "units": {
                 "temperature": "c"
             },
-            "issueDateTime": "2020-02-09 16:26:43",
+            "issueDateTime": "2020-02-09 18:25:51",
             "carousel": {
                 "size": 64,
                 "start": 56
@@ -287,7 +287,7 @@
                         {
                             "dateTime": "2020-02-09 00:00:00",
                             "precisCode": "heavy-showers-rain",
-                            "precis": "Rain, heavy at times. Windy",
+                            "precis": "Rain, heavy at times. Very windy",
                             "precisOverlayCode": "wind",
                             "night": false,
                             "min": 21,
@@ -299,47 +299,47 @@
             "units": {
                 "temperature": "c"
             },
-            "issueDateTime": "2020-02-09 14:07:03"
+            "issueDateTime": "2020-02-09 18:12:43"
         }
     },
     "observational": {
         "observations": {
             "temperature": {
-                "temperature": 20.8,
-                "apparentTemperature": 11.5,
-                "trend": 1
+                "temperature": 20.9,
+                "apparentTemperature": 13.1,
+                "trend": -1
             },
             "delta-t": {
-                "temperature": 1.1,
+                "temperature": 1,
                 "trend": 0
             },
             "cloud": {
                 "oktas": 4,
-                "trend": 1
+                "trend": -1
             },
             "humidity": {
-                "percentage": 90,
+                "percentage": 91,
                 "trend": 0
             },
             "dewPoint": {
-                "temperature": 19.1,
-                "trend": 1
-            },
-            "pressure": {
-                "pressure": 1006.1,
+                "temperature": 19.4,
                 "trend": -1
             },
+            "pressure": {
+                "pressure": 1008.8,
+                "trend": 0
+            },
             "wind": {
-                "speed": 64.8,
+                "speed": 57.4,
                 "gustSpeed": null,
                 "trend": 1,
-                "direction": 112,
-                "directionText": "ESE"
+                "direction": 92,
+                "directionText": "E"
             },
             "rainfall": {
-                "lastHourAmount": 12.6,
-                "todayAmount": 125,
-                "since9AMAmount": 88.8
+                "lastHourAmount": 7.2,
+                "todayAmount": 148.4,
+                "since9AMAmount": 112.2
             }
         },
         "stations": {
@@ -400,7 +400,7 @@
                 "distance": 3.2
             }
         },
-        "issueDateTime": "2020-02-09 16:20:00",
+        "issueDateTime": "2020-02-09 18:20:00",
         "units": {
             "temperature": "c",
             "amount": "mm",

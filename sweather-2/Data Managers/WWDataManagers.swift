@@ -74,7 +74,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     
     private var usingCurrentLocation: Bool {
         return locationId == nil
-    }
+    } 
     
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
@@ -88,12 +88,16 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         super.init()
         manager.delegate = self
         self.getLocation()
+        
+        #if os(watchOS)
+        #else
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.getLocation),
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+        #endif
     }
     
     func destroy() {
@@ -117,6 +121,10 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
                 DispatchQueue.main.async {
                     self.simpleWeatherData = SWWeather(weather: weatherData)
                     self.loading = false
+                    #if os(watchOS)
+                    SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
+                    WatchComplicationHelper.shared.reloadComplications()
+                    #endif
                 }
             }
         }
