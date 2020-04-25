@@ -56,7 +56,6 @@ class LocationSearchManager: ObservableObject {
             guard let results = results else { return }
             DispatchQueue.main.async {
                 self.results = results
-                print("Got results \(results)")
             }
         }
     }

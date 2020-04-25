@@ -18,7 +18,7 @@ struct RainChance: View {
             } else {
                 Text("No rainfall forecast")
             }
-        }.foregroundColor(Color.white).opacity(0.5)
+        }
     }
 }
 

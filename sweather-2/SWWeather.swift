@@ -57,6 +57,8 @@ class SWWeather {
         let night: Bool?
         let min: Int?
         let max: Int?
+        var regionPrecis: String?
+        var rainfall: Rainfall?
     }
     var days = [Day]()
     
@@ -118,18 +120,32 @@ class SWWeather {
             percent: weather.observational.observations.humidity.percentage
         )
         
+        var dayIndex = 0;
         weather.forecasts.weather.days.forEach { weatherDay in
             if let entry = weatherDay.entries.first {
-                let day = SWWeather.Day(
+                var day = SWWeather.Day(
                     dateTime: WillyWeatherAPI.dateTimeStringToDateTime(entry.dateTime),
                     precisCode: entry.precisCode,
                     precis: entry.precis,
                     precisOverlayCode: entry.precisOverlayCode,
                     night: entry.night,
                     min: entry.min,
-                    max: entry.max
+                    max: entry.max,
+                    regionPrecis: nil,
+                    rainfall: nil
                 )
+                if weather.forecasts.rainfall.days.indices.contains(dayIndex) {
+                    if let rain = weather.forecasts.rainfall.days[dayIndex].entries.first {
+                        day.rainfall = Rainfall(startRange: rain.startRange, endRange: rain.endRange, rangeDivide: rain.rangeDivide, rangeCode: rain.rangeCode, probability: rain.probability)
+                    }
+                }
+                if weather.regionPrecis.days.indices.contains(dayIndex) {
+                    if let regionPrecis = weather.regionPrecis.days[dayIndex].entries.first {
+                        day.regionPrecis = regionPrecis.precis
+                    }
+                }
                 self.days.append(day)
+                dayIndex += 1
             }
         }
         

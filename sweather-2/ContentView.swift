@@ -20,10 +20,11 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var sessionData: SessionData
+    @EnvironmentObject var appState: AppState
     @ObservedObject var weatherDataManager: WeatherDataManager = WeatherDataManager()
 
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { (geometry: GeometryProxy) in
             ZStack {
                 BackgroundGradient(manager: self.weatherDataManager)
                 VStack {
@@ -44,6 +45,16 @@ struct ContentView: View {
                         safeAreaOffsets: geometry.safeAreaInsets
                     )
                 }.padding(.top, geometry.safeAreaInsets.top)
+
+                CustomPopup(active: self.$appState.showDayDetail) {
+                    VStack {
+                        if self.appState.dayDetailDay != nil {
+                            DayDetail(day: self.appState.dayDetailDay!)
+                        } else {
+                            EmptyView()
+                        }
+                    }
+                }
             }
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: self.$showingModal) {
@@ -58,7 +69,6 @@ struct ContentView: View {
                 } else {
                     Text("ERROR")
                 }
-                
             }
             .onDisappear {
                 self.weatherDataManager.destroy()
@@ -72,6 +82,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environment(\.managedObjectContext, (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
             .environmentObject(SessionData())
+            .environmentObject(AppState())
+            .environment(\.colorScheme, .dark)
     }
 }
 

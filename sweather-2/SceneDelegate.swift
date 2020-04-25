@@ -8,6 +8,12 @@
 
 import UIKit
 import SwiftUI
+import Combine
+
+class AppState: ObservableObject {
+    @Published var showDayDetail: Bool = false
+    @Published var dayDetailDay: SWWeather.Day? = nil
+}
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,7 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let sessionData = SessionData()
-        let contentView = ContentView().environment(\.managedObjectContext, context).environmentObject(sessionData)
+        let appState = AppState()
+        let contentView = ContentView()
+            .environment(\.managedObjectContext, context)
+            .environmentObject(sessionData)
+            .environmentObject(appState)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

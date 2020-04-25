@@ -100,6 +100,8 @@
 		22ECEB942453B5E20020751A /* custom-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB7F2453B5E20020751A /* custom-1.png */; };
 		22ECEB952453B5E20020751A /* custom-4-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB802453B5E20020751A /* custom-4-sun.png */; };
 		22ECEB972453C0FC0020751A /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB962453C0FC0020751A /* HostingController.swift */; };
+		22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9A2453E4CC0020751A /* DayDetail.swift */; };
+		22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9C2453EC7A0020751A /* CustomPopup.swift */; };
 		22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
 		22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DE023EF926B00FFA1CD /* Settings.swift */; };
 		22FB72212367DCE100116C22 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72202367DCE100116C22 /* SessionData.swift */; };
@@ -224,6 +226,8 @@
 		22ECEB802453B5E20020751A /* custom-4-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-4-sun.png"; sourceTree = "<group>"; };
 		22ECEB962453C0FC0020751A /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		22ECEB992453C5570020751A /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
+		22ECEB9A2453E4CC0020751A /* DayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetail.swift; sourceTree = "<group>"; };
+		22ECEB9C2453EC7A0020751A /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
 		22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sweather 2.entitlements"; sourceTree = "<group>"; };
 		22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		22FA8DE023EF926B00FFA1CD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -430,6 +434,8 @@
 				22CC1F2523EFB50300763884 /* CustomIconPicker.swift */,
 				22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */,
 				22ECEB962453C0FC0020751A /* HostingController.swift */,
+				22ECEB9A2453E4CC0020751A /* DayDetail.swift */,
+				22ECEB9C2453EC7A0020751A /* CustomPopup.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -699,6 +705,7 @@
 				223AE8EC237677F500E17875 /* RainChance.swift in Sources */,
 				226B157223778F3C00D05ED1 /* Hours.swift in Sources */,
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,
+				22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */,
 				226B156A23777D6B00D05ED1 /* WWLocationCoordSearchResult.swift in Sources */,
 				223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */,
 				223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */,
@@ -723,6 +730,7 @@
 				2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */,
 				22768553237F792B002BCDBB /* Loading.swift in Sources */,
 				22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */,
+				22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */,
 				2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */,
 				2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */,
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,

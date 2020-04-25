@@ -54,7 +54,7 @@ class WillyWeatherAPI {
     }
     
     func getWeatherForLocationURL(location: Int) -> String {
-        return "\(apiURL)/\(apiKey)/locations/\(location)/weather.json?forecasts=precis,rainfall,rainfallprobability,sunrisesunset,temperature,weather&observational=true"
+        return "\(apiURL)/\(apiKey)/locations/\(location)/weather.json?forecasts=precis,rainfall,rainfallprobability,sunrisesunset,temperature,weather&observational=true&regionPrecis=true"
     }
     
     func getWeatherForLocation(location: Int, callback: @escaping (WWWeatherData?, Error?) -> Void) {

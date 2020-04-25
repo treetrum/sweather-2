@@ -114,4 +114,17 @@ struct WWWeatherData: Codable {
         let issueDateTime: String
     }
     let observational: Observational
+    
+    struct RegionPrecis: Codable {
+        struct Day: Codable {
+            struct Entry: Codable {
+                let dateTime: String?
+                let precis: String?
+            }
+            let entries: [Entry]
+        }
+        let days: [Day]
+    }
+    let regionPrecis: RegionPrecis
+
 }
