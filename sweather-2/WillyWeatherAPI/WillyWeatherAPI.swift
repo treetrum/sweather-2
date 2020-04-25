@@ -12,8 +12,12 @@ import CoreLocation
 class WillyWeatherAPI {
     
     let apiURL = "https://api.willyweather.com.au/v2"
-    let apiKey = "NzBhMjQ4OWU1YmE1NjBlZjhmNDU4Mj"
     let cache = SJDCache(cacheTimeInMins: 15)
+    let apiKey: String
+    
+    init() {
+        self.apiKey = Bundle.main.object(forInfoDictionaryKey: "WillyWeatherAPIKey") as! String
+    }
     
     func searchForLocationWithQuery(query: String, callback: @escaping ([WWLocation]?, Error?) -> Void) {
         guard let urlSafeQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
