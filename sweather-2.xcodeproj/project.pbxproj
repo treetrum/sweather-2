@@ -99,6 +99,7 @@
 		22ECEB932453B5E20020751A /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB7E2453B5E20020751A /* default.png */; };
 		22ECEB942453B5E20020751A /* custom-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB7F2453B5E20020751A /* custom-1.png */; };
 		22ECEB952453B5E20020751A /* custom-4-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB802453B5E20020751A /* custom-4-sun.png */; };
+		22ECEB972453C0FC0020751A /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB962453C0FC0020751A /* HostingController.swift */; };
 		22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
 		22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DE023EF926B00FFA1CD /* Settings.swift */; };
 		22FB72212367DCE100116C22 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72202367DCE100116C22 /* SessionData.swift */; };
@@ -221,6 +222,7 @@
 		22ECEB7E2453B5E20020751A /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		22ECEB7F2453B5E20020751A /* custom-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-1.png"; sourceTree = "<group>"; };
 		22ECEB802453B5E20020751A /* custom-4-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-4-sun.png"; sourceTree = "<group>"; };
+		22ECEB962453C0FC0020751A /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sweather 2.entitlements"; sourceTree = "<group>"; };
 		22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		22FA8DE023EF926B00FFA1CD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				22FA8DE023EF926B00FFA1CD /* Settings.swift */,
 				22CC1F2523EFB50300763884 /* CustomIconPicker.swift */,
 				22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */,
+				22ECEB962453C0FC0020751A /* HostingController.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				22869E4523F0133300E1D8BF /* SharedSWWeatherData.swift in Sources */,
 				226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */,
 				22C6822B236798EC00B1919F /* PageViewController.swift in Sources */,
+				22ECEB972453C0FC0020751A /* HostingController.swift in Sources */,
 				22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */,
 				2281F4FA23814A680033E499 /* RainRadar.swift in Sources */,
 				226B15762377998B00D05ED1 /* WeatherStats.swift in Sources */,
