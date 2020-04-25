@@ -13,6 +13,7 @@ struct CurrentLocationWeatherView: View {
     
     init(manager: WeatherDataManager) {
         self.manager = manager
+        self.manager.usingCurrentLocation = true
         self.manager.locationId = nil
     }
         

@@ -15,6 +15,7 @@ struct WeatherView: View {
     
     init(location: WWLocation, manager: WeatherDataManager) {
         self.weatherDataManager = manager
+        self.weatherDataManager.usingCurrentLocation = false
         self.weatherDataManager.locationId = location.id
     }
     

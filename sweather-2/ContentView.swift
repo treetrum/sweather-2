@@ -21,7 +21,7 @@ struct ContentView: View {
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var sessionData: SessionData
     @ObservedObject var weatherDataManager: WeatherDataManager = WeatherDataManager()
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {

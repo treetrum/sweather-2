@@ -67,15 +67,12 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     var locationId: Int? {
         didSet {
             if (oldValue != self.locationId) {
-                self.getLocation()
+                self.start()
             }
         }
     }
     
-    private var usingCurrentLocation: Bool {
-        return locationId == nil
-    } 
-    
+    var usingCurrentLocation: Bool = false
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
     private var observer: Any?
@@ -87,13 +84,13 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     override init() {
         super.init()
         manager.delegate = self
-        self.getLocation()
+        self.start()
         
         #if os(watchOS)
         #else
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.getLocation),
+            selector: #selector(self.start),
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
@@ -104,7 +101,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func getLocation() {
+    @objc func start() {
         self.loading = true
         if (self.usingCurrentLocation) {
             manager.requestWhenInUseAuthorization()

@@ -12,7 +12,6 @@ import CoreLocation
 class WillyWeatherAPI {
     
     let apiURL = "https://api.willyweather.com.au/v2"
-    let cache = SJDCache(cacheTimeInMins: 15)
     let apiKey: String
     
     init() {
