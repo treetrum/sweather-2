@@ -215,13 +215,13 @@ class SWWeather {
         case preSunset = 2
         case sunsetOccurring =  3
         case isDayTime = 4
-        case unknown = 5
+        case isNightTime = 5
     }
     
     private func secsToMins(_ seconds: Double) -> Double { return seconds * 60.0 }
     
     func getTimePeriod() -> SWTimePeriod {
-        
+                
         guard let dateToCheck = self.temperature.date,
             let riseDateTime = self.sunrisesunset.rise,
             let setDateTime = self.sunrisesunset.set else {
@@ -260,7 +260,7 @@ class SWWeather {
             return .isDayTime
         }
         
-        return .isDayTime
+        return .isNightTime
     }
     
     static func getPrecisImageCode(
