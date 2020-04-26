@@ -76,7 +76,7 @@ class WillyWeatherAPI {
     }
     
     func getMapsForLocatoin(location: Int, callback: @escaping (WWMapData?, Error?) -> Void) {
-        let url = "\(apiURL)/\(apiKey)/locations/\(location)/maps.json?mapTypes=regional-radar&offset=-60&units=distance:km"
+        let url = "\(apiURL)/\(apiKey)/locations/\(location)/maps.json?mapTypes=regional-radar&offset=-60&limit=30&units=distance:km"
         SJDFetch.shared.get(url: url) { (data, response, error) in
             if let error = error {
                 print("We got an error, aborting. \(error)")
