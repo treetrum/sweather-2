@@ -51,6 +51,13 @@ struct WeatherViewPresentational: View {
                     NavigationView {
                         RainRadar(locationId: self.weather.location.id)
                             .navigationBarTitle(Text("Rain Radar"), displayMode: .inline)
+                            .navigationBarItems(
+                                leading: Button(action: {
+                                    self.showRadar = false
+                                }) {
+                                    Text("Done")
+                                }
+                            )
                     }
                 }
             }.foregroundColor(Color.white)

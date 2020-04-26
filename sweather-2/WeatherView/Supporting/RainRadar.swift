@@ -13,7 +13,7 @@ struct RainRadar: View {
     
     @ObservedObject var mapDataManager: MapDataManager
     @State var imageIndex = 0;
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var timer: Timer.TimerPublisher = Timer.publish (every: 1, on: .main, in: .common)
     
     init(locationId: Int) {
         self.mapDataManager = MapDataManager(locationId: locationId)
@@ -21,12 +21,15 @@ struct RainRadar: View {
     
     var body: some View {
         VStack {
-            if mapDataManager.mapData != nil {
-                VStack {
-//                    Text("Progress indicator")
+            if !mapDataManager.loading && mapDataManager.mapData != nil {
+                ZStack {
                     MapView(imageIndex: self.$imageIndex, mapData: mapDataManager.mapData!)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
+                    VStack {
+                        MapProgressIndicator(progress: Double(Double(self.imageIndex) * 1.0 / Double(mapDataManager.mapData!.overlays.count - 1)))
+                        Spacer()
+                    }
                 }
             } else {
                 Text("Loading map data...")
@@ -35,6 +38,13 @@ struct RainRadar: View {
             if let mapdata = self.mapDataManager.mapData {
                 self.imageIndex = (self.imageIndex + 1) % mapdata.overlays.count
             }
+        }
+        .onAppear(perform: {
+            self.timer = Timer.publish(every: 1, on: .main, in: .common)
+            let _ = self.timer.connect()
+        })
+        .onDisappear {
+            self.timer.connect().cancel()
         }
     }
 }

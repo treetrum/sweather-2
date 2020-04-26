@@ -15,12 +15,15 @@ class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
     
     @Published var mapData: WWMapData?
+    @Published var loading = true
     
     init(locationId: Int) {
+        self.loading = true
         api.getMapsForLocatoin(location: locationId) { (mapData, error) in
             guard let mapData = mapData else { return }
             DispatchQueue.main.async {
                 self.mapData = mapData
+                self.loading = false
                 print("Got map data \(mapData)")
             }
         }
