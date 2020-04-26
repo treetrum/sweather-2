@@ -15,6 +15,7 @@ extension Int {
 }
 
 struct WeatherViewPresentational: View {
+    @State var showRadar = false
     let weather: SWWeather
     var body: some View {
         GeometryReader { geometry in
@@ -34,7 +35,24 @@ struct WeatherViewPresentational: View {
                     WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
                 }.frame(height: geometry.size.height)
                 Days(weather: self.weather).padding(.bottom, 25)
-//                RainRadar(locationId: self.weather.location.id)
+                Button(action: {
+                    self.showRadar = true
+                }) {
+                    Text("Rain Radar")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .overlay(
+                             RoundedRectangle(cornerRadius: 4)
+                                 .stroke(Color.white, lineWidth: 1)
+                         )
+                        .padding(.horizontal)
+                        .padding(.bottom, 25)
+                }.sheet(isPresented: self.$showRadar) {
+                    NavigationView {
+                        RainRadar(locationId: self.weather.location.id)
+                            .navigationBarTitle(Text("Rain Radar"), displayMode: .inline)
+                    }
+                }
             }.foregroundColor(Color.white)
         }
     }

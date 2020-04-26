@@ -12,6 +12,8 @@ import MapKit
 struct RainRadar: View {
     
     @ObservedObject var mapDataManager: MapDataManager
+    @State var imageIndex = 0;
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     init(locationId: Int) {
         self.mapDataManager = MapDataManager(locationId: locationId)
@@ -20,9 +22,18 @@ struct RainRadar: View {
     var body: some View {
         VStack {
             if mapDataManager.mapData != nil {
-                MapView().frame(height: 300)
+                VStack {
+//                    Text("Progress indicator")
+                    MapView(imageIndex: self.$imageIndex, mapData: mapDataManager.mapData!)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                }
             } else {
                 Text("Loading map data...")
+            }
+        }.onReceive(timer) { _ in
+            if let mapdata = self.mapDataManager.mapData {
+                self.imageIndex = (self.imageIndex + 1) % mapdata.overlays.count
             }
         }
     }
@@ -45,7 +56,7 @@ extension MKMapView {
 }
 
 class ImageOverlay : NSObject, MKOverlay {
-    let image:UIImage
+    var image: UIImage
     let boundingMapRect: MKMapRect
     let coordinate:CLLocationCoordinate2D
     
@@ -68,35 +79,75 @@ class ImageOverlayRenderer : MKOverlayRenderer {
     }
 }
 
-final class MapView: NSObject, UIViewRepresentable, MKMapViewDelegate {
+final class MapView: NSObject, UIViewRepresentable {
     
-    var mapView: MKMapView?
+    @Binding var imageIndex: Int
+    let mapData: WWMapData
+    
+    init(imageIndex: Binding<Int>, mapData: WWMapData) {
+        self._imageIndex = imageIndex
+        self.mapData = mapData
+    }
+    
+    static func dismantleUIView(_ mapView: MKMapView, coordinator: Coordinator) {
+        for overlay in mapView.overlays {
+            mapView.removeOverlay(overlay)
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
+    }
     
     func makeUIView(context: Context) -> MKMapView {
-        let mapView = MKMapView()
-        mapView.delegate = self
-        mapView.setMapBounds(minLat: -36.051, minLng: 148.51, maxLat: -31.351, maxLng: 153.91)
-        
-        let url = URL(string:"https://cdnmaps.willyweather.com.au/radar/71-201911170754.png")
-        
-        if let data = try? Data(contentsOf: url!) {
-            let image: UIImage = UIImage(data: data)!
-            let overlay = ImageOverlay(image: image, rect: createMKMapRect(minLat: -36.051, minLng: 148.51, maxLat: -31.351, maxLng: 153.91))
-            mapView.addOverlay(overlay)
-        }
-        
-        return mapView
+        let mv = MKMapView()
+        mv.delegate = context.coordinator
+        mv.setMapBounds(
+            minLat: mapData.bounds.minLat,
+            minLng: mapData.bounds.minLng,
+            maxLat: mapData.bounds.maxLat,
+            maxLng: mapData.bounds.maxLng
+        )
+        mv.showsUserLocation = true
+        return mv
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-        
+    func updateUIView(_ mapView: MKMapView, context: Context) {
+        if let image = MapView.getImageFromURLString(url: "\(mapData.overlayPath)\(mapData.overlays[self.imageIndex].name)") {
+            let newOverlay = ImageOverlay(
+                image: image,
+                rect: createMKMapRect(
+                    minLat: mapData.bounds.minLat,
+                    minLng: mapData.bounds.minLng,
+                    maxLat: mapData.bounds.maxLat,
+                    maxLng: mapData.bounds.maxLng
+                )
+            )
+            if let oldOverlay = context.coordinator.overlay {
+                mapView.removeOverlay(oldOverlay)
+            }
+            context.coordinator.overlay = newOverlay
+            mapView.addOverlay(newOverlay)
+        }
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is ImageOverlay {
-            return ImageOverlayRenderer(overlay: overlay)
+    static func getImageFromURLString(url urlString: String) -> UIImage? {
+        if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
+            let image = UIImage(data: data)
+            return image
         }
-        return MKOverlayRenderer(overlay: overlay)
+        return nil;
+    }
+    
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var overlay: ImageOverlay?
+        
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            if overlay is ImageOverlay {
+                return ImageOverlayRenderer(overlay: overlay)
+            }
+            return MKOverlayRenderer(overlay: overlay)
+        }
     }
 }
 
