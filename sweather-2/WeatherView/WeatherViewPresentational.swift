@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 extension Int {
     func toString() -> String {
@@ -21,6 +22,7 @@ struct WeatherViewPresentational: View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
+                    Banner().frame(height: kGADAdSizeBanner.size.height)
                     LocationName(location: self.weather.location)
                     Spacer()
                     PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)

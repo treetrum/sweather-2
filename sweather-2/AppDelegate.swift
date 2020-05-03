@@ -8,12 +8,21 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialise AdMob SDK
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
+            kGADSimulatorID as! String, // Simulator
+            "fafcab26bf1f867b3899add5cb2ca1a3" // Sams iPhone 11 Pro
+        ];
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         return true
     }
 

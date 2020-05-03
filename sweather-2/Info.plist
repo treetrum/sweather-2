@@ -259,5 +259,16 @@
 	</array>
 	<key>WillyWeatherAPIKey</key>
 	<string>${WILLY_WEATHER_API_KEY}</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-7736556580630436~8619579364</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
