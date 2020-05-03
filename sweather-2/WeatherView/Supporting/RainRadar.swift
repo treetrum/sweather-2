@@ -93,10 +93,25 @@ final class MapView: NSObject, UIViewRepresentable {
     
     @Binding var imageIndex: Int
     let mapData: WWMapData
+    var images = [UIImage]()
+    var overlays = [MKOverlay]()
     
     init(imageIndex: Binding<Int>, mapData: WWMapData) {
         self._imageIndex = imageIndex
         self.mapData = mapData
+        for overlay in self.mapData.overlays {
+            if let image = MapView.getImageFromURLString(url: "\(mapData.overlayPath)\(overlay.name)") {
+                self.overlays.append(ImageOverlay(
+                    image: image,
+                    rect: createMKMapRect(
+                        minLat: mapData.bounds.minLat,
+                        minLng: mapData.bounds.minLng,
+                        maxLat: mapData.bounds.maxLat,
+                        maxLng: mapData.bounds.maxLng
+                    )
+                ))
+            }
+        }
     }
     
     static func dismantleUIView(_ mapView: MKMapView, coordinator: Coordinator) {
@@ -123,22 +138,8 @@ final class MapView: NSObject, UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
-        if let image = MapView.getImageFromURLString(url: "\(mapData.overlayPath)\(mapData.overlays[self.imageIndex].name)") {
-            let newOverlay = ImageOverlay(
-                image: image,
-                rect: createMKMapRect(
-                    minLat: mapData.bounds.minLat,
-                    minLng: mapData.bounds.minLng,
-                    maxLat: mapData.bounds.maxLat,
-                    maxLng: mapData.bounds.maxLng
-                )
-            )
-            if let oldOverlay = context.coordinator.overlay {
-                mapView.removeOverlay(oldOverlay)
-            }
-            context.coordinator.overlay = newOverlay
-            mapView.addOverlay(newOverlay)
-        }
+        mapView.removeOverlays(mapView.overlays)
+        mapView.addOverlay(self.overlays[self.imageIndex])
     }
     
     static func getImageFromURLString(url urlString: String) -> UIImage? {
