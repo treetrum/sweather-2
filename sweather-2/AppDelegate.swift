@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import StoreKit
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +25,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ];
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
+//        SessionData.shared.hasAdRemovalSubscription = false
+        
+        // Add SwiftyStoreKit stuff
+        SwiftyStoreKit.completeTransactions { (purchases) in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                @unknown default:
+                    break;
+                }
+            }
+            StoreManager.shared.verifyReciept()
+        }
+        StoreManager.shared.verifyReciept()
+
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        SKPaymentQueue.default().remove(StoreObserver.shared)
     }
 
     // MARK: UISceneSession Lifecycle

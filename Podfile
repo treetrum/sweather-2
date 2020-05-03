@@ -7,6 +7,7 @@ target 'sweather-2' do
 
   # Pods for sweather-2
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SwiftyStoreKit'
 
 end
 

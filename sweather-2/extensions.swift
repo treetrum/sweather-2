@@ -45,6 +45,12 @@ extension Date {
         formatter.dateFormat = "h:mma"
         return formatter.string(from: self)
     }
+    
+    func prettyDateTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy h:mm a"
+        return formatter.string(from: self)
+    }
 }
 
 extension Float {

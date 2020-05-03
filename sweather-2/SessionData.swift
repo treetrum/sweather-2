@@ -11,9 +11,13 @@ import Combine
 
 class SessionData: ObservableObject {
     
+    static let shared = SessionData()
+    
     enum SessionDataKeys: String {
         case currentWeatherLocation
         case viewingCurrentLocation
+        case hasAdRemovalSubscription
+        case adRemovalSubscripionExpiry
     }
     
     @Published var currentLocationId: Int {
@@ -28,11 +32,27 @@ class SessionData: ObservableObject {
         }
     }
     
+    @Published var hasAdRemovalSubscription: Bool {
+        didSet {
+            UserDefaults.standard.set(hasAdRemovalSubscription, forKey: SessionDataKeys.hasAdRemovalSubscription.rawValue)
+        }
+    }
+    
+    @Published var adRemovalSubscripionExpiry: String? {
+        didSet {
+            UserDefaults.standard.set(adRemovalSubscripionExpiry, forKey: SessionDataKeys.adRemovalSubscripionExpiry.rawValue)
+        }
+    }
+    
     init(
         viewingCurrentLocation: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.viewingCurrentLocation.rawValue),
-        currentLocationId: Int = UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue)
+        currentLocationId: Int = UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue),
+        hasAdRemovalSubscription: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.hasAdRemovalSubscription.rawValue),
+        adRemovalSubscripionExpiry: String? = UserDefaults.standard.string(forKey: SessionDataKeys.adRemovalSubscripionExpiry.rawValue)
     ) {
         self.currentLocationId = currentLocationId
         self.viewingCurrentLocation = viewingCurrentLocation
+        self.hasAdRemovalSubscription = hasAdRemovalSubscription
+        self.adRemovalSubscripionExpiry = adRemovalSubscripionExpiry
     }
 }

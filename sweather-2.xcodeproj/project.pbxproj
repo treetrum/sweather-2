@@ -74,6 +74,8 @@
 		229D3E4A236036750035FD66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E49236036750035FD66 /* Preview Assets.xcassets */; };
 		229D3E4D236036750035FD66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D3E4B236036750035FD66 /* LaunchScreen.storyboard */; };
 		22A3BC7A245E6D9D0048214B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A3BC79245E6D9D0048214B /* StoreKit.framework */; };
+		22A3BC7D245E73980048214B /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3BC7C245E73980048214B /* StoreObserver.swift */; };
+		22A3BC7F245E7CAA0048214B /* SubscriptionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3BC7E245E7CAA0048214B /* SubscriptionsScreen.swift */; };
 		22A8350923EFECEA00D0310D /* sample-weather-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223FB3A323764E97005BB4D8 /* sample-weather-data.json */; };
 		22A8350A23EFECEA00D0310D /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		22A8350C23EFEE3300D0310D /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
@@ -207,6 +209,8 @@
 		229D3E4C236036750035FD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		229D3E4E236036750035FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A3BC79245E6D9D0048214B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22A3BC7C245E73980048214B /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
+		22A3BC7E245E7CAA0048214B /* SubscriptionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsScreen.swift; sourceTree = "<group>"; };
 		22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		22C6822A236798EC00B1919F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		22C6822D2367A10300B1919F /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -453,6 +457,7 @@
 		229D3E3F236036730035FD66 /* sweather-2 */ = {
 			isa = PBXGroup;
 			children = (
+				22A3BC7B245E73780048214B /* IAP */,
 				22ECEB982453C5430020751A /* Build Config */,
 				22ECEB6B2453B5D40020751A /* Custom Icons */,
 				226B156C23777DC700D05ED1 /* Data Managers */,
@@ -485,6 +490,7 @@
 				22ECEB9C2453EC7A0020751A /* CustomPopup.swift */,
 				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
 				22983B7B245E58A5000AEAA7 /* BannerVC.swift */,
+				22A3BC7E245E7CAA0048214B /* SubscriptionsScreen.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -495,6 +501,14 @@
 				229D3E49236036750035FD66 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22A3BC7B245E73780048214B /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				22A3BC7C245E73980048214B /* StoreObserver.swift */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		22C68229236798C400B1919F /* uikit-swiftui-ports */ = {
@@ -841,6 +855,7 @@
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,
 				22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */,
 				226B156A23777D6B00D05ED1 /* WWLocationCoordSearchResult.swift in Sources */,
+				22A3BC7D245E73980048214B /* StoreObserver.swift in Sources */,
 				223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */,
 				223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */,
 				22983B7C245E58A5000AEAA7 /* BannerVC.swift in Sources */,
@@ -872,6 +887,7 @@
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
+				22A3BC7F245E7CAA0048214B /* SubscriptionsScreen.swift in Sources */,
 				226B156E2377836C00D05ED1 /* Days.swift in Sources */,
 				22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,
 				22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */,
@@ -1143,7 +1159,7 @@
 				PRODUCT_NAME = "Sweather 2";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1168,7 +1184,7 @@
 				PRODUCT_NAME = "Sweather 2";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

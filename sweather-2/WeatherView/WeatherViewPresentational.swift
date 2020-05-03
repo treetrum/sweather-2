@@ -17,12 +17,15 @@ extension Int {
 
 struct WeatherViewPresentational: View {
     @State var showRadar = false
+    @ObservedObject var sessionData = SessionData.shared
     let weather: SWWeather
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Banner().frame(height: kGADAdSizeBanner.size.height)
+                    if (!self.sessionData.hasAdRemovalSubscription) {
+                        Banner().frame(height: kGADAdSizeBanner.size.height)
+                    }
                     LocationName(location: self.weather.location)
                     Spacer()
                     PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)

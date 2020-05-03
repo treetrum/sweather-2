@@ -24,6 +24,11 @@ struct Settings: View {
                         Text("App Icon")
                     }
                 }
+                Section {
+                    NavigationLink(destination: SubscriptionsScreen()) {
+                        Text("Subscription")
+                    }
+                }
                 Section(
                     footer:
                         VStack {
