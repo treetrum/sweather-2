@@ -11,6 +11,7 @@ import CoreData
 import GoogleMobileAds
 import StoreKit
 import SwiftyStoreKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,9 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "fafcab26bf1f867b3899add5cb2ca1a3" // Sams iPhone 11 Pro
         ];
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
-//        SessionData.shared.hasAdRemovalSubscription = false
-        
+                
         // Add SwiftyStoreKit stuff
         SwiftyStoreKit.completeTransactions { (purchases) in
             for purchase in purchases {
@@ -46,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StoreManager.shared.verifyReciept()
         }
         StoreManager.shared.verifyReciept()
+
+        // Add firebase
+        FirebaseApp.configure()
 
         return true
     }

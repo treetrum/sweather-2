@@ -6,6 +6,8 @@ target 'sweather-2' do
   use_frameworks!
 
   # Pods for sweather-2
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftyStoreKit'
 

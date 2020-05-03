@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2225207E245ED7B90021FC0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2225207D245ED7B90021FC0E /* GoogleService-Info.plist */; };
 		2237DB5924552EA90077C97E /* MapProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237DB5824552EA90077C97E /* MapProgressIndicator.swift */; };
 		223AE8E22376673F00E17875 /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		223AE8E4237667BD00E17875 /* PrecisIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E3237667BD00E17875 /* PrecisIcon.swift */; };
@@ -152,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2225207D245ED7B90021FC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2237DB5824552EA90077C97E /* MapProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProgressIndicator.swift; sourceTree = "<group>"; };
 		223AE8E12376673F00E17875 /* sample-location-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-location-data.json"; sourceTree = "<group>"; };
 		223AE8E3237667BD00E17875 /* PrecisIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisIcon.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
 				22983B7B245E58A5000AEAA7 /* BannerVC.swift */,
 				22A3BC7E245E7CAA0048214B /* SubscriptionsScreen.swift */,
+				2225207D245ED7B90021FC0E /* GoogleService-Info.plist */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				229D3E3B236036730035FD66 /* Resources */,
 				2284BB0A23EFE1B100E15FCF /* Embed Watch Content */,
 				F76A5BAACEC9E46B0ED0D646 /* [CP] Embed Pods Frameworks */,
+				2225207F245ED96F0021FC0E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -702,6 +706,7 @@
 				22ECEB902453B5E20020751A /* custom-5.png in Resources */,
 				22ECEB8B2453B5E20020751A /* custom-6-snow.png in Resources */,
 				22ECEB862453B5E20020751A /* custom-1-sun.png in Resources */,
+				2225207E245ED7B90021FC0E /* GoogleService-Info.plist in Resources */,
 				229D3E4A236036750035FD66 /* Preview Assets.xcassets in Resources */,
 				22ECEB932453B5E20020751A /* default.png in Resources */,
 				22ECEB8D2453B5E20020751A /* custom-3.png in Resources */,
@@ -723,6 +728,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2225207F245ED96F0021FC0E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"\"${PODS_ROOT}/FirebaseCrashlytics/run\"",
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		82F399118F3F98BD16EC7BEA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
