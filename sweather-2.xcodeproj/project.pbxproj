@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2225207E245ED7B90021FC0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2225207D245ED7B90021FC0E /* GoogleService-Info.plist */; };
+		22252081245EDFBC0021FC0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22252080245EDFBC0021FC0E /* GoogleService-Info.plist */; };
 		2237DB5924552EA90077C97E /* MapProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237DB5824552EA90077C97E /* MapProgressIndicator.swift */; };
 		223AE8E22376673F00E17875 /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		223AE8E4237667BD00E17875 /* PrecisIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AE8E3237667BD00E17875 /* PrecisIcon.swift */; };
@@ -153,7 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2225207D245ED7B90021FC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22252080245EDFBC0021FC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2237DB5824552EA90077C97E /* MapProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProgressIndicator.swift; sourceTree = "<group>"; };
 		223AE8E12376673F00E17875 /* sample-location-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-location-data.json"; sourceTree = "<group>"; };
 		223AE8E3237667BD00E17875 /* PrecisIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecisIcon.swift; sourceTree = "<group>"; };
@@ -493,7 +493,7 @@
 				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
 				22983B7B245E58A5000AEAA7 /* BannerVC.swift */,
 				22A3BC7E245E7CAA0048214B /* SubscriptionsScreen.swift */,
-				2225207D245ED7B90021FC0E /* GoogleService-Info.plist */,
+				22252080245EDFBC0021FC0E /* GoogleService-Info.plist */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -705,8 +705,8 @@
 				22ECEB812453B5E20020751A /* custom-6.png in Resources */,
 				22ECEB902453B5E20020751A /* custom-5.png in Resources */,
 				22ECEB8B2453B5E20020751A /* custom-6-snow.png in Resources */,
+				22252081245EDFBC0021FC0E /* GoogleService-Info.plist in Resources */,
 				22ECEB862453B5E20020751A /* custom-1-sun.png in Resources */,
-				2225207E245ED7B90021FC0E /* GoogleService-Info.plist in Resources */,
 				229D3E4A236036750035FD66 /* Preview Assets.xcassets in Resources */,
 				22ECEB932453B5E20020751A /* default.png in Resources */,
 				22ECEB8D2453B5E20020751A /* custom-3.png in Resources */,
@@ -1169,7 +1169,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 824;
+				CURRENT_PROJECT_VERSION = 825;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
@@ -1194,7 +1194,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 824;
+				CURRENT_PROJECT_VERSION = 825;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;

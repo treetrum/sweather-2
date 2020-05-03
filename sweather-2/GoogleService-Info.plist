@@ -7,7 +7,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.973160271256-aof4amr6qfgd6j39ld9ndsf2au0n3u0u</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDLucVAtGmB_DsGiRLr1fbW5zqf3BJkWOc</string>
+	<string>${GOOGLE_API_KEY}</string>
 	<key>GCM_SENDER_ID</key>
 	<string>973160271256</string>
 	<key>PLIST_VERSION</key>
@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>sweather-3a6f4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:973160271256:ios:60dbd3b7c1ac7851eeafed</string>
 	<key>DATABASE_URL</key>
 	<string>https://sweather-3a6f4.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-7736556580630436~8619579364</string>
 </dict>
 </plist>
