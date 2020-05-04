@@ -10,8 +10,11 @@ import SwiftUI
 
 struct BackgroundGradient: View {
     
-    @ObservedObject var manager = WeatherDataManager()
-    var timePeriod: SWWeather.SWTimePeriod = .isDayTime
+    let timePeriod: SWWeather.SWTimePeriod
+    
+    init(timePeriod: SWWeather.SWTimePeriod = .isDayTime) {
+        self.timePeriod = timePeriod
+    }
 
     var gradients: [[Color]] = [
         [Color.init(UIColor(hexString: "C92D2D")), Color.init(UIColor(hexString: "763BCD"))],
@@ -21,13 +24,6 @@ struct BackgroundGradient: View {
         [Color.init(UIColor(hexString: "272394")), Color.init(UIColor(hexString: "16A2FF"))],
         [Color.init(UIColor(hexString: "06113B")), Color.init(UIColor(hexString: "4A30BF"))]
     ]
-    
-    init(manager: WeatherDataManager) {
-        self.manager = manager;
-        if let weatherData = manager.simpleWeatherData {
-            self.timePeriod = weatherData.getTimePeriod()
-        }
-    }
     
     var body: some View {
         ZStack {
@@ -62,14 +58,6 @@ struct GradientLayer: View {
 
 struct BackgroundGradient_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environment(\.managedObjectContext, (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-            .environmentObject(SessionData())
+        BackgroundGradient().edgesIgnoringSafeArea(.all)
     }
 }
-
-//struct BackgroundGradient_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Text("No preview for this view")
-//    }
-//}

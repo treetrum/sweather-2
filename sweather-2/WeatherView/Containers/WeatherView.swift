@@ -10,21 +10,26 @@ import SwiftUI
 
 struct WeatherView: View {
     
-    @ObservedObject var weatherDataManager: WeatherDataManager
+    @ObservedObject var manager: WeatherDataManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    init(location: WWLocation, manager: WeatherDataManager) {
-        self.weatherDataManager = manager
-        self.weatherDataManager.usingCurrentLocation = false
-        self.weatherDataManager.locationId = location.id
+    init(location: WWLocation) {
+        self.manager = WeatherDataManager.shared
+        self.manager.usingCurrentLocation = false
+        if self.manager.locationId != location.id {
+            self.manager.locationId = location.id
+            self.manager.start()
+        }
     }
-    
+
     var body: some View {
         VStack {
-            if weatherDataManager.loading == false && weatherDataManager.simpleWeatherData != nil {
-                WeatherViewPresentational(weather: weatherDataManager.simpleWeatherData!)
-            } else {
+            if manager.loading == false && manager.simpleWeatherData != nil {
+                WeatherViewPresentational(weather: manager.simpleWeatherData!)
+            } else if manager.loading {
                 Loading()
+            } else {
+                Text("Not loading")
             }
         }
     }

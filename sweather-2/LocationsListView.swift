@@ -40,7 +40,7 @@ struct LocationsListView: View {
                     Text("Done")
                 },
                 trailing: Button(action: showAddLocationView, label: {
-                    Image(systemName: "plus")
+                    Image(systemName: "plus").padding(.all)
                 }))
             .sheet(isPresented: self.$showingAddLocationView) {
                 AddLocationView().environment(\.managedObjectContext, self.managedObjectContext)

@@ -11,7 +11,7 @@ import WatchKit
 
 struct WatchContentView: View {
     
-    @ObservedObject var manager: WeatherDataManager = WeatherDataManager()
+    @ObservedObject var manager: WeatherDataManager = WeatherDataManager.shared
     
     init() {
         WatchComplicationHelper.shared.reloadComplications()

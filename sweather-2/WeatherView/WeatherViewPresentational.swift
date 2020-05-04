@@ -98,7 +98,7 @@ struct Temperatures: View {
 struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            BackgroundGradient(manager: WeatherDataManager())
+            BackgroundGradient()
             WeatherViewPresentational(weather: SampleWeatherData())
                 .environmentObject(SessionData(viewingCurrentLocation: true))
         }

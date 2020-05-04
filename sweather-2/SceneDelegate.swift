@@ -29,8 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let sessionData = SessionData()
         let appState = AppState()
+        let weatherDataManager = WeatherDataManager.shared
         let contentView = ContentView()
             .environment(\.managedObjectContext, context)
+            .environmentObject(weatherDataManager)
             .environmentObject(sessionData)
             .environmentObject(appState)
 

@@ -36,6 +36,13 @@ struct AddLocationView: View {
                 }.listStyle(GroupedListStyle())
             }
             .navigationBarTitle("Add Location", displayMode: .inline)
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Done")
+                }
+            )
         }
         
     }

@@ -21,20 +21,23 @@ struct ContentView: View {
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var sessionData: SessionData
     @EnvironmentObject var appState: AppState
-    @ObservedObject var weatherDataManager: WeatherDataManager = WeatherDataManager()
+    @EnvironmentObject var manager: WeatherDataManager
 
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ZStack {
-                BackgroundGradient(manager: self.weatherDataManager)
+                BackgroundGradient(
+                    timePeriod: self.manager.simpleWeatherData?.getTimePeriod() ?? .isDayTime
+                )
                 VStack {
                     if self.sessionData.viewingCurrentLocation || self.savedLocations.count == 0 {
-                        CurrentLocationWeatherView(manager: self.weatherDataManager)
+                        CurrentLocationWeatherView()
                     } else {
                        if self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId }) != nil {
                             WeatherView(
-                                location: WWLocation( savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!),
-                                manager: self.weatherDataManager
+                                location: WWLocation(
+                                    savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!
+                                )
                             )
                        }
                     }
@@ -69,9 +72,6 @@ struct ContentView: View {
                 } else {
                     Text("ERROR")
                 }
-            }
-            .onDisappear {
-                self.weatherDataManager.destroy()
             }
         }
     }

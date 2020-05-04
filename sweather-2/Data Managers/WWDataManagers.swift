@@ -15,7 +15,7 @@ class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
     
     @Published var mapData: WWMapData?
-    @Published var loading = true
+    @Published var loading = false
     
     init(locationId: Int) {
         self.loading = true
@@ -66,46 +66,52 @@ class LocationSearchManager: ObservableObject {
 
 class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
-    var locationId: Int? {
-        didSet {
-            if (oldValue != self.locationId) {
-                self.start()
-            }
-        }
-    }
+    static let shared = WeatherDataManager()
     
+    var locationId: Int?
     var usingCurrentLocation: Bool = false
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
     private var observer: Any?
 
     @Published var location: WWLocation?
-    @Published var simpleWeatherData: SWWeather?
+    @Published var simpleWeatherData: SWWeather? {
+        didSet {
+            print("Weather data updated")
+        }
+    }
     @Published var loading: Bool = false
+    
+    private var started: Bool = false
     
     override init() {
         super.init()
         manager.delegate = self
-        self.start()
-        
-        #if os(watchOS)
-        #else
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.start),
-            name: UIApplication.willEnterForegroundNotification,
-            object: nil
-        )
-        #endif
     }
     
     func destroy() {
         NotificationCenter.default.removeObserver(self)
+        self.started = false
     }
     
     @objc func start() {
+        
+        #if os(watchOS)
+        #else
+        if !started {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(self.start),
+                name: UIApplication.willEnterForegroundNotification,
+                object: nil
+            )
+            self.started = true
+        }
+        #endif
+        
         self.loading = true
         if (self.usingCurrentLocation) {
+            print("GETTING WEATHER FOR LOCATION")
             manager.requestWhenInUseAuthorization()
             manager.startUpdatingLocation()
         } else {
@@ -120,6 +126,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
                 DispatchQueue.main.async {
                     self.simpleWeatherData = SWWeather(weather: weatherData)
                     self.loading = false
+                    print("GOT WEATHER DATA")
                     #if os(watchOS)
                     SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
                     WatchComplicationHelper.shared.reloadComplications()
@@ -143,8 +150,10 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let first = locations.first {
-            getLocationForCoords(first.coordinate)
-            manager.stopUpdatingLocation()
+            if (self.usingCurrentLocation) {
+                getLocationForCoords(first.coordinate)
+                manager.stopUpdatingLocation()
+            }
         }
     }
 

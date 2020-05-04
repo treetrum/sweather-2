@@ -19,9 +19,8 @@ struct BottomBar: View {
         VStack {
             Rectangle()
                 .frame(height: 1)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.white.opacity(0.5))
                 .padding(.all, 0)
-                .opacity(0.5)
             HStack {
                 Button(action: {
                     self.showingModal = true
@@ -47,7 +46,7 @@ struct BottomBar_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
-                BackgroundGradient(manager: WeatherDataManager())
+                BackgroundGradient()
                 BottomBar(
                     showingModal: .constant(false),
                     showingListView: .constant(false),

@@ -91,7 +91,7 @@ struct Hours: View {
 struct Hours_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            BackgroundGradient(manager: WeatherDataManager())
+            BackgroundGradient()
             Hours(weather: SampleWeatherData())
         }.edgesIgnoringSafeArea(.all)
     }
