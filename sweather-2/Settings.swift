@@ -8,6 +8,22 @@
 
 import SwiftUI
 
+struct NavigationButtonIcon: View {
+    let iconName: String
+    let colour: Color
+    var body: some View {
+        VStack {
+            Image(systemName: iconName).foregroundColor(.white)
+        }
+        .font(.system(size: 14))
+            .frame(width: 25, height: 25)
+            .background(self.colour)
+            .cornerRadius(4)
+            .padding(.vertical, 5)
+            .padding(.trailing, 5)
+    }
+}
+
 struct Settings: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -21,14 +37,13 @@ struct Settings: View {
             List {
                 Section {
                     NavigationLink(destination: CustomIconPicker()) {
-                        Text("App Icon")
+                        HStack {
+                            NavigationButtonIcon(iconName: "photo", colour: .blue)
+                            Text("App Icon")
+                        }
                     }
                 }
-                Section {
-                    NavigationLink(destination: SubscriptionsScreen()) {
-                        Text("Subscription")
-                    }
-                }
+                SubscriptionButtons()
                 Section(
                     footer:
                         VStack {
