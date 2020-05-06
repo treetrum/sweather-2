@@ -29,6 +29,7 @@ class SJDFetch {
         }
 
         if !skipCache, let cachedData = cache.getCachedData(urlString) {
+//            print("Using cache")
             callback(cachedData, nil, nil)
         } else {
             let url = URL(string: urlString)

@@ -20,7 +20,7 @@ struct NavigationButtonIcon: View {
             .background(self.colour)
             .cornerRadius(4)
             .padding(.vertical, 5)
-            .padding(.trailing, 5)
+//            .padding(.trailing, 0)
     }
 }
 

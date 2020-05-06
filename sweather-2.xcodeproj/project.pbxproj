@@ -25,6 +25,7 @@
 		2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */; };
 		2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
 		225C3EE32462C3520052374D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C3EE22462C3520052374D /* StoreManager.swift */; };
+		225C3EE72462CD2B0052374D /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C3EE62462CD2B0052374D /* LocationRow.swift */; };
 		226B156023777CD100D05ED1 /* SJDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B155F23777CD100D05ED1 /* SJDCache.swift */; };
 		226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156123777CF400D05ED1 /* SJDFetch.swift */; };
 		226B156623777D2600D05ED1 /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
@@ -171,6 +172,7 @@
 		2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillyWeatherAPI.swift; sourceTree = "<group>"; };
 		2256B4702363BFDF009C9F13 /* LocationsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationsModel.xcdatamodel; sourceTree = "<group>"; };
 		225C3EE22462C3520052374D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		225C3EE62462CD2B0052374D /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		226B155F23777CD100D05ED1 /* SJDCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDCache.swift; sourceTree = "<group>"; };
 		226B156123777CF400D05ED1 /* SJDFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDFetch.swift; sourceTree = "<group>"; };
 		226B156523777D2600D05ED1 /* WWLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWLocation.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				22A3BC7E245E7CAA0048214B /* SubscriptionButtons.swift */,
 				22252080245EDFBC0021FC0E /* GoogleService-Info.plist */,
 				225C3EE22462C3520052374D /* StoreManager.swift */,
+				225C3EE62462CD2B0052374D /* LocationRow.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				224F62572367F0E500A73E2E /* AddLocationView.swift in Sources */,
 				226B1574237792E000D05ED1 /* extensions.swift in Sources */,
 				226B157023778A8000D05ED1 /* DecodeLocalJSON.swift in Sources */,
+				225C3EE72462CD2B0052374D /* LocationRow.swift in Sources */,
 				223AE8EC237677F500E17875 /* RainChance.swift in Sources */,
 				226B157223778F3C00D05ED1 /* Hours.swift in Sources */,
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,

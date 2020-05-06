@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct LocationsListView: View {
     
@@ -20,20 +21,31 @@ struct LocationsListView: View {
     var body: some View {
         NavigationView {
             List {
-                Button(action: selectCurrentLocation ) {
-                    Text("Current location")
+                Section {
+                    Button(action: selectCurrentLocation ) {
+                        HStack {
+                            NavigationButtonIcon(iconName: "location.fill", colour: .green)
+                            Text("Current location")
+                        }
+                    }
                 }
-                ForEach(savedLocations, id: \.id) { location in
-                    Button(action: { self.handleLocationPress(location) }) {
-                        LocationRow(location)
+                Section {
+                    ForEach(savedLocations, id: \.id) { location in
+                        Button(action: { self.handleLocationPress(location) }) {
+                            LocationRow(location)
+                        }
+                    }.onDelete { (offsets: IndexSet) in
+                        for index in offsets {
+                            let location = self.savedLocations[index]
+                            self.managedObjectContext.delete(location)
+                        }
                     }
-                }.onDelete { (offsets: IndexSet) in
-                    for index in offsets {
-                        let location = self.savedLocations[index]
-                        self.managedObjectContext.delete(location)
-                    }
+                }
+                if !self.sessionData.hasAdRemovalSubscription {
+                    Banner().frame(height: kGADAdSizeBanner.size.height).listRowInsets(EdgeInsets())
                 }
             }
+            .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("Locations"), displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: closeSheet) {
@@ -67,24 +79,6 @@ struct LocationsListView: View {
         sessionData.currentLocationId = location.id
         closeSheet()
     }
-}
-
-struct LocationRow: View {
-    
-    var location: WWLocation
-    
-    init(_ location: SavedLocation) {
-        self.location = WWLocation(savedLocation: location)
-    }
-    
-    init(_ location: WWLocation) {
-        self.location = location
-    }
-
-    var body: some View {
-        Text("\(location.name), \(location.postcode)")
-    }
-
 }
 
 struct LocationsListView_Previews: PreviewProvider {

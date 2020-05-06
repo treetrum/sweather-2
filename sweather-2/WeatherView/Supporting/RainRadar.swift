@@ -8,12 +8,14 @@
 
 import SwiftUI
 import MapKit
+import GoogleMobileAds
 
 struct RainRadar: View {
     
     @ObservedObject var mapDataManager: MapDataManager
     @State var imageIndex = 0;
     @State var timer: Timer.TimerPublisher = Timer.publish (every: 1, on: .main, in: .common)
+    var sessionData = SessionData.shared
     
     init(locationId: Int) {
         self.mapDataManager = MapDataManager(locationId: locationId)
@@ -26,6 +28,13 @@ struct RainRadar: View {
                     MapView(imageIndex: self.$imageIndex, mapData: mapDataManager.mapData!)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
+                    if !self.sessionData.hasAdRemovalSubscription {
+                        VStack {
+                            Banner().frame(height: kGADAdSizeBanner.size.height).listRowInsets(EdgeInsets())
+                            Spacer()
+                        }
+                        
+                    }
                     VStack {
                         MapProgressIndicator(progress: Double(Double(self.imageIndex) * 1.0 / Double(mapDataManager.mapData!.overlays.count - 1)))
                         Spacer()
