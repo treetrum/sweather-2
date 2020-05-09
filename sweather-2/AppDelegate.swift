@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Add firebase
+        FirebaseApp.configure()
+        
         // Initialise AdMob SDK
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
             kGADSimulatorID as! String, // Simulator
@@ -45,9 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StoreManager.shared.verifyReciept()
         }
         StoreManager.shared.verifyReciept()
-
-        // Add firebase
-        FirebaseApp.configure()
 
         return true
     }
