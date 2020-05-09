@@ -9,6 +9,8 @@
 import SwiftUI
 import GoogleMobileAds
 
+let MAX_NUMBER_CUSTOM_LOCATIONS = 5;
+
 struct LocationsListView: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -17,6 +19,10 @@ struct LocationsListView: View {
     
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @State var showingAddLocationView: Bool = false
+    
+    @State var showAlert = false
+    @State var alertTitle = ""
+    @State var alertBody = ""
 
     var body: some View {
         NavigationView {
@@ -29,7 +35,7 @@ struct LocationsListView: View {
                         }
                     }
                 }
-                Section {
+                Section(footer: Text("\(self.savedLocations.count) of 5 saved locations used")) {
                     ForEach(savedLocations, id: \.id) { location in
                         Button(action: { self.handleLocationPress(location) }) {
                             LocationRow(location)
@@ -57,11 +63,24 @@ struct LocationsListView: View {
             .sheet(isPresented: self.$showingAddLocationView) {
                 AddLocationView().environment(\.managedObjectContext, self.managedObjectContext)
             }
+            .alert(isPresented: self.$showAlert) { () -> Alert in
+                Alert(
+                    title: Text(self.alertTitle),
+                    message: Text(self.alertBody),
+                    dismissButton: .default(Text("Got it!"))
+                )
+            }
         }
     }
     
     func showAddLocationView() {
-        self.showingAddLocationView = true;
+        if (self.savedLocations.count < MAX_NUMBER_CUSTOM_LOCATIONS) {
+            self.showingAddLocationView = true;
+        } else {
+            self.showAlert = true;
+            self.alertTitle = "Limit reached"
+            self.alertBody = "You can only add \(MAX_NUMBER_CUSTOM_LOCATIONS) saved locations. Please remove an existing location before adding another."
+        }
     }
     
     func closeSheet() {
