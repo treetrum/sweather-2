@@ -44,7 +44,7 @@ struct WeatherViewPresentational: View {
                         .padding([.top])
                         .padding(.bottom, 25)
                 }
-                .frame(height: geometry.size.height - geometry.safeAreaInsets.top - 8)
+                .frame(height: geometry.size.height - geometry.safeAreaInsets.top + 8)
                 
                 // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)

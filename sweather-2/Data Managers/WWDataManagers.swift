@@ -14,8 +14,21 @@ import Combine
 class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
     
-    @Published var mapData: WWMapData?
     @Published var loading = false
+    @Published var images = [Int: UIImage]()
+    @Published var mapData: WWMapData? {
+        didSet {
+            self.images = [Int: UIImage]()
+            if let data = self.mapData {
+                for (index, overlay) in data.overlays.enumerated() {
+                    let urlString = "\(data.overlayPath)\(overlay.name)"
+                    MapView.getImageAsync(urlString) { (image) in
+                        self.images[index] = image
+                    }
+                }
+            }
+        }
+    }
     
     init(locationId: Int) {
         self.loading = true
@@ -24,7 +37,6 @@ class MapDataManager: ObservableObject {
             DispatchQueue.main.async {
                 self.mapData = mapData
                 self.loading = false
-                print("Got map data \(mapData)")
             }
         }
     }
