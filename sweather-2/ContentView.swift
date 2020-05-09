@@ -19,9 +19,9 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
-    @EnvironmentObject var sessionData: SessionData
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var manager: WeatherDataManager
+    @ObservedObject var sessionData = SessionData.shared
 
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in

@@ -48,7 +48,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             StoreManager.shared.verifyReciept()
         }
         StoreManager.shared.verifyReciept()
-
+        
+        // Set default values in database
+        do {
+            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
+            let locations = try self.persistentContainer.viewContext.fetch(request)
+            if locations.count == 0 {
+                print("INIT: No locations found")
+                let newLocation = SavedLocation(context: self.persistentContainer.viewContext)
+                newLocation.id = Int16(4950)
+                newLocation.name = "Sydney"
+                newLocation.postcode = "2000"
+                newLocation.region = "Sydney"
+                newLocation.state = "NSW"
+                try self.persistentContainer.viewContext.save()
+            }
+        } catch {
+            print("INIT: Error fetching saved locations")
+        }
+        
+        
         return true
     }
     
@@ -77,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         container.loadPersistentStores { description, error in
             if let error = error {
                 // Add your error UI here
-                print("Error loading persisten store")
+                print("[DB] Error loading persistent store")
             }
         }
         return container
@@ -89,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try context.save()
             } catch {
-                print("Could not save context")
+                print("[DB] Could not save context")
                 // Show the error here
             }
         }

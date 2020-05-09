@@ -15,7 +15,7 @@ struct LocationsListView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
-    @EnvironmentObject var sessionData: SessionData
+    @ObservedObject var sessionData = SessionData.shared
     
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @State var showingAddLocationView: Bool = false
@@ -41,14 +41,11 @@ struct LocationsListView: View {
                             LocationRow(location)
                         }
                     }.onDelete { (offsets: IndexSet) in
-                        for index in offsets {
-                            let location = self.savedLocations[index]
-                            self.managedObjectContext.delete(location)
-                        }
+                        self.handleDelete(offsets)
                     }
                 }
-                if !self.sessionData.hasAdRemovalSubscription {
-                    Banner().frame(height: kGADAdSizeBanner.size.height).listRowInsets(EdgeInsets())
+                if (!sessionData.hasAdRemovalSubscription) {
+                    AdBanner().listRowInsets(EdgeInsets())
                 }
             }
             .listStyle(GroupedListStyle())
@@ -97,6 +94,26 @@ struct LocationsListView: View {
         sessionData.viewingCurrentLocation = false
         sessionData.currentLocationId = location.id
         closeSheet()
+    }
+    
+    func handleDelete(_ offsets: IndexSet) {
+        for index in offsets {
+            let location = self.savedLocations[index]
+            let id = Int(location.id)
+            self.managedObjectContext.delete(location)
+            do {
+                try self.managedObjectContext.save()
+                if self.sessionData.currentLocationId == id {
+                    if self.savedLocations.count > 0 {
+                        self.sessionData.currentLocationId = Int(self.savedLocations.first!.id)
+                    } else {
+                        self.sessionData.viewingCurrentLocation = true
+                    }
+                }
+            } catch {
+                print("[DB] Error when saving after deleting from DB")
+            }
+        }
     }
 }
 

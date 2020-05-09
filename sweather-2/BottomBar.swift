@@ -37,7 +37,7 @@ struct BottomBar: View {
                 }) {
                     Image(systemName: "gear").foregroundColor(Color.white).padding(.all)
                 }
-            }.padding(.bottom, safeAreaOffsets.bottom)
+            }.padding(.bottom, max(safeAreaOffsets.bottom, 10))
         }.padding([.leading, .trailing]).padding(.top, 0)
     }
 }

@@ -59,11 +59,11 @@ class StoreManager: ObservableObject {
     }
     
     init() {
-        print("Fetching products")
+        print("[StoreManager] Fetching products")
         SwiftyStoreKit.retrieveProductsInfo([IAPProductIds.removeAds.rawValue]) { (products) in
             DispatchQueue.main.async {
                 self.products = Array(products.retrievedProducts)
-                print("Fetched products")
+                print("[StoreManager] Fetched products")
             }
         }
     }
@@ -83,19 +83,20 @@ class StoreManager: ObservableObject {
                     
                 switch purchaseResult {
                 case .purchased(let expiryDate, let items):
-                    print("\(productId) is valid until \(expiryDate)\n\(items)\n")
+                    print("[StoreManager] \(productId) is valid until \(expiryDate)\n\(items)\n")
                     SessionData.shared.hasAdRemovalSubscription = true
                     self.adRemovalExpiry = expiryDate
                 case .expired(let expiryDate, let items):
-                    print("\(productId) is expired since \(expiryDate)\n\(items)\n")
+                    print("[StoreManager] \(productId) is expired since \(expiryDate)\n\(items)\n")
                     SessionData.shared.hasAdRemovalSubscription = false
                 case .notPurchased:
-                    print("The user has never purchased \(productId)")
+                    print("[StoreManager] The user has never purchased \(productId)")
                     SessionData.shared.hasAdRemovalSubscription = false
                 }
 
             case .error(let error):
-                print("Receipt verification failed: \(error)")
+                print("[StoreManager] Receipt verification failed: \(error)")
+                SessionData.shared.hasAdRemovalSubscription = false
             }
         }
     }
@@ -106,7 +107,7 @@ class StoreManager: ObservableObject {
             self.purchasing = false
             switch result {
             case .success(let purchase):
-                print("Purchase Success: \(purchase.productId)")
+                print("[StoreManager] Purchase Success: \(purchase.productId)")
                 self.verifyReciept()
             case .error(let error):
                 switch error.code {

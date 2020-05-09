@@ -28,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let sessionData = SessionData()
+//        sessionData.hasAdRemovalSubscription = true
         let appState = AppState()
         let weatherDataManager = WeatherDataManager.shared
         let contentView = ContentView()

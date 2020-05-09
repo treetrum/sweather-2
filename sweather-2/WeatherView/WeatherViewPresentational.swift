@@ -22,13 +22,10 @@ struct WeatherViewPresentational: View {
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ScrollView(.vertical, showsIndicators: false) {
-                
                 // Above the fold
-                Spacer().frame(height: geometry.safeAreaInsets.top - 8)
+                Spacer().frame(height: geometry.safeAreaInsets.top)
                 VStack {
-                    if (!self.sessionData.hasAdRemovalSubscription) {
-                        Banner().frame(height: kGADAdSizeBanner.size.height)
-                    }
+                    AdBanner()
                     LocationName(location: self.weather.location)
                     Spacer()
                     PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
@@ -44,7 +41,7 @@ struct WeatherViewPresentational: View {
                         .padding([.top])
                         .padding(.bottom, 25)
                 }
-                .frame(height: geometry.size.height - geometry.safeAreaInsets.top + 8)
+                .frame(height: geometry.size.height - geometry.safeAreaInsets.top)
                 
                 // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)

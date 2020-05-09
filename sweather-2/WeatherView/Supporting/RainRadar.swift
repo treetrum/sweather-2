@@ -34,7 +34,6 @@ struct RainRadar: View {
     @ObservedObject var mapDataManager: MapDataManager
     @State var timer: Timer.TimerPublisher = Timer.publish (every: 0.5, on: .main, in: .common)
     @State var unmounting = false
-    var sessionData = SessionData.shared
     
     init(locationId: Int) {
         let mapDataManager = MapDataManager(locationId: locationId)
@@ -68,12 +67,9 @@ struct RainRadar: View {
                     MapView(image: self.indexManager.image, mapData: mapDataManager.mapData!)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
-                    if !self.sessionData.hasAdRemovalSubscription {
-                        VStack {
-                            Banner().frame(height: kGADAdSizeBanner.size.height).listRowInsets(EdgeInsets())
-                            Spacer()
-                        }
-
+                    VStack {
+                        AdBanner()
+                        Spacer()
                     }
                     VStack {
                         MapProgressIndicator(progress: Double(Double(self.indexManager.index) * 1.0 / Double(mapDataManager.mapData!.overlays.count - 1)))

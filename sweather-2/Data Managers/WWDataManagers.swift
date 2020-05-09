@@ -170,7 +170,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
             manager.requestLocation()
         } else {
             print("Did not authorize")

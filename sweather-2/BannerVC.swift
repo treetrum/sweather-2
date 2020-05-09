@@ -10,15 +10,29 @@ import SwiftUI
 import GoogleMobileAds
 import UIKit
 
+struct AdBanner: View {
+    @ObservedObject var sessionData = SessionData.shared
+    
+    var body: some View {
+        VStack {
+            if self.sessionData.hasAdRemovalSubscription {
+                EmptyView()
+            } else {
+                Banner().frame(height: kGADAdSizeBanner.size.height)
+            }
+        }
+    }
+}
+
 struct Banner: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let view = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         let viewController = UIViewController()
         
         #if DEBUG
-            view.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        view.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         #else
-            view.adUnitID = "ca-app-pub-7736556580630436/6484370611"
+        view.adUnitID = "ca-app-pub-7736556580630436/6484370611"
         #endif
         
         view.rootViewController = viewController
@@ -30,7 +44,7 @@ struct Banner: UIViewControllerRepresentable {
         view.load(GADRequest())
         return viewController
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 

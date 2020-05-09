@@ -11,11 +11,17 @@ import SwiftUI
 struct PrecisIcon: View {
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-
+    
+    let size: CGFloat
     let precisCode: String
     
+    init(precisCode: String) {
+        self.precisCode = precisCode
+        self.size = UIScreen.main.bounds.height < 812 ? 120 : 150
+    }
+    
     var body: some View {
-        Image(precisCode).resizable().frame(width: 150, height: 150)
+        Image(precisCode).resizable().frame(width: self.size, height: self.size)
     }
 }
 
