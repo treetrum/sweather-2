@@ -1178,6 +1178,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 827;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
@@ -1203,6 +1204,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 827;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
