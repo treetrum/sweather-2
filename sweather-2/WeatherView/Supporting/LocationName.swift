@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LocationName: View {
     
-    @EnvironmentObject var sessionData: SessionData
+    @ObservedObject var sessionData = SessionData.shared
     
     let location: WWLocation
     
