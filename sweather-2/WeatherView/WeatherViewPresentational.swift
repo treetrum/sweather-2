@@ -20,8 +20,11 @@ struct WeatherViewPresentational: View {
     @ObservedObject var sessionData = SessionData.shared
     let weather: SWWeather
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { (geometry: GeometryProxy) in
             ScrollView(.vertical, showsIndicators: false) {
+                
+                // Above the fold
+                Spacer().frame(height: geometry.safeAreaInsets.top - 8)
                 VStack {
                     if (!self.sessionData.hasAdRemovalSubscription) {
                         Banner().frame(height: kGADAdSizeBanner.size.height)
@@ -37,8 +40,13 @@ struct WeatherViewPresentational: View {
                     Temperatures(weather: self.weather)
                     Spacer()
                     Hours(weather: self.weather)
-                    WeatherStats(weather: self.weather).padding([.top]).padding(.bottom, 25)
-                }.frame(height: geometry.size.height)
+                    WeatherStats(weather: self.weather)
+                        .padding([.top])
+                        .padding(.bottom, 25)
+                }
+                .frame(height: geometry.size.height - geometry.safeAreaInsets.top - 8)
+                
+                // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)
                 Button(action: {
                     self.showRadar = true
@@ -47,9 +55,9 @@ struct WeatherViewPresentational: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .overlay(
-                             RoundedRectangle(cornerRadius: 4)
-                                 .stroke(Color.white, lineWidth: 1)
-                         )
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.white, lineWidth: 1)
+                    )
                         .padding(.horizontal)
                         .padding(.bottom, 25)
                 }.sheet(isPresented: self.$showRadar) {
@@ -62,11 +70,14 @@ struct WeatherViewPresentational: View {
                                 }) {
                                     Text("Done")
                                 }
-                            )
+                        )
                     }
                 }
-            }.foregroundColor(Color.white)
+            }
+            .foregroundColor(Color.white)
         }
+        .offset(x: 0, y: 8)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -104,4 +115,4 @@ struct WeatherViewPresentational_Previews: PreviewProvider {
         }
     }
 }
-    
+
