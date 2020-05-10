@@ -210,9 +210,9 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>828</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7736556580630436~8619579364</string>
 	<key>LSRequiresIPhoneOS</key>
