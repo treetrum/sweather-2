@@ -210,11 +210,13 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>830</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7736556580630436~8619579364</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -268,7 +270,5 @@
 	</array>
 	<key>WillyWeatherAPIKey</key>
 	<string>${WILLY_WEATHER_API_KEY}</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 </dict>
 </plist>
