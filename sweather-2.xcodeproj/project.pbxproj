@@ -1182,7 +1182,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 832;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1197,7 +1197,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1210,7 +1210,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 832;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1225,7 +1225,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
