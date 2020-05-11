@@ -3,3 +3,4 @@ sweather-2/Build Config/*.xcconfig
 /fastlane/report.xml
 /Sweather 2.app.dSYM.zip
 /Sweather 2.ipa
+.bundle/
