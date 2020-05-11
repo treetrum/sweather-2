@@ -20,5 +20,6 @@ jobs:
         WILLY_WEATHER_API_KEY: ${{ secrets.WILLY_WEATHER_API_KEY }}
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+        FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
       with:
         lane: beta
