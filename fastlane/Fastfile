@@ -32,7 +32,7 @@ platform :ios do
 
     # Upload to testflight and submit for beta app review
     upload_to_testflight(
-        beta_app_review_info: {
+      beta_app_review_info: {
         contact_email: "sam@sjd.co",
         contact_first_name: "Sam",
         contact_last_name: "Davis",

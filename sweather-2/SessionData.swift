@@ -18,6 +18,13 @@ class SessionData: ObservableObject {
         case viewingCurrentLocation
         case hasAdRemovalSubscription
         case adRemovalSubscripionExpiry
+        case launched
+    }
+    
+    @Published var launched: String {
+        didSet {
+            UserDefaults.standard.set(self.launched, forKey: SessionDataKeys.launched.rawValue);
+        }
     }
     
     @Published var currentLocationId: Int {
@@ -47,6 +54,7 @@ class SessionData: ObservableObject {
     @Published var noLocationAccess: Bool
     
     init(
+        launched: String? = UserDefaults.standard.string(forKey: SessionDataKeys.launched.rawValue),
         viewingCurrentLocation: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.viewingCurrentLocation.rawValue),
         currentLocationId: Int = UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue),
         hasAdRemovalSubscription: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.hasAdRemovalSubscription.rawValue),
@@ -54,9 +62,10 @@ class SessionData: ObservableObject {
         noLocationAccess: Bool = false
     ) {
         self.currentLocationId = currentLocationId
-        self.viewingCurrentLocation = viewingCurrentLocation
+        self.viewingCurrentLocation = launched != nil ? viewingCurrentLocation : true
         self.hasAdRemovalSubscription = hasAdRemovalSubscription
         self.adRemovalSubscripionExpiry = adRemovalSubscripionExpiry
         self.noLocationAccess = noLocationAccess
+        self.launched = "YES"
     }
 }
