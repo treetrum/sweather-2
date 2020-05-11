@@ -20,7 +20,7 @@ platform :ios do
   lane :beta do
     File.open("../sweather-2/Build Config/config.xcconfig", "w+") { |file| 
       file.write("WILLY_WEATHER_API_KEY = #{ENV["WILLY_WEATHER_API_KEY"]}\n")
-      file.write("GOOGLE_API_KEY = #{ENV["GOOGLE_API_KEY"]}")
+      file.write("GOOGLE_API_KEY = #{ENV["GOOGLE_API_KEY"]}\n")
     }
     match(type: "appstore", readonly: is_ci, git_basic_authorization: ENV["GH_PERSONAL_ACCESS_TOKEN"])
     build_app(workspace: "sweather-2.xcworkspace", scheme: "sweather-2")
