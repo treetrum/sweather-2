@@ -4,3 +4,4 @@ sweather-2/Build Config/*.xcconfig
 /Sweather 2.app.dSYM.zip
 /Sweather 2.ipa
 .bundle/
+.env
