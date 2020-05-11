@@ -16,5 +16,6 @@ jobs:
       env:
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APPLEID_APP_SPECIFIC_PW }}
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
       with:
         lane: beta
