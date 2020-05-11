@@ -19,5 +19,6 @@ jobs:
         GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
         WILLY_WEATHER_API_KEY: ${{ secrets.WILLY_WEATHER_API_KEY }}
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
       with:
         lane: beta
