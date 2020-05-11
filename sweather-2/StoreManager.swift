@@ -50,7 +50,7 @@ class StoreManager: ObservableObject {
     @Published var purchasing: Bool = false
     @Published var refreshing: Bool = false
     
-    var adRemovealExpiryString: String {
+    var adRemovalExpiryString: String {
         get {
             self.adRemovalExpiry != nil
                 ? "Subscription expires:\n\(self.adRemovalExpiry!.prettyDateTime())"
@@ -82,21 +82,24 @@ class StoreManager: ObservableObject {
                     inReceipt: receipt)
                     
                 switch purchaseResult {
-                case .purchased(let expiryDate, let items):
-                    print("[StoreManager] \(productId) is valid until \(expiryDate)\n\(items)\n")
+                case .purchased(let expiryDate, _):
+                    print("[StoreManager] \(productId) is valid until \(expiryDate)")
                     SessionData.shared.hasAdRemovalSubscription = true
                     self.adRemovalExpiry = expiryDate
-                case .expired(let expiryDate, let items):
-                    print("[StoreManager] \(productId) is expired since \(expiryDate)\n\(items)\n")
+                case .expired(let expiryDate, _):
+                    print("[StoreManager] \(productId) is expired since \(expiryDate)")
                     SessionData.shared.hasAdRemovalSubscription = false
+                    self.adRemovalExpiry = nil
                 case .notPurchased:
                     print("[StoreManager] The user has never purchased \(productId)")
                     SessionData.shared.hasAdRemovalSubscription = false
+                    self.adRemovalExpiry = nil
                 }
 
             case .error(let error):
                 print("[StoreManager] Receipt verification failed: \(error)")
                 SessionData.shared.hasAdRemovalSubscription = false
+                self.adRemovalExpiry = nil
             }
         }
     }

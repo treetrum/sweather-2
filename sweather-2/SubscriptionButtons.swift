@@ -23,7 +23,7 @@ struct SubscriptionButtons: View {
     @State var showingAlert = false
     
     var body: some View {
-        Section(footer: Text(self.storeManager.adRemovealExpiryString)) {
+        Section(footer: Text(self.storeManager.adRemovalExpiryString)) {
             if self.storeManager.products.count == 0 {
                 self.loadingText
             }
@@ -47,7 +47,7 @@ struct SubscriptionButtons: View {
                         
                     }
                 }
-                .disabled(self.storeManager.adRemovalExpiry != nil)
+                .disabled(self.storeManager.adRemovalExpiry != nil && self.storeManager.adRemovalExpiry! > Date())
             }
             Button(action: {
                 self.storeManager.handleRestore { (title, message) in
@@ -66,6 +66,9 @@ struct SubscriptionButtons: View {
                 }
                 
             }
+        }
+        .onAppear {
+            self.storeManager.verifyReciept()
         }
         .alert(isPresented: self.$showingAlert) { () -> Alert in
             Alert(
