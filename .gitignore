@@ -1,2 +1,5 @@
 sweather-2/Build Config/*.xcconfig
 /Pods
+/fastlane/report.xml
+/Sweather 2.app.dSYM.zip
+/Sweather 2.ipa

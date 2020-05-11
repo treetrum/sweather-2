@@ -212,7 +212,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>828</string>
+	<string>829</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-7736556580630436~8619579364</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -268,5 +268,7 @@
 	</array>
 	<key>WillyWeatherAPIKey</key>
 	<string>${WILLY_WEATHER_API_KEY}</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 </dict>
 </plist>
