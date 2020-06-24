@@ -31,11 +31,13 @@ struct SJDCache {
     var caches = [String: CachedItem]()
     
     mutating func getCachedData(_ url: String) -> Data? {
-        if let cache = self.caches[url] {
-            if cache.isCacheCurrent {
-                return cache.data
-            } else {
-                caches.removeValue(forKey: url)
+        if self.caches.keys.contains(url) {
+            if let cache = self.caches[url] {
+                if cache.isCacheCurrent {
+                    return cache.data
+                } else {
+                    caches.removeValue(forKey: url)
+                }
             }
         }
         return nil
