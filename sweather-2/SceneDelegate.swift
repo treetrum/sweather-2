@@ -10,11 +10,6 @@ import UIKit
 import SwiftUI
 import Combine
 
-class AppState: ObservableObject {
-    @Published var showDayDetail: Bool = false
-    @Published var dayDetailDay: SWWeather.Day? = nil
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

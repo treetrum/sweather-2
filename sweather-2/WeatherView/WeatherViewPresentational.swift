@@ -16,9 +16,12 @@ extension Int {
 }
 
 struct WeatherViewPresentational: View {
+    
     @State var showRadar = false
     @ObservedObject var sessionData = SessionData.shared
+    @EnvironmentObject var appState: AppState
     let weather: SWWeather
+
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ScrollView(.vertical, showsIndicators: false) {
@@ -46,7 +49,7 @@ struct WeatherViewPresentational: View {
                 // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)
                 Button(action: {
-                    self.showRadar = true
+                    self.appState.showSheet(.rainRadar)
                 }) {
                     Text("Rain Radar")
                         .padding()
@@ -57,18 +60,6 @@ struct WeatherViewPresentational: View {
                     )
                         .padding(.horizontal)
                         .padding(.bottom, 25)
-                }.sheet(isPresented: self.$showRadar) {
-                    NavigationView {
-                        RainRadar(locationId: self.weather.location.id)
-                            .navigationBarTitle(Text("Rain Radar"), displayMode: .inline)
-                            .navigationBarItems(
-                                leading: Button(action: {
-                                    self.showRadar = false
-                                }) {
-                                    Text("Done")
-                                }
-                        )
-                    }
                 }
             }
             .foregroundColor(Color.white)

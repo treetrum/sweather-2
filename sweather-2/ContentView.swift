@@ -41,15 +41,10 @@ struct ContentView: View {
                             )
                        }
                     }
-                    BottomBar(
-                        showingModal: self.$showingModal,
-                        showingListView: self.$showingListView,
-                        showingSettings: self.$showingSettings,
-                        safeAreaOffsets: geometry.safeAreaInsets
-                    )
+                    BottomBar(safeAreaOffsets: geometry.safeAreaInsets)
                 }.padding(.top, geometry.safeAreaInsets.top)
 
-                CustomPopup(active: self.$appState.showDayDetail) {
+                CustomPopup(active: self.$appState.showingDayDetail) {
                     VStack {
                         if self.appState.dayDetailDay != nil {
                             DayDetail(day: self.appState.dayDetailDay!)
@@ -60,17 +55,29 @@ struct ContentView: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
-            .sheet(isPresented: self.$showingModal) {
-                if (self.showingListView) {
+            .sheet(isPresented: self.$appState.showingSheet) {
+                if (self.appState.sheetScreen == SheetScreen.locationsList) {
                     LocationsListView()
                         .environment(\.managedObjectContext, self.managedObjectContext)
                         .environmentObject(self.sessionData)
-                } else if (self.showingSettings) {
+                } else if (self.appState.sheetScreen == SheetScreen.settings) {
                     Settings()
                         .environment(\.managedObjectContext, self.managedObjectContext)
                         .environmentObject(self.sessionData)
+                } else if self.appState.sheetScreen == SheetScreen.rainRadar {
+                    NavigationView {
+                        RainRadar(locationId: self.manager.simpleWeatherData!.location.id)
+                            .navigationBarTitle(Text("Rain Radar"), displayMode: .inline)
+                            .navigationBarItems(
+                                leading: Button(action: {
+                                    self.appState.hideSheet()
+                                }) {
+                                    Text("Done")
+                                }
+                            )
+                    }
                 } else {
-                    Text("ERROR")
+                    Text("Unknown screen")
                 }
             }
         }

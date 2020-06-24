@@ -10,9 +10,7 @@ import SwiftUI
 
 struct BottomBar: View {
     
-    @Binding var showingModal: Bool
-    @Binding var showingListView: Bool
-    @Binding var showingSettings: Bool
+    @EnvironmentObject var appState: AppState
     var safeAreaOffsets: EdgeInsets
     
     var body: some View {
@@ -23,17 +21,13 @@ struct BottomBar: View {
                 .padding(.all, 0)
             HStack {
                 Button(action: {
-                    self.showingModal = true
-                    self.showingListView = true
-                    self.showingSettings = false
+                    self.appState.showSheet(.locationsList)
                 }) {
                     Image(systemName: "list.dash").foregroundColor(Color.white).padding(.all)
                 }
                 Spacer()
                 Button(action: {
-                    self.showingModal = true
-                    self.showingSettings = true
-                    self.showingListView = false 
+                    self.appState.showSheet(.settings)
                 }) {
                     Image(systemName: "gear").foregroundColor(Color.white).padding(.all)
                 }
@@ -47,12 +41,7 @@ struct BottomBar_Previews: PreviewProvider {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 BackgroundGradient()
-                BottomBar(
-                    showingModal: .constant(false),
-                    showingListView: .constant(false),
-                    showingSettings: .constant(false),
-                    safeAreaOffsets: geometry.safeAreaInsets
-                )
+                BottomBar(safeAreaOffsets: geometry.safeAreaInsets)
             }.edgesIgnoringSafeArea(.all)
         }
     }

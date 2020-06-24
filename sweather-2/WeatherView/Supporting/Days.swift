@@ -20,8 +20,7 @@ struct Days: View {
             HStack(spacing: 25) {
                 ForEach(weather.days, id: \.dateTime) { (day: SWWeather.Day) in
                     Button(action: {
-                        self.appState.dayDetailDay = day
-                        self.appState.showDayDetail = true
+                        self.appState.showDayDetail(day)
                     }) {
                         Day(day: day)
                     }
