@@ -10,7 +10,7 @@ const encryptValue = (key, value) => {
 };
 
 const updateToken = async ({ owner, repo, token, secretName, newValue }) => {
-    console.log({ owner, repo, token, secretName, newValue });
+    // console.log({ owner, repo, token, secretName, newValue });
     const HOST = `https://api.github.com/repos/${owner}/${repo}`;
     const GET_KEY_URL = `${HOST}/actions/secrets/public-key`;
     const UPDATE_SECRET_URL = `${HOST}/actions/secrets/${secretName}`;
@@ -27,13 +27,19 @@ const updateToken = async ({ owner, repo, token, secretName, newValue }) => {
         key_id,
         encrypted_value: encryptValue(key, newValue),
     };
-    console.log(updateBody);
+    // console.log(updateBody);
     const updateReponse = await fetch(UPDATE_SECRET_URL, {
         method: "PUT",
         headers,
         body: JSON.stringify(updateBody),
     });
-    console.log(`${updateReponse.status} - ${updateReponse.statusText}`);
+
+    if (updateReponse.status === 204) {
+        console.log("Success!");
+    } else {
+        console.log("Something unexpected happened, see response:");
+        console.log(`${updateReponse.status} - ${updateReponse.statusText}`);
+    }
 };
 
 module.exports = updateToken;
