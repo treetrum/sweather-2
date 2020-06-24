@@ -39,12 +39,12 @@ struct LocationsListView: View {
                     ForEach(savedLocations, id: \.id) { location in
                         Button(action: { self.handleLocationPress(location) }) {
                             LocationRow(location)
-                        }
+                        }.accessibility(label: Text(location.name!))
                     }.onDelete { (offsets: IndexSet) in
                         self.handleDelete(offsets)
                     }
                 }
-                if (!sessionData.hasAdRemovalSubscription) {
+                if (!(sessionData.hasAdRemovalSubscription || sessionData.forceNoAds)) {
                     AdBanner().listRowInsets(EdgeInsets())
                 }
             }

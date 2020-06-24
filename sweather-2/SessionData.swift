@@ -13,6 +13,8 @@ class SessionData: ObservableObject {
     
     static let shared = SessionData()
     
+    let forceNoAds = CommandLine.arguments.contains("--no-ads")
+    
     enum SessionDataKeys: String {
         case currentWeatherLocation
         case viewingCurrentLocation

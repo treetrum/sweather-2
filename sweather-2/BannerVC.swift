@@ -15,7 +15,7 @@ struct AdBanner: View {
     
     var body: some View {
         VStack {
-            if self.sessionData.hasAdRemovalSubscription {
+            if self.sessionData.hasAdRemovalSubscription || self.sessionData.forceNoAds {
                 EmptyView()
             } else {
                 Banner().frame(height: kGADAdSizeBanner.size.height)
