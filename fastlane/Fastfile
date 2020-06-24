@@ -47,4 +47,8 @@ platform :ios do
     push_to_git_remote
 
   end
+
+  lane :screenshots do 
+    capture_screenshots(clean: true)
+  end
 end

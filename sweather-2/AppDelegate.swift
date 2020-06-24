@@ -49,6 +49,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         StoreManager.shared.verifyReciept()
         
+        // Setup for UI Testing (wipe db, disable animation, etc)
+        if CommandLine.arguments.contains("--UITests") {
+            UIView.setAnimationsEnabled(false)
+            do {
+                let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
+                let locations = try self.persistentContainer.viewContext.fetch(request)
+                for loc in locations {
+                    self.persistentContainer.viewContext.delete(loc)
+                }
+                try self.persistentContainer.viewContext.save()
+                
+            } catch {}
+        }
+        
         // Set default values in database
         do {
             let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")

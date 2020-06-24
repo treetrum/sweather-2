@@ -26,6 +26,8 @@
 		2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
 		225C3EE32462C3520052374D /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C3EE22462C3520052374D /* StoreManager.swift */; };
 		225C3EE72462CD2B0052374D /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C3EE62462CD2B0052374D /* LocationRow.swift */; };
+		225CBC5E246FC77400BEED46 /* Sweather_2_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CBC5D246FC77400BEED46 /* Sweather_2_UITests.swift */; };
+		225CBC66246FC94400BEED46 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CBC65246FC94400BEED46 /* SnapshotHelper.swift */; };
 		226B156023777CD100D05ED1 /* SJDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B155F23777CD100D05ED1 /* SJDCache.swift */; };
 		226B156223777CF400D05ED1 /* SJDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156123777CF400D05ED1 /* SJDFetch.swift */; };
 		226B156623777D2600D05ED1 /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
@@ -122,6 +124,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		225CBC60246FC77400BEED46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229D3E35236036730035FD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 229D3E3C236036730035FD66;
+			remoteInfo = "sweather-2";
+		};
 		2284BAF123EFE1B100E15FCF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 229D3E35236036730035FD66 /* Project object */;
@@ -174,6 +183,10 @@
 		2256B4702363BFDF009C9F13 /* LocationsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationsModel.xcdatamodel; sourceTree = "<group>"; };
 		225C3EE22462C3520052374D /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		225C3EE62462CD2B0052374D /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
+		225CBC5B246FC77400BEED46 /* Sweather 2 UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sweather 2 UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		225CBC5D246FC77400BEED46 /* Sweather_2_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweather_2_UITests.swift; sourceTree = "<group>"; };
+		225CBC5F246FC77400BEED46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		225CBC65246FC94400BEED46 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		226B155F23777CD100D05ED1 /* SJDCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDCache.swift; sourceTree = "<group>"; };
 		226B156123777CF400D05ED1 /* SJDFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJDFetch.swift; sourceTree = "<group>"; };
 		226B156523777D2600D05ED1 /* WWLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWLocation.swift; sourceTree = "<group>"; };
@@ -184,6 +197,7 @@
 		226B157123778F3C00D05ED1 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
 		226B1573237792E000D05ED1 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		226B15752377998B00D05ED1 /* WeatherStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStats.swift; sourceTree = "<group>"; };
+		226CE5512470C8C500E225BC /* Sydney Custom.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Sydney Custom.gpx"; sourceTree = "<group>"; };
 		22768550237F6B0A002BCDBB /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		22768552237F792B002BCDBB /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		2281F4F7238148F60033E499 /* WWMapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWMapData.swift; sourceTree = "<group>"; };
@@ -266,6 +280,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		225CBC58246FC77400BEED46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2284BAEC23EFE1B100E15FCF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +372,16 @@
 				2281F4F923814A680033E499 /* RainRadar.swift */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		225CBC5C246FC77400BEED46 /* Sweather 2 UITests */ = {
+			isa = PBXGroup;
+			children = (
+				225CBC65246FC94400BEED46 /* SnapshotHelper.swift */,
+				225CBC5D246FC77400BEED46 /* Sweather_2_UITests.swift */,
+				225CBC5F246FC77400BEED46 /* Info.plist */,
+			);
+			path = "Sweather 2 UITests";
 			sourceTree = "<group>";
 		};
 		226B156323777D0D00D05ED1 /* WillyWeatherAPI */ = {
@@ -445,6 +476,7 @@
 				229D3E3F236036730035FD66 /* sweather-2 */,
 				2284BAE423EFE1B000E15FCF /* sweather-watch */,
 				2284BAF323EFE1B100E15FCF /* sweather-watch Extension */,
+				225CBC5C246FC77400BEED46 /* Sweather 2 UITests */,
 				229D3E3E236036730035FD66 /* Products */,
 				22898A8B23F6B6CB00995B98 /* Frameworks */,
 				1F277661454491A64AE1B4BE /* Pods */,
@@ -457,6 +489,7 @@
 				229D3E3D236036730035FD66 /* Sweather 2.app */,
 				2284BAE323EFE1B000E15FCF /* sweather-watch.app */,
 				2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */,
+				225CBC5B246FC77400BEED46 /* Sweather 2 UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -501,6 +534,7 @@
 				22252080245EDFBC0021FC0E /* GoogleService-Info.plist */,
 				225C3EE22462C3520052374D /* StoreManager.swift */,
 				225C3EE62462CD2B0052374D /* LocationRow.swift */,
+				226CE5512470C8C500E225BC /* Sydney Custom.gpx */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -578,6 +612,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		225CBC5A246FC77400BEED46 /* Sweather 2 UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225CBC62246FC77400BEED46 /* Build configuration list for PBXNativeTarget "Sweather 2 UITests" */;
+			buildPhases = (
+				225CBC57246FC77400BEED46 /* Sources */,
+				225CBC58246FC77400BEED46 /* Frameworks */,
+				225CBC59246FC77400BEED46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				225CBC61246FC77400BEED46 /* PBXTargetDependency */,
+			);
+			name = "Sweather 2 UITests";
+			productName = "Sweather 2 UITests";
+			productReference = 225CBC5B246FC77400BEED46 /* Sweather 2 UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		2284BAE223EFE1B000E15FCF /* sweather-watch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2284BB1123EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch" */;
@@ -642,10 +694,14 @@
 		229D3E35236036730035FD66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Sam Davis";
 				TargetAttributes = {
+					225CBC5A246FC77400BEED46 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 229D3E3C236036730035FD66;
+					};
 					2284BAE223EFE1B000E15FCF = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -673,11 +729,19 @@
 				229D3E3C236036730035FD66 /* sweather-2 */,
 				2284BAE223EFE1B000E15FCF /* sweather-watch */,
 				2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */,
+				225CBC5A246FC77400BEED46 /* Sweather 2 UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		225CBC59246FC77400BEED46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2284BAE123EFE1B000E15FCF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -841,6 +905,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		225CBC57246FC77400BEED46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225CBC5E246FC77400BEED46 /* Sweather_2_UITests.swift in Sources */,
+				225CBC66246FC94400BEED46 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2284BAEB23EFE1B100E15FCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -931,6 +1004,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		225CBC61246FC77400BEED46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 229D3E3C236036730035FD66 /* sweather-2 */;
+			targetProxy = 225CBC60246FC77400BEED46 /* PBXContainerItemProxy */;
+		};
 		2284BAF223EFE1B100E15FCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */;
@@ -958,6 +1036,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		225CBC63246FC77400BEED46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				INFOPLIST_FILE = "Sweather 2 UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sjd.Sweather-2-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "sweather-2";
+			};
+			name = Debug;
+		};
+		225CBC64246FC77400BEED46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				INFOPLIST_FILE = "Sweather 2 UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sjd.Sweather-2-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "sweather-2";
+			};
+			name = Release;
+		};
 		2284BB0B23EFE1B100E15FCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69D74A4DB80A4C9B090C49F6 /* Pods-sweather-watch.debug.xcconfig */;
@@ -1235,6 +1353,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		225CBC62246FC77400BEED46 /* Build configuration list for PBXNativeTarget "Sweather 2 UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225CBC63246FC77400BEED46 /* Debug */,
+				225CBC64246FC77400BEED46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2284BB1023EFE1B100E15FCF /* Build configuration list for PBXNativeTarget "sweather-watch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
