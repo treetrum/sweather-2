@@ -60,7 +60,6 @@
 		2284BB1523EFE4CC00E15FCF /* WWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156723777D4C00D05ED1 /* WWWeatherData.swift */; };
 		2284BB1623EFE4CC00E15FCF /* WWLocationCoordSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156923777D6B00D05ED1 /* WWLocationCoordSearchResult.swift */; };
 		2284BB1723EFE4CC00E15FCF /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
-		2284BB1823EFE4DA00E15FCF /* SWWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F625823681C9A00A73E2E /* SWWeather.swift */; };
 		2284BB1923EFE5E500E15FCF /* SJDCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B155F23777CD100D05ED1 /* SJDCache.swift */; };
 		2284BB1A23EFE5E800E15FCF /* SJDFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156123777CF400D05ED1 /* SJDFetch.swift */; };
 		2284BB1B23EFE9DC00E15FCF /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B1573237792E000D05ED1 /* extensions.swift */; };
@@ -337,6 +336,7 @@
 				223AE8E12376673F00E17875 /* sample-location-data.json */,
 				223AE8E7237670F100E17875 /* SampleWeatherData.swift */,
 				226B156F23778A8000D05ED1 /* DecodeLocalJSON.swift */,
+				226CE5512470C8C500E225BC /* Sydney Custom.gpx */,
 			);
 			path = "Mock Data";
 			sourceTree = "<group>";
@@ -372,6 +372,7 @@
 				226B15752377998B00D05ED1 /* WeatherStats.swift */,
 				22768552237F792B002BCDBB /* Loading.swift */,
 				2281F4F923814A680033E499 /* RainRadar.swift */,
+				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -384,6 +385,79 @@
 				225CBC5F246FC77400BEED46 /* Info.plist */,
 			);
 			path = "Sweather 2 UITests";
+			sourceTree = "<group>";
+		};
+		2261C84A24A7162700765B0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				224F625823681C9A00A73E2E /* SWWeather.swift */,
+				2254021524A337DA00008CEF /* AppState.swift */,
+				22FB72202367DCE100116C22 /* SessionData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2261C84B24A7164400765B0B /* Location Select */ = {
+			isa = PBXGroup;
+			children = (
+				225C3EE62462CD2B0052374D /* LocationRow.swift */,
+				22FB72242367E58F00116C22 /* LocationsListView.swift */,
+				224F62562367F0E500A73E2E /* AddLocationView.swift */,
+			);
+			path = "Location Select";
+			sourceTree = "<group>";
+		};
+		2261C84C24A7167200765B0B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				22FA8DE023EF926B00FFA1CD /* Settings.swift */,
+				22CC1F2523EFB50300763884 /* CustomIconPicker.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2261C84D24A718BB00765B0B /* Day Detail */ = {
+			isa = PBXGroup;
+			children = (
+				22ECEB9A2453E4CC0020751A /* DayDetail.swift */,
+			);
+			path = "Day Detail";
+			sourceTree = "<group>";
+		};
+		2261C84E24A718CF00765B0B /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				22983B7B245E58A5000AEAA7 /* BannerVC.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
+		2261C85024A718FC00765B0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				226B1573237792E000D05ED1 /* extensions.swift */,
+				22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2261C85124A7192100765B0B /* Content View */ = {
+			isa = PBXGroup;
+			children = (
+				229D3E44236036730035FD66 /* ContentView.swift */,
+				22768550237F6B0A002BCDBB /* BottomBar.swift */,
+				22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */,
+				22ECEB962453C0FC0020751A /* HostingController.swift */,
+			);
+			path = "Content View";
+			sourceTree = "<group>";
+		};
+		2261C85224A7195900765B0B /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				22ECEB9C2453EC7A0020751A /* CustomPopup.swift */,
+			);
+			path = "Reusable Components";
 			sourceTree = "<group>";
 		};
 		226B156323777D0D00D05ED1 /* WillyWeatherAPI */ = {
@@ -499,6 +573,7 @@
 		229D3E3F236036730035FD66 /* sweather-2 */ = {
 			isa = PBXGroup;
 			children = (
+				2261C85124A7192100765B0B /* Content View */,
 				22A3BC7B245E73780048214B /* IAP */,
 				22ECEB982453C5430020751A /* Build Config */,
 				22ECEB6B2453B5D40020751A /* Custom Icons */,
@@ -508,36 +583,22 @@
 				226B156323777D0D00D05ED1 /* WillyWeatherAPI */,
 				229D3E48236036750035FD66 /* Preview Content */,
 				22C68229236798C400B1919F /* uikit-swiftui-ports */,
+				2261C85024A718FC00765B0B /* Extensions */,
 				223FB3A923766256005BB4D8 /* WeatherView */,
-				22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */,
+				2261C84B24A7164400765B0B /* Location Select */,
+				2261C84C24A7167200765B0B /* Settings */,
+				2261C84D24A718BB00765B0B /* Day Detail */,
+				2261C84E24A718CF00765B0B /* Ads */,
+				2261C84A24A7162700765B0B /* Model */,
+				2261C85224A7195900765B0B /* Reusable Components */,
 				229D3E46236036750035FD66 /* Assets.xcassets */,
+				22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */,
 				229D3E4B236036750035FD66 /* LaunchScreen.storyboard */,
 				229D3E4E236036750035FD66 /* Info.plist */,
 				2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */,
 				229D3E40236036730035FD66 /* AppDelegate.swift */,
 				229D3E42236036730035FD66 /* SceneDelegate.swift */,
-				229D3E44236036730035FD66 /* ContentView.swift */,
-				22FB72202367DCE100116C22 /* SessionData.swift */,
-				22FB72242367E58F00116C22 /* LocationsListView.swift */,
-				224F62562367F0E500A73E2E /* AddLocationView.swift */,
-				224F625823681C9A00A73E2E /* SWWeather.swift */,
-				226B1573237792E000D05ED1 /* extensions.swift */,
-				22768550237F6B0A002BCDBB /* BottomBar.swift */,
-				22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */,
-				22FA8DE023EF926B00FFA1CD /* Settings.swift */,
-				22CC1F2523EFB50300763884 /* CustomIconPicker.swift */,
-				22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */,
-				22ECEB962453C0FC0020751A /* HostingController.swift */,
-				22ECEB9A2453E4CC0020751A /* DayDetail.swift */,
-				22ECEB9C2453EC7A0020751A /* CustomPopup.swift */,
-				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
-				22983B7B245E58A5000AEAA7 /* BannerVC.swift */,
-				22A3BC7E245E7CAA0048214B /* SubscriptionButtons.swift */,
 				22252080245EDFBC0021FC0E /* GoogleService-Info.plist */,
-				225C3EE22462C3520052374D /* StoreManager.swift */,
-				225C3EE62462CD2B0052374D /* LocationRow.swift */,
-				226CE5512470C8C500E225BC /* Sydney Custom.gpx */,
-				2254021524A337DA00008CEF /* AppState.swift */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -554,6 +615,8 @@
 			isa = PBXGroup;
 			children = (
 				22A3BC7C245E73980048214B /* StoreObserver.swift */,
+				225C3EE22462C3520052374D /* StoreManager.swift */,
+				22A3BC7E245E7CAA0048214B /* SubscriptionButtons.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -932,7 +995,6 @@
 				2284BB1E23EFEA9100E15FCF /* WatchWeatherView.swift in Sources */,
 				2284BAFB23EFE1B100E15FCF /* NotificationController.swift in Sources */,
 				2284BB1323EFE4C700E15FCF /* WillyWeatherAPI.swift in Sources */,
-				2284BB1823EFE4DA00E15FCF /* SWWeather.swift in Sources */,
 				2284BB1923EFE5E500E15FCF /* SJDCache.swift in Sources */,
 				2284BB1423EFE4CC00E15FCF /* WWLocation.swift in Sources */,
 				2284BAF923EFE1B100E15FCF /* ExtensionDelegate.swift in Sources */,

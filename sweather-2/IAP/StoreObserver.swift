@@ -53,9 +53,6 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver, SKProductsRequestDe
     func handlePurchased(_ transaction: SKPaymentTransaction) {
         print("IAP: Handling purchased");
         if (transaction.payment.productIdentifier == ProductIdentifiers.removeAds.rawValue) {
-            
-//            transaction.payment.
-            
             SessionData.shared.hasAdRemovalSubscription = true
             SessionData.shared.adRemovalSubscripionExpiry = transaction.payment.productIdentifier
         }
