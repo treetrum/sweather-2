@@ -33,6 +33,16 @@ class SWWeather {
         let rangeDivide: String?
         let rangeCode: String?
         let probability: Int?
+        
+        var probabilityString: String {
+            get {
+                if (probability ?? 0 > 0) {
+                    return "\(probability ?? 0)% chance of \(startRange != nil ? "\(startRange!)" : "")\(rangeDivide ?? "")\(endRange ?? 0)mm"
+                } else {
+                    return "No rainfall forecast"
+                }
+            }
+        }
     }
     var rainfall = Rainfall(startRange: nil, endRange: nil, rangeDivide: nil, rangeCode: nil, probability: nil)
     

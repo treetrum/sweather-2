@@ -13,10 +13,6 @@ import CoreLocation
 
 struct ContentView: View {
     
-    @State private var showingListView: Bool = false
-    @State private var showingSettings: Bool = false
-    @State private var showingModal: Bool = false
-    
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var appState: AppState
@@ -26,9 +22,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ZStack {
-                BackgroundGradient(
-                    timePeriod: self.manager.simpleWeatherData?.getTimePeriod() ?? .isDayTime
-                )
+                BackgroundGradient(timePeriod: self.manager.simpleWeatherData?.getTimePeriod() ?? .isDayTime)
                 VStack {
                     if self.sessionData.viewingCurrentLocation || self.savedLocations.count == 0 {
                         CurrentLocationWeatherView()
