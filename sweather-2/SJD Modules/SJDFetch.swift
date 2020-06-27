@@ -22,14 +22,13 @@ class SJDFetch {
             if let error = error {
                 print("Got an error!: \(error)")
             }
-            callback(data, response, error)
             if let data = data {
                 self.cache.setCachedData(urlString, data: data)
             }
+            callback(data, response, error)
         }
 
         if !skipCache, let cachedData = cache.getCachedData(urlString) {
-//            print("Using cache")
             callback(cachedData, nil, nil)
         } else {
             let url = URL(string: urlString)
