@@ -13,7 +13,7 @@ struct BackgroundGradient: View {
     let timePeriod: SWWeather.SWTimePeriod
     
     init(timePeriod: SWWeather.SWTimePeriod = .isDayTime) {
-        self.timePeriod = timePeriod
+        self.timePeriod = CommandLine.arguments.contains("--UITests") ? .sunsetOccurring : timePeriod
     }
 
     var gradients: [[Color]] = [
