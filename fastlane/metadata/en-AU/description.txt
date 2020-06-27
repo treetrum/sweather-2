@@ -1,0 +1,17 @@
+Sweather 2 - a beautifully simple weather app for iOS.
+
+Now completely rebuilt for version 2!
+
+Sweather 2 shows you weather details for your current location and up to 5 saved locations using a beautiful design. 
+
+Featured include:
+• Actual & Apparent Temperatures
+• Rainfall Probability
+• Localised Rain Radar
+• Weather Summary with over 30 accompanying custom icons
+• 24 hour temperature forecast
+• 7 day forecast with detailed summary
+• 21 custom icons to choose from
+• Up to 5 saved locations
+
+Weather data provided by Willy Weather.

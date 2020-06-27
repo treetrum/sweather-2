@@ -1,0 +1,9 @@
+Completely rebuilt for version 2!
+
+Along with all the features you're used to, Sweather now includes:
+
+Featured include:
+• Localised Rain Radar
+• 7 day forecast with detailed summary
+• 21 custom icons to choose from
+• Up to 5 saved locations

@@ -4,14 +4,12 @@
 devices([
   "iPhone 11 Pro",
   "iPhone 11 Pro Max",
+  "iPhone 8 Plus",
 ])
 
-# languages([
-#   "en-US",
-#   "de-DE",
-#   "it-IT",
-#   ["pt", "pt_BR"] # Portuguese with Brazilian locale
-# ])
+languages([
+  "en-AU",
+])
 
 # The name of the scheme which contains the UI Tests
 scheme("sweather-2-snapshot-tests")

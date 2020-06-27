@@ -51,4 +51,31 @@ platform :ios do
   lane :screenshots do 
     capture_screenshots(clean: true)
   end
+
+  lane :deliver_screenshots do
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      force: true
+    )
+  end
+  
+  lane :deliver_metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      force: true
+    )
+  end
+  
+  lane :deliver_screenshots_and_metadata do
+    deliver(
+      skip_binary_upload: true,
+      overwrite_screenshots: true,
+      force: true
+    )
+  end
 end
