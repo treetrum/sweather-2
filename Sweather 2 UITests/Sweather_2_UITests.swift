@@ -49,30 +49,30 @@ class Sweather_2_UITests: XCTestCase {
         let addLocationButton = app.navigationBars["Locations"].buttons["plus"]
         let addLocationTextField = app.textFields["Location"]
         
-        // Add Melbourne
-        addLocationButton.tap()
-        addLocationTextField.tap()
-        app.typeText("Melbourne")
-        app.tables.buttons["Melbourne, 3000"].tap()
-        
-        // Add Brisbane
-        addLocationButton.tap()
-        addLocationTextField.tap()
-        app.typeText("Brisbane")
-        app.tables.buttons["Brisbane, 4000"].tap()
-        
-        // Add Brisbane
-        addLocationButton.tap()
-        addLocationTextField.tap()
-        app.typeText("Adelaide")
-        app.tables.buttons["Adelaide, 5000"].tap()
-        
-        // Add Perth
-        addLocationButton.tap()
-        addLocationTextField.tap()
-        app.typeText("Perth")
-        app.tables/*@START_MENU_TOKEN@*/.buttons["Perth, 6000"]/*[[".cells.buttons[\"Perth, 6000\"]",".buttons[\"Perth, 6000\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
+            // Add Melbourne
+            addLocationButton.tap()
+            addLocationTextField.tap()
+            app.typeText("Melbourne")
+            app.tables.buttons["Melbourne, 3000"].tap()
+            
+            // Add Brisbane
+            addLocationButton.tap()
+            addLocationTextField.tap()
+            app.typeText("Brisbane")
+            app.tables.buttons["Brisbane, 4000"].tap()
+            
+            // Add Brisbane
+            addLocationButton.tap()
+            addLocationTextField.tap()
+            app.typeText("Adelaide")
+            app.tables.buttons["Adelaide, 5000"].tap()
+            
+            // Add Perth
+            addLocationButton.tap()
+            addLocationTextField.tap()
+            app.typeText("Perth")
+            app.tables/*@START_MENU_TOKEN@*/.buttons["Perth, 6000"]/*[[".cells.buttons[\"Perth, 6000\"]",".buttons[\"Perth, 6000\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+            
         snapshot("04-locations")
         app.navigationBars["Locations"].buttons["Done"].tap()
                 
