@@ -26,6 +26,16 @@ Push a new beta build to TestFlight
 fastlane ios screenshots
 ```
 
+### ios deliver_screenshots
+```
+fastlane ios deliver_screenshots
+```
+
+### ios deliver_metadata
+```
+fastlane ios deliver_metadata
+```
+
 ### ios deliver_screenshots_and_metadata
 ```
 fastlane ios deliver_screenshots_and_metadata
