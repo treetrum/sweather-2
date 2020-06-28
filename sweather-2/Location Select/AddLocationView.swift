@@ -49,7 +49,7 @@ struct AddLocationView: View {
     
     func handleLocationSelect(_ location: WWLocation) {
         let newLocation = SavedLocation(context: self.managedObjectContext)
-        newLocation.id = Int16(location.id)
+        newLocation.id = Int64(location.id)
         newLocation.name = location.name
         newLocation.postcode = location.postcode
         newLocation.region = location.region

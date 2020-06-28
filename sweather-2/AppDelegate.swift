@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if locations.count == 0 {
                 print("INIT: No locations found")
                 let newLocation = SavedLocation(context: self.persistentContainer.viewContext)
-                newLocation.id = Int16(4950)
+                newLocation.id = Int64(4950)
                 newLocation.name = "Sydney"
                 newLocation.postcode = "2000"
                 newLocation.region = "Sydney"
