@@ -18,7 +18,11 @@ struct AdBanner: View {
             if self.sessionData.hasAdRemovalSubscription || self.sessionData.forceNoAds {
                 EmptyView()
             } else {
-                Banner().frame(height: kGADAdSizeBanner.size.height)
+                HStack {
+                    Spacer(minLength: 0)
+                    Banner().frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
+                    Spacer(minLength: 0)
+                }
             }
         }
     }
@@ -26,7 +30,7 @@ struct AdBanner: View {
 
 struct Banner: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        let view = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        let view = GADBannerView(adSize: kGADAdSizeBanner)
         let viewController = UIViewController()
         
         #if DEBUG
@@ -39,7 +43,7 @@ struct Banner: UIViewControllerRepresentable {
         viewController.view.addSubview(view)
         viewController.view.frame = CGRect(
             origin: .zero,
-            size: kGADAdSizeSmartBannerPortrait.size
+            size: kGADAdSizeBanner.size
         )
         view.load(GADRequest())
         return viewController

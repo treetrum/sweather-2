@@ -43,8 +43,7 @@ struct AddLocationView: View {
                     Text("Done")
                 }
             )
-        }
-        
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     func handleLocationSelect(_ location: WWLocation) {

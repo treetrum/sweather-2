@@ -74,7 +74,7 @@ struct Settings: View {
                 leading: Button(action: closeSheet) {
                     Text("Done")
                 })
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     func closeSheet() {

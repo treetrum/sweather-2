@@ -69,7 +69,7 @@ struct ContentView: View {
                                     Text("Done")
                                 }
                             )
-                    }
+                    }.navigationViewStyle(StackNavigationViewStyle())
                 } else {
                     Text("Unknown screen")
                 }

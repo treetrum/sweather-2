@@ -10,12 +10,38 @@ import SwiftUI
 
 struct Hours: View {
     
-    let weather: SWWeather
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var isIpad: Bool {
+        get {
+            if let size = sizeClass {
+                return size == .regular
+            } else {
+                return false
+            }
+        }
+    }
     
-    let graphHeight = 30;
-    let maskWidth: CGFloat = 15;
-    let entryWidth: CGFloat = 50;
-    let entryIconWidth: CGFloat = 30;
+    let weather: SWWeather
+    var graphHeight: Int {
+        get { isIpad ? 50 : 30 }
+    }
+    var maskWidth: CGFloat {
+        get { isIpad ? 20 : 15 }
+    }
+    var entryWidth: CGFloat {
+        get { isIpad ? 75 : 50 }
+    }
+    var entryIconWidth: CGFloat {
+        get { isIpad ? 50 : 30 }
+    }
+    
+    // MAGIC NUMBERS
+    var yOffset: CGFloat {
+        get { isIpad ? 40 : 20 }
+    }
+    var heightOffset: Int {
+        get { isIpad ? 125 : 75 }
+    }
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -23,17 +49,25 @@ struct Hours: View {
                 HStack(spacing: 0) {
                     ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
                         VStack(spacing: 0) {
-                            Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")°").font(.footnote).fixedSize().padding(.bottom, 0).padding(0)
+                            Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")°")
+                                .font(self.isIpad ? .system(size: 15) : .footnote)
+                                .fixedSize()
+                                .padding(.bottom, 0)
+                                .padding(0)
                             Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode, andIsNight: hour.night))
                                 .resizable()
                                 .frame(width: self.entryIconWidth, height: self.entryIconWidth)
-                            Text("\(hour.dateTime?.prettyHourName() ?? "-")").fixedSize().font(.footnote).opacity(0.5).padding(0)
+                            Text("\(hour.dateTime?.prettyHourName() ?? "-")")
+                                .fixedSize()
+                                .font(self.isIpad ? .system(size: 15) : .footnote)
+                                .opacity(0.5)
+                                .padding(0)
                         }
                         .frame(width: self.entryWidth)
-                        .position(x: CGFloat(self.entryWidth / 2), y: 20 ) // Magic numbers to get the data vertically centered
+                            .position(x: CGFloat(self.entryWidth / 2), y: self.yOffset )
                         .offset(y: CGFloat(self.convertTempToYPos(hour.temperature!)))
                     }
-                }.padding(.top).frame(height: CGFloat(graphHeight + 75)) // 75 is also a magic number
+                }.padding(.top).frame(height: CGFloat(graphHeight + heightOffset))
                 VStack {
                     Path { path in
                         var currentX = self.entryWidth / 2

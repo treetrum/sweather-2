@@ -29,12 +29,28 @@ struct WeatherStat: View {
     let label: String
     let value: String
     
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var isIpad: Bool {
+        get {
+            if let size = sizeClass {
+                return size == .regular
+            } else {
+                return false
+            }
+        }
+    }
+    
     var body: some View {
         HStack {
             VStack {
-                Text(label).font(.footnote).padding(.bottom, 5).opacity(0.5).fixedSize()
-                Text(value).font(.custom("", size: 15)).fixedSize()
+                Text(label)
+                    .font( isIpad ? .system(size: 14) : .footnote)
+                    .padding(.bottom, 5)
+                    .opacity(0.5)
+                Text(value)
+                    .font(.system(size: isIpad ? 18 : 15))
             }
+            .fixedSize()
         }.foregroundColor(Color.white)
     }
 }

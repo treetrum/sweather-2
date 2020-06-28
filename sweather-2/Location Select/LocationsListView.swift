@@ -67,7 +67,7 @@ struct LocationsListView: View {
                     dismissButton: .default(Text("Got it!"))
                 )
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     func showAddLocationView() {
