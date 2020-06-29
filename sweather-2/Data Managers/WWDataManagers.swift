@@ -32,7 +32,7 @@ class MapDataManager: ObservableObject {
     
     init(locationId: Int) {
         self.loading = true
-        api.getMapsForLocatoin(location: locationId) { (mapData, error) in
+        api.getMapsForLocation(location: locationId) { (mapData, error) in
             guard let mapData = mapData else { return }
             DispatchQueue.main.async {
                 self.mapData = mapData

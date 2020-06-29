@@ -54,6 +54,7 @@ platform :ios do
 
   lane :deliver_screenshots do
     deliver(
+      app_version: "2.1",
       skip_binary_upload: true,
       skip_metadata: true,
       skip_screenshots: false,
