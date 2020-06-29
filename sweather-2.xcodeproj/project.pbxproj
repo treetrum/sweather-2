@@ -113,6 +113,7 @@
 		22ECEB972453C0FC0020751A /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB962453C0FC0020751A /* HostingController.swift */; };
 		22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9A2453E4CC0020751A /* DayDetail.swift */; };
 		22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9C2453EC7A0020751A /* CustomPopup.swift */; };
+		22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */; };
 		22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
 		22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DE023EF926B00FFA1CD /* Settings.swift */; };
 		22FB72212367DCE100116C22 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72202367DCE100116C22 /* SessionData.swift */; };
@@ -264,6 +265,7 @@
 		22ECEB9A2453E4CC0020751A /* DayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetail.swift; sourceTree = "<group>"; };
 		22ECEB9C2453EC7A0020751A /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
 		22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sweather 2.entitlements"; sourceTree = "<group>"; };
+		22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainRadarButton.swift; sourceTree = "<group>"; };
 		22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		22FA8DE023EF926B00FFA1CD /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		22FB72202367DCE100116C22 /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				22768552237F792B002BCDBB /* Loading.swift */,
 				2281F4F923814A680033E499 /* RainRadar.swift */,
 				2237DB5824552EA90077C97E /* MapProgressIndicator.swift */,
+				22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -1061,6 +1064,7 @@
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
 				22A3BC7F245E7CAA0048214B /* SubscriptionButtons.swift in Sources */,
+				22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */,
 				226B156E2377836C00D05ED1 /* Days.swift in Sources */,
 				22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,
 				22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIColor {
     convenience init(hexString: String) {
@@ -26,5 +27,13 @@ extension UIColor {
             (a, r, g, b) = (255, 0, 0, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+}
+
+func isIpad(_ sizeClass: UserInterfaceSizeClass?) -> Bool {
+    if let size = sizeClass {
+        return size == .regular
+    } else {
+        return false
     }
 }

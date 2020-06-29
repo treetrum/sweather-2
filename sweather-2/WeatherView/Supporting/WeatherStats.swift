@@ -44,11 +44,11 @@ struct WeatherStat: View {
         HStack {
             VStack {
                 Text(label)
-                    .font( isIpad ? .system(size: 14) : .footnote)
+                    .font( isIpad ? .system(size: 13) : .footnote)
                     .padding(.bottom, 5)
                     .opacity(0.5)
                 Text(value)
-                    .font(.system(size: isIpad ? 18 : 15))
+                    .font(.system(size: isIpad ? 16 : 15))
             }
             .fixedSize()
         }.foregroundColor(Color.white)
@@ -60,6 +60,7 @@ struct WeatherStats_Previews: PreviewProvider {
         ZStack {
             Color.blue
             WeatherStats(weather: SampleWeatherData())
+                .padding(.horizontal)
         }
     }
 }

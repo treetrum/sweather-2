@@ -11,13 +11,18 @@ import SwiftUI
 struct PrecisIcon: View {
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.horizontalSizeClass) var sizeClass
     
-    let size: CGFloat
     let precisCode: String
     
-    init(precisCode: String) {
-        self.precisCode = precisCode
-        self.size = UIScreen.main.bounds.height < 812 ? 120 : 150
+    var size: CGFloat {
+        get {
+            if isIpad(sizeClass) {
+                return 175
+            } else {
+                return UIScreen.main.bounds.height < 812 ? 120 : 150
+            }
+        }
     }
     
     var body: some View {

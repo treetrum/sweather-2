@@ -11,6 +11,7 @@ import SwiftUI
 struct CustomPopup<Content>: View where Content: View {
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.horizontalSizeClass) var sizeClass
     @EnvironmentObject var appState: AppState
     @Binding var active: Bool
     
@@ -52,7 +53,7 @@ struct CustomPopup<Content>: View where Content: View {
                     .animation(nil)
                 Spacer()
             }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .frame(minWidth: 0, maxWidth: 500, minHeight: 0, maxHeight: .infinity, alignment: .center)
             
         }
         .opacity(self.active ? 1 : 0)

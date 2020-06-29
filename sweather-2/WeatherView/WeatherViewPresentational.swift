@@ -20,9 +20,10 @@ struct WeatherViewPresentational: View {
     @State var showRadar = false
     @ObservedObject var sessionData = SessionData.shared
     @EnvironmentObject var appState: AppState
+    @Environment(\.horizontalSizeClass) var sizeClass
     let weather: SWWeather
-
-    var body: some View {
+    
+    var iPhoneLayout: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ScrollView(.vertical, showsIndicators: false) {
                 // Above the fold
@@ -48,24 +49,71 @@ struct WeatherViewPresentational: View {
                 
                 // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)
-                Button(action: {
-                    self.appState.showSheet(.rainRadar)
-                }) {
-                    Text("Rain Radar")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color.white, lineWidth: 1)
-                    )
-                        .padding(.horizontal)
-                        .padding(.bottom, 25)
-                }
+                RainRadarButton()
             }
-            .foregroundColor(Color.white)
         }
         .offset(x: 0, y: 8)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    var iPadLayout: some View {
+        GeometryReader { (geometry: GeometryProxy) in
+            VStack {
+                HStack {
+                    
+                    // Main column
+                    VStack {
+                        VStack {
+                            AdBanner()
+                            LocationName(location: self.weather.location)
+                            Spacer()
+                            PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
+                            Precis(weather: self.weather)
+                            RainChance(rainfall: self.weather.rainfall)
+                                .foregroundColor(Color.white)
+                                .opacity(0.5)
+                                .padding(.bottom, 40)
+                            Temperatures(weather: self.weather)
+                            Spacer()
+                            Hours(weather: self.weather)
+                        }
+                        WeatherStats(weather: self.weather)
+                            .padding([.top])
+                            .padding(.bottom, 25)
+                    }
+
+                    // Separator
+                    VStack {
+                        EmptyView()
+                    }
+                    .frame(minWidth: 1, maxWidth: 1, minHeight: 0, maxHeight: .infinity)
+                    .background(Color.white.opacity(0.5))
+                    .padding(.all, 20)
+                    
+                    // Right hand column
+                    VStack {
+                        Days(weather: self.weather)
+                        Spacer()
+                        RainRadarButton()
+                    }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: geometry.size.width * (geometry.size.width > geometry.size.height ? 0.25 :  0.3)
+                    )
+
+                }
+            }
+        }
+    }
+
+    var body: some View {
+        Group {
+            if isIpad(sizeClass) {
+                iPadLayout
+            } else {
+                iPhoneLayout
+            }
+        }.foregroundColor(Color.white)
     }
 }
 
@@ -101,6 +149,7 @@ struct WeatherViewPresentational_Previews: PreviewProvider {
             WeatherViewPresentational(weather: SampleWeatherData())
                 .environmentObject(SessionData(viewingCurrentLocation: true))
         }
+        
     }
 }
 

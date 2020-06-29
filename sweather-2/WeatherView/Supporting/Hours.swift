@@ -29,10 +29,10 @@ struct Hours: View {
         get { isIpad ? 20 : 15 }
     }
     var entryWidth: CGFloat {
-        get { isIpad ? 75 : 50 }
+        get { isIpad ? 66 : 50 }
     }
     var entryIconWidth: CGFloat {
-        get { isIpad ? 50 : 30 }
+        get { isIpad ? 40 : 30 }
     }
     
     // MAGIC NUMBERS
@@ -40,7 +40,7 @@ struct Hours: View {
         get { isIpad ? 40 : 20 }
     }
     var heightOffset: Int {
-        get { isIpad ? 125 : 75 }
+        get { isIpad ? 110 : 75 }
     }
     
     var body: some View {
@@ -50,7 +50,7 @@ struct Hours: View {
                     ForEach(weather.hours, id: \.dateTime) { (hour: SWWeather.Hour) in
                         VStack(spacing: 0) {
                             Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")°")
-                                .font(self.isIpad ? .system(size: 15) : .footnote)
+                                .font(self.isIpad ? .system(size: 13) : .footnote)
                                 .fixedSize()
                                 .padding(.bottom, 0)
                                 .padding(0)
@@ -59,7 +59,7 @@ struct Hours: View {
                                 .frame(width: self.entryIconWidth, height: self.entryIconWidth)
                             Text("\(hour.dateTime?.prettyHourName() ?? "-")")
                                 .fixedSize()
-                                .font(self.isIpad ? .system(size: 15) : .footnote)
+                                .font(self.isIpad ? .system(size: 13) : .footnote)
                                 .opacity(0.5)
                                 .padding(0)
                         }

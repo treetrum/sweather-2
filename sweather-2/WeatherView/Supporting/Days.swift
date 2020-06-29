@@ -12,36 +12,21 @@ struct Days: View {
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @EnvironmentObject var appState: AppState
+    @Environment(\.horizontalSizeClass) var sizeClass
 
     let weather: SWWeather
     
-    @Environment(\.horizontalSizeClass) var sizeClass
-    var isIpad: Bool {
-        get {
-            if let size = sizeClass {
-                return size == .regular
-            } else {
-                return false
-            }
-        }
-    }
-    
     var body: some View {
         VStack {
-            if isIpad {
+            if isIpad(sizeClass) {
                 // iPad
-                HStack(spacing: 5) {
+                VStack(spacing: 5) {
                     ForEach(weather.days.indices) { index in
                         Button(action: {
                             self.appState.showDayDetail(self.weather.days[index])
                         }) {
-                            Day(day: self.weather.days[index])
-                        }
-//                            .frame(maxWidth: .infinity)
-                            .padding(.vertical)
-//                            .background(Color.white.opacity(0.1))
-                        if (index != self.weather.days.count - 1) {
-                            Spacer()
+                            DayRow(day: self.weather.days[index])
+                                .frame(minHeight: 0, maxHeight: .infinity)
                         }
                     }
                 }.padding(.horizontal)
@@ -66,19 +51,50 @@ struct Days: View {
     }
 }
 
+struct DayRow: View {
+    let day: SWWeather.Day
+    
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
+    var iconSize: CGFloat {
+        get {
+            return isIpad(sizeClass) ? 50 : 50
+        }
+    }
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Group {
+                        Text("\(day.max ?? 0)")
+                        Text("\(day.min ?? 0)").opacity(0.5)
+                    }
+                    .fixedSize()
+                    .font(.system(size: 18))
+                    Spacer()
+                }.padding(.bottom, 5)
+                Text("\(day.dateTime?.prettyDayName() ?? "-")")
+                    .fixedSize()
+                    .font(isIpad(sizeClass) ? .system(size: 13) : .footnote)
+                    .opacity(0.5)
+            }
+            Spacer()
+            Image(day.precisCode ?? "fine")
+                .resizable()
+                .frame(
+                    width: iconSize,
+                    height: iconSize
+                )
+        }
+        .multilineTextAlignment(.center)
+    }
+}
+
 struct Day: View {
     let day: SWWeather.Day
     
     @Environment(\.horizontalSizeClass) var sizeClass
-    var isIpad: Bool {
-        get {
-            if let size = sizeClass {
-                return size == .regular
-            } else {
-                return false
-            }
-        }
-    }
 
     var body: some View {
         VStack {
@@ -88,17 +104,17 @@ struct Day: View {
                     Text("\(day.min ?? 0)").opacity(0.5)
                 }
                     .fixedSize()
-                    .font(.system(size: isIpad ? 20 : 16))
+                    .font(.system(size: 16))
             }.padding(.bottom, -10)
             Image(day.precisCode ?? "fine")
                 .resizable()
                 .frame(
-                    width: isIpad ? 60 : 50,
-                    height: isIpad ? 60 : 50
+                    width: isIpad(sizeClass) ? 60 : 50,
+                    height: isIpad(sizeClass) ? 60 : 50
                 )
             Text("\(day.dateTime?.prettyDayName() ?? "-")")
                 .fixedSize()
-                .font(isIpad ? .system(size: 14) : .footnote)
+                .font(isIpad(sizeClass) ? .system(size: 13) : .footnote)
                 .opacity(0.5)
         }
         .multilineTextAlignment(.center)
