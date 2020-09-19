@@ -19,26 +19,33 @@ struct WeatherViewPresentational: View {
     
     @State var showRadar = false
     @ObservedObject var sessionData = SessionData.shared
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appState: AppState 
     @Environment(\.horizontalSizeClass) var sizeClass
     let weather: SWWeather
+    
+    var mainInformation: some View {
+        VStack {
+            PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
+            Precis(weather: self.weather)
+            RainChance(rainfall: self.weather.rainfall)
+                .foregroundColor(Color.white)
+                .opacity(0.5)
+                .padding(.bottom, 40)
+            Temperatures(weather: self.weather)
+        }
+    }
     
     var iPhoneLayout: some View {
         GeometryReader { (geometry: GeometryProxy) in
             ScrollView(.vertical, showsIndicators: false) {
                 // Above the fold
-                Spacer().frame(height: geometry.safeAreaInsets.top)
                 VStack {
+                    Spacer().frame(height: geometry.safeAreaInsets.top)
+                    Spacer().frame(height: 40)
                     AdBanner()
                     LocationName(location: self.weather.location)
                     Spacer()
-                    PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
-                    Precis(weather: self.weather)
-                    RainChance(rainfall: self.weather.rainfall)
-                        .foregroundColor(Color.white)
-                        .opacity(0.5)
-                        .padding(.bottom, 40)
-                    Temperatures(weather: self.weather)
+                    mainInformation
                     Spacer()
                     Hours(weather: self.weather)
                     WeatherStats(weather: self.weather)
@@ -67,13 +74,7 @@ struct WeatherViewPresentational: View {
                             AdBanner()
                             LocationName(location: self.weather.location)
                             Spacer()
-                            PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
-                            Precis(weather: self.weather)
-                            RainChance(rainfall: self.weather.rainfall)
-                                .foregroundColor(Color.white)
-                                .opacity(0.5)
-                                .padding(.bottom, 40)
-                            Temperatures(weather: self.weather)
+                            mainInformation
                             Spacer()
                             Hours(weather: self.weather)
                         }
