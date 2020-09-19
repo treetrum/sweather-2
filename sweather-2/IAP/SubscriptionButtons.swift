@@ -61,7 +61,7 @@ struct SubscriptionButtons: View {
                     if (self.storeManager.refreshing) {
                         self.loadingText
                     } else {
-                        Text("Restore purcahses")
+                        Text("Restore purchases")
                     }
                 }
                 
