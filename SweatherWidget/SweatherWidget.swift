@@ -17,22 +17,31 @@ struct WeatherTimeline: TimelineProvider {
     func getWeather(_ completion: @escaping (SWWeather?) -> Void) {
         let api = WillyWeatherAPI()
         
-        LocationHelper.shared.getLocation { (coords) in
-            if let coords = coords {
-                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
-                    if let location = location {
-                        api.getWeatherForLocation(location: location.id) { (data, error) in
-                            if error != nil {
-                                fatalError("Something went wrong: \(error!)")
-                            }
-                            if let weatherData = data {
-                                completion(SWWeather(weather: weatherData))
-                            }
-                        }
-                    }
-                }
+//        LocationHelper.shared.getLocation { (coords) in
+//            if let coords = coords {
+//                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
+//                    if let location = location {
+//                        api.getWeatherForLocation(location: location.id) { (data, error) in
+//                            if error != nil {
+//                                fatalError("Something went wrong: \(error!)")
+//                            }
+//                            if let weatherData = data {
+//                                completion(SWWeather(weather: weatherData))
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+        api.getWeatherForLocation(location: 158) { (data, error) in
+            if let weatherData = data {
+                completion(SWWeather(weather: weatherData));
+            } else {
+                completion(nil)
             }
         }
+    
     }
     
     func placeholder(in context: Context) -> WeatherEntry {
@@ -53,6 +62,8 @@ struct WeatherTimeline: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
+        
+        print("Reloading")
         
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!

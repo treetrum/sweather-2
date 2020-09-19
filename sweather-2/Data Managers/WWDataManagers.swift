@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import SwiftUI
 import Combine
+import WidgetKit
 
 class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
@@ -145,6 +146,10 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
                     SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
                     WatchComplicationHelper.shared.reloadComplications()
                     #endif
+                    
+                    if #available(iOS 14.0, *) {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                 }
             }
         }
