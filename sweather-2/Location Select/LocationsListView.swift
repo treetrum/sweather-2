@@ -13,6 +13,7 @@ let MAX_NUMBER_CUSTOM_LOCATIONS = 5;
 
 struct LocationsListView: View {
     
+    @EnvironmentObject var searchManager: LocationSearchManager
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var sessionData = SessionData.shared
@@ -58,7 +59,9 @@ struct LocationsListView: View {
                     Image(systemName: "plus").padding(.all)
                 }))
             .sheet(isPresented: self.$showingAddLocationView) {
-                AddLocationView().environment(\.managedObjectContext, self.managedObjectContext)
+                AddLocationView()
+                    .environment(\.managedObjectContext, self.managedObjectContext)
+                    .environmentObject(self.searchManager)
             }
             .alert(isPresented: self.$showAlert) { () -> Alert in
                 Alert(

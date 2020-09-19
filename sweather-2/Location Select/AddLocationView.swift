@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct AddLocationView: View {
-    
-    @ObservedObject var searchManager = LocationSearchManager()
-    
+
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var searchManager: LocationSearchManager
 
     var body: some View {
         NavigationView {
@@ -59,6 +58,7 @@ struct AddLocationView: View {
             print(error)
         }
         self.presentationMode.wrappedValue.dismiss()
+        self.handleCancel()
     }
     
     func handleCancel() {

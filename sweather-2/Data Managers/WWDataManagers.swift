@@ -43,6 +43,8 @@ class MapDataManager: ObservableObject {
 }
 
 class LocationSearchManager: ObservableObject {
+    
+    static let shared = LocationSearchManager()
 
     let api = WillyWeatherAPI()
 

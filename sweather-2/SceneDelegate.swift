@@ -26,9 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        sessionData.hasAdRemovalSubscription = true
         let appState = AppState()
         let weatherDataManager = WeatherDataManager.shared
+        let locationSearchManager = LocationSearchManager.shared
         let contentView = ContentView()
             .environment(\.managedObjectContext, context)
             .environmentObject(weatherDataManager)
+            .environmentObject(locationSearchManager)
             .environmentObject(sessionData)
             .environmentObject(appState)
 

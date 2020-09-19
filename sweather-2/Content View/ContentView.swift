@@ -17,6 +17,7 @@ struct ContentView: View {
     @FetchRequest( entity: SavedLocation.entity(), sortDescriptors: [] ) var savedLocations: FetchedResults<SavedLocation>
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var manager: WeatherDataManager
+    @EnvironmentObject var searchManager: LocationSearchManager
     @ObservedObject var sessionData = SessionData.shared
 
     var body: some View {
@@ -54,6 +55,7 @@ struct ContentView: View {
                     LocationsListView()
                         .environment(\.managedObjectContext, self.managedObjectContext)
                         .environmentObject(self.sessionData)
+                        .environmentObject(self.searchManager)
                 } else if (self.appState.sheetScreen == SheetScreen.settings) {
                     Settings()
                         .environment(\.managedObjectContext, self.managedObjectContext)
