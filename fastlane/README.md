@@ -41,6 +41,11 @@ fastlane ios deliver_metadata
 fastlane ios deliver_screenshots_and_metadata
 ```
 
+### ios certificates
+```
+fastlane ios certificates
+```
+
 
 ----
 

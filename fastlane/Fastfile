@@ -18,7 +18,11 @@ platform :ios do
     match(
       type: "appstore", 
       readonly: is_ci, 
-      git_basic_authorization: ENV["GH_PERSONAL_ACCESS_TOKEN"]
+      git_basic_authorization: ENV["GH_PERSONAL_ACCESS_TOKEN"],
+      app_identifier: [
+        "com.sjd.sweather",
+        "com.sjd.sweather.SweatherWidget",
+      ]
     )
 
     # Install pods
@@ -79,4 +83,12 @@ platform :ios do
       force: true
     )
   end
+
+  lane :certificates do
+    match(app_identifier: [
+      "com.sjd.sweather",
+      "com.sjd.sweather.SweatherWidget",
+    ])
+  end
+
 end
