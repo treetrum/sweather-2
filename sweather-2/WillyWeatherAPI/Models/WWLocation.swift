@@ -9,7 +9,7 @@
 import Foundation
 
 struct WWLocation: Codable {
-    let id: Int
+    let id: Int64
     let name: String
     let region: String
     let state: String

@@ -102,17 +102,10 @@ struct LocationsListView: View {
     func handleDelete(_ offsets: IndexSet) {
         for index in offsets {
             let location = self.savedLocations[index]
-            let id = Int(location.id)
             self.managedObjectContext.delete(location)
             do {
+                self.sessionData.viewingCurrentLocation = true
                 try self.managedObjectContext.save()
-                if self.sessionData.currentLocationId == id {
-                    if self.savedLocations.count > 0 {
-                        self.sessionData.currentLocationId = Int(self.savedLocations.first!.id)
-                    } else {
-                        self.sessionData.viewingCurrentLocation = true
-                    }
-                }
             } catch {
                 print("[DB] Error when saving after deleting from DB")
             }

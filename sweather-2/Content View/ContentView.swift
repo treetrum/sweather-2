@@ -93,7 +93,7 @@ struct ContentView_Previews: PreviewProvider {
 extension WWLocation {
     init(savedLocation: SavedLocation) {
         self = WWLocation(
-            id: Int(savedLocation.id),
+            id: Int64(savedLocation.id),
             name: savedLocation.name!,
             region: savedLocation.region!,
             state: savedLocation.state!,

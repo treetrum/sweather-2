@@ -34,7 +34,7 @@ class SessionData: ObservableObject {
         }
     }
     
-    @Published var currentLocationId: Int {
+    @Published var currentLocationId: Int64 {
         didSet {
             UserDefaults.standard.set(self.currentLocationId, forKey: SessionDataKeys.currentWeatherLocation.rawValue)
         }
@@ -63,7 +63,7 @@ class SessionData: ObservableObject {
     init(
         launched: String? = UserDefaults.standard.string(forKey: SessionDataKeys.launched.rawValue),
         viewingCurrentLocation: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.viewingCurrentLocation.rawValue),
-        currentLocationId: Int = UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue),
+        currentLocationId: Int64 = Int64(UserDefaults.standard.integer(forKey: SessionDataKeys.currentWeatherLocation.rawValue)),
         hasAdRemovalSubscription: Bool = UserDefaults.standard.bool(forKey: SessionDataKeys.hasAdRemovalSubscription.rawValue),
         adRemovalSubscripionExpiry: String? = UserDefaults.standard.string(forKey: SessionDataKeys.adRemovalSubscripionExpiry.rawValue),
         noLocationAccess: Bool = false

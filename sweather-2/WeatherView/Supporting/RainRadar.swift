@@ -35,7 +35,7 @@ struct RainRadar: View {
     @State var timer: Timer.TimerPublisher = Timer.publish (every: 0.5, on: .main, in: .common)
     @State var unmounting = false
     
-    init(locationId: Int) {
+    init(locationId: Int64) {
         let mapDataManager = MapDataManager(locationId: locationId)
         self.mapDataManager = mapDataManager
         self.indexManager = MapImageIndexManager(manager: MapDataManager(locationId: locationId))

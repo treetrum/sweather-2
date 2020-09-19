@@ -30,7 +30,7 @@ class MapDataManager: ObservableObject {
         }
     }
     
-    init(locationId: Int) {
+    init(locationId: Int64) {
         self.loading = true
         api.getMapsForLocation(location: locationId) { (mapData, error) in
             guard let mapData = mapData else { return }
@@ -82,7 +82,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     
     static let shared = WeatherDataManager()
     
-    var locationId: Int?
+    var locationId: Int64?
     var usingCurrentLocation: Bool = false
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
@@ -133,9 +133,9 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         }
     }
     
-    func getWeatherData(_ locationId: Int?) {
-        if let lid = locationId {
-            api.getWeatherForLocation(location: lid) { (weatherData, error) in
+    func getWeatherData(_ locationId: Int64?) {
+        if let locationId = locationId {
+            api.getWeatherForLocation(location: locationId) { (weatherData, error) in
                 guard let weatherData = weatherData else { return }
                 DispatchQueue.main.async {
                     self.simpleWeatherData = SWWeather(weather: weatherData)

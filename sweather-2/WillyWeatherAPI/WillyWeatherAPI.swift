@@ -53,11 +53,11 @@ class WillyWeatherAPI {
         }
     }
     
-    func getWeatherForLocationURL(location: Int) -> String {
+    func getWeatherForLocationURL(location: Int64) -> String {
         return "\(apiURL)/\(apiKey)/locations/\(location)/weather.json?forecasts=precis,rainfall,rainfallprobability,sunrisesunset,temperature,weather&observational=true&regionPrecis=true&days=8"
     }
     
-    func getWeatherForLocation(location: Int, callback: @escaping (WWWeatherData?, Error?) -> Void) {
+    func getWeatherForLocation(location: Int64, callback: @escaping (WWWeatherData?, Error?) -> Void) {
         let url = getWeatherForLocationURL(location: location)
         SJDFetch.shared.get(url: url) { (data, response, error) in
             if let error = error {
@@ -75,7 +75,7 @@ class WillyWeatherAPI {
         }
     }
     
-    func getMapsForLocation(location: Int, callback: @escaping (WWMapData?, Error?) -> Void) {
+    func getMapsForLocation(location: Int64, callback: @escaping (WWMapData?, Error?) -> Void) {
         let url = "\(apiURL)/\(apiKey)/locations/\(location)/maps.json?mapTypes=regional-radar&offset=-60&limit=30&units=distance:km"
         SJDFetch.shared.get(url: url) { (data, response, error) in
             if let error = error {
