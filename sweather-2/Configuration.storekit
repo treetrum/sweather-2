@@ -1,0 +1,45 @@
+{
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "5275904D",
+      "localizations" : [
+
+      ],
+      "name" : "Subscriptions",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "02F84632",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Remove Ads",
+              "displayName" : "Remove Ads",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "remove_ads",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Remove Ads",
+          "subscriptionGroupID" : "5275904D",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 0
+  }
+}

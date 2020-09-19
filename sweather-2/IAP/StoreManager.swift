@@ -9,6 +9,7 @@
 import Foundation
 import StoreKit
 import SwiftyStoreKit
+import TPInAppReceipt
 
 enum IAPProductIds: String {
     case removeAds = "remove_ads"
@@ -68,38 +69,63 @@ class StoreManager: ObservableObject {
         }
     }
     
-    // Should be called on app launch and after making/restoring purchases
+    /// Should be called on app launch and after making/restoring purchases
+    /// Handles the fetching and subsequently, the verification of the receipt
     func verifyReciept() {
-        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "b015ca428a4743fbbbfb28089338fbde")
-        SwiftyStoreKit.verifyReceipt(using: appleValidator) { (result) in
-            switch result {
-            case .success(let receipt):
-                let productId = IAPProductIds.removeAds.rawValue
-                // Verify the purchase of a Subscription
-                let purchaseResult = SwiftyStoreKit.verifySubscription(
-                    ofType: .autoRenewable, // or .nonRenewing (see below)
-                    productId: productId,
-                    inReceipt: receipt)
-                    
-                switch purchaseResult {
-                case .purchased(let expiryDate, _):
-                    print("[StoreManager] \(productId) is valid until \(expiryDate)")
-                    SessionData.shared.hasAdRemovalSubscription = true
-                    self.adRemovalExpiry = expiryDate
-                case .expired(let expiryDate, _):
-                    print("[StoreManager] \(productId) is expired since \(expiryDate)")
-                    SessionData.shared.hasAdRemovalSubscription = false
-                    self.adRemovalExpiry = nil
-                case .notPurchased:
-                    print("[StoreManager] The user has never purchased \(productId)")
-                    SessionData.shared.hasAdRemovalSubscription = false
-                    self.adRemovalExpiry = nil
+        // get the receipt from SwiftyStoreKit and validate
+        if let receiptData = SwiftyStoreKit.localReceiptData {
+            do {
+                let receipt = try InAppReceipt.receipt(from: receiptData)
+                validateReceipt(receipt: receipt)
+            }
+            catch {
+                print("[StoreManager] Error creating receipt from data")
+            }
+        }
+        else {
+            //no receipt, hence force a refresh
+            SwiftyStoreKit.fetchReceipt(forceRefresh: true) { result in
+                switch result {
+                case .success(let receiptData):
+                    do {
+                        let receipt = try InAppReceipt.receipt(from: receiptData)
+                        self.validateReceipt(receipt: receipt)
+                    }
+                    catch {
+                        print("[StoreManager] Error validating receipt")
+                    }
+                case .error(let error):
+                    print("[StoreManager] Error fetching receipt \(error)")
                 }
+            }
+        }
+    }
+    
+    /// Handles the actual verification of the receipt
+    func validateReceipt(receipt:InAppReceipt) {
+        do {
+            try receipt.verify()
+        } catch IARError.validationFailed(reason: .hashValidation) {
+            // TODO: Handle error
+        } catch IARError.validationFailed(reason: .bundleIdentifierVefirication) {
+            // TODO: Handle error
+        } catch IARError.validationFailed(reason: .signatureValidation) {
+            // TODO: Handle error
+        } catch {
+            // TODO: Handle error
+        }
+        
+        let activePurchases: [InAppPurchase] = receipt.activeAutoRenewableSubscriptionPurchases
 
-            case .error(let error):
-                print("[StoreManager] Receipt verification failed: \(error)")
-                SessionData.shared.hasAdRemovalSubscription = false
-                self.adRemovalExpiry = nil
+        if activePurchases.isEmpty {
+            self.adRemovalExpiry = nil;
+            SessionData.shared.hasAdRemovalSubscription = false
+        } else {
+            for purchase in activePurchases {
+                if purchase.productIdentifier == IAPProductIds.removeAds.rawValue {
+                    SessionData.shared.hasAdRemovalSubscription = true
+                    self.adRemovalExpiry = purchase.subscriptionExpirationDate
+                }
             }
         }
     }

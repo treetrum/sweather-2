@@ -11,6 +11,7 @@ target 'sweather-2' do
   pod 'Firebase/Crashlytics'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftyStoreKit'
+  pod 'TPInAppReceipt'
 
 end
 

@@ -66,8 +66,10 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "sweather-watch Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Sweather 2">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2284BAE223EFE1B000E15FCF"
@@ -75,7 +77,7 @@
             BlueprintName = "sweather-watch"
             ReferencedContainer = "container:sweather-2.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -85,8 +87,10 @@
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "sweather-watch Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Sweather 2">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2284BAE223EFE1B000E15FCF"
@@ -94,7 +98,16 @@
             BlueprintName = "sweather-watch"
             ReferencedContainer = "container:sweather-2.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2284BAE223EFE1B000E15FCF"
+            BuildableName = "sweather-watch.app"
+            BlueprintName = "sweather-watch"
+            ReferencedContainer = "container:sweather-2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

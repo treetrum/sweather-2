@@ -19,6 +19,8 @@
 		223FB3A6237660AB005BB4D8 /* WeatherViewPresentational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */; };
 		223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A72376613A005BB4D8 /* CurrentLocationWeatherView.swift */; };
 		223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3AC237662CA005BB4D8 /* LocationName.swift */; };
+		224C93422515992B008ECA55 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 224C9341251598FD008ECA55 /* Configuration.storekit */; };
+		224C93482515999E008ECA55 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 224C93472515999E008ECA55 /* StoreKitTestCertificate.cer */; };
 		224F62572367F0E500A73E2E /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F62562367F0E500A73E2E /* AddLocationView.swift */; };
 		224F625923681C9A00A73E2E /* SWWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F625823681C9A00A73E2E /* SWWeather.swift */; };
 		2254021624A337DA00008CEF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254021524A337DA00008CEF /* AppState.swift */; };
@@ -178,6 +180,8 @@
 		223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewPresentational.swift; sourceTree = "<group>"; };
 		223FB3A72376613A005BB4D8 /* CurrentLocationWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationWeatherView.swift; sourceTree = "<group>"; };
 		223FB3AC237662CA005BB4D8 /* LocationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationName.swift; sourceTree = "<group>"; };
+		224C9341251598FD008ECA55 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		224C93472515999E008ECA55 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		224F62562367F0E500A73E2E /* AddLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView.swift; sourceTree = "<group>"; };
 		224F625823681C9A00A73E2E /* SWWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWeather.swift; sourceTree = "<group>"; };
 		2254021524A337DA00008CEF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -602,6 +606,8 @@
 				229D3E40236036730035FD66 /* AppDelegate.swift */,
 				229D3E42236036730035FD66 /* SceneDelegate.swift */,
 				22252080245EDFBC0021FC0E /* GoogleService-Info.plist */,
+				224C9341251598FD008ECA55 /* Configuration.storekit */,
+				224C93472515999E008ECA55 /* StoreKitTestCertificate.cer */,
 			);
 			path = "sweather-2";
 			sourceTree = "<group>";
@@ -840,6 +846,7 @@
 				22ECEB882453B5E20020751A /* custom-1-snow.png in Resources */,
 				229D3E4D236036750035FD66 /* LaunchScreen.storyboard in Resources */,
 				22ECEB842453B5E20020751A /* custom-4-snow.png in Resources */,
+				224C93482515999E008ECA55 /* StoreKitTestCertificate.cer in Resources */,
 				22ECEB8A2453B5E20020751A /* custom-4.png in Resources */,
 				22ECEB952453B5E20020751A /* custom-4-sun.png in Resources */,
 				22ECEB812453B5E20020751A /* custom-6.png in Resources */,
@@ -859,6 +866,7 @@
 				22ECEB922453B5E20020751A /* default-snow.png in Resources */,
 				22ECEB892453B5E20020751A /* custom-2-snow.png in Resources */,
 				223FB3A423764E97005BB4D8 /* sample-weather-data.json in Resources */,
+				224C93422515992B008ECA55 /* Configuration.storekit in Resources */,
 				229D3E47236036750035FD66 /* Assets.xcassets in Resources */,
 				22ECEB8F2453B5E20020751A /* custom-5-snow.png in Resources */,
 				22ECEB8E2453B5E20020751A /* custom-3-sun.png in Resources */,

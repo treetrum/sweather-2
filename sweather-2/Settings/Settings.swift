@@ -20,7 +20,6 @@ struct NavigationButtonIcon: View {
             .background(self.colour)
             .cornerRadius(4)
             .padding(.vertical, 5)
-//            .padding(.trailing, 0)
     }
 }
 
@@ -31,6 +30,16 @@ struct Settings: View {
     @EnvironmentObject var sessionData: SessionData
     
     @State var showShareSheet: Bool = false
+    
+    var appInfo: some View {
+        VStack {
+            Text("Sweather \(UIApplication.appVersion!) (\(UIApplication.appBuildNumber!))").font(.headline)
+            Text("By Sam Davis").padding(.top, 3)
+            Text("Weather data provided by WillyWeather").padding(.top, 20)
+        }
+        .padding(.top, 30)
+        .frame(maxWidth: .infinity, alignment: .center)
+    }
     
     var body: some View {
         NavigationView {
@@ -44,16 +53,7 @@ struct Settings: View {
                     }
                 }
                 SubscriptionButtons()
-                Section(
-                    footer:
-                        VStack {
-                            Text("Sweather \(UIApplication.appVersion!) (\(UIApplication.appBuildNumber!))").font(.headline)
-                            Text("By Sam Davis").padding(.top, 3)
-                            Text("Weather data provided by WillyWeather").padding(.top, 20)
-                        }
-                        .padding(.top, 30)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                ) {
+                Section( footer: appInfo ) {
                     Button(action: {
                         self.showShareSheet = true;
                     }) {
@@ -64,8 +64,6 @@ struct Settings: View {
                     }) {
                         Text("Get In Touch")
                     }
-                }.sheet(isPresented: self.$showShareSheet) {
-                    ShareSheet(activityItems: [URL(string: "https://apps.apple.com/au/app/sweather/id1238159259")!])
                 }
             }
             .listStyle(GroupedListStyle())
@@ -74,7 +72,11 @@ struct Settings: View {
                 leading: Button(action: closeSheet) {
                     Text("Done")
                 })
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: self.$showShareSheet) {
+            ShareSheet(activityItems: [URL(string: "https://apps.apple.com/au/app/sweather/id1238159259")!])
+        }
     }
     
     func closeSheet() {
