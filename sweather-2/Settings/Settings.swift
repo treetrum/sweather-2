@@ -34,8 +34,7 @@ struct Settings: View {
     var appInfo: some View {
         VStack {
             Text("Sweather \(UIApplication.appVersion!) (\(UIApplication.appBuildNumber!))").font(.headline)
-            Text("By Sam Davis").padding(.top, 3)
-            Text("Weather data provided by WillyWeather").padding(.top, 20)
+            Text("Weather data provided by WillyWeather").padding(.top, 10)
         }
         .padding(.top, 30)
         .frame(maxWidth: .infinity, alignment: .center)
