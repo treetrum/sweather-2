@@ -86,7 +86,6 @@
 		22A8350923EFECEA00D0310D /* sample-weather-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223FB3A323764E97005BB4D8 /* sample-weather-data.json */; };
 		22A8350A23EFECEA00D0310D /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		22A8350C23EFEE3300D0310D /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
-		22BBA462246937830076BE1E /* config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB992453C5570020751A /* config.xcconfig */; };
 		22C6822B236798EC00B1919F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822A236798EC00B1919F /* PageViewController.swift */; };
 		22C6822E2367A10300B1919F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822D2367A10300B1919F /* PageView.swift */; };
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
@@ -770,7 +769,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sam Davis";
 				TargetAttributes = {
 					225CBC5A246FC77400BEED46 = {
@@ -862,7 +861,6 @@
 				22ECEB832453B5E20020751A /* custom-3-snow.png in Resources */,
 				22ECEB822453B5E20020751A /* custom-5-sun.png in Resources */,
 				22ECEB912453B5E20020751A /* custom-2.png in Resources */,
-				22BBA462246937830076BE1E /* config.xcconfig in Resources */,
 				22ECEB922453B5E20020751A /* default-snow.png in Resources */,
 				22ECEB892453B5E20020751A /* custom-2-snow.png in Resources */,
 				223FB3A423764E97005BB4D8 /* sample-weather-data.json in Resources */,
@@ -1283,6 +1281,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1344,6 +1343,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
