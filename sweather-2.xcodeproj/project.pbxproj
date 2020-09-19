@@ -1390,7 +1390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
@@ -1418,7 +1418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
