@@ -10,42 +10,92 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
-    }
+struct WeatherTimeline: TimelineProvider {
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
-    }
-
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+    typealias Entry = WeatherEntry
+    
+    func getWeather(_ completion: @escaping (SWWeather?) -> Void) {
+        let api = WillyWeatherAPI()
+        
+        LocationHelper.shared.getLocation { (coords) in
+            if let coords = coords {
+                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
+                    if let location = location {
+                        api.getWeatherForLocation(location: location.id) { (data, error) in
+                            if error != nil {
+                                fatalError("Something went wrong: \(error!)")
+                            }
+                            if let weatherData = data {
+                                completion(SWWeather(weather: weatherData))
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+    }
+    
+    func placeholder(in context: Context) -> WeatherEntry {
+        WeatherEntry(date: Date(), weatherData: SampleWeatherData())
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (WeatherEntry) -> Void) {
+        if context.isPreview {
+            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData())
+            completion(sampleEntry)
+        } else {
+            getWeather { (weather) in
+                if let data = weather {
+                    completion(WeatherEntry(date: Date(), weatherData: data))
+                }
+            }
+        }
+    }
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
+        
+        let currentDate = Date()
+        let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
+        
+        getWeather { (weatherData) in
+            if let weather = weatherData {
+                let entry = WeatherEntry(date: Date(), weatherData: weather)
+                let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                completion(timeline)
+            }
+        }
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct WeatherEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    let weatherData: SWWeather
 }
 
 struct SweatherWidgetEntryView : View {
-    var entry: Provider.Entry
+    var entry: WeatherTimeline.Entry
+    var iconSize: CGFloat = 50;
 
     var body: some View {
-        Text(entry.date, style: .time)
+        ZStack {
+            BackgroundGradient(timePeriod: entry.weatherData.getTimePeriod())
+            VStack(alignment: .leading) {
+                Image(entry.weatherData.getPrecisImageCode()).resizable().frame(width: iconSize, height: iconSize).foregroundColor(.white).padding(.all, -12)
+                Spacer()
+                Text("\(entry.weatherData.temperature.actual?.roundToSingleDecimalString() ?? "0")°").font(.title2)
+                Spacer().frame(height: 3)
+                Text("\(entry.weatherData.precis.precis ?? "")").font(.footnote)
+                Spacer().frame(height: 3)
+                Text("L:\(entry.weatherData.temperature.min ?? 0)° H:\(entry.weatherData.temperature.max ?? 0)°").font(.footnote)
+                Spacer().frame(height: 3)
+                Text("\(entry.weatherData.location.name)").font(.footnote)
+            }
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minHeight: 0, maxHeight: .infinity)
+                .foregroundColor(Color.white)
+        }
     }
 }
 
@@ -54,7 +104,7 @@ struct SweatherWidget: Widget {
     let kind: String = "SweatherWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: WeatherTimeline()) { entry in
             SweatherWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
@@ -64,7 +114,7 @@ struct SweatherWidget: Widget {
 
 struct SweatherWidget_Previews: PreviewProvider {
     static var previews: some View {
-        SweatherWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        SweatherWidgetEntryView(entry: WeatherEntry(date: Date(), weatherData: SampleWeatherData()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
