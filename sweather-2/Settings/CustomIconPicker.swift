@@ -49,26 +49,7 @@ struct CustomIconPicker: View {
                                         : RoundedRectangle(cornerRadius: 11).stroke(Color.blue, lineWidth: 0)
                                 )
                                 .padding(.horizontal, 2)
-                                .onTapGesture {
-                                    let key = icon.keys[index]
-                                    if key == "default" {
-                                        UIApplication.shared.setAlternateIconName(nil, completionHandler: { error in
-                                            if let error = error {
-                                                print(error)
-                                                return
-                                            }
-                                            self.currentIconName = nil
-                                        })
-                                    } else {
-                                        UIApplication.shared.setAlternateIconName(key, completionHandler: { error in
-                                            if let error = error {
-                                                print(error)
-                                                return
-                                            }
-                                            self.currentIconName = key
-                                        })
-                                    }
-                                }
+                                .onTapGesture { handleIconSelect(icon, index: index) }
                             }
                             
                         }
@@ -76,7 +57,30 @@ struct CustomIconPicker: View {
                     }.padding(.vertical, 5)
                 }
             }
-        }.navigationBarTitle("App Icon", displayMode: .inline)
+        }
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle("App Icon", displayMode: .inline)
+    }
+    
+    func handleIconSelect(_ icon: IconSet, index: Int) {
+        let key = icon.keys[index]
+        if key == "default" {
+            UIApplication.shared.setAlternateIconName(nil, completionHandler: { error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                self.currentIconName = nil
+            })
+        } else {
+            UIApplication.shared.setAlternateIconName(key, completionHandler: { error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                self.currentIconName = key
+            })
+        }
     }
 }
 
