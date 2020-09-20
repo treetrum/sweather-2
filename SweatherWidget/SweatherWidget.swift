@@ -9,36 +9,32 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import CoreLocation
 
 struct WeatherTimeline: TimelineProvider {
 
     typealias Entry = WeatherEntry
+    let locationHelper = LocationHelper()
     
     func getWeather(_ completion: @escaping (SWWeather?) -> Void) {
+        
         let api = WillyWeatherAPI()
+    
+        if (locationHelper.manager == nil) {
+            locationHelper.manager = CLLocationManager()
+        }
         
-//        LocationHelper.shared.getLocation { (coords) in
-//            if let coords = coords {
-//                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
-//                    if let location = location {
-//                        api.getWeatherForLocation(location: location.id) { (data, error) in
-//                            if error != nil {
-//                                fatalError("Something went wrong: \(error!)")
-//                            }
-//                            if let weatherData = data {
-//                                completion(SWWeather(weather: weatherData))
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
-        api.getWeatherForLocation(location: 158) { (data, error) in
-            if let weatherData = data {
-                completion(SWWeather(weather: weatherData));
-            } else {
-                completion(nil)
+        locationHelper.getLocation { (coords) in
+            if let coords = coords {
+                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
+                    if let location = location {
+                        api.getWeatherForLocation(location: location.id) { (data, error) in
+                            if let weatherData = data {
+                                completion(SWWeather(weather: weatherData))
+                            }
+                        }
+                    }
+                }
             }
         }
     
@@ -62,9 +58,7 @@ struct WeatherTimeline: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
-        
-        print("Reloading")
-        
+                
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
         
@@ -93,7 +87,7 @@ struct SweatherWidgetEntryView : View {
             VStack(alignment: .leading) {
                 Image(entry.weatherData.getPrecisImageCode()).resizable().frame(width: iconSize, height: iconSize).foregroundColor(.white).padding(.all, -12)
                 Spacer()
-                Text("\(entry.weatherData.temperature.actual?.roundToSingleDecimalString() ?? "0")°").font(.title2)
+                Text("\(entry.weatherData.temperature.apparent?.roundToSingleDecimalString() ?? "0")°").font(.title2)
                 Spacer().frame(height: 3)
                 Text("\(entry.weatherData.precis.precis ?? "")").font(.footnote)
                 Spacer().frame(height: 3)

@@ -14,22 +14,22 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     static let shared = LocationHelper();
     
     var savedGetLocationCompletion: ((CLLocation?) -> Void)?
-    let manager = CLLocationManager()
-    
-    override init() {
-        super.init()
-        manager.delegate = self
-    }
-    
+    var manager: CLLocationManager?
+
     func getLocation(completion: @escaping (CLLocation?) -> Void) {
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
-        self.savedGetLocationCompletion = completion
+        if let manager = self.manager {
+            self.savedGetLocationCompletion = completion
+            manager.delegate = self
+            manager.requestWhenInUseAuthorization()
+            manager.requestLocation()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
         guard let completion = self.savedGetLocationCompletion else {
-            fatalError("No completion handler saved");
+            print("No completion handler saved");
+            return;
         }
         completion(locations.first)
     }
