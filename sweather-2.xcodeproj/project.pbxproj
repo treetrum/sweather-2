@@ -35,8 +35,6 @@
 		226ABFE82515AD77000CDF9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226ABFE72515AD77000CDF9F /* SwiftUI.framework */; };
 		226ABFEB2515AD77000CDF9F /* SweatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABFEA2515AD77000CDF9F /* SweatherWidget.swift */; };
 		226ABFEE2515AD79000CDF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226ABFED2515AD79000CDF9F /* Assets.xcassets */; };
-		226ABFF02515AD79000CDF9F /* SweatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 226ABFEC2515AD77000CDF9F /* SweatherWidget.intentdefinition */; };
-		226ABFF12515AD79000CDF9F /* SweatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 226ABFEC2515AD77000CDF9F /* SweatherWidget.intentdefinition */; };
 		226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 226ABFE42515AD77000CDF9F /* SweatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		226AC0BD2515BC9D000CDF9F /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
 		226AC0BE2515BC9D000CDF9F /* WWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156723777D4C00D05ED1 /* WWWeatherData.swift */; };
@@ -70,6 +68,8 @@
 		226B15762377998B00D05ED1 /* WeatherStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B15752377998B00D05ED1 /* WeatherStats.swift */; };
 		22768551237F6B0A002BCDBB /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768550237F6B0A002BCDBB /* BottomBar.swift */; };
 		22768553237F792B002BCDBB /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22768552237F792B002BCDBB /* Loading.swift */; };
+		227C415225176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */; };
+		227C415325176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */; };
 		2281F4F8238148F60033E499 /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
 		2281F4FA23814A680033E499 /* RainRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F923814A680033E499 /* RainRadar.swift */; };
 		2284BAE723EFE1B000E15FCF /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2284BAE523EFE1B000E15FCF /* Interface.storyboard */; };
@@ -241,7 +241,6 @@
 		226ABFE52515AD77000CDF9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		226ABFE72515AD77000CDF9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		226ABFEA2515AD77000CDF9F /* SweatherWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweatherWidget.swift; sourceTree = "<group>"; };
-		226ABFEC2515AD77000CDF9F /* SweatherWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SweatherWidget.intentdefinition; sourceTree = "<group>"; };
 		226ABFED2515AD79000CDF9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226ABFEF2515AD79000CDF9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		226AC1492515D033000CDF9F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -258,6 +257,7 @@
 		226CE5512470C8C500E225BC /* Sydney Custom.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Sydney Custom.gpx"; sourceTree = "<group>"; };
 		22768550237F6B0A002BCDBB /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		22768552237F792B002BCDBB /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SweatherWidgetIntent.intentdefinition; sourceTree = "<group>"; };
 		2281F4F7238148F60033E499 /* WWMapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWMapData.swift; sourceTree = "<group>"; };
 		2281F4F923814A680033E499 /* RainRadar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainRadar.swift; sourceTree = "<group>"; };
 		2284BAE323EFE1B000E15FCF /* sweather-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sweather-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -532,9 +532,9 @@
 			isa = PBXGroup;
 			children = (
 				226ABFEA2515AD77000CDF9F /* SweatherWidget.swift */,
-				226ABFEC2515AD77000CDF9F /* SweatherWidget.intentdefinition */,
 				226ABFED2515AD79000CDF9F /* Assets.xcassets */,
 				226ABFEF2515AD79000CDF9F /* Info.plist */,
+				227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */,
 			);
 			path = SweatherWidget;
 			sourceTree = "<group>";
@@ -1122,10 +1122,10 @@
 				226AC0C12515BC9D000CDF9F /* WWLocationCoordSearchResult.swift in Sources */,
 				226AC0BE2515BC9D000CDF9F /* WWWeatherData.swift in Sources */,
 				226AC0C72515BD1A000CDF9F /* SWWeather.swift in Sources */,
+				227C415325176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
 				226AC0F32515C75C000CDF9F /* extensions.swift in Sources */,
 				226AC1502515D04E000CDF9F /* LocationHelper.swift in Sources */,
 				226AC0F42515C75C000CDF9F /* GeneralExtensions.swift in Sources */,
-				226ABFF02515AD79000CDF9F /* SweatherWidget.intentdefinition in Sources */,
 				226AC0CD2515BDC6000CDF9F /* SampleWeatherData.swift in Sources */,
 				226AC0D92515BE29000CDF9F /* SJDFetch.swift in Sources */,
 				226AC0BF2515BC9D000CDF9F /* WWMapData.swift in Sources */,
@@ -1212,11 +1212,11 @@
 				22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */,
 				2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */,
 				2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */,
+				227C415225176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
 				22A3BC7F245E7CAA0048214B /* SubscriptionButtons.swift in Sources */,
-				226ABFF12515AD79000CDF9F /* SweatherWidget.intentdefinition in Sources */,
 				22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */,
 				226B156E2377836C00D05ED1 /* Days.swift in Sources */,
 				22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,

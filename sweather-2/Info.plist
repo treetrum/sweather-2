@@ -429,6 +429,11 @@
 	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>SweatherWidgetConfigurationIntent</string>
+		<string>SweatherWidgetIntentIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

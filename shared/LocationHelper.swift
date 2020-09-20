@@ -15,13 +15,19 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     
     var savedGetLocationCompletion: ((CLLocation?) -> Void)?
     var manager: CLLocationManager?
+    var lastCoords: CLLocation?
 
     func getLocation(completion: @escaping (CLLocation?) -> Void) {
         if let manager = self.manager {
             self.savedGetLocationCompletion = completion
             manager.delegate = self
             manager.requestWhenInUseAuthorization()
-            manager.requestLocation()
+            
+            if let lastCoords = lastCoords {
+                completion(lastCoords)
+            } else {
+                manager.requestLocation()
+            }
         }
     }
     
@@ -31,6 +37,7 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
             print("No completion handler saved");
             return;
         }
+        lastCoords = locations.first
         completion(locations.first)
     }
 
