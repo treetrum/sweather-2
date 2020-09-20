@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleVersion</key>
 	<string>842</string>
 	<key>NSExtension</key>
@@ -25,17 +25,17 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
-	<key>WillyWeatherAPIKey</key>
-	<string>${WILLY_WEATHER_API_KEY}</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
 	<key>NSLocationUsageDescription</key>
+	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Sweather uses your location to get access to the most accurate weather data for you</string>
 	<key>NSWidgetWantsLocation</key>
 	<true/>
+	<key>WillyWeatherAPIKey</key>
+	<string>${WILLY_WEATHER_API_KEY}</string>
 </dict>
 </plist>
