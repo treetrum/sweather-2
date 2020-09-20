@@ -28,6 +28,7 @@ struct Settings: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var sessionData: SessionData
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State var showShareSheet: Bool = false
     
@@ -52,19 +53,39 @@ struct Settings: View {
                     }
                 }
                 SubscriptionButtons()
+
                 Section( footer: appInfo ) {
-                    Button(action: {
-                        self.showShareSheet = true;
-                    }) {
-                        Text("Share App")
+                    Button(action: { self.showShareSheet = true }) {
+                        HStack {
+                            NavigationButtonIcon(iconName: "square.and.arrow.up", colour: .green)
+                            Text("Share App")
+                        }
+                    }
+                    Button(action: { UIApplication.shared.open(URL(string: "mailto:sam@sjd.co")!) }) {
+                        HStack {
+                            NavigationButtonIcon(iconName: "quote.bubble", colour: .green)
+                            Text("Leave Feedback")
+                        }
                     }
                     Button(action: {
-                        UIApplication.shared.open(URL(string: "mailto:sam@sjd.co")!)
+                        UIApplication.shared.open(URL(string: "https://sweather.sjd.co/privacy")!)
                     }) {
-                        Text("Get In Touch")
+                        HStack {
+                            NavigationButtonIcon(iconName: "lock", colour: .purple)
+                            Text("Privacy Policy")
+                        }
+                    }
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://sweather.sjd.co/terms")!)
+                    }) {
+                        HStack {
+                            NavigationButtonIcon(iconName: "doc.text", colour: .purple)
+                            Text("Terms of Use")
+                        }
                     }
                 }
             }
+            .foregroundColor(colorScheme == .dark ? .white : .black)
             .listStyle(GroupedListStyle())
             .navigationBarTitle(Text("Settings"), displayMode: .inline)
             .navigationBarItems(
@@ -86,6 +107,9 @@ struct Settings: View {
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
         Settings()
+            .preferredColorScheme(.dark)
+        Settings()
+            .preferredColorScheme(.light)
     }
 }
 
