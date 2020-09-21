@@ -141,6 +141,9 @@
 		22ECEB972453C0FC0020751A /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB962453C0FC0020751A /* HostingController.swift */; };
 		22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9A2453E4CC0020751A /* DayDetail.swift */; };
 		22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9C2453EC7A0020751A /* CustomPopup.swift */; };
+		22F1441A2518A9FB003D8E9B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F144192518A9FB003D8E9B /* IntentHandler.swift */; };
+		22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		22F144442518AA25003D8E9B /* SweatherWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */; };
 		22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */; };
 		22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
 		22FA8DE123EF926B00FFA1CD /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DE023EF926B00FFA1CD /* Settings.swift */; };
@@ -174,6 +177,13 @@
 			remoteGlobalIDString = 2284BAEE23EFE1B100E15FCF;
 			remoteInfo = "sweather-watch Extension";
 		};
+		22F1442D2518A9FB003D8E9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 229D3E35236036730035FD66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22F144162518A9FB003D8E9B;
+			remoteInfo = SweatherIntentsExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,6 +194,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed App Extensions */,
+				22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +331,10 @@
 		22ECEB992453C5570020751A /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
 		22ECEB9A2453E4CC0020751A /* DayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetail.swift; sourceTree = "<group>"; };
 		22ECEB9C2453EC7A0020751A /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SweatherIntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F144192518A9FB003D8E9B /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		22F1441B2518A9FB003D8E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F144212518A9FB003D8E9B /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		22F3CC642372C7CD00B3F8B4 /* Sweather 2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Sweather 2.entitlements"; sourceTree = "<group>"; };
 		22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainRadarButton.swift; sourceTree = "<group>"; };
 		22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
@@ -369,6 +384,13 @@
 			files = (
 				F1971FB085F0C9E3C0D77EFD /* Pods_sweather_2.framework in Frameworks */,
 				22A3BC7A245E6D9D0048214B /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F144142518A9FB003D8E9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +653,7 @@
 				D2B5C98D35DC9784BCA67619 /* Pods_sweather_watch_Extension.framework */,
 				226ABFE52515AD77000CDF9F /* WidgetKit.framework */,
 				226ABFE72515AD77000CDF9F /* SwiftUI.framework */,
+				22F144212518A9FB003D8E9B /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -644,6 +667,7 @@
 				2284BAF323EFE1B100E15FCF /* sweather-watch Extension */,
 				225CBC5C246FC77400BEED46 /* Sweather 2 UITests */,
 				226ABFE92515AD77000CDF9F /* SweatherWidget */,
+				22F144182518A9FB003D8E9B /* SweatherIntentsExtension */,
 				229D3E3E236036730035FD66 /* Products */,
 				22898A8B23F6B6CB00995B98 /* Frameworks */,
 				1F277661454491A64AE1B4BE /* Pods */,
@@ -658,6 +682,7 @@
 				2284BAEF23EFE1B100E15FCF /* sweather-watch Extension.appex */,
 				225CBC5B246FC77400BEED46 /* Sweather 2 UITests.xctest */,
 				226ABFE42515AD77000CDF9F /* SweatherWidgetExtension.appex */,
+				22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -769,6 +794,15 @@
 			path = "Build Config";
 			sourceTree = "<group>";
 		};
+		22F144182518A9FB003D8E9B /* SweatherIntentsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				22F144192518A9FB003D8E9B /* IntentHandler.swift */,
+				22F1441B2518A9FB003D8E9B /* Info.plist */,
+			);
+			path = SweatherIntentsExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -861,11 +895,29 @@
 			);
 			dependencies = (
 				226ABFF32515AD79000CDF9F /* PBXTargetDependency */,
+				22F1442E2518A9FB003D8E9B /* PBXTargetDependency */,
 			);
 			name = "sweather-2";
 			productName = "sweather-2";
 			productReference = 229D3E3D236036730035FD66 /* Sweather 2.app */;
 			productType = "com.apple.product-type.application";
+		};
+		22F144162518A9FB003D8E9B /* SweatherIntentsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F144332518A9FB003D8E9B /* Build configuration list for PBXNativeTarget "SweatherIntentsExtension" */;
+			buildPhases = (
+				22F144132518A9FB003D8E9B /* Sources */,
+				22F144142518A9FB003D8E9B /* Frameworks */,
+				22F144152518A9FB003D8E9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SweatherIntentsExtension;
+			productName = SweatherIntentsExtension;
+			productReference = 22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -893,6 +945,9 @@
 					229D3E3C236036730035FD66 = {
 						CreatedOnToolsVersion = 11.0;
 					};
+					22F144162518A9FB003D8E9B = {
+						CreatedOnToolsVersion = 12.0;
+					};
 				};
 			};
 			buildConfigurationList = 229D3E38236036730035FD66 /* Build configuration list for PBXProject "sweather-2" */;
@@ -913,6 +968,7 @@
 				2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */,
 				225CBC5A246FC77400BEED46 /* Sweather 2 UITests */,
 				226ABFE32515AD77000CDF9F /* SweatherWidgetExtension */,
+				22F144162518A9FB003D8E9B /* SweatherIntentsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -991,6 +1047,13 @@
 				22ECEB8F2453B5E20020751A /* custom-5-snow.png in Resources */,
 				22ECEB8E2453B5E20020751A /* custom-3-sun.png in Resources */,
 				223AE8E22376673F00E17875 /* sample-location-data.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F144152518A9FB003D8E9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1224,6 +1287,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22F144132518A9FB003D8E9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F1441A2518A9FB003D8E9B /* IntentHandler.swift in Sources */,
+				22F144442518AA25003D8E9B /* SweatherWidgetIntent.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1241,6 +1313,11 @@
 			isa = PBXTargetDependency;
 			target = 2284BAEE23EFE1B100E15FCF /* sweather-watch Extension */;
 			targetProxy = 2284BAF123EFE1B100E15FCF /* PBXContainerItemProxy */;
+		};
+		22F1442E2518A9FB003D8E9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22F144162518A9FB003D8E9B /* SweatherIntentsExtension */;
+			targetProxy = 22F1442D2518A9FB003D8E9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1309,7 +1386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherWidget/Info.plist;
@@ -1322,7 +1399,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherWidget";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherWidget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1334,7 +1411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherWidget/Info.plist;
@@ -1347,7 +1424,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherWidget";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherWidget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1581,7 +1658,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 842;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1596,7 +1673,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1610,7 +1687,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 842;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1625,10 +1702,54 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		22F144342518A9FB003D8E9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				INFOPLIST_FILE = SweatherIntentsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherIntentsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherIntentsExtension";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22F144352518A9FB003D8E9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = N5B3FJPB8K;
+				INFOPLIST_FILE = SweatherIntentsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherIntentsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherIntentsExtension";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1685,6 +1806,15 @@
 			buildConfigurations = (
 				229D3E52236036750035FD66 /* Debug */,
 				229D3E53236036750035FD66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F144332518A9FB003D8E9B /* Build configuration list for PBXNativeTarget "SweatherIntentsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F144342518A9FB003D8E9B /* Debug */,
+				22F144352518A9FB003D8E9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

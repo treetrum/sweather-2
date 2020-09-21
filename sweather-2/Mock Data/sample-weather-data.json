@@ -14,128 +14,6 @@
     "precis": {
       "days": [
         {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-19 01:00:00",
-              "precisCode": "chance-shower-cloud",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-19 04:00:00",
-              "precisCode": "chance-shower-cloud",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-19 07:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-19 10:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-19 13:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-19 16:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-19 19:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-19 22:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
-              "precisOverlayCode": "",
-              "night": true
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-20 01:00:00",
-              "precisCode": "mostly-cloudy",
-              "precis": "Mostly cloudy",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-20 04:00:00",
-              "precisCode": "mostly-cloudy",
-              "precis": "Mostly cloudy",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-20 07:00:00",
-              "precisCode": "chance-shower-cloud",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-20 10:00:00",
-              "precisCode": "chance-shower-cloud",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-20 13:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-20 16:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
-              "precisOverlayCode": "",
-              "night": false
-            },
-            {
-              "dateTime": "2020-09-20 19:00:00",
-              "precisCode": "mostly-fine",
-              "precis": "Mostly fine",
-              "precisOverlayCode": "",
-              "night": true
-            },
-            {
-              "dateTime": "2020-09-20 22:00:00",
-              "precisCode": "mostly-fine",
-              "precis": "Mostly fine",
-              "precisOverlayCode": "",
-              "night": true
-            }
-          ]
-        },
-        {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
             {
@@ -168,29 +46,29 @@
             },
             {
               "dateTime": "2020-09-21 13:00:00",
-              "precisCode": "mostly-fine",
-              "precis": "Mostly fine",
+              "precisCode": "fine",
+              "precis": "Sunny",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-21 16:00:00",
-              "precisCode": "mostly-fine",
-              "precis": "Mostly fine",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-21 19:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
+              "precisCode": "chance-thunderstorm-fine",
+              "precis": "Chance of a thunderstorm",
               "precisOverlayCode": "",
               "night": true
             },
             {
               "dateTime": "2020-09-21 22:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
+              "precisCode": "chance-thunderstorm-fine",
+              "precis": "Chance of a thunderstorm",
               "precisOverlayCode": "",
               "night": true
             }
@@ -208,22 +86,22 @@
             },
             {
               "dateTime": "2020-09-22 04:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
+              "precisCode": "fine",
+              "precis": "Clear",
               "precisOverlayCode": "",
               "night": true
             },
             {
               "dateTime": "2020-09-22 07:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
+              "precisCode": "fine",
+              "precis": "Sunny",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-22 10:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
+              "precisCode": "fine",
+              "precis": "Sunny",
               "precisOverlayCode": "",
               "night": false
             },
@@ -344,36 +222,36 @@
             },
             {
               "dateTime": "2020-09-24 10:00:00",
-              "precisCode": "fine",
-              "precis": "Sunny",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-24 13:00:00",
-              "precisCode": "fine",
-              "precis": "Sunny",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-24 16:00:00",
-              "precisCode": "fine",
-              "precis": "Sunny",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-24 19:00:00",
-              "precisCode": "fine",
-              "precis": "Clear",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
               "precisOverlayCode": "",
               "night": true
             },
             {
               "dateTime": "2020-09-24 22:00:00",
-              "precisCode": "fine",
-              "precis": "Clear",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
               "precisOverlayCode": "",
               "night": true
             }
@@ -405,15 +283,15 @@
             },
             {
               "dateTime": "2020-09-25 10:00:00",
-              "precisCode": "fine",
-              "precis": "Sunny",
+              "precisCode": "shower-or-two",
+              "precis": "Shower or two",
               "precisOverlayCode": "",
               "night": false
             },
             {
               "dateTime": "2020-09-25 13:00:00",
-              "precisCode": "partly-cloudy",
-              "precis": "Partly cloudy",
+              "precisCode": "shower-or-two",
+              "precis": "Shower or two",
               "precisOverlayCode": "",
               "night": false
             },
@@ -439,48 +317,205 @@
               "night": true
             }
           ]
+        },
+        {
+          "dateTime": "2020-09-26 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-26 01:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-26 04:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-26 07:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-26 10:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-26 13:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-26 16:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-26 19:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-26 22:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": true
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-27 01:00:00",
+              "precisCode": "fine",
+              "precis": "Clear",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-27 04:00:00",
+              "precisCode": "fine",
+              "precis": "Clear",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-27 07:00:00",
+              "precisCode": "fine",
+              "precis": "Sunny",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-27 10:00:00",
+              "precisCode": "fine",
+              "precis": "Sunny",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-27 13:00:00",
+              "precisCode": "fine",
+              "precis": "Sunny",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-27 16:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-27 19:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-27 22:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": true
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-28 01:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-28 04:00:00",
+              "precisCode": "shower-or-two",
+              "precis": "Shower or two",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-28 07:00:00",
+              "precisCode": "shower-or-two",
+              "precis": "Shower or two",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-28 10:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-28 13:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-28 16:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false
+            },
+            {
+              "dateTime": "2020-09-28 19:00:00",
+              "precisCode": "mostly-fine",
+              "precis": "Mostly fine",
+              "precisOverlayCode": "",
+              "night": true
+            },
+            {
+              "dateTime": "2020-09-28 22:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": true
+            }
+          ]
         }
       ],
-      "issueDateTime": "2020-09-19 12:43:36"
+      "issueDateTime": "2020-09-21 17:43:39"
     },
     "rainfall": {
       "days": [
-        {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-19 00:00:00",
-              "startRange": null,
-              "endRange": 2,
-              "rangeDivide": "&lt;",
-              "rangeCode": "1-5",
-              "probability": 50
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-20 00:00:00",
-              "startRange": 1,
-              "endRange": 5,
-              "rangeDivide": "-",
-              "rangeCode": "1-5",
-              "probability": 70
-            }
-          ]
-        },
         {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
             {
               "dateTime": "2020-09-21 00:00:00",
               "startRange": null,
-              "endRange": 2,
+              "endRange": 1,
               "rangeDivide": "&lt;",
-              "rangeCode": "1-5",
-              "probability": 50
+              "rangeCode": "0",
+              "probability": 60
             }
           ]
         },
@@ -493,7 +528,7 @@
               "endRange": 1,
               "rangeDivide": "&lt;",
               "rangeCode": "0",
-              "probability": 30
+              "probability": 35
             }
           ]
         },
@@ -502,11 +537,11 @@
           "entries": [
             {
               "dateTime": "2020-09-23 00:00:00",
-              "startRange": 0,
-              "endRange": 0,
-              "rangeDivide": "-",
+              "startRange": null,
+              "endRange": 1,
+              "rangeDivide": "&lt;",
               "rangeCode": "0",
-              "probability": 0
+              "probability": 5
             }
           ]
         },
@@ -532,7 +567,46 @@
               "endRange": 1,
               "rangeDivide": "&lt;",
               "rangeCode": "0",
-              "probability": 25
+              "probability": 30
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-26 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-26 00:00:00",
+              "startRange": null,
+              "endRange": 1,
+              "rangeDivide": "&lt;",
+              "rangeCode": "0",
+              "probability": 15
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-27 00:00:00",
+              "startRange": null,
+              "endRange": 1,
+              "rangeDivide": "&lt;",
+              "rangeCode": "0",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-28 00:00:00",
+              "startRange": null,
+              "endRange": 1,
+              "rangeDivide": "&lt;",
+              "rangeCode": "0",
+              "probability": 30
             }
           ]
         }
@@ -540,84 +614,10 @@
       "units": {
         "amount": "mm"
       },
-      "issueDateTime": "2020-09-19 07:15:40"
+      "issueDateTime": "2020-09-21 17:14:54"
     },
     "rainfallprobability": {
       "days": [
-        {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-19 01:00:00",
-              "probability": 25
-            },
-            {
-              "dateTime": "2020-09-19 04:00:00",
-              "probability": 20
-            },
-            {
-              "dateTime": "2020-09-19 07:00:00",
-              "probability": 20
-            },
-            {
-              "dateTime": "2020-09-19 10:00:00",
-              "probability": 25
-            },
-            {
-              "dateTime": "2020-09-19 13:00:00",
-              "probability": 25
-            },
-            {
-              "dateTime": "2020-09-19 16:00:00",
-              "probability": 15
-            },
-            {
-              "dateTime": "2020-09-19 19:00:00",
-              "probability": 10
-            },
-            {
-              "dateTime": "2020-09-19 22:00:00",
-              "probability": 5
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-20 01:00:00",
-              "probability": 0
-            },
-            {
-              "dateTime": "2020-09-20 04:00:00",
-              "probability": 5
-            },
-            {
-              "dateTime": "2020-09-20 07:00:00",
-              "probability": 25
-            },
-            {
-              "dateTime": "2020-09-20 10:00:00",
-              "probability": 55
-            },
-            {
-              "dateTime": "2020-09-20 13:00:00",
-              "probability": 25
-            },
-            {
-              "dateTime": "2020-09-20 16:00:00",
-              "probability": 5
-            },
-            {
-              "dateTime": "2020-09-20 19:00:00",
-              "probability": 5
-            },
-            {
-              "dateTime": "2020-09-20 22:00:00",
-              "probability": 0
-            }
-          ]
-        },
         {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
@@ -643,7 +643,7 @@
             },
             {
               "dateTime": "2020-09-21 16:00:00",
-              "probability": 0
+              "probability": 10
             },
             {
               "dateTime": "2020-09-21 19:00:00",
@@ -651,7 +651,7 @@
             },
             {
               "dateTime": "2020-09-21 22:00:00",
-              "probability": 40
+              "probability": 55
             }
           ]
         },
@@ -660,35 +660,35 @@
           "entries": [
             {
               "dateTime": "2020-09-22 01:00:00",
-              "probability": 30
+              "probability": 25
             },
             {
               "dateTime": "2020-09-22 04:00:00",
-              "probability": 10
+              "probability": 5
             },
             {
               "dateTime": "2020-09-22 07:00:00",
-              "probability": 10
+              "probability": 5
             },
             {
               "dateTime": "2020-09-22 10:00:00",
-              "probability": 15
+              "probability": 0
             },
             {
               "dateTime": "2020-09-22 13:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-22 16:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-22 19:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-22 22:00:00",
-              "probability": 5
+              "probability": 0
             }
           ]
         },
@@ -717,7 +717,7 @@
             },
             {
               "dateTime": "2020-09-23 16:00:00",
-              "probability": 0
+              "probability": 5
             },
             {
               "dateTime": "2020-09-23 19:00:00",
@@ -734,15 +734,15 @@
           "entries": [
             {
               "dateTime": "2020-09-24 01:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-24 04:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-24 07:00:00",
-              "probability": 5
+              "probability": 0
             },
             {
               "dateTime": "2020-09-24 10:00:00",
@@ -783,23 +783,134 @@
             },
             {
               "dateTime": "2020-09-25 10:00:00",
-              "probability": 5
+              "probability": 20
             },
             {
               "dateTime": "2020-09-25 13:00:00",
-              "probability": 10
+              "probability": 30
             },
             {
               "dateTime": "2020-09-25 16:00:00",
-              "probability": 15
+              "probability": 30
             },
             {
               "dateTime": "2020-09-25 19:00:00",
-              "probability": 15
+              "probability": 30
             },
             {
               "dateTime": "2020-09-25 22:00:00",
-              "probability": 25
+              "probability": 15
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-26 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-26 01:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-26 04:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-26 07:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-26 10:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-26 13:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-26 16:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-26 19:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-26 22:00:00",
+              "probability": 5
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-27 01:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 04:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 07:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 10:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 13:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 16:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 19:00:00",
+              "probability": 5
+            },
+            {
+              "dateTime": "2020-09-27 22:00:00",
+              "probability": 10
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-28 01:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-28 04:00:00",
+              "probability": 15
+            },
+            {
+              "dateTime": "2020-09-28 07:00:00",
+              "probability": 15
+            },
+            {
+              "dateTime": "2020-09-28 10:00:00",
+              "probability": 15
+            },
+            {
+              "dateTime": "2020-09-28 13:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-28 16:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-28 19:00:00",
+              "probability": 10
+            },
+            {
+              "dateTime": "2020-09-28 22:00:00",
+              "probability": 10
             }
           ]
         }
@@ -807,36 +918,14 @@
       "units": {
         "percentage": "%"
       },
-      "issueDateTime": "2020-09-19 07:14:17",
+      "issueDateTime": "2020-09-21 17:14:05",
       "carousel": {
-        "size": 9,
+        "size": 10,
         "start": 3
       }
     },
     "sunrisesunset": {
       "days": [
-        {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "firstLightDateTime": "2020-09-19 05:22:56",
-              "riseDateTime": "2020-09-19 05:47:45",
-              "setDateTime": "2020-09-19 17:49:44",
-              "lastLightDateTime": "2020-09-19 18:14:33"
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "firstLightDateTime": "2020-09-20 05:21:32",
-              "riseDateTime": "2020-09-20 05:46:22",
-              "setDateTime": "2020-09-20 17:50:25",
-              "lastLightDateTime": "2020-09-20 18:15:15"
-            }
-          ]
-        },
         {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
@@ -902,315 +991,135 @@
               "lastLightDateTime": "2020-09-26 18:19:29"
             }
           ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "firstLightDateTime": "2020-09-27 05:11:42",
+              "riseDateTime": "2020-09-27 05:36:36",
+              "setDateTime": "2020-09-27 17:55:19",
+              "lastLightDateTime": "2020-09-27 18:20:13"
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "firstLightDateTime": "2020-09-28 05:10:18",
+              "riseDateTime": "2020-09-28 05:35:13",
+              "setDateTime": "2020-09-28 17:56:01",
+              "lastLightDateTime": "2020-09-28 18:20:56"
+            }
+          ]
         }
       ],
       "carousel": {
         "size": 1096,
-        "start": 628
+        "start": 630
       }
     },
     "temperature": {
       "days": [
         {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-19 00:00:00",
-              "temperature": 15.5
-            },
-            {
-              "dateTime": "2020-09-19 01:00:00",
-              "temperature": 15.5
-            },
-            {
-              "dateTime": "2020-09-19 02:00:00",
-              "temperature": 15.3
-            },
-            {
-              "dateTime": "2020-09-19 03:00:00",
-              "temperature": 14.7
-            },
-            {
-              "dateTime": "2020-09-19 04:00:00",
-              "temperature": 14.5
-            },
-            {
-              "dateTime": "2020-09-19 05:00:00",
-              "temperature": 14.4
-            },
-            {
-              "dateTime": "2020-09-19 06:00:00",
-              "temperature": 14.3
-            },
-            {
-              "dateTime": "2020-09-19 07:00:00",
-              "temperature": 15.1
-            },
-            {
-              "dateTime": "2020-09-19 08:00:00",
-              "temperature": 16.5
-            },
-            {
-              "dateTime": "2020-09-19 09:00:00",
-              "temperature": 18.4
-            },
-            {
-              "dateTime": "2020-09-19 10:00:00",
-              "temperature": 19.5
-            },
-            {
-              "dateTime": "2020-09-19 11:00:00",
-              "temperature": 20.5
-            },
-            {
-              "dateTime": "2020-09-19 12:00:00",
-              "temperature": 21.1
-            },
-            {
-              "dateTime": "2020-09-19 13:00:00",
-              "temperature": 21.3
-            },
-            {
-              "dateTime": "2020-09-19 14:00:00",
-              "temperature": 21.5
-            },
-            {
-              "dateTime": "2020-09-19 15:00:00",
-              "temperature": 21
-            },
-            {
-              "dateTime": "2020-09-19 16:00:00",
-              "temperature": 19.7
-            },
-            {
-              "dateTime": "2020-09-19 17:00:00",
-              "temperature": 18.3
-            },
-            {
-              "dateTime": "2020-09-19 18:00:00",
-              "temperature": 17.9
-            },
-            {
-              "dateTime": "2020-09-19 19:00:00",
-              "temperature": 17.6
-            },
-            {
-              "dateTime": "2020-09-19 20:00:00",
-              "temperature": 17.5
-            },
-            {
-              "dateTime": "2020-09-19 21:00:00",
-              "temperature": 17.4
-            },
-            {
-              "dateTime": "2020-09-19 22:00:00",
-              "temperature": 17.2
-            },
-            {
-              "dateTime": "2020-09-19 23:00:00",
-              "temperature": 17.1
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-20 00:00:00",
-              "temperature": 17
-            },
-            {
-              "dateTime": "2020-09-20 01:00:00",
-              "temperature": 16.6
-            },
-            {
-              "dateTime": "2020-09-20 02:00:00",
-              "temperature": 16.2
-            },
-            {
-              "dateTime": "2020-09-20 03:00:00",
-              "temperature": 15.8
-            },
-            {
-              "dateTime": "2020-09-20 04:00:00",
-              "temperature": 15.9
-            },
-            {
-              "dateTime": "2020-09-20 05:00:00",
-              "temperature": 15.5
-            },
-            {
-              "dateTime": "2020-09-20 06:00:00",
-              "temperature": 15.1
-            },
-            {
-              "dateTime": "2020-09-20 07:00:00",
-              "temperature": 16
-            },
-            {
-              "dateTime": "2020-09-20 08:00:00",
-              "temperature": 16.8
-            },
-            {
-              "dateTime": "2020-09-20 09:00:00",
-              "temperature": 18.6
-            },
-            {
-              "dateTime": "2020-09-20 10:00:00",
-              "temperature": 19.3
-            },
-            {
-              "dateTime": "2020-09-20 11:00:00",
-              "temperature": 20
-            },
-            {
-              "dateTime": "2020-09-20 12:00:00",
-              "temperature": 20.5
-            },
-            {
-              "dateTime": "2020-09-20 13:00:00",
-              "temperature": 20.4
-            },
-            {
-              "dateTime": "2020-09-20 14:00:00",
-              "temperature": 21.3
-            },
-            {
-              "dateTime": "2020-09-20 15:00:00",
-              "temperature": 21.1
-            },
-            {
-              "dateTime": "2020-09-20 16:00:00",
-              "temperature": 20.3
-            },
-            {
-              "dateTime": "2020-09-20 17:00:00",
-              "temperature": 19.3
-            },
-            {
-              "dateTime": "2020-09-20 18:00:00",
-              "temperature": 18.8
-            },
-            {
-              "dateTime": "2020-09-20 19:00:00",
-              "temperature": 18.6
-            },
-            {
-              "dateTime": "2020-09-20 20:00:00",
-              "temperature": 18.5
-            },
-            {
-              "dateTime": "2020-09-20 21:00:00",
-              "temperature": 18.2
-            },
-            {
-              "dateTime": "2020-09-20 22:00:00",
-              "temperature": 17.8
-            },
-            {
-              "dateTime": "2020-09-20 23:00:00",
-              "temperature": 17.4
-            }
-          ]
-        },
-        {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
             {
               "dateTime": "2020-09-21 00:00:00",
-              "temperature": 17
+              "temperature": 17.2
             },
             {
               "dateTime": "2020-09-21 01:00:00",
-              "temperature": 15.6
+              "temperature": 16.4
             },
             {
               "dateTime": "2020-09-21 02:00:00",
-              "temperature": 15.4
+              "temperature": 16
             },
             {
               "dateTime": "2020-09-21 03:00:00",
-              "temperature": 14.8
+              "temperature": 15.7
             },
             {
               "dateTime": "2020-09-21 04:00:00",
-              "temperature": 14.7
+              "temperature": 15
             },
             {
               "dateTime": "2020-09-21 05:00:00",
-              "temperature": 14.8
-            },
-            {
-              "dateTime": "2020-09-21 06:00:00",
               "temperature": 14.9
             },
             {
+              "dateTime": "2020-09-21 06:00:00",
+              "temperature": 14.6
+            },
+            {
               "dateTime": "2020-09-21 07:00:00",
-              "temperature": 16.2
+              "temperature": 14.9
             },
             {
               "dateTime": "2020-09-21 08:00:00",
-              "temperature": 18.3
+              "temperature": 16.7
             },
             {
               "dateTime": "2020-09-21 09:00:00",
-              "temperature": 21.3
+              "temperature": 20.5
             },
             {
               "dateTime": "2020-09-21 10:00:00",
-              "temperature": 24.1
+              "temperature": 23.7
             },
             {
               "dateTime": "2020-09-21 11:00:00",
-              "temperature": 25.9
+              "temperature": 26.4
             },
             {
               "dateTime": "2020-09-21 12:00:00",
-              "temperature": 27.4
+              "temperature": 28.1
             },
             {
               "dateTime": "2020-09-21 13:00:00",
-              "temperature": 27.8
+              "temperature": 28.8
             },
             {
               "dateTime": "2020-09-21 14:00:00",
-              "temperature": 28.6
+              "temperature": 29.6
             },
             {
               "dateTime": "2020-09-21 15:00:00",
-              "temperature": 28.6
+              "temperature": 28.8
             },
             {
               "dateTime": "2020-09-21 16:00:00",
-              "temperature": 27.5
+              "temperature": 27.9
             },
             {
               "dateTime": "2020-09-21 17:00:00",
-              "temperature": 25.2
+              "temperature": 28.3
             },
             {
               "dateTime": "2020-09-21 18:00:00",
-              "temperature": 23.8
+              "temperature": 29.6
             },
             {
               "dateTime": "2020-09-21 19:00:00",
-              "temperature": 22.7
+              "temperature": 29.6
             },
             {
               "dateTime": "2020-09-21 20:00:00",
-              "temperature": 22.3
+              "temperature": 29.6
             },
             {
               "dateTime": "2020-09-21 21:00:00",
-              "temperature": 21.7
+              "temperature": 23.3
             },
             {
               "dateTime": "2020-09-21 22:00:00",
-              "temperature": 21
+              "temperature": 23.3
             },
             {
               "dateTime": "2020-09-21 23:00:00",
-              "temperature": 20.5
+              "temperature": 24.9
             }
           ]
         },
@@ -1219,35 +1128,35 @@
           "entries": [
             {
               "dateTime": "2020-09-22 00:00:00",
-              "temperature": 19.9
+              "temperature": 27.6
             },
             {
               "dateTime": "2020-09-22 01:00:00",
-              "temperature": 19.3
+              "temperature": 19.6
             },
             {
               "dateTime": "2020-09-22 02:00:00",
-              "temperature": 18.9
+              "temperature": 19.2
             },
             {
               "dateTime": "2020-09-22 03:00:00",
-              "temperature": 18.2
+              "temperature": 18.9
             },
             {
               "dateTime": "2020-09-22 04:00:00",
-              "temperature": 18.2
+              "temperature": 18.6
             },
             {
               "dateTime": "2020-09-22 05:00:00",
-              "temperature": 17.6
+              "temperature": 18
             },
             {
               "dateTime": "2020-09-22 06:00:00",
-              "temperature": 17
+              "temperature": 17.6
             },
             {
               "dateTime": "2020-09-22 07:00:00",
-              "temperature": 17.5
+              "temperature": 18.2
             },
             {
               "dateTime": "2020-09-22 08:00:00",
@@ -1255,63 +1164,63 @@
             },
             {
               "dateTime": "2020-09-22 09:00:00",
-              "temperature": 21.3
+              "temperature": 20.8
             },
             {
               "dateTime": "2020-09-22 10:00:00",
-              "temperature": 22.7
+              "temperature": 22.4
             },
             {
               "dateTime": "2020-09-22 11:00:00",
-              "temperature": 24.2
+              "temperature": 23.7
             },
             {
               "dateTime": "2020-09-22 12:00:00",
-              "temperature": 25
+              "temperature": 24.9
             },
             {
               "dateTime": "2020-09-22 13:00:00",
-              "temperature": 25.5
+              "temperature": 25.7
             },
             {
               "dateTime": "2020-09-22 14:00:00",
-              "temperature": 25.9
+              "temperature": 26.3
             },
             {
               "dateTime": "2020-09-22 15:00:00",
-              "temperature": 25.5
+              "temperature": 26
             },
             {
               "dateTime": "2020-09-22 16:00:00",
-              "temperature": 24.6
+              "temperature": 24.9
             },
             {
               "dateTime": "2020-09-22 17:00:00",
-              "temperature": 22
+              "temperature": 22.6
             },
             {
               "dateTime": "2020-09-22 18:00:00",
-              "temperature": 20.4
+              "temperature": 21.6
             },
             {
               "dateTime": "2020-09-22 19:00:00",
-              "temperature": 18.9
+              "temperature": 20.8
             },
             {
               "dateTime": "2020-09-22 20:00:00",
-              "temperature": 18.7
+              "temperature": 20
             },
             {
               "dateTime": "2020-09-22 21:00:00",
-              "temperature": 17.8
+              "temperature": 19.1
             },
             {
               "dateTime": "2020-09-22 22:00:00",
-              "temperature": 17
+              "temperature": 18.2
             },
             {
               "dateTime": "2020-09-22 23:00:00",
-              "temperature": 16.1
+              "temperature": 17.6
             }
           ]
         },
@@ -1320,59 +1229,59 @@
           "entries": [
             {
               "dateTime": "2020-09-23 00:00:00",
-              "temperature": 15.6
+              "temperature": 16.9
             },
             {
               "dateTime": "2020-09-23 01:00:00",
-              "temperature": 14.7
+              "temperature": 16.2
             },
             {
               "dateTime": "2020-09-23 02:00:00",
-              "temperature": 14
+              "temperature": 15.5
             },
             {
               "dateTime": "2020-09-23 03:00:00",
-              "temperature": 13.2
+              "temperature": 14.8
             },
             {
               "dateTime": "2020-09-23 04:00:00",
-              "temperature": 12.7
+              "temperature": 14.1
             },
             {
               "dateTime": "2020-09-23 05:00:00",
-              "temperature": 12.4
+              "temperature": 13.8
             },
             {
               "dateTime": "2020-09-23 06:00:00",
-              "temperature": 12.1
+              "temperature": 13.9
             },
             {
               "dateTime": "2020-09-23 07:00:00",
-              "temperature": 13
+              "temperature": 15
             },
             {
               "dateTime": "2020-09-23 08:00:00",
-              "temperature": 15.3
+              "temperature": 16.5
             },
             {
               "dateTime": "2020-09-23 09:00:00",
-              "temperature": 18.3
+              "temperature": 18.2
             },
             {
               "dateTime": "2020-09-23 10:00:00",
-              "temperature": 20.3
+              "temperature": 19.9
             },
             {
               "dateTime": "2020-09-23 11:00:00",
-              "temperature": 21.9
+              "temperature": 21.3
             },
             {
               "dateTime": "2020-09-23 12:00:00",
-              "temperature": 22.8
+              "temperature": 22.4
             },
             {
               "dateTime": "2020-09-23 13:00:00",
-              "temperature": 23.2
+              "temperature": 22.9
             },
             {
               "dateTime": "2020-09-23 14:00:00",
@@ -1384,35 +1293,35 @@
             },
             {
               "dateTime": "2020-09-23 16:00:00",
-              "temperature": 21.5
+              "temperature": 21.7
             },
             {
               "dateTime": "2020-09-23 17:00:00",
-              "temperature": 19.6
+              "temperature": 19.8
             },
             {
               "dateTime": "2020-09-23 18:00:00",
-              "temperature": 18.3
+              "temperature": 18.7
             },
             {
               "dateTime": "2020-09-23 19:00:00",
-              "temperature": 17.3
+              "temperature": 17.7
             },
             {
               "dateTime": "2020-09-23 20:00:00",
-              "temperature": 16.7
+              "temperature": 16.8
             },
             {
               "dateTime": "2020-09-23 21:00:00",
-              "temperature": 16
+              "temperature": 16.2
             },
             {
               "dateTime": "2020-09-23 22:00:00",
-              "temperature": 15.2
+              "temperature": 15.6
             },
             {
               "dateTime": "2020-09-23 23:00:00",
-              "temperature": 14.4
+              "temperature": 15.1
             }
           ]
         },
@@ -1421,31 +1330,31 @@
           "entries": [
             {
               "dateTime": "2020-09-24 00:00:00",
-              "temperature": 13.9
+              "temperature": 14.6
             },
             {
               "dateTime": "2020-09-24 01:00:00",
-              "temperature": 13.2
+              "temperature": 13
             },
             {
               "dateTime": "2020-09-24 02:00:00",
-              "temperature": 12.5
+              "temperature": 12.4
             },
             {
               "dateTime": "2020-09-24 03:00:00",
-              "temperature": 11.9
-            },
-            {
-              "dateTime": "2020-09-24 04:00:00",
               "temperature": 11.6
             },
             {
+              "dateTime": "2020-09-24 04:00:00",
+              "temperature": 11
+            },
+            {
               "dateTime": "2020-09-24 05:00:00",
-              "temperature": 11.2
+              "temperature": 10.5
             },
             {
               "dateTime": "2020-09-24 06:00:00",
-              "temperature": 10.9
+              "temperature": 10.3
             },
             {
               "dateTime": "2020-09-24 07:00:00",
@@ -1453,67 +1362,67 @@
             },
             {
               "dateTime": "2020-09-24 08:00:00",
-              "temperature": 13.5
+              "temperature": 13
             },
             {
               "dateTime": "2020-09-24 09:00:00",
-              "temperature": 15.9
+              "temperature": 14.9
             },
             {
               "dateTime": "2020-09-24 10:00:00",
-              "temperature": 17.7
-            },
-            {
-              "dateTime": "2020-09-24 11:00:00",
-              "temperature": 19.2
-            },
-            {
-              "dateTime": "2020-09-24 12:00:00",
-              "temperature": 20.6
-            },
-            {
-              "dateTime": "2020-09-24 13:00:00",
-              "temperature": 21.2
-            },
-            {
-              "dateTime": "2020-09-24 14:00:00",
-              "temperature": 21.7
-            },
-            {
-              "dateTime": "2020-09-24 15:00:00",
-              "temperature": 21.3
-            },
-            {
-              "dateTime": "2020-09-24 16:00:00",
-              "temperature": 20.1
-            },
-            {
-              "dateTime": "2020-09-24 17:00:00",
-              "temperature": 18
-            },
-            {
-              "dateTime": "2020-09-24 18:00:00",
               "temperature": 16.7
             },
             {
+              "dateTime": "2020-09-24 11:00:00",
+              "temperature": 18.5
+            },
+            {
+              "dateTime": "2020-09-24 12:00:00",
+              "temperature": 20
+            },
+            {
+              "dateTime": "2020-09-24 13:00:00",
+              "temperature": 20.7
+            },
+            {
+              "dateTime": "2020-09-24 14:00:00",
+              "temperature": 21.3
+            },
+            {
+              "dateTime": "2020-09-24 15:00:00",
+              "temperature": 21.1
+            },
+            {
+              "dateTime": "2020-09-24 16:00:00",
+              "temperature": 19.8
+            },
+            {
+              "dateTime": "2020-09-24 17:00:00",
+              "temperature": 17.2
+            },
+            {
+              "dateTime": "2020-09-24 18:00:00",
+              "temperature": 15.7
+            },
+            {
               "dateTime": "2020-09-24 19:00:00",
-              "temperature": 15.4
+              "temperature": 14.3
             },
             {
               "dateTime": "2020-09-24 20:00:00",
-              "temperature": 14.7
+              "temperature": 13.8
             },
             {
               "dateTime": "2020-09-24 21:00:00",
-              "temperature": 13.9
+              "temperature": 13
             },
             {
               "dateTime": "2020-09-24 22:00:00",
-              "temperature": 12.9
+              "temperature": 12.2
             },
             {
               "dateTime": "2020-09-24 23:00:00",
-              "temperature": 12.1
+              "temperature": 11.6
             }
           ]
         },
@@ -1522,99 +1431,99 @@
           "entries": [
             {
               "dateTime": "2020-09-25 00:00:00",
-              "temperature": 11.7
-            },
-            {
-              "dateTime": "2020-09-25 01:00:00",
-              "temperature": 10.9
-            },
-            {
-              "dateTime": "2020-09-25 02:00:00",
-              "temperature": 10.3
-            },
-            {
-              "dateTime": "2020-09-25 03:00:00",
-              "temperature": 9.6
-            },
-            {
-              "dateTime": "2020-09-25 04:00:00",
-              "temperature": 9.2
-            },
-            {
-              "dateTime": "2020-09-25 05:00:00",
-              "temperature": 9.3
-            },
-            {
-              "dateTime": "2020-09-25 06:00:00",
-              "temperature": 9.6
-            },
-            {
-              "dateTime": "2020-09-25 07:00:00",
               "temperature": 11
             },
             {
+              "dateTime": "2020-09-25 01:00:00",
+              "temperature": 10.3
+            },
+            {
+              "dateTime": "2020-09-25 02:00:00",
+              "temperature": 9.8
+            },
+            {
+              "dateTime": "2020-09-25 03:00:00",
+              "temperature": 9.4
+            },
+            {
+              "dateTime": "2020-09-25 04:00:00",
+              "temperature": 9
+            },
+            {
+              "dateTime": "2020-09-25 05:00:00",
+              "temperature": 8.9
+            },
+            {
+              "dateTime": "2020-09-25 06:00:00",
+              "temperature": 9
+            },
+            {
+              "dateTime": "2020-09-25 07:00:00",
+              "temperature": 10.3
+            },
+            {
               "dateTime": "2020-09-25 08:00:00",
-              "temperature": 14.1
+              "temperature": 12.6
             },
             {
               "dateTime": "2020-09-25 09:00:00",
-              "temperature": 17.8
+              "temperature": 15.4
             },
             {
               "dateTime": "2020-09-25 10:00:00",
-              "temperature": 20.8
+              "temperature": 18.1
             },
             {
               "dateTime": "2020-09-25 11:00:00",
-              "temperature": 22.5
+              "temperature": 20.3
             },
             {
               "dateTime": "2020-09-25 12:00:00",
-              "temperature": 23.6
+              "temperature": 22.1
             },
             {
               "dateTime": "2020-09-25 13:00:00",
-              "temperature": 24.2
+              "temperature": 23.1
             },
             {
               "dateTime": "2020-09-25 14:00:00",
-              "temperature": 24.1
+              "temperature": 23.8
             },
             {
               "dateTime": "2020-09-25 15:00:00",
-              "temperature": 23.5
+              "temperature": 23.6
             },
             {
               "dateTime": "2020-09-25 16:00:00",
-              "temperature": 21.9
+              "temperature": 22.2
             },
             {
               "dateTime": "2020-09-25 17:00:00",
-              "temperature": 20.6
+              "temperature": 18.3
             },
             {
               "dateTime": "2020-09-25 18:00:00",
-              "temperature": 19.5
-            },
-            {
-              "dateTime": "2020-09-25 19:00:00",
-              "temperature": 18.7
-            },
-            {
-              "dateTime": "2020-09-25 20:00:00",
-              "temperature": 17.4
-            },
-            {
-              "dateTime": "2020-09-25 21:00:00",
-              "temperature": 16.7
-            },
-            {
-              "dateTime": "2020-09-25 22:00:00",
               "temperature": 16.1
             },
             {
+              "dateTime": "2020-09-25 19:00:00",
+              "temperature": 15.1
+            },
+            {
+              "dateTime": "2020-09-25 20:00:00",
+              "temperature": 14.8
+            },
+            {
+              "dateTime": "2020-09-25 21:00:00",
+              "temperature": 14.3
+            },
+            {
+              "dateTime": "2020-09-25 22:00:00",
+              "temperature": 13.7
+            },
+            {
               "dateTime": "2020-09-25 23:00:00",
-              "temperature": 15.2
+              "temperature": 12.8
             }
           ]
         },
@@ -1623,99 +1532,301 @@
           "entries": [
             {
               "dateTime": "2020-09-26 00:00:00",
-              "temperature": 14.6
+              "temperature": 12.1
             },
             {
               "dateTime": "2020-09-26 01:00:00",
-              "temperature": 13.9
-            },
-            {
-              "dateTime": "2020-09-26 02:00:00",
-              "temperature": 13.2
-            },
-            {
-              "dateTime": "2020-09-26 03:00:00",
-              "temperature": 12.4
-            },
-            {
-              "dateTime": "2020-09-26 04:00:00",
-              "temperature": 11.9
-            },
-            {
-              "dateTime": "2020-09-26 05:00:00",
-              "temperature": 11.6
-            },
-            {
-              "dateTime": "2020-09-26 06:00:00",
               "temperature": 11.3
             },
             {
+              "dateTime": "2020-09-26 02:00:00",
+              "temperature": 10.6
+            },
+            {
+              "dateTime": "2020-09-26 03:00:00",
+              "temperature": 9.9
+            },
+            {
+              "dateTime": "2020-09-26 04:00:00",
+              "temperature": 9.1
+            },
+            {
+              "dateTime": "2020-09-26 05:00:00",
+              "temperature": 8.9
+            },
+            {
+              "dateTime": "2020-09-26 06:00:00",
+              "temperature": 8.6
+            },
+            {
               "dateTime": "2020-09-26 07:00:00",
-              "temperature": 12
+              "temperature": 9.6
             },
             {
               "dateTime": "2020-09-26 08:00:00",
-              "temperature": 13.8
+              "temperature": 11.4
             },
             {
               "dateTime": "2020-09-26 09:00:00",
-              "temperature": 16.1
+              "temperature": 13.5
             },
             {
               "dateTime": "2020-09-26 10:00:00",
-              "temperature": 18
+              "temperature": 15.6
             },
             {
               "dateTime": "2020-09-26 11:00:00",
-              "temperature": 19.7
-            },
-            {
-              "dateTime": "2020-09-26 12:00:00",
-              "temperature": 20.7
-            },
-            {
-              "dateTime": "2020-09-26 13:00:00",
-              "temperature": 21.2
-            },
-            {
-              "dateTime": "2020-09-26 14:00:00",
-              "temperature": 21.2
-            },
-            {
-              "dateTime": "2020-09-26 15:00:00",
-              "temperature": 20.8
-            },
-            {
-              "dateTime": "2020-09-26 16:00:00",
-              "temperature": 19.6
-            },
-            {
-              "dateTime": "2020-09-26 17:00:00",
-              "temperature": 18.1
-            },
-            {
-              "dateTime": "2020-09-26 18:00:00",
               "temperature": 17.3
             },
             {
-              "dateTime": "2020-09-26 19:00:00",
-              "temperature": 16.8
+              "dateTime": "2020-09-26 12:00:00",
+              "temperature": 18.3
             },
             {
-              "dateTime": "2020-09-26 20:00:00",
-              "temperature": 16.6
+              "dateTime": "2020-09-26 13:00:00",
+              "temperature": 18.6
             },
             {
-              "dateTime": "2020-09-26 21:00:00",
+              "dateTime": "2020-09-26 14:00:00",
+              "temperature": 19.1
+            },
+            {
+              "dateTime": "2020-09-26 15:00:00",
+              "temperature": 18.7
+            },
+            {
+              "dateTime": "2020-09-26 16:00:00",
+              "temperature": 17.5
+            },
+            {
+              "dateTime": "2020-09-26 17:00:00",
               "temperature": 16.2
             },
             {
+              "dateTime": "2020-09-26 18:00:00",
+              "temperature": 15
+            },
+            {
+              "dateTime": "2020-09-26 19:00:00",
+              "temperature": 14.3
+            },
+            {
+              "dateTime": "2020-09-26 20:00:00",
+              "temperature": 13.9
+            },
+            {
+              "dateTime": "2020-09-26 21:00:00",
+              "temperature": 13.3
+            },
+            {
               "dateTime": "2020-09-26 22:00:00",
-              "temperature": 15.9
+              "temperature": 13
             },
             {
               "dateTime": "2020-09-26 23:00:00",
-              "temperature": 16.1
+              "temperature": 12.5
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-27 00:00:00",
+              "temperature": 11.8
+            },
+            {
+              "dateTime": "2020-09-27 01:00:00",
+              "temperature": 11.1
+            },
+            {
+              "dateTime": "2020-09-27 02:00:00",
+              "temperature": 10.6
+            },
+            {
+              "dateTime": "2020-09-27 03:00:00",
+              "temperature": 10
+            },
+            {
+              "dateTime": "2020-09-27 04:00:00",
+              "temperature": 9.5
+            },
+            {
+              "dateTime": "2020-09-27 05:00:00",
+              "temperature": 9.1
+            },
+            {
+              "dateTime": "2020-09-27 06:00:00",
+              "temperature": 8.9
+            },
+            {
+              "dateTime": "2020-09-27 07:00:00",
+              "temperature": 9.9
+            },
+            {
+              "dateTime": "2020-09-27 08:00:00",
+              "temperature": 11.6
+            },
+            {
+              "dateTime": "2020-09-27 09:00:00",
+              "temperature": 13.8
+            },
+            {
+              "dateTime": "2020-09-27 10:00:00",
+              "temperature": 15.7
+            },
+            {
+              "dateTime": "2020-09-27 11:00:00",
+              "temperature": 16.8
+            },
+            {
+              "dateTime": "2020-09-27 12:00:00",
+              "temperature": 17.4
+            },
+            {
+              "dateTime": "2020-09-27 13:00:00",
+              "temperature": 17.7
+            },
+            {
+              "dateTime": "2020-09-27 14:00:00",
+              "temperature": 18.2
+            },
+            {
+              "dateTime": "2020-09-27 15:00:00",
+              "temperature": 17.7
+            },
+            {
+              "dateTime": "2020-09-27 16:00:00",
+              "temperature": 16.3
+            },
+            {
+              "dateTime": "2020-09-27 17:00:00",
+              "temperature": 14.7
+            },
+            {
+              "dateTime": "2020-09-27 18:00:00",
+              "temperature": 13.9
+            },
+            {
+              "dateTime": "2020-09-27 19:00:00",
+              "temperature": 13.5
+            },
+            {
+              "dateTime": "2020-09-27 20:00:00",
+              "temperature": 13.5
+            },
+            {
+              "dateTime": "2020-09-27 21:00:00",
+              "temperature": 13.2
+            },
+            {
+              "dateTime": "2020-09-27 22:00:00",
+              "temperature": 13
+            },
+            {
+              "dateTime": "2020-09-27 23:00:00",
+              "temperature": 12.5
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-28 00:00:00",
+              "temperature": 12.2
+            },
+            {
+              "dateTime": "2020-09-28 01:00:00",
+              "temperature": 11.7
+            },
+            {
+              "dateTime": "2020-09-28 02:00:00",
+              "temperature": 11.4
+            },
+            {
+              "dateTime": "2020-09-28 03:00:00",
+              "temperature": 11.1
+            },
+            {
+              "dateTime": "2020-09-28 04:00:00",
+              "temperature": 10.8
+            },
+            {
+              "dateTime": "2020-09-28 05:00:00",
+              "temperature": 10.5
+            },
+            {
+              "dateTime": "2020-09-28 06:00:00",
+              "temperature": 10.4
+            },
+            {
+              "dateTime": "2020-09-28 07:00:00",
+              "temperature": 11.5
+            },
+            {
+              "dateTime": "2020-09-28 08:00:00",
+              "temperature": 13.2
+            },
+            {
+              "dateTime": "2020-09-28 09:00:00",
+              "temperature": 15.2
+            },
+            {
+              "dateTime": "2020-09-28 10:00:00",
+              "temperature": 16.9
+            },
+            {
+              "dateTime": "2020-09-28 11:00:00",
+              "temperature": 18.1
+            },
+            {
+              "dateTime": "2020-09-28 12:00:00",
+              "temperature": 18.9
+            },
+            {
+              "dateTime": "2020-09-28 13:00:00",
+              "temperature": 19.2
+            },
+            {
+              "dateTime": "2020-09-28 14:00:00",
+              "temperature": 19.4
+            },
+            {
+              "dateTime": "2020-09-28 15:00:00",
+              "temperature": 18.8
+            },
+            {
+              "dateTime": "2020-09-28 16:00:00",
+              "temperature": 17.8
+            },
+            {
+              "dateTime": "2020-09-28 17:00:00",
+              "temperature": 16.6
+            },
+            {
+              "dateTime": "2020-09-28 18:00:00",
+              "temperature": 16
+            },
+            {
+              "dateTime": "2020-09-28 19:00:00",
+              "temperature": 15.7
+            },
+            {
+              "dateTime": "2020-09-28 20:00:00",
+              "temperature": 15.6
+            },
+            {
+              "dateTime": "2020-09-28 21:00:00",
+              "temperature": 15.4
+            },
+            {
+              "dateTime": "2020-09-28 22:00:00",
+              "temperature": 15.1
+            },
+            {
+              "dateTime": "2020-09-28 23:00:00",
+              "temperature": 14.8
             }
           ]
         }
@@ -1723,7 +1834,7 @@
       "units": {
         "temperature": "c"
       },
-      "issueDateTime": "2020-09-19 12:22:09",
+      "issueDateTime": "2020-09-21 17:50:23",
       "carousel": {
         "size": 11,
         "start": 3
@@ -1732,44 +1843,16 @@
     "weather": {
       "days": [
         {
-          "dateTime": "2020-09-19 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-19 00:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false,
-              "min": 14,
-              "max": 21
-            }
-          ]
-        },
-        {
-          "dateTime": "2020-09-20 00:00:00",
-          "entries": [
-            {
-              "dateTime": "2020-09-20 00:00:00",
-              "precisCode": "chance-shower-cloud",
-              "precis": "Shower or two",
-              "precisOverlayCode": "",
-              "night": false,
-              "min": 15,
-              "max": 21
-            }
-          ]
-        },
-        {
           "dateTime": "2020-09-21 00:00:00",
           "entries": [
             {
               "dateTime": "2020-09-21 00:00:00",
-              "precisCode": "shower-or-two",
-              "precis": "Late shower or two",
+              "precisCode": "chance-thunderstorm-showers",
+              "precis": "Late shower or storm",
               "precisOverlayCode": "",
               "night": false,
               "min": 15,
-              "max": 29
+              "max": 30
             }
           ]
         },
@@ -1778,12 +1861,12 @@
           "entries": [
             {
               "dateTime": "2020-09-22 00:00:00",
-              "precisCode": "mostly-fine",
-              "precis": "Mostly sunny",
+              "precisCode": "fine",
+              "precis": "Sunny",
               "precisOverlayCode": "",
               "night": false,
               "min": 17,
-              "max": 26
+              "max": 27
             }
           ]
         },
@@ -1797,7 +1880,7 @@
               "precisOverlayCode": "",
               "night": false,
               "min": 12,
-              "max": 23
+              "max": 24
             }
           ]
         },
@@ -1806,12 +1889,12 @@
           "entries": [
             {
               "dateTime": "2020-09-24 00:00:00",
-              "precisCode": "fine",
-              "precis": "Sunny",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
               "precisOverlayCode": "",
               "night": false,
-              "min": 11,
-              "max": 22
+              "min": 10,
+              "max": 21
             }
           ]
         },
@@ -1828,51 +1911,93 @@
               "max": 24
             }
           ]
+        },
+        {
+          "dateTime": "2020-09-26 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-26 00:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false,
+              "min": 9,
+              "max": 19
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-27 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-27 00:00:00",
+              "precisCode": "fine",
+              "precis": "Sunny",
+              "precisOverlayCode": "",
+              "night": false,
+              "min": 9,
+              "max": 18
+            }
+          ]
+        },
+        {
+          "dateTime": "2020-09-28 00:00:00",
+          "entries": [
+            {
+              "dateTime": "2020-09-28 00:00:00",
+              "precisCode": "partly-cloudy",
+              "precis": "Partly cloudy",
+              "precisOverlayCode": "",
+              "night": false,
+              "min": 10,
+              "max": 19
+            }
+          ]
         }
       ],
       "units": {
         "temperature": "c"
       },
-      "issueDateTime": "2020-09-19 13:07:48"
+      "issueDateTime": "2020-09-21 18:09:50"
     }
   },
   "observational": {
     "observations": {
       "temperature": {
-        "temperature": 22.2,
-        "apparentTemperature": 20.5,
+        "temperature": 24,
+        "apparentTemperature": 24.2,
         "trend": 1
       },
       "delta-t": {
-        "temperature": 2.5,
-        "trend": 0
+        "temperature": 3.9,
+        "trend": 1
       },
       "cloud": {
-        "oktas": 7,
+        "oktas": 0,
         "trend": 0
       },
       "humidity": {
-        "percentage": 78,
-        "trend": 0
-      },
-      "dewPoint": {
-        "temperature": 18.2,
-        "trend": 1
-      },
-      "pressure": {
-        "pressure": 1022.9,
+        "percentage": 68,
         "trend": -1
       },
+      "dewPoint": {
+        "temperature": 17.7,
+        "trend": -1
+      },
+      "pressure": {
+        "pressure": 1005.5,
+        "trend": 1
+      },
       "wind": {
-        "speed": 24.1,
+        "speed": 13,
         "gustSpeed": null,
-        "trend": 0,
-        "direction": 80,
-        "directionText": "E"
+        "trend": 1,
+        "direction": 45,
+        "directionText": "NE"
       },
       "rainfall": {
         "lastHourAmount": 0,
-        "todayAmount": 0.4,
+        "todayAmount": 0,
         "since9AMAmount": 0
       }
     },
@@ -1934,7 +2059,7 @@
         "distance": 0.8
       }
     },
-    "issueDateTime": "2020-09-19 14:10:00",
+    "issueDateTime": "2020-09-21 18:00:00",
     "units": {
       "temperature": "c",
       "amount": "mm",
@@ -1946,29 +2071,11 @@
   "regionPrecis": {
     "days": [
       {
-        "dateTime": "2020-09-19 00:00:00",
-        "entries": [
-          {
-            "dateTime": "2020-09-19 00:00:00",
-            "precis": "Mostly cloudy. Medium (50%) chance of showers. Light winds becoming east to northeasterly 15 to 25 km/h in the middle of the day."
-          }
-        ]
-      },
-      {
-        "dateTime": "2020-09-20 00:00:00",
-        "entries": [
-          {
-            "dateTime": "2020-09-20 00:00:00",
-            "precis": "Cloudy. High (70%) chance of showers in the morning and afternoon. Winds northeasterly 15 to 25 km/h turning northerly 15 to 20 km/h in the evening."
-          }
-        ]
-      },
-      {
         "dateTime": "2020-09-21 00:00:00",
         "entries": [
           {
             "dateTime": "2020-09-21 00:00:00",
-            "precis": "Mostly sunny day. Medium (50%) chance of showers in the evening. The chance of a thunderstorm in the evening. Light winds becoming northerly 15 to 25 km/h during the morning."
+            "precis": "Partly cloudy. Medium (60%) chance of showers, most likely in the evening. The chance of an evening thunderstorm, possibly severe. Winds northerly 15 to 25 km/h."
           }
         ]
       },
@@ -1977,7 +2084,7 @@
         "entries": [
           {
             "dateTime": "2020-09-22 00:00:00",
-            "precis": "Slight (30%) chance of a shower or thunderstorm during the morning. Sunny afternoon. Winds northwesterly 15 to 25 km/h tending west to northwesterly 15 to 20 km/h during the afternoon."
+            "precis": "Slight (20%) chance of a shower or thunderstorm in the early morning. Sunny day. Winds north to northwesterly 15 to 25 km/h turning west to southwesterly before dawn then tending west to northwesterly 20 to 30 km/h in the middle of the day."
           }
         ]
       },
@@ -1986,7 +2093,7 @@
         "entries": [
           {
             "dateTime": "2020-09-23 00:00:00",
-            "precis": "Sunny. Light winds becoming westerly 15 to 20 km/h during the day."
+            "precis": "Sunny. Light winds becoming northwesterly 15 to 20 km/h early in the morning then tending westerly 20 to 30 km/h in the morning."
           }
         ]
       },
@@ -1995,7 +2102,7 @@
         "entries": [
           {
             "dateTime": "2020-09-24 00:00:00",
-            "precis": "Sunny. Light winds becoming westerly 15 to 25 km/h during the morning."
+            "precis": "Partly cloudy. Light winds becoming westerly 15 to 25 km/h during the morning then becoming light during the evening."
           }
         ]
       },
@@ -2004,12 +2111,39 @@
         "entries": [
           {
             "dateTime": "2020-09-25 00:00:00",
-            "precis": "Sunny morning. Slight (30%) chance of a shower, most likely later in the day. Winds northwesterly 15 to 25 km/h tending northwest to southwesterly 15 to 20 km/h later."
+            "precis": "Partly cloudy. Slight (30%) chance of a shower in the afternoon and evening. Light winds becoming northerly 15 to 25 km/h during the morning then tending northwesterly 25 to 35 km/h during the day."
+          }
+        ]
+      },
+      {
+        "dateTime": "2020-09-26 00:00:00",
+        "entries": [
+          {
+            "dateTime": "2020-09-26 00:00:00",
+            "precis": "Partly cloudy. Winds northwesterly 20 to 30 km/h tending westerly 25 to 35 km/h during the morning."
+          }
+        ]
+      },
+      {
+        "dateTime": "2020-09-27 00:00:00",
+        "entries": [
+          {
+            "dateTime": "2020-09-27 00:00:00",
+            "precis": "Sunny. Winds west to southwesterly 15 to 20 km/h turning south to southeasterly 20 to 30 km/h during the morning."
+          }
+        ]
+      },
+      {
+        "dateTime": "2020-09-28 00:00:00",
+        "entries": [
+          {
+            "dateTime": "2020-09-28 00:00:00",
+            "precis": "Partly cloudy. Slight (20%) chance of a shower. Light winds becoming easterly 15 to 20 km/h during the day."
           }
         ]
       }
     ],
-    "issueDateTime": "2020-09-19 13:41:43",
+    "issueDateTime": "2020-09-21 17:41:46",
     "name": "Sydney"
   }
 }

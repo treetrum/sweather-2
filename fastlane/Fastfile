@@ -22,6 +22,7 @@ platform :ios do
       app_identifier: [
         "com.sjd.sweather",
         "com.sjd.sweather.SweatherWidget",
+        "com.sjd.sweather.SweatherIntentsExtension",
       ]
     )
 
@@ -88,6 +89,7 @@ platform :ios do
     match(app_identifier: [
       "com.sjd.sweather",
       "com.sjd.sweather.SweatherWidget",
+      "com.sjd.sweather.SweatherIntentsExtension",
     ])
   end
 

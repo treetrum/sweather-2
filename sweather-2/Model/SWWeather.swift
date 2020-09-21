@@ -43,6 +43,16 @@ class SWWeather {
                 }
             }
         }
+        
+        var amount: String {
+            get {
+                if (probability ?? 0 > 0) {
+                    return "\(startRange != nil ? "\(startRange!)" : "")\(rangeDivide ?? "")\(endRange ?? 0)mm"
+                } else {
+                    return "0mm"
+                }
+            }
+        }
     }
     var rainfall = Rainfall(startRange: nil, endRange: nil, rangeDivide: nil, rangeCode: nil, probability: nil)
     

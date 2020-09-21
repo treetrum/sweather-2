@@ -6,13 +6,13 @@
 	<array>
 		<dict>
 			<key>INEnumDisplayName</key>
-			<string>Temperature Display</string>
+			<string>Data Points</string>
 			<key>INEnumDisplayNameID</key>
-			<string>vbEduh</string>
+			<string>knGbKO</string>
 			<key>INEnumGeneratesHeader</key>
 			<true/>
 			<key>INEnumName</key>
-			<string>TemperatureDisplay</string>
+			<string>DataPoints</string>
 			<key>INEnumType</key>
 			<string>Regular</string>
 			<key>INEnumValues</key>
@@ -21,29 +21,79 @@
 					<key>INEnumValueDisplayName</key>
 					<string>unknown</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>eg6Owd</string>
+					<string>8atMt8</string>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>Feels Like</string>
+					<string>high and low</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>vzLxFu</string>
+					<string>yjClsH</string>
 					<key>INEnumValueIndex</key>
 					<integer>1</integer>
 					<key>INEnumValueName</key>
-					<string>FeelsLike</string>
+					<string>highAndLow</string>
 				</dict>
 				<dict>
 					<key>INEnumValueDisplayName</key>
-					<string>Actual</string>
+					<string>actual temperature</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>hky6WB</string>
+					<string>5PfvYM</string>
 					<key>INEnumValueIndex</key>
 					<integer>2</integer>
 					<key>INEnumValueName</key>
-					<string>Actual</string>
+					<string>actualTemperature</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>apparent temperature</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>noL0RW</string>
+					<key>INEnumValueIndex</key>
+					<integer>3</integer>
+					<key>INEnumValueName</key>
+					<string>apparentTemperature</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>humidity</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>innl3Q</string>
+					<key>INEnumValueIndex</key>
+					<integer>4</integer>
+					<key>INEnumValueName</key>
+					<string>humidity</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>location</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>V41mor</string>
+					<key>INEnumValueIndex</key>
+					<integer>5</integer>
+					<key>INEnumValueName</key>
+					<string>location</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>summary</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>Zg31U7</string>
+					<key>INEnumValueIndex</key>
+					<integer>6</integer>
+					<key>INEnumValueName</key>
+					<string>summary</string>
+				</dict>
+				<dict>
+					<key>INEnumValueDisplayName</key>
+					<string>rain</string>
+					<key>INEnumValueDisplayNameID</key>
+					<string>lvyvv3</string>
+					<key>INEnumValueIndex</key>
+					<integer>7</integer>
+					<key>INEnumValueName</key>
+					<string>rain</string>
 				</dict>
 			</array>
 		</dict>
@@ -72,7 +122,7 @@
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentLastParameterTag</key>
-			<integer>4</integer>
+			<integer>29</integer>
 			<key>INIntentName</key>
 			<string>SweatherWidgetConfiguration</string>
 			<key>INIntentParameters</key>
@@ -91,11 +141,11 @@
 						<key>INIntentParameterMetadataFalseDisplayName</key>
 						<string>false</string>
 						<key>INIntentParameterMetadataFalseDisplayNameID</key>
-						<string>5vNHDz</string>
+						<string>KNd2rz</string>
 						<key>INIntentParameterMetadataTrueDisplayName</key>
 						<string>true</string>
 						<key>INIntentParameterMetadataTrueDisplayNameID</key>
-						<string>S91ZLv</string>
+						<string>EJl47w</string>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>feels_like</string>
@@ -115,9 +165,71 @@
 						</dict>
 					</array>
 					<key>INIntentParameterTag</key>
-					<integer>4</integer>
+					<integer>12</integer>
 					<key>INIntentParameterType</key>
 					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterArraySizes</key>
+					<array>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>3</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>Small</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>3</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>Medium</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>3</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>Large</string>
+						</dict>
+					</array>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Data Points</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>puu8S8</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterFixedSizeArray</key>
+					<integer>1</integer>
+					<key>INIntentParameterName</key>
+					<string>DataPoints</string>
+					<key>INIntentParameterObjectType</key>
+					<string>DataPoint</string>
+					<key>INIntentParameterObjectTypeNamespace</key>
+					<string>MiZBoD</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsDynamicEnumeration</key>
+					<true/>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>29</integer>
+					<key>INIntentParameterType</key>
+					<string>Object</string>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>
@@ -149,6 +261,88 @@
 		</dict>
 	</array>
 	<key>INTypes</key>
-	<array/>
+	<array>
+		<dict>
+			<key>INTypeDisplayName</key>
+			<string>Data Point</string>
+			<key>INTypeDisplayNameID</key>
+			<string>o4YGOp</string>
+			<key>INTypeLastPropertyTag</key>
+			<integer>105</integer>
+			<key>INTypeName</key>
+			<string>DataPoint</string>
+			<key>INTypeProperties</key>
+			<array>
+				<dict>
+					<key>INTypePropertyDefault</key>
+					<true/>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>1</integer>
+					<key>INTypePropertyName</key>
+					<string>identifier</string>
+					<key>INTypePropertyTag</key>
+					<integer>1</integer>
+					<key>INTypePropertyType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDefault</key>
+					<true/>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>2</integer>
+					<key>INTypePropertyName</key>
+					<string>displayString</string>
+					<key>INTypePropertyTag</key>
+					<integer>2</integer>
+					<key>INTypePropertyType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDefault</key>
+					<true/>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>3</integer>
+					<key>INTypePropertyName</key>
+					<string>pronunciationHint</string>
+					<key>INTypePropertyTag</key>
+					<integer>3</integer>
+					<key>INTypePropertyType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDefault</key>
+					<true/>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>4</integer>
+					<key>INTypePropertyName</key>
+					<string>alternativeSpeakableMatches</string>
+					<key>INTypePropertySupportsMultipleValues</key>
+					<true/>
+					<key>INTypePropertyTag</key>
+					<integer>4</integer>
+					<key>INTypePropertyType</key>
+					<string>SpeakableString</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDisplayName</key>
+					<string>Data Point</string>
+					<key>INTypePropertyDisplayNameID</key>
+					<string>KIqIqx</string>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>5</integer>
+					<key>INTypePropertyEnumType</key>
+					<string>DataPoints</string>
+					<key>INTypePropertyEnumTypeNamespace</key>
+					<string>MiZBoD</string>
+					<key>INTypePropertyName</key>
+					<string>dataPoint</string>
+					<key>INTypePropertyTag</key>
+					<integer>105</integer>
+					<key>INTypePropertyType</key>
+					<string>Integer</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

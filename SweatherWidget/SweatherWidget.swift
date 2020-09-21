@@ -43,17 +43,17 @@ struct WeatherTimeline: IntentTimelineProvider {
     }
 
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: SweatherWidgetConfigurationIntent())
+        WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: SweatherWidgetConfigurationIntent(), family: context.family)
     }
     
     func getSnapshot(for configuration: SweatherWidgetConfigurationIntent, in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         if context.isPreview {
-            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: configuration)
+            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: configuration, family: context.family)
             completion(sampleEntry)
         } else {
             getWeather { (weather) in
                 if let data = weather {
-                    completion(WeatherEntry(date: Date(), weatherData: data, configuration: configuration))
+                    completion(WeatherEntry(date: Date(), weatherData: data, configuration: configuration, family: context.family))
                 }
             }
         }
@@ -66,7 +66,7 @@ struct WeatherTimeline: IntentTimelineProvider {
         
         getWeather { (weatherData) in
             if let weather = weatherData {
-                let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration)
+                let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration, family: context.family)
                 let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
                 completion(timeline)
             }
@@ -78,13 +78,14 @@ struct WeatherEntry: TimelineEntry {
     let date: Date
     let weatherData: SWWeather
     let configuration: SweatherWidgetConfigurationIntent
+    let family: WidgetFamily
 }
 
 struct SweatherWidgetEntryView : View {
     var entry: WeatherTimeline.Entry
-    var iconSize: CGFloat = 50;
+    var iconSize: CGFloat = 38;
     
-    var temperature: some View {
+    func Temperature() -> some View {
         var value: Float?
         if entry.configuration.feels_like == 1 {
             value = entry.weatherData.temperature.apparent
@@ -93,20 +94,61 @@ struct SweatherWidgetEntryView : View {
         }
         return Text("\(value?.roundToSingleDecimalString() ?? "0")°")
     }
+    
+    func DataPoints() -> some View {
+        let precis: String = entry.weatherData.precis.precis ?? ""
+        let min: Int = entry.weatherData.temperature.min ?? 0
+        let max: Int = entry.weatherData.temperature.max ?? 0
+        let name: String = entry.weatherData.location.name
+        let feelsLike = entry.weatherData.temperature.apparent?.roundToSingleDecimalString() ?? ""
+        let actual = entry.weatherData.temperature.actual?.roundToSingleDecimalString() ?? ""
+        let humidity = entry.weatherData.humidity.percent ?? 0
+        let rain = entry.weatherData.rainfall.amount
+        
+        return VStack(alignment: .leading, spacing: 2) {
+            ForEach(entry.configuration.DataPoints!, id: \.self) { point in
+                switch point.dataPoint {
+                case DataPoints.apparentTemperature:
+                    Text("Feels Like: \(feelsLike)°")
+                case DataPoints.actualTemperature:
+                    Text("Actual: \(actual)°")
+                case DataPoints.highAndLow:
+                    HStack {
+                        Image(systemName: "arrow.down")
+                        Text("\(min)°").padding(.leading, -5)
+                        Image(systemName: "arrow.up")
+                        Text("\(max)°").padding(.leading, -5)
+                    }
+                case DataPoints.humidity:
+                    Text("Humidity: \(humidity)%")
+                case DataPoints.location:
+                    Text(name)
+                case DataPoints.summary:
+                    Text(precis)
+                case DataPoints.rain:
+                    Text("Rain: \(rain)")
+                default:
+                    EmptyView()
+                }
+            }
+        }
+        .opacity(0.75)
+        .font(.footnote)
+    }
 
     var body: some View {
+        let weatherData = entry.weatherData
         ZStack {
-            BackgroundGradient(timePeriod: entry.weatherData.getTimePeriod())
+            BackgroundGradient(timePeriod: weatherData.getTimePeriod())
             VStack(alignment: .leading) {
-                Image(entry.weatherData.getPrecisImageCode()).resizable().frame(width: iconSize, height: iconSize).foregroundColor(.white).padding(.all, -12)
+                Image("left-\(weatherData.getPrecisImageCode())")
+                    .resizable()
+                    .frame(width: iconSize, height: iconSize)
+                    .foregroundColor(.white)
                 Spacer()
-                temperature.font(.title2)
-                Spacer().frame(height: 3)
-                Text("\(entry.weatherData.precis.precis ?? "")").font(.footnote)
-                Spacer().frame(height: 3)
-                Text("L:\(entry.weatherData.temperature.min ?? 0)° H:\(entry.weatherData.temperature.max ?? 0)°").font(.footnote)
-                Spacer().frame(height: 3)
-                Text("\(entry.weatherData.location.name)").font(.footnote)
+                Temperature().font(.title2)
+                Spacer().frame(height: 4)
+                DataPoints()
             }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -128,12 +170,20 @@ struct SweatherWidget: Widget {
         }
         .configurationDisplayName("Forecast")
         .description("View the current weather and forecast.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
 struct SweatherWidget_Previews: PreviewProvider {
+    
+    static let date = Date()
+    static let data = SampleWeatherData()
+    static let config = SweatherWidgetConfigurationIntent()
+    static let entry = WeatherEntry(date: date, weatherData: data, configuration: config, family: .systemSmall)
+
     static var previews: some View {
-        SweatherWidgetEntryView(entry: WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: SweatherWidgetConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        SweatherWidgetEntryView(entry: entry).previewContext(WidgetPreviewContext(family: .systemSmall))
+        SweatherWidgetEntryView(entry: entry).previewContext(WidgetPreviewContext(family: .systemMedium))
+        SweatherWidgetEntryView(entry: entry).previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

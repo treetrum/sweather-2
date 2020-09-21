@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SweatherIntentsExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 		<key>SweatherWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -48,6 +53,11 @@
 			<true/>
 		</dict>
 		<key>229D3E3C236036730035FD66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22F1441F2518A9FB003D8E9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -16,6 +16,7 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     var savedGetLocationCompletion: ((CLLocation?) -> Void)?
     var manager: CLLocationManager?
     var lastCoords: CLLocation?
+    var lastCoordsDate: Date = Date()
 
     func getLocation(completion: @escaping (CLLocation?) -> Void) {
         if let manager = self.manager {
@@ -24,7 +25,11 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
             manager.requestWhenInUseAuthorization()
             
             if let lastCoords = lastCoords {
-                completion(lastCoords)
+                if lastCoordsDate.addingTimeInterval(900) < Date() { // 15 minute cache time
+                    completion(lastCoords)
+                } else {
+                    manager.requestLocation()
+                }
             } else {
                 manager.requestLocation()
             }
@@ -38,6 +43,7 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
             return;
         }
         lastCoords = locations.first
+        lastCoordsDate = Date()
         completion(locations.first)
     }
 
