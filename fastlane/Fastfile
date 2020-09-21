@@ -86,11 +86,14 @@ platform :ios do
   end
 
   lane :certificates do
-    match(app_identifier: [
-      "com.sjd.sweather",
-      "com.sjd.sweather.SweatherWidget",
-      "com.sjd.sweather.SweatherIntentsExtension",
-    ])
+    match(
+      type: "appstore",
+      app_identifier: [
+        "com.sjd.sweather",
+        "com.sjd.sweather.SweatherWidget",
+        "com.sjd.sweather.SweatherIntentsExtension",
+      ]
+    )
   end
 
 end
