@@ -117,6 +117,7 @@
 		22C6822E2367A10300B1919F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822D2367A10300B1919F /* PageView.swift */; };
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
 		22CC1F2623EFB50300763884 /* CustomIconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC1F2523EFB50300763884 /* CustomIconPicker.swift */; };
+		22CEAD652519E8BC00B0172C /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F144192518A9FB003D8E9B /* IntentHandler.swift */; };
 		22ECEB812453B5E20020751A /* custom-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6C2453B5E10020751A /* custom-6.png */; };
 		22ECEB822453B5E20020751A /* custom-5-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6D2453B5E10020751A /* custom-5-sun.png */; };
 		22ECEB832453B5E20020751A /* custom-3-snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6E2453B5E10020751A /* custom-3-snow.png */; };
@@ -1193,6 +1194,7 @@
 				226AC0D92515BE29000CDF9F /* SJDFetch.swift in Sources */,
 				226AC0BF2515BC9D000CDF9F /* WWMapData.swift in Sources */,
 				226AC0C02515BC9D000CDF9F /* WillyWeatherAPI.swift in Sources */,
+				22CEAD652519E8BC00B0172C /* IntentHandler.swift in Sources */,
 				226AC1382515CC62000CDF9F /* BackgroundGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

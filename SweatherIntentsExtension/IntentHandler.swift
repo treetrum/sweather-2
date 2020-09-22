@@ -18,21 +18,29 @@ struct DataPointEntry {
     let name: String
     let point: DataPoints
     
-    static let allEntries = [
-        DataPointEntry(name: "None", point: .unknown),                              // 0
-        DataPointEntry(name: "Actual Temperature", point: .actualTemperature),      // 1
-        DataPointEntry(name: "Feels Like", point: .apparentTemperature),            // 2
-        DataPointEntry(name: "High & Low", point: .highAndLow),                     // 3
-        DataPointEntry(name: "Humidity", point: .humidity),                         // 4
-        DataPointEntry(name: "Location", point: .location),                         // 5
-        DataPointEntry(name: "Summary", point: .summary),                           // 6
-        DataPointEntry(name: "Rain", point: .rain),                                 // 7
+    static let namedEntries: [DataPoints: DataPointEntry] = [
+        .unknown: DataPointEntry(name: "None", point: .unknown),
+        .actualTemperature: DataPointEntry(name: "Actual Temperature", point: .actualTemperature),
+        .apparentTemperature: DataPointEntry(name: "Feels Like", point: .apparentTemperature),
+        .highAndLow: DataPointEntry(name: "High & Low", point: .highAndLow),
+        .humidity: DataPointEntry(name: "Humidity", point: .humidity),
+        .location: DataPointEntry(name: "Location", point: .location),
+        .summary: DataPointEntry(name: "Summary", point: .summary),
+        .rain: DataPointEntry(name: "Rain", point: .rain),
     ]
     
-    static let defaultEntries = [
-        allEntries[3],
-        allEntries[5],
-        allEntries[0]
+    static let allEntries = namedEntries.map { _, v in v }
+    
+    static let defaultEntries: [DataPointEntry] = [
+        namedEntries[.highAndLow]!,
+        namedEntries[.location]!,
+        namedEntries[.unknown]!
+    ]
+    
+    static let testingEntries: [DataPointEntry] = [
+        namedEntries[.highAndLow]!,
+        namedEntries[.actualTemperature]!,
+        namedEntries[.location]!,
     ]
 }
 
