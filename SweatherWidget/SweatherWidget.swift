@@ -39,6 +39,12 @@ struct WeatherTimeline: IntentTimelineProvider {
                 }
             }
         }
+        
+//        api.getWeatherForLocation(location: 4950) { (data, error) in
+//            if let weatherData = data {
+//                completion(SWWeather(weather: weatherData))
+//            }
+//        }
     
     }
 
@@ -83,12 +89,11 @@ struct WeatherEntry: TimelineEntry {
 
 struct SweatherWidgetEntryView : View {
     var entry: WeatherTimeline.Entry
-    var iconSize: CGFloat = 38;
     
-    func Icon() -> some View {
-        Image("left-\(entry.weatherData.getPrecisImageCode())")
+    func Icon(size: CGFloat = 30) -> some View {
+        Image("resscaled-\(entry.weatherData.getPrecisImageCode())")
             .resizable()
-            .frame(width: iconSize, height: iconSize)
+            .frame(width: size, height: size)
             .foregroundColor(.white)
     }
     
@@ -100,9 +105,10 @@ struct SweatherWidgetEntryView : View {
             value = entry.weatherData.temperature.actual
         }
         return Text("\(value?.roundToSingleDecimalString() ?? "0")°")
+            .font(entry.family == .systemSmall ? .title2 : .title)
     }
     
-    func DataPoints() -> some View {
+    func DataPoints(alignment: HorizontalAlignment = .leading, textAlign: TextAlignment = .leading) -> some View {
         let precis: String = entry.weatherData.precis.precis ?? ""
         let min: Int = entry.weatherData.temperature.min ?? 0
         let max: Int = entry.weatherData.temperature.max ?? 0
@@ -113,7 +119,7 @@ struct SweatherWidgetEntryView : View {
         let rain = entry.weatherData.rainfall.amount
         let datapoints = entry.configuration.DataPoints ?? DataPointEntry.testingEntries.map(transformDataPointEntry)
         
-        return VStack(alignment: .leading) {
+        return VStack(alignment: alignment, spacing: 2) {
             ForEach(datapoints, id: \.self) { (point: DataPoint) in
                 switch point.dataPoint {
                 case DataPoints.apparentTemperature:
@@ -122,10 +128,10 @@ struct SweatherWidgetEntryView : View {
                     Text("Actual: \(actual)°")
                 case DataPoints.highAndLow:
                     HStack {
-                        Image(systemName: "arrow.down")
-                        Text("\(min)°").padding(.leading, -5)
-                        Image(systemName: "arrow.up")
-                        Text("\(max)°").padding(.leading, -5)
+                        Image(systemName: "arrow.down").scaleEffect(0.8)
+                        Text("\(min)°").padding(.leading, -6)
+                        Image(systemName: "arrow.up").scaleEffect(0.8)
+                        Text("\(max)°").padding(.leading, -6)
                     }
                 case DataPoints.humidity:
                     Text("Humidity: \(humidity)%")
@@ -140,17 +146,58 @@ struct SweatherWidgetEntryView : View {
                 }
             }
         }
+        .multilineTextAlignment(textAlign)
         .opacity(0.75)
-        .font(.footnote)
+        .font(.system(size: 12))
+    }
+    
+    func DayForecast() -> some View {
+        let daysToShow = entry.weatherData.days[..<6]
+
+        return HStack {
+            ForEach(daysToShow, id: \.dateTime) { (day: SWWeather.Day) in
+                VStack {
+                    HStack(alignment: .top, spacing: 5) {
+                        Text("\(day.max ?? 0)")
+                        Text("\(day.min ?? 0)").opacity(0.5)
+                    }
+                        .font(.caption)
+                    Image("resscaled-\(day.precisCode ?? "")")
+                        .resizable()
+                        .frame(width: 25, height: 25).padding(-2)
+                    Text((day.dateTime?.prettyShortDayName() ?? "").uppercased())
+                        .font(.system(size: 10))
+                        .opacity(0.8)
+                    
+                }
+                if day.dateTime != daysToShow.last?.dateTime {
+                    Spacer()
+                }
+            }
+        }
+        .padding(.horizontal, 5)
     }
     
     func smallLayout() -> some View {
         Group {
             Icon()
             Spacer()
-            Temperature().font(.title2)
+            Temperature()
             Spacer().frame(height: 4)
             DataPoints()
+        }
+    }
+    
+    func mediumLayout() -> some View {
+        VStack {
+            HStack {
+                Icon(size: 30).padding(.trailing, 5)
+                Temperature()
+                Spacer()
+                DataPoints(alignment: .trailing, textAlign: .trailing)
+            }
+            Spacer()
+            DayForecast()
         }
     }
 
@@ -161,8 +208,10 @@ struct SweatherWidgetEntryView : View {
                 switch entry.family {
                 case .systemSmall:
                     smallLayout()
+                case .systemMedium:
+                    mediumLayout()
                 default:
-                    smallLayout()
+                    fatalError("Unknown widget size accessed")
                 }
             }
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -171,6 +220,7 @@ struct SweatherWidgetEntryView : View {
             .frame(minHeight: 0, maxHeight: .infinity)
             .foregroundColor(Color.white)
         }
+//        .redacted(reason: .placeholder)
     }
 }
 

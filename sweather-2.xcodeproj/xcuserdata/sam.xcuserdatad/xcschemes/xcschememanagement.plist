@@ -7,12 +7,12 @@
 		<key>SweatherIntentsExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>25</integer>
+			<integer>24</integer>
 		</dict>
 		<key>SweatherWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>24</integer>
+			<integer>25</integer>
 		</dict>
 		<key>sweather-2-snapshot-tests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -47,12 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>226ABFE32515AD77000CDF9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2284BAE223EFE1B000E15FCF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>229D3E3C236036730035FD66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22F144162518A9FB003D8E9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
