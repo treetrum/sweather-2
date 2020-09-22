@@ -1388,7 +1388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherWidget/Info.plist;
@@ -1401,7 +1401,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherWidget";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherWidget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1413,7 +1413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherWidget/Info.plist;
@@ -1426,7 +1426,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherWidget";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherWidget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1660,7 +1660,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 844;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1675,7 +1675,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1689,7 +1689,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 844;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1704,7 +1704,7 @@
 				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather;
 				PRODUCT_NAME = "Sweather 2";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1714,7 +1714,7 @@
 		22F144342518A9FB003D8E9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherIntentsExtension/Info.plist;
@@ -1726,7 +1726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherIntentsExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherIntentsExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherIntentsExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1736,7 +1736,7 @@
 		22F144352518A9FB003D8E9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				INFOPLIST_FILE = SweatherIntentsExtension/Info.plist;
@@ -1748,7 +1748,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjd.sweather.SweatherIntentsExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.sjd.sweather.SweatherIntentsExtension";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.sjd.sweather.SweatherIntentsExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
