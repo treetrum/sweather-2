@@ -7,6 +7,7 @@
 //
 
 import Intents
+import CoreData
 
 func transformDataPointEntry(entry: DataPointEntry) -> DataPoint {
     let p = DataPoint(identifier: entry.name, display: entry.name)
@@ -53,6 +54,42 @@ class IntentHandler: INExtension, SweatherWidgetConfigurationIntentHandling {
 
     func defaultDataPoints(for intent: SweatherWidgetConfigurationIntent) -> [DataPoint]? {
         return DataPointEntry.defaultEntries.map(transformDataPointEntry)
+    }
+    
+    func provideCustomLocationOptionsCollection(for intent: SweatherWidgetConfigurationIntent, with completion: @escaping (INObjectCollection<CustomLocation>?, Error?) -> Void) {
+        
+        print("About to fetch locations");
+        
+        do {
+            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
+            let locations = try PersistentStorage.context.fetch(request)
+            print("Locations: \(locations)")
+            let options: [CustomLocation] = locations.map { (location: SavedLocation) in
+                let p = CustomLocation(identifier: location.name!, display: location.name!)
+                p.locationId = String(location.id)
+                return p
+            }
+            completion(INObjectCollection(items: options), nil)
+        } catch {
+            fatalError("Couldn't fetch from DB")
+        }
+    }
+    
+    func defaultCustomLocation(for intent: SweatherWidgetConfigurationIntent) -> CustomLocation? {
+        do {
+            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
+            let locations = try PersistentStorage.context.fetch(request)
+            print("Locations: \(locations)")
+            let options: [CustomLocation] = locations.map { (location: SavedLocation) in
+                let p = CustomLocation(identifier: location.name!, display: location.name!)
+                p.locationId = String(location.id)
+                return p
+            }
+            return options.first
+        } catch {
+            fatalError("Couldn't fetch from DB")
+        }
+        
     }
     
     override func handler(for intent: INIntent) -> Any {

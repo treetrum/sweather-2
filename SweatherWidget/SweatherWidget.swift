@@ -18,7 +18,7 @@ struct WeatherTimeline: IntentTimelineProvider {
 
     let locationHelper = LocationHelper()
     
-    func getWeather(_ completion: @escaping (SWWeather?) -> Void) {
+    func getWeather(config: SweatherWidgetConfigurationIntent, completion: @escaping (SWWeather?) -> Void) {
         
         let api = WillyWeatherAPI()
     
@@ -26,26 +26,29 @@ struct WeatherTimeline: IntentTimelineProvider {
             locationHelper.manager = CLLocationManager()
         }
         
-        locationHelper.getLocation { (coords) in
-            if let coords = coords {
-                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
-                    if let location = location {
-                        api.getWeatherForLocation(location: location.id) { (data, error) in
-                            if let weatherData = data {
-                                completion(SWWeather(weather: weatherData))
+        if (config.currentLocation == 1 || config.customLocation == nil) {
+            locationHelper.getLocation { (coords) in
+                if let coords = coords {
+                    api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
+                        if let location = location {
+                            api.getWeatherForLocation(location: location.id) { (data, error) in
+                                if let weatherData = data {
+                                    completion(SWWeather(weather: weatherData))
+                                }
                             }
                         }
                     }
                 }
             }
+        } else {
+            let locationId = Int64(config.customLocation!.locationId!)!
+            api.getWeatherForLocation(location: locationId) { (data, error) in
+                if let weatherData = data {
+                    completion(SWWeather(weather: weatherData))
+                }
+            }
         }
         
-//        api.getWeatherForLocation(location: 4950) { (data, error) in
-//            if let weatherData = data {
-//                completion(SWWeather(weather: weatherData))
-//            }
-//        }
-    
     }
 
     func placeholder(in context: Context) -> WeatherEntry {
@@ -57,7 +60,7 @@ struct WeatherTimeline: IntentTimelineProvider {
             let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: configuration, family: context.family)
             completion(sampleEntry)
         } else {
-            getWeather { (weather) in
+            getWeather(config: configuration) { (weather) in
                 if let data = weather {
                     completion(WeatherEntry(date: Date(), weatherData: data, configuration: configuration, family: context.family))
                 }
@@ -70,7 +73,7 @@ struct WeatherTimeline: IntentTimelineProvider {
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
         
-        getWeather { (weatherData) in
+        getWeather(config: configuration) { (weatherData) in
             if let weather = weatherData {
                 let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration, family: context.family)
                 let timeline = Timeline(entries: [entry], policy: .after(refreshDate))

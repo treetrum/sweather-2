@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221E578A251B43D4004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
+		221E578B251B43D4004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
+		221E5792251B43F5004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
+		221E5799251B4606004424FF /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F144192518A9FB003D8E9B /* IntentHandler.swift */; };
+		221E57A6251B464B004424FF /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
 		22252081245EDFBC0021FC0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22252080245EDFBC0021FC0E /* GoogleService-Info.plist */; };
 		2237DB5924552EA90077C97E /* MapProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237DB5824552EA90077C97E /* MapProgressIndicator.swift */; };
 		223AE8E22376673F00E17875 /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
@@ -19,6 +24,7 @@
 		223FB3A6237660AB005BB4D8 /* WeatherViewPresentational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */; };
 		223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A72376613A005BB4D8 /* CurrentLocationWeatherView.swift */; };
 		223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3AC237662CA005BB4D8 /* LocationName.swift */; };
+		2245765A251B3E6A0065FB1B /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
 		224C93422515992B008ECA55 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 224C9341251598FD008ECA55 /* Configuration.storekit */; };
 		224C93482515999E008ECA55 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 224C93472515999E008ECA55 /* StoreKitTestCertificate.cer */; };
 		224F62572367F0E500A73E2E /* AddLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F62562367F0E500A73E2E /* AddLocationView.swift */; };
@@ -113,6 +119,7 @@
 		22A8350923EFECEA00D0310D /* sample-weather-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223FB3A323764E97005BB4D8 /* sample-weather-data.json */; };
 		22A8350A23EFECEA00D0310D /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		22A8350C23EFEE3300D0310D /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
+		22C213FE251B380000C7E2C3 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B157123778F3C00D05ED1 /* Hours.swift */; };
 		22C6822B236798EC00B1919F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822A236798EC00B1919F /* PageViewController.swift */; };
 		22C6822E2367A10300B1919F /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822D2367A10300B1919F /* PageView.swift */; };
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
@@ -224,6 +231,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		221E5789251B43D4004424FF /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		221E57BF251B483A004424FF /* SweatherWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SweatherWidgetExtension.entitlements; sourceTree = "<group>"; };
+		221E57C6251B484A004424FF /* SweatherIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SweatherIntentsExtension.entitlements; sourceTree = "<group>"; };
 		22252080245EDFBC0021FC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2237DB5824552EA90077C97E /* MapProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProgressIndicator.swift; sourceTree = "<group>"; };
 		223AE8E12376673F00E17875 /* sample-location-data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sample-location-data.json"; sourceTree = "<group>"; };
@@ -566,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				226AC1492515D033000CDF9F /* LocationHelper.swift */,
+				221E5789251B43D4004424FF /* PersistentStorage.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -662,6 +673,7 @@
 		229D3E34236036730035FD66 = {
 			isa = PBXGroup;
 			children = (
+				221E57BF251B483A004424FF /* SweatherWidgetExtension.entitlements */,
 				226AC1482515D026000CDF9F /* shared */,
 				229D3E3F236036730035FD66 /* sweather-2 */,
 				2284BAE423EFE1B000E15FCF /* sweather-watch */,
@@ -798,6 +810,7 @@
 		22F144182518A9FB003D8E9B /* SweatherIntentsExtension */ = {
 			isa = PBXGroup;
 			children = (
+				221E57C6251B484A004424FF /* SweatherIntentsExtension.entitlements */,
 				22F144192518A9FB003D8E9B /* IntentHandler.swift */,
 				22F1441B2518A9FB003D8E9B /* Info.plist */,
 			);
@@ -1186,9 +1199,12 @@
 				226AC0C12515BC9D000CDF9F /* WWLocationCoordSearchResult.swift in Sources */,
 				226AC0BE2515BC9D000CDF9F /* WWWeatherData.swift in Sources */,
 				226AC0C72515BD1A000CDF9F /* SWWeather.swift in Sources */,
+				22C213FE251B380000C7E2C3 /* Hours.swift in Sources */,
+				221E578B251B43D4004424FF /* PersistentStorage.swift in Sources */,
 				227C415325176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
 				226AC0F32515C75C000CDF9F /* extensions.swift in Sources */,
 				226AC1502515D04E000CDF9F /* LocationHelper.swift in Sources */,
+				2245765A251B3E6A0065FB1B /* UserDataModel.xcdatamodeld in Sources */,
 				226AC0F42515C75C000CDF9F /* GeneralExtensions.swift in Sources */,
 				226AC0CD2515BDC6000CDF9F /* SampleWeatherData.swift in Sources */,
 				226AC0D92515BE29000CDF9F /* SJDFetch.swift in Sources */,
@@ -1278,6 +1294,7 @@
 				2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */,
 				2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */,
 				227C415225176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
+				221E5799251B4606004424FF /* IntentHandler.swift in Sources */,
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
@@ -1285,6 +1302,7 @@
 				22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */,
 				226B156E2377836C00D05ED1 /* Days.swift in Sources */,
 				22869E4723F0140700E1D8BF /* WatchComplicationHelper.swift in Sources */,
+				221E578A251B43D4004424FF /* PersistentStorage.swift in Sources */,
 				22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1293,6 +1311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221E57A6251B464B004424FF /* UserDataModel.xcdatamodeld in Sources */,
+				221E5792251B43F5004424FF /* PersistentStorage.swift in Sources */,
 				22F1441A2518A9FB003D8E9B /* IntentHandler.swift in Sources */,
 				22F144442518AA25003D8E9B /* SweatherWidgetIntent.intentdefinition in Sources */,
 			);
@@ -1388,6 +1408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SweatherWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
@@ -1413,6 +1434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SweatherWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
@@ -1714,6 +1736,7 @@
 		22F144342518A9FB003D8E9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SweatherIntentsExtension/SweatherIntentsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
@@ -1736,6 +1759,7 @@
 		22F144352518A9FB003D8E9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SweatherIntentsExtension/SweatherIntentsExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
