@@ -10,13 +10,10 @@ import Foundation
 import CoreData
 
 public extension URL {
-
-    /// Returns a URL for the given app group and database pointing to the sqlite database.
     static func storeURL(for appGroup: String, databaseName: String) -> URL {
         guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-            fatalError("Shared file container could not be created.")
+            fatalError("[BD] Shared file container could not be created.")
         }
-
         return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }
@@ -25,10 +22,10 @@ public extension URL {
 class PersistentStorage {
     
     public static var context: NSManagedObjectContext {
-      return persistentContainer.viewContext
+      return container.viewContext
     }
     
-    public static var persistentContainer: NSPersistentContainer = {
+    public static var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "UserDataModel")
         let storeURL = URL.storeURL(for: "group.sweather.coredata", databaseName: "UserDataModel")
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
@@ -50,6 +47,16 @@ class PersistentStorage {
             } catch {
                 print("[DB] Could not save context")
             }
+        }
+    }
+    
+    public static func getSavedLocations() -> [SavedLocation] {
+        do {
+            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
+            let locations = try PersistentStorage.context.fetch(request)
+            return locations
+        } catch {
+            fatalError("[DB] Couldn't fetch from DB")
         }
     }
 

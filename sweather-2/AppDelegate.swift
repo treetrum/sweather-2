@@ -54,9 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.setAnimationsEnabled(false)
             do {
                 let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
-                let locations = try PersistentStorage.persistentContainer.viewContext.fetch(request)
+                let locations = try PersistentStorage.container.viewContext.fetch(request)
                 for loc in locations {
-                    PersistentStorage.persistentContainer.viewContext.delete(loc)
+                    PersistentStorage.container.viewContext.delete(loc)
                 }
                 PersistentStorage.saveContext()
                 
@@ -66,10 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set default values in database
         do {
             let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
-            let locations = try PersistentStorage.persistentContainer.viewContext.fetch(request)
+            let locations = try PersistentStorage.container.viewContext.fetch(request)
             if locations.count == 0 {
                 print("INIT: No locations found")
-                let newLocation = SavedLocation(context: PersistentStorage.persistentContainer.viewContext)
+                let newLocation = SavedLocation(context: PersistentStorage.container.viewContext)
                 newLocation.id = Int64(4950)
                 newLocation.name = "Sydney"
                 newLocation.postcode = "2000"

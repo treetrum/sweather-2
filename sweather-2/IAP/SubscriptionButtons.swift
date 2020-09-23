@@ -27,27 +27,29 @@ struct SubscriptionButtons: View {
             if self.storeManager.products.count == 0 {
                 self.loadingText
             }
-            ForEach(self.storeManager.products, id: \.productIdentifier) { (product: SKProduct) in
-                Button(action: {
-                    self.storeManager.handleRemoveAds(product: product, onError: { message in
-                        self.alertTitle = "Error"
-                        self.alertMessage = message
-                        self.showingAlert = true
-                    })
-                }) {
-                    HStack {
-                        NavigationButtonIcon(iconName: "nosign", colour: .green)
-                        if (self.storeManager.purchasing) {
-                            self.loadingText
-                        } else {
-                            Text(product.localizedTitle)
-                            Spacer()
-                            Text("\(product.regularPrice ?? "")\(product.subscriptionPeriod?.prettyPrint() ?? "")")
+            if self.storeManager.adRemovalExpiry == nil || self.storeManager.adRemovalExpiry! < Date() {
+                ForEach(self.storeManager.products, id: \.productIdentifier) { (product: SKProduct) in
+                    Button(action: {
+                        self.storeManager.handleRemoveAds(product: product, onError: { message in
+                            self.alertTitle = "Error"
+                            self.alertMessage = message
+                            self.showingAlert = true
+                        })
+                    }) {
+                        HStack {
+                            NavigationButtonIcon(iconName: "nosign", colour: .green)
+                            if (self.storeManager.purchasing) {
+                                self.loadingText
+                            } else {
+                                Text(product.localizedTitle)
+                                Spacer()
+                                Text("\(product.regularPrice ?? "")\(product.subscriptionPeriod?.prettyPrint() ?? "")")
+                            }
+                            
                         }
-                        
                     }
+                    .disabled(self.storeManager.adRemovalExpiry != nil && self.storeManager.adRemovalExpiry! > Date())
                 }
-                .disabled(self.storeManager.adRemovalExpiry != nil && self.storeManager.adRemovalExpiry! > Date())
             }
             Button(action: {
                 self.storeManager.handleRestore { (title, message) in

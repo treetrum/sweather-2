@@ -15,11 +15,18 @@ func transformDataPointEntry(entry: DataPointEntry) -> DataPoint {
     return p
 }
 
+func transformCustomLocation(location: SavedLocation) -> CustomLocation {
+    let name = location.name ?? "Unknown"
+    let l = CustomLocation(identifier: name, display: name)
+    l.locationId = String(location.id)
+    return l
+}
+
 struct DataPointEntry {
     let name: String
     let point: DataPoints
     
-    static let namedEntries: [DataPoints: DataPointEntry] = [
+    static let entries: [DataPoints: DataPointEntry] = [
         .unknown: DataPointEntry(name: "None", point: .unknown),
         .actualTemperature: DataPointEntry(name: "Actual Temperature", point: .actualTemperature),
         .apparentTemperature: DataPointEntry(name: "Feels Like", point: .apparentTemperature),
@@ -29,25 +36,23 @@ struct DataPointEntry {
         .summary: DataPointEntry(name: "Summary", point: .summary),
         .rain: DataPointEntry(name: "Rain", point: .rain),
     ]
-    
-    static let allEntries = namedEntries.map { _, v in v }
-    
+        
     static let defaultEntries: [DataPointEntry] = [
-        namedEntries[.highAndLow]!,
-        namedEntries[.location]!,
-        namedEntries[.unknown]!
+        entries[.highAndLow]!,
+        entries[.location]!,
+        entries[.unknown]!
     ]
     
     static let testingEntries: [DataPointEntry] = [
-        namedEntries[.highAndLow]!,
-        namedEntries[.actualTemperature]!,
-        namedEntries[.location]!,
+        entries[.highAndLow]!,
+        entries[.actualTemperature]!,
+        entries[.location]!,
     ]
 }
 
 class IntentHandler: INExtension, SweatherWidgetConfigurationIntentHandling {
     func provideDataPointsOptionsCollection(for intent: SweatherWidgetConfigurationIntent, with completion: @escaping (INObjectCollection<DataPoint>?, Error?) -> Void) {
-        let dataPoints = DataPointEntry.allEntries.map(transformDataPointEntry)
+        let dataPoints = DataPointEntry.entries.values.map(transformDataPointEntry)
         let collection = INObjectCollection(items: dataPoints)
         completion(collection, nil)
     }
@@ -57,39 +62,15 @@ class IntentHandler: INExtension, SweatherWidgetConfigurationIntentHandling {
     }
     
     func provideCustomLocationOptionsCollection(for intent: SweatherWidgetConfigurationIntent, with completion: @escaping (INObjectCollection<CustomLocation>?, Error?) -> Void) {
-        
-        print("About to fetch locations");
-        
-        do {
-            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
-            let locations = try PersistentStorage.context.fetch(request)
-            print("Locations: \(locations)")
-            let options: [CustomLocation] = locations.map { (location: SavedLocation) in
-                let p = CustomLocation(identifier: location.name!, display: location.name!)
-                p.locationId = String(location.id)
-                return p
-            }
-            completion(INObjectCollection(items: options), nil)
-        } catch {
-            fatalError("Couldn't fetch from DB")
-        }
+        let locations = PersistentStorage.getSavedLocations()
+        let options: [CustomLocation] = locations.map(transformCustomLocation)
+        completion(INObjectCollection(items: options), nil);
     }
     
     func defaultCustomLocation(for intent: SweatherWidgetConfigurationIntent) -> CustomLocation? {
-        do {
-            let request = NSFetchRequest<SavedLocation>(entityName: "SavedLocation")
-            let locations = try PersistentStorage.context.fetch(request)
-            print("Locations: \(locations)")
-            let options: [CustomLocation] = locations.map { (location: SavedLocation) in
-                let p = CustomLocation(identifier: location.name!, display: location.name!)
-                p.locationId = String(location.id)
-                return p
-            }
-            return options.first
-        } catch {
-            fatalError("Couldn't fetch from DB")
-        }
-        
+        let locations = PersistentStorage.getSavedLocations()
+        let options: [CustomLocation] = locations.map(transformCustomLocation)
+        return options.first
     }
     
     override func handler(for intent: INIntent) -> Any {

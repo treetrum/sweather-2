@@ -115,7 +115,7 @@ struct LocationsListView: View {
 
 struct LocationsListView_Previews: PreviewProvider {
     
-    let context = PersistentStorage.persistentContainer.viewContext
+    let context = PersistentStorage.container.viewContext
 
     static var previews: some View {
         LocationsListView()
