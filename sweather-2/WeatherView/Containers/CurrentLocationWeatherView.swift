@@ -27,7 +27,14 @@ struct CurrentLocationWeatherView: View {
             } else if manager.loading == true {
                 Loading()
             } else {
-                Text("Not loading")
+                VStack {
+                    Spacer()
+                    Text("Not loading")
+                    Spacer()
+                }
+                .foregroundColor(.white)
+                .padding()
+                .multilineTextAlignment(.center)
             }
         }
     }

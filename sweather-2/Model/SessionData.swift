@@ -69,7 +69,7 @@ class SessionData: ObservableObject {
         noLocationAccess: Bool = false
     ) {
         self.currentLocationId = currentLocationId
-        self.viewingCurrentLocation = launched != nil ? viewingCurrentLocation : true
+        self.viewingCurrentLocation = viewingCurrentLocation
         self.hasAdRemovalSubscription = hasAdRemovalSubscription
         self.adRemovalSubscripionExpiry = adRemovalSubscripionExpiry
         self.noLocationAccess = noLocationAccess

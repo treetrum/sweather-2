@@ -11,6 +11,7 @@ import CoreLocation
 import SwiftUI
 import Combine
 import WidgetKit
+import FirebaseCrashlytics
 
 class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
@@ -125,6 +126,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         #endif
         
         self.loading = true
+        self.simpleWeatherData = nil
         if (self.usingCurrentLocation) {
             print("GETTING WEATHER FOR LOCATION")
             manager.requestWhenInUseAuthorization()
@@ -185,8 +187,8 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        print("Could not get your current location, please select a saved location from the list instead.")
+        Crashlytics.crashlytics().log("WeatherDataManager locationManager.didFailWithError: \(error.localizedDescription)")
         return
     }
 }
-

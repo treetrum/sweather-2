@@ -76,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 newLocation.region = "Sydney"
                 newLocation.state = "NSW"
                 PersistentStorage.saveContext()
+                SessionData.shared.currentLocationId = newLocation.id
             }
         } catch {
             print("INIT: Error fetching saved locations")
