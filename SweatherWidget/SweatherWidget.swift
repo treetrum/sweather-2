@@ -151,7 +151,7 @@ struct SweatherWidgetEntryView : View {
         .font(.system(size: 12))
     }
     
-    func DayForecast() -> some View {
+    func HorizontalDayForecast() -> some View {
         let daysToShow = entry.weatherData.days[..<6]
 
         return HStack {
@@ -178,6 +178,27 @@ struct SweatherWidgetEntryView : View {
         .padding(.horizontal, 5)
     }
     
+    func HorizontalHourForecast() -> some View {
+        let hours = self.entry.weatherData.hours[..<6]
+        return HStack {
+            ForEach(hours, id: \.dateTime) { (hour: SWWeather.Hour) in
+                VStack {
+                    Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")")
+                        .font(.caption)
+                    Image("resscaled-\(hour.precisCode ?? "")")
+                        .resizable()
+                        .frame(width: 25, height: 25).padding(-2)
+                    Text(hour.dateTime?.prettyHourName() ?? "")
+                        .font(.system(size: 10))
+                        .opacity(0.8)
+                }
+                if hour.dateTime != hours.last?.dateTime {
+                    Spacer()
+                }
+            }
+        }.padding(.horizontal, 5)
+    }
+    
     func smallLayout() -> some View {
         Group {
             Icon()
@@ -197,7 +218,14 @@ struct SweatherWidgetEntryView : View {
                 DataPoints(alignment: .trailing, textAlign: .trailing)
             }
             Spacer()
-            DayForecast()
+            switch entry.configuration.forecast {
+            case ForecastType.hourly:
+                HorizontalHourForecast()
+            case ForecastType.daily:
+                HorizontalDayForecast()
+            default:
+                HorizontalHourForecast()
+            }
         }
     }
 

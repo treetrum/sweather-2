@@ -87,7 +87,7 @@ platform :ios do
 
   lane :certificates do
     match(
-      type: "appstore",
+      type: "development",
       app_identifier: [
         "com.sjd.sweather",
         "com.sjd.sweather.SweatherWidget",
