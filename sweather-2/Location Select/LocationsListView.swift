@@ -45,8 +45,10 @@ struct LocationsListView: View {
                         self.handleDelete(offsets)
                     }
                 }
-                if (!(sessionData.hasAdRemovalSubscription || sessionData.forceNoAds)) {
-                    AdBanner().listRowInsets(EdgeInsets())
+                if Features.isAdsFeatureEnabled {
+                    if (!(sessionData.hasAdRemovalSubscription || sessionData.forceNoAds)) {
+                        AdBanner().listRowInsets(EdgeInsets())
+                    }
                 }
             }
             .listStyle(GroupedListStyle())

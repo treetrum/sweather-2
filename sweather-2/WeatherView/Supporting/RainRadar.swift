@@ -68,7 +68,9 @@ struct RainRadar: View {
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
-                        AdBanner()
+                        if Features.isAdsFeatureEnabled {
+                            AdBanner()
+                        }
                         Spacer()
                     }
                     VStack {

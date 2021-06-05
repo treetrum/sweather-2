@@ -2,7 +2,7 @@ const updateToken = require("./update-token");
 const { exec, spawn } = require("child_process");
 const dotenv = require("dotenv");
 const sodium = require("tweetsodium");
-dotenv.config();
+const envvars = dotenv.config().parsed;
 
 console.log("================================================================");
 console.log("IMPORTANT");
@@ -17,7 +17,7 @@ child.on("close", (code) => {
         updateToken({
             owner: "treetrum",
             repo: "sweather-2",
-            token: process.env.GH_PERSONAL_ACCESS_TOKEN,
+            token: envvars.GH_PERSONAL_ACCESS_TOKEN,
             secretName: "FASTLANE_SESSION",
             newValue: output,
         });

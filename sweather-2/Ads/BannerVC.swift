@@ -15,14 +15,18 @@ struct AdBanner: View {
     
     var body: some View {
         VStack {
-            if self.sessionData.hasAdRemovalSubscription || self.sessionData.forceNoAds {
-                EmptyView()
-            } else {
-                HStack {
-                    Spacer(minLength: 0)
-                    Banner().frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
-                    Spacer(minLength: 0)
+            if Features.isAdsFeatureEnabled {
+                if self.sessionData.hasAdRemovalSubscription || self.sessionData.forceNoAds {
+                    EmptyView()
+                } else {
+                    HStack {
+                        Spacer(minLength: 0)
+                        Banner().frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
+                        Spacer(minLength: 0)
+                    }
                 }
+            } else {
+                EmptyView()
             }
         }
     }

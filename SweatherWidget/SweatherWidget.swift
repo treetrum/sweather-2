@@ -71,7 +71,7 @@ struct WeatherTimeline: IntentTimelineProvider {
     func getTimeline(for configuration: SweatherWidgetConfigurationIntent, in context: Context, completion: @escaping (Timeline<WeatherEntry>) -> Void) {
 
         let currentDate = Date()
-        let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
+        let refreshDate = Calendar.current.date(byAdding: .minute, value: 30, to: currentDate)!
         
         getWeather(config: configuration) { (weatherData) in
             if let weather = weatherData {

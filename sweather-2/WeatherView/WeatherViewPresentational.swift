@@ -42,7 +42,9 @@ struct WeatherViewPresentational: View {
                 VStack {
                     Spacer().frame(height: geometry.safeAreaInsets.top)
                     Spacer().frame(height: 40)
-                    AdBanner()
+                    if Features.isAdsFeatureEnabled {
+                        AdBanner()
+                    }
                     LocationName(location: self.weather.location)
                     Spacer()
                     mainInformation
@@ -71,7 +73,9 @@ struct WeatherViewPresentational: View {
                     // Main column
                     VStack {
                         VStack {
-                            AdBanner()
+                            if Features.isAdsFeatureEnabled {
+                                AdBanner()
+                            }
                             LocationName(location: self.weather.location)
                             Spacer()
                             mainInformation

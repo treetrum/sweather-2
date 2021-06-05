@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22100A53266B520500F5A6A9 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22100A52266B520500F5A6A9 /* Features.swift */; };
 		221E578A251B43D4004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
 		221E578B251B43D4004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
 		221E5792251B43F5004424FF /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E5789251B43D4004424FF /* PersistentStorage.swift */; };
@@ -231,6 +232,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		22100A52266B520500F5A6A9 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		221E5789251B43D4004424FF /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		221E57BF251B483A004424FF /* SweatherWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SweatherWidgetExtension.entitlements; sourceTree = "<group>"; };
 		221E57C6251B484A004424FF /* SweatherIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SweatherIntentsExtension.entitlements; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				224F625823681C9A00A73E2E /* SWWeather.swift */,
 				2254021524A337DA00008CEF /* AppState.swift */,
 				22FB72202367DCE100116C22 /* SessionData.swift */,
+				22100A52266B520500F5A6A9 /* Features.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1296,6 +1299,7 @@
 				227C415225176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
 				221E5799251B4606004424FF /* IntentHandler.swift in Sources */,
 				22C6822E2367A10300B1919F /* PageView.swift in Sources */,
+				22100A53266B520500F5A6A9 /* Features.swift in Sources */,
 				226B156823777D4C00D05ED1 /* WWWeatherData.swift in Sources */,
 				223AE8E8237670F100E17875 /* SampleWeatherData.swift in Sources */,
 				22A3BC7F245E7CAA0048214B /* SubscriptionButtons.swift in Sources */,
@@ -1595,6 +1599,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1657,6 +1662,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1689,6 +1695,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "sweather-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1718,6 +1725,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "sweather-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
