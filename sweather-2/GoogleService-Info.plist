@@ -32,7 +32,5 @@
 	<string>1:973160271256:ios:60dbd3b7c1ac7851eeafed</string>
 	<key>DATABASE_URL</key>
 	<string>https://sweather-3a6f4.firebaseio.com</string>
-	<key>ADMOB_APP_ID</key>
-	<string>ca-app-pub-7736556580630436~8619579364</string>
 </dict>
 </plist>
