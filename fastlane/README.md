@@ -20,12 +20,7 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios createconfig
 ```
-
-### ios bump_and_commit
-```
-fastlane ios bump_and_commit
-```
-
+Creates the config.xcconfig file required for building the app. Relies on the .env file existing in the project root. Check your 1password for this file.
 ### ios beta
 ```
 fastlane ios beta
@@ -35,25 +30,30 @@ Push a new beta build to TestFlight
 ```
 fastlane ios screenshots
 ```
-
+Automatically creates screenshots throughtout the app
 ### ios deliver_screenshots
 ```
 fastlane ios deliver_screenshots
 ```
-
+Uploads screenshots for a given version to appstore connect
 ### ios deliver_metadata
 ```
 fastlane ios deliver_metadata
 ```
-
+Uploads metadata to appstore connect
 ### ios deliver_screenshots_and_metadata
 ```
 fastlane ios deliver_screenshots_and_metadata
 ```
-
+Uploads screenshots & metadata to appstore connect
 ### ios certificates
 ```
 fastlane ios certificates
+```
+Switches to development certificates
+### ios bump_and_commit
+```
+fastlane ios bump_and_commit
 ```
 
 

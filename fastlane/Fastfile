@@ -2,20 +2,13 @@ default_platform(:ios)
 
 platform :ios do
 
+  desc "Creates the config.xcconfig file required for building the app. Relies on the .env file existing in the project root. Check your 1password for this file."
   lane :createconfig do 
     # Create our required config.xcconfig file
     File.open("../sweather-2/Build Config/config.xcconfig", "w+") { |file| 
     file.write("WILLY_WEATHER_API_KEY = #{ENV["WILLY_WEATHER_API_KEY"]}\n")
       file.write("GOOGLE_API_KEY = #{ENV["GOOGLE_API_KEY"]}\n")
     }
-  end
-
-  lane :bump_and_commit do
-
-    increment_build_number(xcodeproj: "sweather-2.xcodeproj")
-    commit_version_bump(xcodeproj: "sweather-2.xcodeproj")
-    add_git_tag
-
   end
 
   desc "Push a new beta build to TestFlight"
@@ -71,10 +64,12 @@ platform :ios do
 
   end
 
+  desc "Automatically creates screenshots throughtout the app"
   lane :screenshots do 
     capture_screenshots(clean: true)
   end
 
+  desc "Uploads screenshots for a given version to appstore connect"
   lane :deliver_screenshots do
     deliver(
       app_version: "2.1",
@@ -86,6 +81,7 @@ platform :ios do
     )
   end
   
+  desc "Uploads metadata to appstore connect"
   lane :deliver_metadata do
     deliver(
       skip_binary_upload: true,
@@ -95,6 +91,7 @@ platform :ios do
     )
   end
   
+  desc "Uploads screenshots & metadata to appstore connect"
   lane :deliver_screenshots_and_metadata do
     deliver(
       skip_binary_upload: true,
@@ -103,6 +100,7 @@ platform :ios do
     )
   end
 
+  desc "Switches to development certificates"
   lane :certificates do
     match(
       type: "development",
@@ -112,6 +110,14 @@ platform :ios do
         "com.sjd.sweather.SweatherIntentsExtension",
       ]
     )
+  end
+
+  lane :bump_and_commit do
+
+    increment_build_number(xcodeproj: "sweather-2.xcodeproj")
+    commit_version_bump(xcodeproj: "sweather-2.xcodeproj")
+    add_git_tag
+
   end
 
 end
