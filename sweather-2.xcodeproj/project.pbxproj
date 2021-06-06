@@ -1467,7 +1467,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				IBSC_MODULE = sweather_watch_Extension;
 				INFOPLIST_FILE = "sweather-watch/Info.plist";
@@ -1491,7 +1491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				IBSC_MODULE = sweather_watch_Extension;
 				INFOPLIST_FILE = "sweather-watch/Info.plist";
@@ -1514,7 +1514,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
@@ -1543,7 +1543,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-watch Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
@@ -1694,7 +1694,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
@@ -1724,7 +1724,7 @@
 				CODE_SIGN_ENTITLEMENTS = "sweather-2/Sweather 2.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 853;
+				CURRENT_PROJECT_VERSION = 854;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;

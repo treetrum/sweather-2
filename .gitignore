@@ -5,3 +5,5 @@ sweather-2/Build Config/*.xcconfig
 /Sweather 2.ipa
 .bundle/
 .env
+.DS_Store
+sweather-2.xcworkspace/xcuserdata/sam.xcuserdatad/UserInterfaceState.xcuserstate
