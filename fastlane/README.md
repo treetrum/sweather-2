@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios createconfig
 ```
 
+### ios bump_and_commit
+```
+fastlane ios bump_and_commit
+```
+
 ### ios beta
 ```
 fastlane ios beta

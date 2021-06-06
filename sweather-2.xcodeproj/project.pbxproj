@@ -58,8 +58,6 @@
 		226AC0EC2515C6CB000CDF9F /* sample-location-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 223AE8E12376673F00E17875 /* sample-location-data.json */; };
 		226AC0F32515C75C000CDF9F /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B1573237792E000D05ED1 /* extensions.swift */; };
 		226AC0F42515C75C000CDF9F /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
-		226AC12C2515C8A2000CDF9F /* config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB992453C5570020751A /* config.xcconfig */; };
-		226AC1322515C8A9000CDF9F /* config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB992453C5570020751A /* config.xcconfig */; };
 		226AC1382515CC62000CDF9F /* BackgroundGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */; };
 		226AC14A2515D033000CDF9F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AC1492515D033000CDF9F /* LocationHelper.swift */; };
 		226AC1502515D04E000CDF9F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AC1492515D033000CDF9F /* LocationHelper.swift */; };
@@ -943,7 +941,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Sam Davis";
 				TargetAttributes = {
 					225CBC5A246FC77400BEED46 = {
@@ -1003,7 +1001,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				226AC0EC2515C6CB000CDF9F /* sample-location-data.json in Resources */,
-				226AC12C2515C8A2000CDF9F /* config.xcconfig in Resources */,
 				226AC0E52515C0EF000CDF9F /* Assets.xcassets in Resources */,
 				226ABFEE2515AD79000CDF9F /* Assets.xcassets in Resources */,
 				226AC0EB2515C6CB000CDF9F /* sample-weather-data.json in Resources */,
@@ -1054,7 +1051,6 @@
 				22ECEB942453B5E20020751A /* custom-1.png in Resources */,
 				22ECEB832453B5E20020751A /* custom-3-snow.png in Resources */,
 				22ECEB822453B5E20020751A /* custom-5-sun.png in Resources */,
-				226AC1322515C8A9000CDF9F /* config.xcconfig in Resources */,
 				22ECEB912453B5E20020751A /* custom-2.png in Resources */,
 				22ECEB922453B5E20020751A /* default-snow.png in Resources */,
 				22ECEB892453B5E20020751A /* custom-2-snow.png in Resources */,

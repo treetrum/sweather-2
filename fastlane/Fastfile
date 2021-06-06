@@ -10,6 +10,14 @@ platform :ios do
     }
   end
 
+  lane :bump_and_commit do
+
+    increment_build_number(xcodeproj: "sweather-2.xcodeproj")
+    commit_version_bump(xcodeproj: "sweather-2.xcodeproj")
+    add_git_tag
+
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
 
