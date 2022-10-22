@@ -40,7 +40,7 @@
 		226ABFE82515AD77000CDF9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226ABFE72515AD77000CDF9F /* SwiftUI.framework */; };
 		226ABFEB2515AD77000CDF9F /* SweatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226ABFEA2515AD77000CDF9F /* SweatherWidget.swift */; };
 		226ABFEE2515AD79000CDF9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226ABFED2515AD79000CDF9F /* Assets.xcassets */; };
-		226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 226ABFE42515AD77000CDF9F /* SweatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 226ABFE42515AD77000CDF9F /* SweatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		226AC0BD2515BC9D000CDF9F /* WWLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156523777D2600D05ED1 /* WWLocation.swift */; };
 		226AC0BE2515BC9D000CDF9F /* WWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226B156723777D4C00D05ED1 /* WWWeatherData.swift */; };
 		226AC0BF2515BC9D000CDF9F /* WWMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2281F4F7238148F60033E499 /* WWMapData.swift */; };
@@ -113,7 +113,7 @@
 		22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9A2453E4CC0020751A /* DayDetail.swift */; };
 		22ECEB9D2453EC7A0020751A /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ECEB9C2453EC7A0020751A /* CustomPopup.swift */; };
 		22F1441A2518A9FB003D8E9B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F144192518A9FB003D8E9B /* IntentHandler.swift */; };
-		22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		22F144442518AA25003D8E9B /* SweatherWidgetIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 227C415125176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition */; };
 		22F44C6C24A9FD64002FBCFE /* RainRadarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F44C6B24A9FD64002FBCFE /* RainRadarButton.swift */; };
 		22FA8DDF23EF73DE00FFA1CD /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA8DDE23EF73DE00FFA1CD /* GeneralExtensions.swift */; };
@@ -121,7 +121,6 @@
 		22FB72212367DCE100116C22 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72202367DCE100116C22 /* SessionData.swift */; };
 		22FB72232367DF9B00116C22 /* WWDataManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72222367DF9B00116C22 /* WWDataManagers.swift */; };
 		22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB72242367E58F00116C22 /* LocationsListView.swift */; };
-		F1971FB085F0C9E3C0D77EFD /* Pods_sweather_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B946B3DDC131C41C47405D2 /* Pods_sweather_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,16 +148,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		226ABFF52515AD79000CDF9F /* Embed App Extensions */ = {
+		226ABFF52515AD79000CDF9F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed App Extensions */,
-				22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed App Extensions */,
+				226ABFF42515AD79000CDF9F /* SweatherWidgetExtension.appex in Embed Foundation Extensions */,
+				22F1442F2518A9FB003D8E9B /* SweatherIntentsExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2284BB0A23EFE1B100E15FCF /* Embed Watch Content */ = {
@@ -274,15 +273,6 @@
 		22FB72202367DCE100116C22 /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
 		22FB72222367DF9B00116C22 /* WWDataManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDataManagers.swift; sourceTree = "<group>"; };
 		22FB72242367E58F00116C22 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
-		28A738342776714706DC73B1 /* Pods-sweather-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-2.debug.xcconfig"; path = "Target Support Files/Pods-sweather-2/Pods-sweather-2.debug.xcconfig"; sourceTree = "<group>"; };
-		2B946B3DDC131C41C47405D2 /* Pods_sweather_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweather_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69D74A4DB80A4C9B090C49F6 /* Pods-sweather-watch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-watch.debug.xcconfig"; path = "Target Support Files/Pods-sweather-watch/Pods-sweather-watch.debug.xcconfig"; sourceTree = "<group>"; };
-		8B7454CA1398B377D817DF88 /* Pods-sweather-watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-watch.release.xcconfig"; path = "Target Support Files/Pods-sweather-watch/Pods-sweather-watch.release.xcconfig"; sourceTree = "<group>"; };
-		AAF47FE54436B577479C60B3 /* Pods-sweather-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-watch Extension.release.xcconfig"; path = "Target Support Files/Pods-sweather-watch Extension/Pods-sweather-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
-		B80E815C833398DAB21F010C /* Pods-sweather-watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-watch Extension.debug.xcconfig"; path = "Target Support Files/Pods-sweather-watch Extension/Pods-sweather-watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		D2B5C98D35DC9784BCA67619 /* Pods_sweather_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweather_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA2EB75899D20F73CEC78774 /* Pods_sweather_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweather_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDF10B0D1508D6968FC0BDCE /* Pods-sweather-2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweather-2.release.xcconfig"; path = "Target Support Files/Pods-sweather-2/Pods-sweather-2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +296,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1971FB085F0C9E3C0D77EFD /* Pods_sweather_2.framework in Frameworks */,
 				22A3BC7A245E6D9D0048214B /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,19 +310,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F277661454491A64AE1B4BE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				28A738342776714706DC73B1 /* Pods-sweather-2.debug.xcconfig */,
-				FDF10B0D1508D6968FC0BDCE /* Pods-sweather-2.release.xcconfig */,
-				69D74A4DB80A4C9B090C49F6 /* Pods-sweather-watch.debug.xcconfig */,
-				8B7454CA1398B377D817DF88 /* Pods-sweather-watch.release.xcconfig */,
-				B80E815C833398DAB21F010C /* Pods-sweather-watch Extension.debug.xcconfig */,
-				AAF47FE54436B577479C60B3 /* Pods-sweather-watch Extension.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		223AE8E02376672B00E17875 /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,9 +496,6 @@
 			isa = PBXGroup;
 			children = (
 				22A3BC79245E6D9D0048214B /* StoreKit.framework */,
-				2B946B3DDC131C41C47405D2 /* Pods_sweather_2.framework */,
-				EA2EB75899D20F73CEC78774 /* Pods_sweather_watch.framework */,
-				D2B5C98D35DC9784BCA67619 /* Pods_sweather_watch_Extension.framework */,
 				226ABFE52515AD77000CDF9F /* WidgetKit.framework */,
 				226ABFE72515AD77000CDF9F /* SwiftUI.framework */,
 				22F144212518A9FB003D8E9B /* IntentsUI.framework */,
@@ -541,7 +514,6 @@
 				22F144182518A9FB003D8E9B /* SweatherIntentsExtension */,
 				229D3E3E236036730035FD66 /* Products */,
 				22898A8B23F6B6CB00995B98 /* Frameworks */,
-				1F277661454491A64AE1B4BE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -702,13 +674,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229D3E51236036750035FD66 /* Build configuration list for PBXNativeTarget "sweather-2" */;
 			buildPhases = (
-				B52B0D0AEAA623A794964A83 /* [CP] Check Pods Manifest.lock */,
 				229D3E39236036730035FD66 /* Sources */,
 				229D3E3A236036730035FD66 /* Frameworks */,
 				229D3E3B236036730035FD66 /* Resources */,
 				2284BB0A23EFE1B100E15FCF /* Embed Watch Content */,
-				2225207F245ED96F0021FC0E /* Run Script */,
-				226ABFF52515AD79000CDF9F /* Embed App Extensions */,
+				226ABFF52515AD79000CDF9F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -745,7 +715,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Sam Davis";
 				TargetAttributes = {
 					225CBC5A246FC77400BEED46 = {
@@ -846,50 +816,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2225207F245ED96F0021FC0E /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
-		};
-		B52B0D0AEAA623A794964A83 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sweather-2-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		225CBC57246FC77400BEED46 /* Sources */ = {
@@ -1243,7 +1169,6 @@
 		};
 		229D3E52236036750035FD66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A738342776714706DC73B1 /* Pods-sweather-2.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1277,7 +1202,6 @@
 		};
 		229D3E53236036750035FD66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FDF10B0D1508D6968FC0BDCE /* Pods-sweather-2.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

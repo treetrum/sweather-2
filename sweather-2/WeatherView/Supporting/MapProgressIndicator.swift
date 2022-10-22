@@ -15,7 +15,8 @@ struct MapProgressIndicator: View {
             GeometryReader { (geo: GeometryProxy) in
                 ZStack(alignment: .leading) {
                     Rectangle().frame(maxWidth: geo.size.width, maxHeight: 3).foregroundColor(Color.white.opacity(0))
-                    Rectangle().frame(maxWidth: geo.size.width * CGFloat(self.progress), maxHeight: 3).foregroundColor(Color.blue).animation(.default)
+                    Rectangle().frame(maxWidth: geo.size.width * CGFloat(self.progress), maxHeight: 3).foregroundColor(Color.blue)
+                        .animation(.default, value: progress)
                 }
             }.frame(height: 3)
         }

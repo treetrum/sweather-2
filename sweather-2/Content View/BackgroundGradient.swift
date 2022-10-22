@@ -51,7 +51,8 @@ struct GradientLayer: View {
             .opacity(self.active ? 1 : 0)
             .animation(
                 Animation.easeInOut(duration: 1)
-                    .delay(self.active ? 0 : 1)
+                    .delay(self.active ? 0 : 1),
+                value: self.active
             )
     }
 }

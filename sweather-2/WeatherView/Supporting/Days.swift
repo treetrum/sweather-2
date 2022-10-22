@@ -21,11 +21,11 @@ struct Days: View {
             if isIpad(sizeClass) {
                 // iPad
                 VStack(spacing: 5) {
-                    ForEach(weather.days.indices) { index in
+                    ForEach(weather.days, id: \.dateTime) { day in
                         Button(action: {
-                            self.appState.showDayDetail(self.weather.days[index])
+                            self.appState.showDayDetail(day)
                         }) {
-                            DayRow(day: self.weather.days[index])
+                            DayRow(day: day)
                                 .frame(minHeight: 0, maxHeight: .infinity)
                         }
                     }
@@ -41,8 +41,6 @@ struct Days: View {
                                 Day(day: day)
                             }
                                 .frame(maxWidth: .infinity)
-//                                .padding()
-//                                .background(Color.white.opacity(0.1))
                         }
                     }.padding(.horizontal)
                 }
