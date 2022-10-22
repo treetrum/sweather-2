@@ -10,7 +10,4 @@ import Foundation
 
 struct Features {
     
-    /// Controls the rollout of ads in the app. Also enables IAP buttons in settings.
-    static let isAdsFeatureEnabled = false
-    
 }

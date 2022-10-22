@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import GoogleMobileAds
 
 extension Int {
     func toString() -> String {
@@ -42,9 +41,6 @@ struct WeatherViewPresentational: View {
                 VStack {
                     Spacer().frame(height: geometry.safeAreaInsets.top)
                     Spacer().frame(height: 40)
-                    if Features.isAdsFeatureEnabled {
-                        AdBanner()
-                    }
                     LocationName(location: self.weather.location)
                     Spacer()
                     mainInformation
@@ -73,9 +69,6 @@ struct WeatherViewPresentational: View {
                     // Main column
                     VStack {
                         VStack {
-                            if Features.isAdsFeatureEnabled {
-                                AdBanner()
-                            }
                             LocationName(location: self.weather.location)
                             Spacer()
                             mainInformation

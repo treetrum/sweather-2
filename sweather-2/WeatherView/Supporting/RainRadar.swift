@@ -8,7 +8,6 @@
 
 import SwiftUI
 import MapKit
-import GoogleMobileAds
 
 class MapImageIndexManager: ObservableObject {
 
@@ -68,9 +67,6 @@ struct RainRadar: View {
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
-                        if Features.isAdsFeatureEnabled {
-                            AdBanner()
-                        }
                         Spacer()
                     }
                     VStack {
@@ -128,7 +124,7 @@ class ImageOverlayRenderer : MKOverlayRenderer {
     }
 }
 
-final class MapView: NSObject, UIViewRepresentable {
+struct MapView: UIViewRepresentable {
     
     let image: UIImage?
     let mapData: WWMapData

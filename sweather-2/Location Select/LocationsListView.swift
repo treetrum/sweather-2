@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import GoogleMobileAds
 
 let MAX_NUMBER_CUSTOM_LOCATIONS = 5;
 
@@ -43,11 +42,6 @@ struct LocationsListView: View {
                         }.accessibility(label: Text(location.name!))
                     }.onDelete { (offsets: IndexSet) in
                         self.handleDelete(offsets)
-                    }
-                }
-                if Features.isAdsFeatureEnabled {
-                    if (!(sessionData.hasAdRemovalSubscription || sessionData.forceNoAds)) {
-                        AdBanner().listRowInsets(EdgeInsets())
                     }
                 }
             }

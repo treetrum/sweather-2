@@ -31,51 +31,55 @@ struct CustomPopup<Content>: View where Content: View {
     var body: some View {
         ZStack {
             self.background
-                .scaleEffect(1.25)
-                .offset(y: self.active ? 0 : -20)
-                .animation(Animation.spring())
             VStack {
                 Spacer()
                 VStack {
-                    self.contents().animation(nil)
+                    self.contents()
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(30)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
                     self.colorScheme == ColorScheme.dark
-                        ? Color.init(red: 0.1, green: 0.1, blue: 0.1)
-                        : Color.white
+                    ? Color.init(red: 0.1, green: 0.1, blue: 0.1)
+                    : Color.white
                 )
-                    .cornerRadius(4)
-                    .padding(30)
-                    .shadow(radius: 10)
-                    .animation(nil)
+                .cornerRadius(4)
+                .padding(30)
+                .shadow(radius: 10)
                 Spacer()
             }
             .frame(minWidth: 0, maxWidth: 500, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            
         }
         .opacity(self.active ? 1 : 0)
-        .offset(y: self.active ? 0 : 20)
-        .animation(
-            self.active
-                ? .spring(response: 0.25, dampingFraction: 0.66, blendDuration: 1)
-                : .easeOut(duration: 0.15)
-        )
+        .animation(.spring().speed(2), value: active)
+    }
+}
+
+struct CustomPopupPreviewTest: View {
+    
+    @State var isOpen = false;
+    
+    var body: some View {
+        Group {
+            VStack {
+                Button("Open popup") {
+                    isOpen.toggle()
+                }
+                CustomPopup(active: $isOpen) {
+                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam augue, hendrerit vitae orci quis, suscipit condimentum mi. Etiam eu massa lacus. Integer placerat nec lacus in malesuada. Duis ullamcorper eget orci fringilla accumsan. Praesent ullamcorper rhoncus felis ut fringilla. Mauris ut facilisis sapien, quis auctor elit. Sed mauris felis, pulvinar a justo at, tincidunt dapibus leo. Donec pellentesque auctor mauris, quis aliquet ")
+                }
+            }
+        }
     }
 }
 
 struct CustomPopup_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            CustomPopup(active: Binding.constant(true)) {
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam augue, hendrerit vitae orci quis, suscipit condimentum mi. Etiam eu massa lacus. Integer placerat nec lacus in malesuada. Duis ullamcorper eget orci fringilla accumsan. Praesent ullamcorper rhoncus felis ut fringilla. Mauris ut facilisis sapien, quis auctor elit. Sed mauris felis, pulvinar a justo at, tincidunt dapibus leo. Donec pellentesque auctor mauris, quis aliquet ")
-            }.environment(\.colorScheme, .dark)
-            CustomPopup(active: Binding.constant(true)) {
-                Text("Hello")
-            }.environment(\.colorScheme, .light)
-        }
-        .edgesIgnoringSafeArea(.all)
+        CustomPopupPreviewTest()
+            .previewDisplayName("Interactable")
+        CustomPopup(active: .constant(true)) {
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam diam augue, hendrerit vitae orci quis, suscipit condimentum mi. Etiam eu massa lacus. Integer placerat nec lacus in malesuada. Duis ullamcorper eget orci fringilla accumsan. Praesent ullamcorper rhoncus felis ut fringilla. Mauris ut facilisis sapien, quis auctor elit. Sed mauris felis, pulvinar a justo at, tincidunt dapibus leo. Donec pellentesque auctor mauris, quis aliquet ")
+        }.previewDisplayName("Always open")
     }
 }

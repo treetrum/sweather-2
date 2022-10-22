@@ -1,4 +1,8 @@
 {
+  "identifier" : "0800FAE9",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
 
   ],
@@ -15,6 +19,9 @@
       "subscriptions" : [
         {
           "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
 
           ],
           "displayPrice" : "0.99",
@@ -39,7 +46,7 @@
     }
   ],
   "version" : {
-    "major" : 1,
+    "major" : 2,
     "minor" : 0
   }
 }

@@ -52,9 +52,6 @@ struct Settings: View {
                         }
                     }
                 }
-                if Features.isAdsFeatureEnabled {
-                    SubscriptionButtons()
-                }
 
                 Section( footer: appInfo ) {
                     Button(action: { self.showShareSheet = true }) {

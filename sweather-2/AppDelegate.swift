@@ -8,49 +8,12 @@
 
 import UIKit
 import CoreData
-import GoogleMobileAds
-import StoreKit
-import SwiftyStoreKit
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // Add firebase
-        FirebaseApp.configure()
-        
-        if Features.isAdsFeatureEnabled {
-
-            // Initialise AdMob SDK
-            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [
-                kGADSimulatorID as! String, // Simulator
-                "fafcab26bf1f867b3899add5cb2ca1a3" // Sams iPhone 11 Pro
-            ];
-            GADMobileAds.sharedInstance().start(completionHandler: nil)
-            
-            // Add SwiftyStoreKit stuff
-            SwiftyStoreKit.completeTransactions { (purchases) in
-                for purchase in purchases {
-                    switch purchase.transaction.transactionState {
-                    case .purchased, .restored:
-                        if purchase.needsFinishTransaction {
-                            // Deliver content from server, then:
-                            SwiftyStoreKit.finishTransaction(purchase.transaction)
-                        }
-                        // Unlock content
-                    case .failed, .purchasing, .deferred:
-                        break // do nothing
-                    @unknown default:
-                        break;
-                    }
-                }
-                StoreManager.shared.verifyReciept()
-            }
-            StoreManager.shared.verifyReciept()
-        }
         
         // Setup for UI Testing (wipe db, disable animation, etc)
         if CommandLine.arguments.contains("--UITests") {
@@ -85,14 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("INIT: Error fetching saved locations")
         }
         
-        
         return true
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        if Features.isAdsFeatureEnabled {
-            SKPaymentQueue.default().remove(StoreObserver.shared)
-        }
+
     }
 
     // MARK: UISceneSession Lifecycle
