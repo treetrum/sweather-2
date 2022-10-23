@@ -31,7 +31,7 @@ struct LocationRow_Previews: PreviewProvider {
         NavigationView {
             List {
                 Section() {
-                    LocationRow(SampleWeatherData().location)
+                    LocationRow(SampleWeatherData.fromWW.location)
                 }
             }
             .navigationBarTitle("Locations", displayMode: .inline)

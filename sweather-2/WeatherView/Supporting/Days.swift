@@ -38,7 +38,7 @@ struct Days: View {
                             Button(action: {
                                 self.appState.showDayDetail(day)
                             }) {
-                                Day(day: day)
+                                Day(day: day, isWeatherKit: weather.isWeatherkit)
                             }
                                 .frame(maxWidth: .infinity)
                         }
@@ -92,10 +92,12 @@ struct DayRow: View {
 struct Day: View {
     let day: SWWeather.Day
     
+    var isWeatherKit: Bool
+    
     @Environment(\.horizontalSizeClass) var sizeClass
 
     var body: some View {
-        VStack {
+        VStack(spacing: 2) {
             HStack {
                 Group {
                     Text("\(day.max ?? 0)")
@@ -103,13 +105,24 @@ struct Day: View {
                 }
                     .fixedSize()
                     .font(.system(size: 16))
-            }.padding(.bottom, -10)
-            Image(day.precisCode ?? "fine")
-                .resizable()
-                .frame(
-                    width: isIpad(sizeClass) ? 60 : 50,
-                    height: isIpad(sizeClass) ? 60 : 50
-                )
+            }
+            if isWeatherKit {
+                Image(systemName: day.precisCode ?? "sun.max")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(10)
+                    .frame(
+                        width: isIpad(sizeClass) ? 60 : 50,
+                        height: isIpad(sizeClass) ? 60 : 50
+                    )
+            } else {
+                Image(day.precisCode ?? "fine")
+                    .resizable()
+                    .frame(
+                        width: isIpad(sizeClass) ? 60 : 50,
+                        height: isIpad(sizeClass) ? 60 : 50
+                    )
+            }
             Text("\(day.dateTime?.prettyDayName() ?? "-")")
                 .fixedSize()
                 .font(isIpad(sizeClass) ? .system(size: 13) : .footnote)
@@ -122,8 +135,12 @@ struct Day: View {
 struct Days_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.blue
-            Days(weather: SampleWeatherData())
-        }
+            Color.clear.background(Color.blue.gradient)
+            Days(weather: SampleWeatherData.fromWeatherkit)
+        }.previewDisplayName("Weatherkit")
+        ZStack {
+            Color.clear.background(Color.blue.gradient)
+            Days(weather: SampleWeatherData.fromWW)
+        }.previewDisplayName("Willy Weather")
     }
 }

@@ -27,7 +27,7 @@ struct HighLow_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.blue
-            HighLow(weather: SampleWeatherData())
+            HighLow(weather: SampleWeatherData.fromWW)
         }
     }
 }

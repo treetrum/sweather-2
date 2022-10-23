@@ -11,6 +11,8 @@ import CoreLocation
 import SwiftUI
 import Combine
 import WidgetKit
+import WeatherKit
+import MapKit
 
 class MapDataManager: ObservableObject {
     let api = WillyWeatherAPI()
@@ -84,6 +86,11 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     static let shared = WeatherDataManager()
     
     var locationId: Int64?
+    var savedLocation: WWLocation? {
+        didSet {
+            locationId = savedLocation?.id
+        }
+    }
     var usingCurrentLocation: Bool = false
     private let manager = CLLocationManager()
     private let api = WillyWeatherAPI()
@@ -124,20 +131,45 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         }
         #endif
         
-        self.loading = true
-        self.simpleWeatherData = nil
+        DispatchQueue.main.async {
+            self.loading = true
+            self.simpleWeatherData = nil
+        }
+        
         if (self.usingCurrentLocation) {
             print("GETTING WEATHER FOR LOCATION")
             manager.requestWhenInUseAuthorization()
             manager.startUpdatingLocation()
         } else {
-            getWeatherData(self.locationId)
+            Task {
+                await getWeatherData(self.savedLocation)
+            }
         }
     }
     
-    func getWeatherData(_ locationId: Int64?) {
-        if let locationId = locationId {
-            api.getWeatherForLocation(location: locationId) { (weatherData, error) in
+    func getWeatherData(_ location: WWLocation?) async {
+        
+        guard let location = location else {
+            print("NO LOCATION PASSED")
+            return
+        }
+        
+        if Features.isUsingWeatherkit {
+            
+            do {                
+                let geocoder = CLGeocoder()
+                let addressStr = "\(location.name) \(location.state) \(location.postcode)"
+                let places = try await geocoder.geocodeAddressString(addressStr)
+                if let place = places.first, let loc = place.location {
+                    await getLocationForCoords(loc.coordinate)
+                }
+            } catch {
+                print(error.localizedDescription)
+                return
+            }
+            
+        } else {
+            api.getWeatherForLocation(location: location.id) { (weatherData, error) in
                 guard let weatherData = weatherData else { return }
                 DispatchQueue.main.async {
                     self.simpleWeatherData = SWWeather(weather: weatherData)
@@ -156,13 +188,56 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         }
     }
     
-    func getLocationForCoords(_ coords: CLLocationCoordinate2D) {
-        api.getLocationForCoords(coords: coords) { (results, error) in
-            guard let results = results else { return }
-            DispatchQueue.main.async {
-                self.location = results
-                if let loc = self.location {
-                    self.getWeatherData(loc.id)
+    func geocodeCoords(_ coords: CLLocationCoordinate2D) async throws -> CLPlacemark? {
+        let geocoder = CLGeocoder()
+        let location = CLLocation(latitude: coords.latitude, longitude: coords.longitude)
+        let geocoded = try await geocoder.reverseGeocodeLocation(location)
+        return geocoded.first
+    }
+    
+    func getLocationForCoords(_ coords: CLLocationCoordinate2D) async {
+        
+        if Features.isUsingWeatherkit {
+            
+            do {
+                let weatherService = WeatherService()
+                let place = try await geocodeCoords(coords)
+                guard let place = place, let location = place.location else {
+                    print("Could not geocoder current coords")
+                    return
+                }
+                
+                let weather = try await weatherService.weather(for: location)
+                
+                DispatchQueue.main.async {
+                    self.simpleWeatherData = SWWeather(weather: weather, place: place)
+                    self.loading = false
+                }
+                
+                print("GOT WEATHER DATA (Weatherkit)")
+                
+                #if os(watchOS)
+                SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
+                WatchComplicationHelper.shared.reloadComplications()
+                #endif
+                
+                if #available(iOS 14.0, *) {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+        } else {
+            api.getLocationForCoords(coords: coords) { (results, error) in
+                guard let results = results else { return }
+                DispatchQueue.main.async {
+                    self.location = results
+                    if let loc = self.location {
+                        Task {
+                            await self.getWeatherData(loc)
+                        }
+                    }
                 }
             }
         }
@@ -171,7 +246,9 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let first = locations.first {
             if (self.usingCurrentLocation) {
-                getLocationForCoords(first.coordinate)
+                Task {
+                    await getLocationForCoords(first.coordinate)
+                }
                 manager.stopUpdatingLocation()
             }
         }

@@ -27,7 +27,7 @@ struct DayDetail: View {
 struct DayDetail_Previews: PreviewProvider {
     static var previews: some View {
         CustomPopup(active: Binding.constant(true)) {
-            DayDetail(day: SampleWeatherData().days.first!)
+            DayDetail(day: SampleWeatherData.fromWW.days.first!)
         }.environment(\.colorScheme, .dark).edgesIgnoringSafeArea(.all)
     }
 }

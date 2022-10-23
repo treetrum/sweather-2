@@ -24,9 +24,13 @@ struct WeatherViewPresentational: View {
     
     var mainInformation: some View {
         VStack {
-            PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
+            if self.weather.isWeatherkit {
+                PrecisIconWeatherkit(symbolName: self.weather.precis.precisCode ?? "")
+            } else {
+                PrecisIcon(precisCode: self.weather.getPrecisImageCode()).padding(.bottom, -20)
+            }
             Precis(weather: self.weather)
-            RainChance(rainfall: self.weather.rainfall)
+            RainChance(rainfall: self.weather.rainfall, isWeatherkit: weather.isWeatherkit)
                 .foregroundColor(Color.white)
                 .opacity(0.5)
                 .padding(.bottom, 40)
@@ -45,7 +49,7 @@ struct WeatherViewPresentational: View {
                     Spacer()
                     mainInformation
                     Spacer()
-                    Hours(weather: self.weather)
+                    Hours(weather: self.weather, isWeatherKit: weather.isWeatherkit)
                     WeatherStats(weather: self.weather)
                         .padding([.top])
                         .padding(.bottom, 25)
@@ -73,7 +77,7 @@ struct WeatherViewPresentational: View {
                             Spacer()
                             mainInformation
                             Spacer()
-                            Hours(weather: self.weather)
+                            Hours(weather: self.weather, isWeatherKit: weather.isWeatherkit)
                         }
                         WeatherStats(weather: self.weather)
                             .padding([.top])
@@ -144,7 +148,7 @@ struct WeatherViewPresentational_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundGradient()
-            WeatherViewPresentational(weather: SampleWeatherData())
+            WeatherViewPresentational(weather: SampleWeatherData.fromWW)
                 .environmentObject(SessionData(viewingCurrentLocation: true))
         }
         

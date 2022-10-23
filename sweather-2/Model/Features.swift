@@ -9,5 +9,5 @@
 import Foundation
 
 struct Features {
-    
+    static let isUsingWeatherkit = true
 }

@@ -13,10 +13,11 @@ struct RainChance: View {
     @EnvironmentObject var appState: AppState
     
     let rainfall: SWWeather.Rainfall
+    let isWeatherkit: Bool
 
     var body: some View {
         Button(action: handleClick) {
-            Text(rainfall.probabilityString)
+            Text(rainfall.getProbabilityString(isWeatherkit: isWeatherkit))
         }.foregroundColor(.white)
     }
     
@@ -29,7 +30,7 @@ struct RainChance_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.blue
-            RainChance(rainfall: SampleWeatherData().rainfall)
+            RainChance(rainfall: SampleWeatherData.fromWW.rainfall, isWeatherkit: true)
         }
     }
 }

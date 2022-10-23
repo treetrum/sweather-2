@@ -59,7 +59,7 @@ struct WeatherStats_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.blue
-            WeatherStats(weather: SampleWeatherData())
+            WeatherStats(weather: SampleWeatherData.fromWW)
                 .padding(.horizontal)
         }
     }

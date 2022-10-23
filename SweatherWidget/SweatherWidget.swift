@@ -52,12 +52,12 @@ struct WeatherTimeline: IntentTimelineProvider {
     }
 
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: SweatherWidgetConfigurationIntent(), family: context.family)
+        WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: SweatherWidgetConfigurationIntent(), family: context.family)
     }
     
     func getSnapshot(for configuration: SweatherWidgetConfigurationIntent, in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         if context.isPreview {
-            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData(), configuration: configuration, family: context.family)
+            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: configuration, family: context.family)
             completion(sampleEntry)
         } else {
             getWeather(config: configuration) { (weather) in
@@ -273,7 +273,7 @@ struct SweatherWidget: Widget {
 struct SweatherWidget_Previews: PreviewProvider {
     
     static let date = Date()
-    static let data = SampleWeatherData()
+    static let data = SampleWeatherData.fromWW
     static let config = SweatherWidgetConfigurationIntent()
 
     static var previews: some View {

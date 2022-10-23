@@ -28,13 +28,10 @@ struct ContentView: View {
                     if self.sessionData.viewingCurrentLocation || self.savedLocations.count == 0 {
                         CurrentLocationWeatherView()
                     } else {
-                       if self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId }) != nil {
-                            WeatherView(
-                                location: WWLocation(
-                                    savedLocation: self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })!
-                                )
-                            )
-                       }
+                        let locationToUse = self.savedLocations.first(where: { $0.id == self.sessionData.currentLocationId })
+                        if let locationToUse = locationToUse {
+                            WeatherView(location: WWLocation(savedLocation: locationToUse))
+                        }
                     }
                     BottomBar(safeAreaOffsets: geometry.safeAreaInsets)
                 }.padding(.top, geometry.safeAreaInsets.top)

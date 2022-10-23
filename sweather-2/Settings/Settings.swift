@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 struct NavigationButtonIcon: View {
     let iconName: String
@@ -33,9 +34,18 @@ struct Settings: View {
     @State var showShareSheet: Bool = false
     
     var appInfo: some View {
-        VStack {
+        
+    
+        VStack(spacing: 10) {
             Text("Sweather \(UIApplication.appVersion!) (\(UIApplication.appBuildNumber!))").font(.headline)
-            Text("Weather data provided by WillyWeather").padding(.top, 10)
+            if true && Features.isUsingWeatherkit {
+                VStack(spacing: 4) {
+                    Text("Data provided by \(Image(systemName: "applelogo")) Weather and [other data sources.](\(WeatherAttribution().legalPageURL)").multilineTextAlignment(.center)
+                    Text("Location and map data provided by WillyWeather")
+                }
+            } else {
+                Text("Weather data provided by WillyWeather")
+            }
         }
         .padding(.top, 30)
         .frame(maxWidth: .infinity, alignment: .center)

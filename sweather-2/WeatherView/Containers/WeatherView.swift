@@ -17,7 +17,7 @@ struct WeatherView: View {
         self.manager = WeatherDataManager.shared
         self.manager.usingCurrentLocation = false
         if self.manager.locationId != location.id {
-            self.manager.locationId = location.id
+            self.manager.savedLocation = location
             self.manager.start()
         }
     }

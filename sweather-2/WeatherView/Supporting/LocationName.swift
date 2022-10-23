@@ -33,7 +33,7 @@ struct LocationName_Previews: PreviewProvider {
         ZStack {
             Color.blue
             LocationName(
-                location: SampleWeatherData().location
+                location: SampleWeatherData.fromWW.location
             ).environmentObject(SessionData(viewingCurrentLocation: true))
         }
     }

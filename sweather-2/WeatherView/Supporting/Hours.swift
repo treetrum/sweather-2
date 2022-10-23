@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Hours: View {
     
+    
     @Environment(\.horizontalSizeClass) var sizeClass
     var isIpad: Bool {
         get {
@@ -22,6 +23,9 @@ struct Hours: View {
     }
     
     let weather: SWWeather
+
+    var isWeatherKit: Bool
+
     var graphHeight: Int {
         get { isIpad ? 50 : 30 }
     }
@@ -54,9 +58,18 @@ struct Hours: View {
                                 .fixedSize()
                                 .padding(.bottom, 0)
                                 .padding(0)
-                            Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode, andIsNight: hour.night))
-                                .resizable()
-                                .frame(width: self.entryIconWidth, height: self.entryIconWidth)
+                            if isWeatherKit {
+                                Image(systemName: hour.precisCode ?? "fine")
+                                    .resizable()
+                                    .padding(7)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: self.entryIconWidth, height: self.entryIconWidth)
+                            } else {
+                                Image(SWWeather.getPrecisImageCode(forPrecisCode: hour.precisCode, andIsNight: hour.night))
+                                    .resizable()
+                                    .frame(width: self.entryIconWidth, height: self.entryIconWidth)
+                            }
+                            
                             Text("\(hour.dateTime?.prettyHourName() ?? "-")")
                                 .fixedSize()
                                 .font(self.isIpad ? .system(size: 13) : .footnote)
@@ -126,7 +139,11 @@ struct Hours_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             BackgroundGradient()
-            Hours(weather: SampleWeatherData())
-        }.edgesIgnoringSafeArea(.all)
+            Hours(weather: SampleWeatherData.fromWeatherkit, isWeatherKit: true)
+        }.edgesIgnoringSafeArea(.all).previewDisplayName("Weatherkit")
+        ZStack {
+            BackgroundGradient()
+            Hours(weather: SampleWeatherData.fromWW, isWeatherKit: false)
+        }.edgesIgnoringSafeArea(.all).previewDisplayName("Willy Weather")
     }
 }
