@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -232,6 +232,7 @@
 		229D3E4C236036750035FD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		229D3E4E236036750035FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A3BC79245E6D9D0048214B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22A7853A29050080000DE4B5 /* config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
 		22A8350B23EFEE3300D0310D /* BackgroundGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradient.swift; sourceTree = "<group>"; };
 		22C6822A236798EC00B1919F /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		22C6822D2367A10300B1919F /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -259,7 +260,6 @@
 		22ECEB7F2453B5E20020751A /* custom-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-1.png"; sourceTree = "<group>"; };
 		22ECEB802453B5E20020751A /* custom-4-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-4-sun.png"; sourceTree = "<group>"; };
 		22ECEB962453C0FC0020751A /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
-		22ECEB992453C5570020751A /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = "<group>"; };
 		22ECEB9A2453E4CC0020751A /* DayDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetail.swift; sourceTree = "<group>"; };
 		22ECEB9C2453EC7A0020751A /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
 		22F144172518A9FB003D8E9B /* SweatherIntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SweatherIntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -617,7 +617,7 @@
 		22ECEB982453C5430020751A /* Build Config */ = {
 			isa = PBXGroup;
 			children = (
-				22ECEB992453C5570020751A /* config.xcconfig */,
+				22A7853A29050080000DE4B5 /* config.xcconfig */,
 			);
 			path = "Build Config";
 			sourceTree = "<group>";
@@ -679,6 +679,7 @@
 				229D3E3B236036730035FD66 /* Resources */,
 				2284BB0A23EFE1B100E15FCF /* Embed Watch Content */,
 				226ABFF52515AD79000CDF9F /* Embed Foundation Extensions */,
+				22A785392904FB09000DE4B5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -816,6 +817,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22A785392904FB09000DE4B5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# Load .env from source if it exists\nif [ -f ${SRCROOT}/.env ]\nthen\n    export $(grep -v '^#' $SRCROOT/.env | xargs)\nfi\n\n# Add env vars to config.xcconfig\necho \"WILLY_WEATHER_API_KEY = $WILLY_WEATHER_API_KEY\" > ${SRCROOT}/sweather-2/Build\\ Config/config.xcconfig\n\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		225CBC57246FC77400BEED46 /* Sources */ = {
@@ -1049,7 +1071,7 @@
 		};
 		229D3E4F236036750035FD66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22ECEB992453C5570020751A /* config.xcconfig */;
+			baseConfigurationReference = 22A7853A29050080000DE4B5 /* config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1112,7 +1134,7 @@
 		};
 		229D3E50236036750035FD66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22ECEB992453C5570020751A /* config.xcconfig */;
+			baseConfigurationReference = 22A7853A29050080000DE4B5 /* config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
