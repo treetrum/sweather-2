@@ -835,7 +835,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\n# Load .env from source if it exists\nif [ -f ${SRCROOT}/.env ]\nthen\n    export $(grep -v '^#' $SRCROOT/.env | xargs)\nfi\n\n# Add env vars to config.xcconfig\necho \"WILLY_WEATHER_API_KEY = $WILLY_WEATHER_API_KEY\" > ${SRCROOT}/sweather-2/Build\\ Config/config.xcconfig\n\nexit 0\n";
+			shellScript = "#!/bin/sh\nsh ${SRCROOT}/ci_scripts/ci_pre_xcodebuild.sh\nexit 0\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
