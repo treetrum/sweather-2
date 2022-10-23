@@ -43,7 +43,7 @@ struct RainRadar: View {
     
     func letsGo() {
         if let mapdata = self.mapDataManager.mapData {
-            let delayAmount = self.indexManager.index == mapdata.overlays.count - 1 ? 1.0 : 0.5
+            let delayAmount = self.indexManager.index == mapdata.overlays.count - 1 ? 1.0 : 0.1
             DispatchQueue.main.asyncAfter(deadline: .now() + delayAmount) {
                 self.indexManager.index = (self.indexManager.index + 1) % mapdata.overlays.count
                 if !self.unmounting {
@@ -65,7 +65,7 @@ struct RainRadar: View {
                 ZStack {
                     MapView(image: self.indexManager.image, mapData: mapDataManager.mapData!)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .edgesIgnoringSafeArea(.all)
+                        .edgesIgnoringSafeArea(.bottom)
                     VStack {
                         Spacer()
                     }

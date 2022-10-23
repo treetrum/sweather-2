@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 extension Int {
     func toString() -> String {
@@ -20,7 +21,10 @@ struct WeatherViewPresentational: View {
     @ObservedObject var sessionData = SessionData.shared
     @EnvironmentObject var appState: AppState 
     @Environment(\.horizontalSizeClass) var sizeClass
+    @Environment(\.colorScheme) var colorScheme
     let weather: SWWeather
+    
+    @State var attribution: WeatherAttribution?
     
     var mainInformation: some View {
         VStack {
@@ -59,10 +63,45 @@ struct WeatherViewPresentational: View {
                 // Below the fold
                 Days(weather: self.weather).padding(.bottom, 25)
                 RainRadarButton()
+                
+                //
+                HStack {
+                    
+                    if let assetUrl = attribution?.combinedMarkDarkURL {
+                        AsyncImage(url: assetUrl, scale: 3) { res in
+                            res.image?
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                        .padding(2)
+                        .frame(height: 18)
+                    }
+                    
+                    Spacer()
+                    
+                    if let legalUrl = attribution?.legalPageURL.absoluteString {
+                        Text(.init("[Legal](\(legalUrl))"))
+                            .multilineTextAlignment(.trailing)
+                            .tint(.white)
+                            .font(.system(size: 14))
+                            .underline()
+                    }
+                }
+                .padding([.leading, .trailing])
+                .padding([.top, .bottom], 25)
             }
         }
         .offset(x: 0, y: 8)
         .edgesIgnoringSafeArea(.all)
+        .task {
+            Task {
+                if attribution == nil {
+                    let weatherService = WeatherService()
+                    let attribution = try! await weatherService.attribution
+                    self.attribution = attribution
+                }
+            }
+        }
     }
     
     var iPadLayout: some View {
@@ -150,7 +189,7 @@ struct WeatherViewPresentational_Previews: PreviewProvider {
             BackgroundGradient()
             WeatherViewPresentational(weather: SampleWeatherData.fromWW)
                 .environmentObject(SessionData(viewingCurrentLocation: true))
-        }
+        }.edgesIgnoringSafeArea(.all)
         
     }
 }

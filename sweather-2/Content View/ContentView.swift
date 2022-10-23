@@ -59,8 +59,9 @@ struct ContentView: View {
                         .environmentObject(self.sessionData)
                 } else if self.appState.sheetScreen == SheetScreen.rainRadar {
                     NavigationView {
-                        RainRadar(locationId: self.manager.simpleWeatherData!.location.id)
-                            .navigationBarTitle(Text("Rain Radar"), displayMode: .inline)
+                        RainRadar(locationId: self.manager.location!.id)
+                            .navigationBarTitle(Text("Rain Radar"))
+                            .navigationBarTitleDisplayMode(.inline)
                             .navigationBarItems(
                                 leading: Button(action: {
                                     self.appState.hideSheet()

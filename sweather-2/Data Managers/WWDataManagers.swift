@@ -156,7 +156,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         
         if Features.isUsingWeatherkit {
             
-            do {                
+            do {
                 let geocoder = CLGeocoder()
                 let addressStr = "\(location.name) \(location.state) \(location.postcode)"
                 let places = try await geocoder.geocodeAddressString(addressStr)
@@ -199,6 +199,13 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
         
         if Features.isUsingWeatherkit {
             
+            api.getLocationForCoords(coords: coords) { (results, error) in
+                guard let results = results else { return }
+                DispatchQueue.main.async {
+                    self.location = results
+                }
+            }
+            
             do {
                 let weatherService = WeatherService()
                 let place = try await geocodeCoords(coords)
@@ -213,9 +220,7 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
                     self.simpleWeatherData = SWWeather(weather: weather, place: place)
                     self.loading = false
                 }
-                
-                print("GOT WEATHER DATA (Weatherkit)")
-                
+                                
                 #if os(watchOS)
                 SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
                 WatchComplicationHelper.shared.reloadComplications()

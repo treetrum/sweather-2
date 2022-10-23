@@ -16,7 +16,7 @@ struct MapProgressIndicator: View {
                 ZStack(alignment: .leading) {
                     Rectangle().frame(maxWidth: geo.size.width, maxHeight: 3).foregroundColor(Color.white.opacity(0))
                     Rectangle().frame(maxWidth: geo.size.width * CGFloat(self.progress), maxHeight: 3).foregroundColor(Color.blue)
-                        .animation(.default, value: progress)
+                        .animation(progress != 0 ? .default : nil, value: progress)
                 }
             }.frame(height: 3)
         }

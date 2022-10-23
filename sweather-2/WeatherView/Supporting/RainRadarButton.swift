@@ -22,7 +22,6 @@ struct RainRadarButton: View {
                         .stroke(Color.white, lineWidth: 1)
             )
                 .padding(.horizontal)
-                .padding(.bottom, 25)
         }.foregroundColor(.white)
     }
 }
