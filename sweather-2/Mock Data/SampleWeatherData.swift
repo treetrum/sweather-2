@@ -11,13 +11,27 @@ import Foundation
 struct SampleWeatherData {
     
     static var fromWW: SWWeather {
-        return SWWeather(weather: decodeLocalJSON("sample-weather-data", type: WWWeatherData.self)!)
+        var weather = fromWeatherkit
+        weather.precis.precisCode = "mostly-cloudy"
+        weather.days = weather.days.map({ d in
+            var newDay = d
+            newDay.precisCode = "mostly-cloudy"
+            return newDay
+        })
+        weather.hours = weather.hours.map({ d in
+            var newHour = d
+            newHour.precisCode = "mostly-cloudy"
+            return newHour
+        })
+        weather.isWeatherkit = false
+        return weather
     }
         
     static var fromWeatherkit: SWWeather {
-        
         return SWWeather(
             location: WWLocation(id: 1, name: "Sydney", region: "Sydney", state: "NSW", postcode: "2000"),
+            precis: .init(precis: "Stormy", precisCode: "cloud.sun.bolt"),
+            temperature: .init(max: 30, min: 15, apparent: 16, actual: 17, date: Date()),
             days: [
                 .init(dateTime: Date(), precisCode: "cloud.sun.bolt", precis: "Stormy", precisOverlayCode: nil, night: nil, min: 18, max: 30),
                 .init(dateTime: Date().addingTimeInterval(86400 * 1), precisCode: "sun.max", precis: "Stormy", precisOverlayCode: nil, night: nil, min: 18, max: 30),

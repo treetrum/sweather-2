@@ -207,26 +207,11 @@ class WeatherDataManager: NSObject, CLLocationManagerDelegate, ObservableObject 
             }
             
             do {
-                let weatherService = WeatherService()
-                let place = try await geocodeCoords(coords)
-                guard let place = place, let location = place.location else {
-                    print("Could not geocoder current coords")
-                    return
-                }
-                
-                let weather = try await weatherService.weather(for: location)
-                
+                let service = SWWeatherService()
+                let weather = try await service.getWeatherForCoords(coords: coords)
                 DispatchQueue.main.async {
-                    self.simpleWeatherData = SWWeather(weather: weather, place: place)
+                    self.simpleWeatherData = weather
                     self.loading = false
-                }
-                                
-                #if os(watchOS)
-                SharedSWWeatherData.shared.weatherData = self.simpleWeatherData
-                WatchComplicationHelper.shared.reloadComplications()
-                #endif
-                
-                if #available(iOS 14.0, *) {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             } catch {

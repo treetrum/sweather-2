@@ -18,6 +18,8 @@ func transformDataPointEntry(entry: DataPointEntry) -> DataPoint {
 func transformCustomLocation(location: SavedLocation) -> CustomLocation {
     let name = location.name ?? "Unknown"
     let l = CustomLocation(identifier: name, display: name)
+    l.state = location.state ?? ""
+    l.postcode = location.postcode ?? ""
     l.locationId = String(location.id)
     return l
 }

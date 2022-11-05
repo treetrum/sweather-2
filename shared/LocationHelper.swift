@@ -8,31 +8,38 @@
 
 import Foundation
 import CoreLocation
+import AsyncLocationKit
 
 class LocationHelper: NSObject, CLLocationManagerDelegate {
     
     static let shared = LocationHelper();
     
-    var savedGetLocationCompletion: ((CLLocation?) -> Void)?
+    var savedGetLocationCompletion: ((CLLocation?) async -> Void)?
     var manager: CLLocationManager?
     var lastCoords: CLLocation?
     var lastCoordsDate: Date = Date()
 
-    func getLocation(completion: @escaping (CLLocation?) -> Void) {
-        if let manager = self.manager {
-            self.savedGetLocationCompletion = completion
-            manager.delegate = self
-            manager.requestWhenInUseAuthorization()
-            
-            if let lastCoords = lastCoords {
-                if lastCoordsDate.addingTimeInterval(900) < Date() { // 15 minute cache time
-                    completion(lastCoords)
-                } else {
-                    manager.requestLocation()
+    func getLocation(completion: @escaping (CLLocation?) async -> Void) {
+        
+        guard let manager = self.manager else {
+            print("LocationHelper didn't have a manager")
+            return
+        }
+        
+        self.savedGetLocationCompletion = completion
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        
+        if let lastCoords = lastCoords {
+            if lastCoordsDate.addingTimeInterval(900) < Date() { // 15 minute cache time
+                Task {
+                    await completion(lastCoords)
                 }
             } else {
                 manager.requestLocation()
             }
+        } else {
+            manager.requestLocation()
         }
     }
     
@@ -44,7 +51,9 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
         }
         lastCoords = locations.first
         lastCoordsDate = Date()
-        completion(locations.first)
+        Task {
+            await completion(locations.first)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -58,5 +67,22 @@ class LocationHelper: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         return
+    }
+}
+
+
+struct AsyncLocationHelper {
+    let manager: AsyncLocationManager
+
+    func getLocation() async throws -> CLLocation? {
+        switch try await manager.requestLocation() {
+        case .didUpdateLocations(let locations):
+            return locations.first
+        case .didFailWith(error: let error):
+            print(error.localizedDescription)
+            return nil
+        case .didResume, .didPaused, .none:
+            return nil
+        }
     }
 }

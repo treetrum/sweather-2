@@ -146,11 +146,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>MiZBoD</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>19G2021</string>
+	<string>22A380</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>12A7209</string>
+	<string>14B47b</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>12.0</string>
+	<string>14.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -381,6 +381,36 @@
 							<key>INIntentParameterArraySizeSizeClass</key>
 							<string>Large</string>
 						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>12</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>ExtraLarge</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>1</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>AccessoryInline</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>1</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>AccessoryCorner</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>1</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>AccessoryCircular</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterArraySizeSize</key>
+							<integer>2</integer>
+							<key>INIntentParameterArraySizeSizeClass</key>
+							<string>AccessoryRectangular</string>
+						</dict>
 					</array>
 					<key>INIntentParameterConfigurable</key>
 					<true/>
@@ -540,7 +570,7 @@
 			<key>INTypeDisplayNameID</key>
 			<string>zAM407</string>
 			<key>INTypeLastPropertyTag</key>
-			<integer>102</integer>
+			<integer>104</integer>
 			<key>INTypeName</key>
 			<string>CustomLocation</string>
 			<key>INTypeProperties</key>
@@ -606,6 +636,34 @@
 					<string>locationId</string>
 					<key>INTypePropertyTag</key>
 					<integer>102</integer>
+					<key>INTypePropertyType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDisplayName</key>
+					<string>State</string>
+					<key>INTypePropertyDisplayNameID</key>
+					<string>5BoRBx</string>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>6</integer>
+					<key>INTypePropertyName</key>
+					<string>state</string>
+					<key>INTypePropertyTag</key>
+					<integer>103</integer>
+					<key>INTypePropertyType</key>
+					<string>String</string>
+				</dict>
+				<dict>
+					<key>INTypePropertyDisplayName</key>
+					<string>Postcode</string>
+					<key>INTypePropertyDisplayNameID</key>
+					<string>MHOjI5</string>
+					<key>INTypePropertyDisplayPriority</key>
+					<integer>7</integer>
+					<key>INTypePropertyName</key>
+					<string>postcode</string>
+					<key>INTypePropertyTag</key>
+					<integer>104</integer>
 					<key>INTypePropertyType</key>
 					<string>String</string>
 				</dict>

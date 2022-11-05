@@ -10,6 +10,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 import CoreLocation
+import AsyncLocationKit
 
 struct WeatherTimeline: IntentTimelineProvider {
 
@@ -17,6 +18,41 @@ struct WeatherTimeline: IntentTimelineProvider {
     typealias Entry = WeatherEntry
 
     let locationHelper = LocationHelper()
+    let asyncLocationHelper = AsyncLocationHelper(manager: AsyncLocationManager(desiredAccuracy: .bestAccuracy))
+    
+    func isUsingCurrentLocation(_ config: SweatherWidgetConfigurationIntent) -> Bool {
+        return config.currentLocation == 1 || config.customLocation == nil
+    }
+    
+    func getWeatherFromWeatherkit(config: SweatherWidgetConfigurationIntent) async -> SWWeather? {
+        if isUsingCurrentLocation(config) {
+            do {
+                guard let coords = try await asyncLocationHelper.getLocation() else {
+                    print("No coords")
+                    return nil
+                }
+                let service = SWWeatherService()
+                let weather = try await service.getWeatherForCoords(coords: coords.coordinate)
+                return weather
+            } catch {
+                print(error.localizedDescription)
+                return nil
+            }
+        } else {
+            guard let customLocation = config.customLocation else {
+                print("No location found")
+                return nil
+            }
+            do {
+                let service = SWWeatherService()
+                let weather = try await service.getWeatherForCustomLocation(location: customLocation)
+                return weather
+            } catch {
+                print(error.localizedDescription)
+                return nil
+            }
+        }
+    }
     
     func getWeather(config: SweatherWidgetConfigurationIntent, completion: @escaping (SWWeather?) -> Void) {
         
@@ -26,43 +62,56 @@ struct WeatherTimeline: IntentTimelineProvider {
             locationHelper.manager = CLLocationManager()
         }
         
-        if (config.currentLocation == 1 || config.customLocation == nil) {
+        if isUsingCurrentLocation(config) {
             locationHelper.getLocation { (coords) in
-                if let coords = coords {
-                    api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
-                        if let location = location {
-                            api.getWeatherForLocation(location: location.id) { (data, error) in
-                                if let weatherData = data {
-                                    completion(SWWeather(weather: weatherData))
-                                }
+                guard let coords = coords else {
+                    print("No coords")
+                    return
+                }
+                api.getLocationForCoords(coords: coords.coordinate) { (location, error) in
+                    if let location = location {
+                        api.getWeatherForLocation(location: location.id) { (data, error) in
+                            if let weatherData = data {
+                                completion(SWWeather(weather: weatherData))
                             }
                         }
                     }
                 }
             }
         } else {
-            let locationId = Int64(config.customLocation!.locationId!)!
+            guard let customLocation = config.customLocation else {
+                completion(nil)
+                return
+            }
+            let locationId = Int64(customLocation.locationId!)!
             api.getWeatherForLocation(location: locationId) { (data, error) in
                 if let weatherData = data {
                     completion(SWWeather(weather: weatherData))
                 }
             }
         }
-        
     }
 
     func placeholder(in context: Context) -> WeatherEntry {
-        WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: SweatherWidgetConfigurationIntent(), family: context.family)
+        WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: SweatherWidgetConfigurationIntent())
     }
     
     func getSnapshot(for configuration: SweatherWidgetConfigurationIntent, in context: Context, completion: @escaping (WeatherEntry) -> Void) {
         if context.isPreview {
-            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: configuration, family: context.family)
+            let sampleEntry = WeatherEntry(date: Date(), weatherData: SampleWeatherData.fromWW, configuration: configuration)
             completion(sampleEntry)
         } else {
-            getWeather(config: configuration) { (weather) in
-                if let data = weather {
-                    completion(WeatherEntry(date: Date(), weatherData: data, configuration: configuration, family: context.family))
+            if Features.isUsingWeatherkit {
+                Task {
+                    if let weather = await getWeatherFromWeatherkit(config: configuration) {
+                        completion(WeatherEntry(date: Date(), weatherData: weather, configuration: configuration))
+                    }
+                }
+            } else {
+                getWeather(config: configuration) { (weather) in
+                    if let data = weather {
+                        completion(WeatherEntry(date: Date(), weatherData: data, configuration: configuration))
+                    }
                 }
             }
         }
@@ -73,11 +122,22 @@ struct WeatherTimeline: IntentTimelineProvider {
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 30, to: currentDate)!
         
-        getWeather(config: configuration) { (weatherData) in
-            if let weather = weatherData {
-                let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration, family: context.family)
-                let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
-                completion(timeline)
+        Task {
+            
+            if Features.isUsingWeatherkit {
+                if let weather = await getWeatherFromWeatherkit(config: configuration) {
+                    let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration)
+                    let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                    completion(timeline)
+                }
+            } else {
+                getWeather(config: configuration) { (weatherData) in
+                    if let weather = weatherData {
+                        let entry = WeatherEntry(date: Date(), weatherData: weather, configuration: configuration)
+                        let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
+                        completion(timeline)
+                    }
+                }
             }
         }
     }
@@ -87,17 +147,26 @@ struct WeatherEntry: TimelineEntry {
     let date: Date
     let weatherData: SWWeather
     let configuration: SweatherWidgetConfigurationIntent
-    let family: WidgetFamily
 }
 
 struct SweatherWidgetEntryView : View {
+    @Environment(\.widgetFamily) var widgetFamily
+    
     var entry: WeatherTimeline.Entry
     
-    func Icon(size: CGFloat = 30) -> some View {
-        Image("resscaled-\(entry.weatherData.getPrecisImageCode())")
-            .resizable()
-            .frame(width: size, height: size)
-            .foregroundColor(.white)
+    @ViewBuilder func Icon(size: CGFloat = 30) -> some View {
+        if entry.weatherData.isWeatherkit {
+            Image(systemName: entry.weatherData.precis.precisCode ?? "")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: size, height: size)
+                .foregroundColor(.white)
+        } else {
+            Image("resscaled-\(entry.weatherData.getPrecisImageCode())")
+                .resizable()
+                .frame(width: size, height: size)
+                .foregroundColor(.white)
+        }
     }
     
     func Temperature() -> some View {
@@ -108,7 +177,7 @@ struct SweatherWidgetEntryView : View {
             value = entry.weatherData.temperature.actual
         }
         return Text("\(value?.roundToSingleDecimalString() ?? "0")°")
-            .font(entry.family == .systemSmall ? .title2 : .title)
+            .font(widgetFamily == .systemSmall ? .title2 : .title)
     }
     
     func DataPoints(alignment: HorizontalAlignment = .leading, textAlign: TextAlignment = .leading) -> some View {
@@ -159,15 +228,25 @@ struct SweatherWidgetEntryView : View {
 
         return HStack {
             ForEach(daysToShow, id: \.dateTime) { (day: SWWeather.Day) in
-                VStack {
+                VStack(spacing: 0) {
                     HStack(alignment: .top, spacing: 5) {
                         Text("\(day.max ?? 0)")
                         Text("\(day.min ?? 0)").opacity(0.5)
                     }
                         .font(.caption)
-                    Image("resscaled-\(day.precisCode ?? "")")
-                        .resizable()
-                        .frame(width: 25, height: 25).padding(-2)
+                    if entry.weatherData.isWeatherkit {
+                        Image(systemName: day.precisCode ?? "")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 23, height: 23)
+                            .padding([.top, .bottom], 8)
+                    } else {
+                        Image("resscaled-\(day.precisCode ?? "")")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .padding([.top, .bottom], 5)
+                    }
                     Text((day.dateTime?.prettyShortDayName() ?? "").uppercased())
                         .font(.system(size: 10))
                         .opacity(0.8)
@@ -185,12 +264,22 @@ struct SweatherWidgetEntryView : View {
         let hours = self.entry.weatherData.hours[..<6]
         return HStack {
             ForEach(hours, id: \.dateTime) { (hour: SWWeather.Hour) in
-                VStack {
+                VStack(spacing: 0) {
                     Text("\(hour.temperature?.roundToSingleDecimalString() ?? "0")")
                         .font(.caption)
-                    Image("resscaled-\(hour.precisCode ?? "")")
-                        .resizable()
-                        .frame(width: 25, height: 25).padding(-2)
+                    if self.entry.weatherData.isWeatherkit {
+                        Image(systemName: hour.precisCode ?? "")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 23, height: 23)
+                            .padding([.top, .bottom], 8)
+                    } else {
+                        Image("resscaled-\(hour.precisCode ?? "")")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 24, height: 24)
+                            .padding([.top, .bottom], 5)
+                    }
                     Text(hour.dateTime?.prettyHourName() ?? "")
                         .font(.system(size: 10))
                         .opacity(0.8)
@@ -222,12 +311,10 @@ struct SweatherWidgetEntryView : View {
             }
             Spacer()
             switch entry.configuration.forecast {
-            case ForecastType.hourly:
+            case ForecastType.hourly, .unknown:
                 HorizontalHourForecast()
             case ForecastType.daily:
                 HorizontalDayForecast()
-            default:
-                HorizontalHourForecast()
             }
         }
     }
@@ -236,7 +323,7 @@ struct SweatherWidgetEntryView : View {
         ZStack {
             BackgroundGradient(timePeriod: entry.weatherData.getTimePeriod())
             VStack(alignment: .leading) {
-                switch entry.family {
+                switch widgetFamily {
                 case .systemSmall:
                     smallLayout()
                 case .systemMedium:
@@ -273,16 +360,33 @@ struct SweatherWidget: Widget {
 struct SweatherWidget_Previews: PreviewProvider {
     
     static let date = Date()
-    static let data = SampleWeatherData.fromWW
-    static let config = SweatherWidgetConfigurationIntent()
+    static let data = SampleWeatherData.fromWeatherkit
+    static let wwData = SampleWeatherData.fromWW
+    static let config = {
+        let config = SweatherWidgetConfigurationIntent()
+        config.forecast = ForecastType.hourly
+        return config
+    }()
 
     static var previews: some View {
-        ForEach([
-            WidgetFamily.systemSmall,
-            WidgetFamily.systemMedium
-        ], id: \.self) { family in
-            SweatherWidgetEntryView(entry: WeatherEntry(date: date, weatherData: data, configuration: config, family: family))
-                .previewContext(WidgetPreviewContext(family: family))
-        }
+        SweatherWidgetEntryView(
+            entry: WeatherEntry(
+                date: date,
+                weatherData: data,
+                configuration: config
+            )
+        )
+        .previewContext(WidgetPreviewContext.init(family: .systemMedium))
+        .previewDisplayName("WeatherKit")
+        
+        SweatherWidgetEntryView(
+            entry: WeatherEntry(
+                date: date,
+                weatherData: wwData,
+                configuration: config
+            )
+        )
+        .previewContext(WidgetPreviewContext.init(family: .systemMedium))
+        .previewDisplayName("WillyWeather")
     }
 }

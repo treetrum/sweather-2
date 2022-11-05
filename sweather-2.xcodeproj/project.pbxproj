@@ -24,6 +24,7 @@
 		223FB3A6237660AB005BB4D8 /* WeatherViewPresentational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A5237660AB005BB4D8 /* WeatherViewPresentational.swift */; };
 		223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3A72376613A005BB4D8 /* CurrentLocationWeatherView.swift */; };
 		223FB3AD237662CA005BB4D8 /* LocationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB3AC237662CA005BB4D8 /* LocationName.swift */; };
+		2242C0D3291609F500F6F1DF /* AsyncLocationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2242C0D2291609F500F6F1DF /* AsyncLocationKit */; };
 		2245765A251B3E6A0065FB1B /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
 		224C93422515992B008ECA55 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 224C9341251598FD008ECA55 /* Configuration.storekit */; };
 		224C93482515999E008ECA55 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 224C93472515999E008ECA55 /* StoreKitTestCertificate.cer */; };
@@ -33,6 +34,7 @@
 		2256B46C2362DEDA009C9F13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D3E44236036730035FD66 /* ContentView.swift */; };
 		2256B46E2362DEEC009C9F13 /* WillyWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46D2362DEEC009C9F13 /* WillyWeatherAPI.swift */; };
 		2256B4712363BFDF009C9F13 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */; };
+		2258ACAC29160AFA006F5140 /* AsyncLocationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2258ACAB29160AFA006F5140 /* AsyncLocationKit */; };
 		225C3EE72462CD2B0052374D /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C3EE62462CD2B0052374D /* LocationRow.swift */; };
 		225CBC5E246FC77400BEED46 /* Sweather_2_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CBC5D246FC77400BEED46 /* Sweather_2_UITests.swift */; };
 		225CBC66246FC94400BEED46 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225CBC65246FC94400BEED46 /* SnapshotHelper.swift */; };
@@ -88,6 +90,9 @@
 		22C682302367A12E00B1919F /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6822F2367A12E00B1919F /* PageControl.swift */; };
 		22CC1F2623EFB50300763884 /* CustomIconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC1F2523EFB50300763884 /* CustomIconPicker.swift */; };
 		22CEAD652519E8BC00B0172C /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F144192518A9FB003D8E9B /* IntentHandler.swift */; };
+		22DE09C32915FAD40020BE53 /* SWWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09C22915FAD40020BE53 /* SWWeatherService.swift */; };
+		22DE09C4291600050020BE53 /* SWWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DE09C22915FAD40020BE53 /* SWWeatherService.swift */; };
+		22DE09C5291601100020BE53 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22100A52266B520500F5A6A9 /* Features.swift */; };
 		22ECEB812453B5E20020751A /* custom-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6C2453B5E10020751A /* custom-6.png */; };
 		22ECEB822453B5E20020751A /* custom-5-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6D2453B5E10020751A /* custom-5-sun.png */; };
 		22ECEB832453B5E20020751A /* custom-3-snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 22ECEB6E2453B5E10020751A /* custom-3-snow.png */; };
@@ -238,6 +243,7 @@
 		22C6822D2367A10300B1919F /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		22C6822F2367A12E00B1919F /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		22CC1F2523EFB50300763884 /* CustomIconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconPicker.swift; sourceTree = "<group>"; };
+		22DE09C22915FAD40020BE53 /* SWWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWWeatherService.swift; sourceTree = "<group>"; };
 		22ECEB6C2453B5E10020751A /* custom-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-6.png"; sourceTree = "<group>"; };
 		22ECEB6D2453B5E10020751A /* custom-5-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-5-sun.png"; sourceTree = "<group>"; };
 		22ECEB6E2453B5E10020751A /* custom-3-snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "custom-3-snow.png"; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 			files = (
 				226ABFE82515AD77000CDF9F /* SwiftUI.framework in Frameworks */,
 				226ABFE62515AD77000CDF9F /* WidgetKit.framework in Frameworks */,
+				2258ACAC29160AFA006F5140 /* AsyncLocationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A3BC7A245E6D9D0048214B /* StoreKit.framework in Frameworks */,
+				2242C0D3291609F500F6F1DF /* AsyncLocationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +459,7 @@
 			children = (
 				226AC1492515D033000CDF9F /* LocationHelper.swift */,
 				221E5789251B43D4004424FF /* PersistentStorage.swift */,
+				22DE09C22915FAD40020BE53 /* SWWeatherService.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -666,6 +675,9 @@
 			dependencies = (
 			);
 			name = SweatherWidgetExtension;
+			packageProductDependencies = (
+				2258ACAB29160AFA006F5140 /* AsyncLocationKit */,
+			);
 			productName = SweatherWidgetExtension;
 			productReference = 226ABFE42515AD77000CDF9F /* SweatherWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -688,6 +700,9 @@
 				22F1442E2518A9FB003D8E9B /* PBXTargetDependency */,
 			);
 			name = "sweather-2";
+			packageProductDependencies = (
+				2242C0D2291609F500F6F1DF /* AsyncLocationKit */,
+			);
 			productName = "sweather-2";
 			productReference = 229D3E3D236036730035FD66 /* Sweather 2.app */;
 			productType = "com.apple.product-type.application";
@@ -743,6 +758,9 @@
 				Base,
 			);
 			mainGroup = 229D3E34236036730035FD66;
+			packageReferences = (
+				2242C0D1291609F500F6F1DF /* XCRemoteSwiftPackageReference "AsyncLocationKit" */,
+			);
 			productRefGroup = 229D3E3E236036730035FD66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -863,9 +881,11 @@
 				22C213FE251B380000C7E2C3 /* Hours.swift in Sources */,
 				221E578B251B43D4004424FF /* PersistentStorage.swift in Sources */,
 				227C415325176B3000E4CD82 /* SweatherWidgetIntent.intentdefinition in Sources */,
+				22DE09C5291601100020BE53 /* Features.swift in Sources */,
 				226AC0F32515C75C000CDF9F /* extensions.swift in Sources */,
 				226AC1502515D04E000CDF9F /* LocationHelper.swift in Sources */,
 				2245765A251B3E6A0065FB1B /* UserDataModel.xcdatamodeld in Sources */,
+				22DE09C4291600050020BE53 /* SWWeatherService.swift in Sources */,
 				226AC0F42515C75C000CDF9F /* GeneralExtensions.swift in Sources */,
 				226AC0CD2515BDC6000CDF9F /* SampleWeatherData.swift in Sources */,
 				226AC0D92515BE29000CDF9F /* SJDFetch.swift in Sources */,
@@ -892,6 +912,7 @@
 				223AE8EC237677F500E17875 /* RainChance.swift in Sources */,
 				226B157223778F3C00D05ED1 /* Hours.swift in Sources */,
 				22FB72252367E58F00116C22 /* LocationsListView.swift in Sources */,
+				22DE09C32915FAD40020BE53 /* SWWeatherService.swift in Sources */,
 				22ECEB9B2453E4CC0020751A /* DayDetail.swift in Sources */,
 				226B156A23777D6B00D05ED1 /* WWLocationCoordSearchResult.swift in Sources */,
 				223FB3A82376613A005BB4D8 /* CurrentLocationWeatherView.swift in Sources */,
@@ -1073,6 +1094,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22A7853A29050080000DE4B5 /* config.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1107,7 +1129,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1136,6 +1157,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22A7853A29050080000DE4B5 /* config.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1170,7 +1192,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1182,6 +1203,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1203,7 +1225,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "sweather-2/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Sweather;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
@@ -1236,7 +1257,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sweather-2/Preview Content\"";
 				DEVELOPMENT_TEAM = N5B3FJPB8K;
 				ENABLE_PREVIEWS = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "sweather-2/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Sweather;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
@@ -1350,6 +1370,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2242C0D1291609F500F6F1DF /* XCRemoteSwiftPackageReference "AsyncLocationKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AsyncSwift/AsyncLocationKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2242C0D2291609F500F6F1DF /* AsyncLocationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2242C0D1291609F500F6F1DF /* XCRemoteSwiftPackageReference "AsyncLocationKit" */;
+			productName = AsyncLocationKit;
+		};
+		2258ACAB29160AFA006F5140 /* AsyncLocationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2242C0D1291609F500F6F1DF /* XCRemoteSwiftPackageReference "AsyncLocationKit" */;
+			productName = AsyncLocationKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2256B46F2363BFDF009C9F13 /* UserDataModel.xcdatamodeld */ = {

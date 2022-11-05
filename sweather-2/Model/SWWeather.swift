@@ -16,7 +16,7 @@ struct SWWeather {
     
     struct Precis {
         let precis: String?
-        let precisCode: String?
+        var precisCode: String?
     }
     var precis = Precis(precis: nil, precisCode: nil)
     
@@ -75,7 +75,7 @@ struct SWWeather {
     
     struct Day {
         let dateTime: Date?
-        let precisCode: String?
+        var precisCode: String?
         let precis: String?
         let precisOverlayCode: String?
         let night: Bool?
@@ -90,7 +90,7 @@ struct SWWeather {
         let dateTime: Date?
         let temperature: Float?
         let precis: String?
-        let precisCode: String?
+        var precisCode: String?
         let night: Bool?
     }
     var hours = [Hour]()
